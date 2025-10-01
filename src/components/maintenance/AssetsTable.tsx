@@ -1,16 +1,12 @@
+"use client";
+
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/components/ui/table';
+import { ColumnDef } from "@tanstack/react-table";
 import { Badge } from '@/components/ui/badge';
 import { Asset } from '@/data/mock-assets';
 import { format } from 'date-fns';
+import { DataTable } from '@/components/DataTable'; // Import the generic DataTable
 
 interface AssetsTableProps {
   assets: Asset[];
@@ -32,37 +28,68 @@ const AssetsTable = ({ assets }: AssetsTableProps) => {
     }
   };
 
+  const columns: ColumnDef<Asset>[] = [
+    {
+      accessorKey: "id",
+      header: "ID",
+      cell: ({ row }) => <span className="font-medium text-rovida-near-black">{row.getValue("id")}</span>,
+    },
+    {
+      accessorKey: "name",
+      header: "Name",
+      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("name")}</span>,
+    },
+    {
+      accessorKey: "type",
+      header: "Type",
+      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("type")}</span>,
+    },
+    {
+      accessorKey: "location",
+      header: "Location",
+      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("location")}</span>,
+    },
+    {
+      accessorKey: "status",
+      header: "Status",
+      cell: ({ row }) => (
+        <Badge variant={getStatusVariant(row.getValue("status"))}>
+          {row.getValue("status")}
+        </Badge>
+      ),
+    },
+    {
+      accessorKey: "lastMaintenance",
+      header: "Last Maintenance",
+      cell: ({ row }) => (
+        <span className="text-rovida-slate-green-gray">
+          {format(row.getValue("lastMaintenance"), 'MMM dd, yyyy')}
+        </span>
+      ),
+    },
+    {
+      accessorKey: "nextMaintenance",
+      header: "Next Maintenance",
+      cell: ({ row }) => (
+        <span className="text-rovida-slate-green-gray">
+          {format(row.getValue("nextMaintenance"), 'MMM dd, yyyy')}
+        </span>
+      ),
+    },
+    {
+      id: "actions",
+      header: "Actions",
+      enableSorting: false,
+      cell: () => (
+        <div className="text-right">
+          <span className="text-sm text-rovida-slate-green-gray">Manage</span>
+        </div>
+      ),
+    },
+  ];
+
   return (
-    <div className="rounded-md border">
-      <Table>
-        <TableHeader>
-          <TableRow>
-            <TableHead className="w-[100px]">ID</TableHead>
-            <TableHead>Name</TableHead>
-            <TableHead>Type</TableHead>
-            <TableHead>Location</TableHead>
-            <TableHead>Status</TableHead>
-            <TableHead>Last Maintenance</TableHead>
-            <TableHead>Next Maintenance</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {assets.map((asset) => (
-            <TableRow key={asset.id}>
-              <TableCell className="font-medium">{asset.id}</TableCell>
-              <TableCell>{asset.name}</TableCell>
-              <TableCell>{asset.type}</TableCell>
-              <TableCell>{asset.location}</TableCell>
-              <TableCell>
-                <Badge variant={getStatusVariant(asset.status)}>{asset.status}</Badge>
-              </TableCell>
-              <TableCell>{format(asset.lastMaintenance, 'MMM dd, yyyy')}</TableCell>
-              <TableCell>{format(asset.nextMaintenance, 'MMM dd, yyyy')}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </div>
+    <DataTable columns={columns} data={assets} />
   );
 };
 

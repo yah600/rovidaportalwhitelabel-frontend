@@ -5,6 +5,8 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Building, PlusCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import { mockAssets } from '@/data/mock-assets'; // Import mockAssets
+import AssetsTable from '@/components/maintenance/AssetsTable'; // Import AssetsTable
 
 const MaintenanceAssets = () => {
   const { t } = useTranslation();
@@ -13,6 +15,8 @@ const MaintenanceAssets = () => {
     { label: t('maintenance'), href: '/maintenance' },
     { label: 'Assets', href: '/maintenance/assets' },
   ];
+
+  const hasAssets = mockAssets.length > 0;
 
   return (
     <div className="flex flex-1 flex-col gap-4">
@@ -25,21 +29,25 @@ const MaintenanceAssets = () => {
       </header>
       <p className="text-rovida-slate-green-gray">Manage all physical assets within your properties.</p>
 
-      <Card className="flex-1 card-rovida">
-        <CardHeader>
-          <CardTitle className="text-rovida-navy">Asset List</CardTitle>
-          <CardDescription className="text-rovida-slate-green-gray">Overview of all registered assets.</CardDescription>
-        </CardHeader>
-        <CardContent className="flex flex-1 items-center justify-center">
-          <div className="flex flex-col items-center gap-2 text-rovida-slate-green-gray">
-            <Building className="h-12 w-12 text-rovida-gold" />
-            <p>Asset management will be available here.</p>
-            <Button variant="outline" className="mt-4 btn-secondary">
-              <PlusCircle className="mr-2 h-4 w-4" /> Add First Asset
-            </Button>
-          </div>
-        </CardContent>
-      </Card>
+      {hasAssets ? (
+        <AssetsTable assets={mockAssets} />
+      ) : (
+        <Card className="flex-1 card-rovida">
+          <CardHeader>
+            <CardTitle className="text-rovida-navy">Asset List</CardTitle>
+            <CardDescription className="text-rovida-slate-green-gray">Overview of all registered assets.</CardDescription>
+          </CardHeader>
+          <CardContent className="flex flex-1 items-center justify-center">
+            <div className="flex flex-col items-center gap-2 text-rovida-slate-green-gray">
+              <Building className="h-12 w-12 text-rovida-gold" />
+              <p>Asset management will be available here.</p>
+              <Button variant="outline" className="mt-4 btn-secondary">
+                <PlusCircle className="mr-2 h-4 w-4" /> Add First Asset
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+      )}
     </div>
   );
 };
