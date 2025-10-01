@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"; // Import Navigate
 import AppShell from "./components/layout/AppShell";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
@@ -29,7 +29,8 @@ import BoardMeetings from "./pages/board/Meetings";
 import BoardMeetingDetail from "./pages/board/MeetingDetail";
 import BoardVotes from "./pages/board/Votes";
 import BoardVoteDetail from "./pages/board/VoteDetail";
-import DocumentsOverview from "./pages/documents/Overview";
+import DocumentsOverview from "./pages/documents/Overview"; // New Overview
+import DocumentsRegistry from "./pages/documents/Registry"; // Renamed from Overview
 import DocumentsInbox from "./pages/documents/Inbox";
 import DocumentDetail from "./pages/documents/DocumentDetail";
 import Comms from "./pages/Comms";
@@ -43,7 +44,6 @@ import Settings from "./pages/Settings";
 import SettingsOrganization from "./pages/settings/Organization";
 import SettingsBuildings from "./pages/settings/Buildings";
 import SettingsUnits from "./pages/settings/Units";
-import SettingsUsers from "./pages/settings/Users";
 import SettingsRoles from "./pages/settings/Roles";
 import SettingsSecurity from "./pages/settings/Security";
 import SettingsNotifications from "./pages/settings/Notifications";
@@ -63,6 +63,7 @@ import Amenities from "./pages/Amenities";
 import SettingsLeases from "./pages/settings/Leases";
 import SettingsPortfolio from "./pages/settings/Portfolio";
 import SettingsVisitorLogs from "./pages/settings/VisitorLogs";
+import SettingsLayout from "./components/layout/SettingsLayout"; // Import SettingsLayout
 
 // Auth Pages
 import Login from "./pages/auth/Login";
@@ -110,15 +111,20 @@ const App = () => (
             <Route path="/finance/bills/:id" element={<FinanceBillDetail />} />
             <Route path="/finance/payments" element={<FinancePayments />} />
             <Route path="/finance/reports" element={<FinanceReports />} />
-            <Route path="/finance/purchase-orders" element={<PurchaseOrders />} /> {/* New Route */}
+            <Route path="/finance/purchase-orders" element={<PurchaseOrders />} /> {/* Moved under /finance */}
             <Route path="/board" element={<Board />} />
             <Route path="/board/meetings" element={<BoardMeetings />} />
             <Route path="/board/meetings/:id" element={<BoardMeetingDetail />} />
             <Route path="/board/votes" element={<BoardVotes />} />
             <Route path="/board/votes/:id" element={<BoardVoteDetail />} />
-            <Route path="/documents" element={<DocumentsOverview />} />
+            <Route path="/board/architectural-requests" element={<ArchitecturalRequests />} /> {/* Moved under /board */}
+            <Route path="/rules" element={<Rules />} />
+            <Route path="/insurance" element={<Insurance />} />
+            <Route path="/amenities" element={<Amenities />} />
+            {/* Documents Routes */}
+            <Route path="/documents" element={<DocumentsOverview />} /> {/* New Overview page */}
+            <Route path="/documents/registry" element={<DocumentsRegistry />} /> {/* Renamed Registry page */}
             <Route path="/documents/inbox" element={<DocumentsInbox />} />
-            <Route path="/documents/registry" element={<DocumentsOverview />} />
             <Route path="/documents/:id" element={<DocumentDetail />} />
             <Route path="/comms" element={<Comms />} />
             <Route path="/comms/announcements" element={<CommsAnnouncements />} />
@@ -127,25 +133,25 @@ const App = () => (
             <Route path="/integrations" element={<Integrations />} />
             <Route path="/integrations/:slug" element={<IntegrationDetail />} />
             <Route path="/analytics" element={<Analytics />} />
-            <Route path="/settings" element={<Settings />} />
-            <Route path="/settings/org" element={<SettingsOrganization />} />
-            <Route path="/settings/buildings" element={<SettingsBuildings />} />
-            <Route path="/settings/units" element={<SettingsUnits />} />
-            <Route path="/settings/roles" element={<SettingsRoles />} />
-            <Route path="/settings/security" element={<SettingsSecurity />} />
-            <Route path="/settings/notifications" element={<SettingsNotifications />} />
-            <Route path="/settings/audit" element={<SettingsAudit />} />
-            <Route path="/settings/feedback" element={<SettingsFeedback />} />
-            <Route path="/settings/leases" element={<SettingsLeases />} /> {/* New Route */}
-            <Route path="/settings/portfolio" element={<SettingsPortfolio />} /> {/* New Route */}
-            <Route path="/settings/visitor-logs" element={<SettingsVisitorLogs />} /> {/* New Route */}
+            {/* Settings Routes with Layout */}
+            <Route path="/settings" element={<SettingsLayout />}>
+              <Route index element={<Settings />} /> {/* Default settings page */}
+              <Route path="org" element={<SettingsOrganization />} />
+              <Route path="portfolio" element={<SettingsPortfolio />} />
+              <Route path="buildings" element={<SettingsBuildings />} />
+              <Route path="units" element={<SettingsUnits />} />
+              <Route path="leases" element={<SettingsLeases />} />
+              <Route path="users" element={<SettingsUsers />} />
+              <Route path="roles" element={<SettingsRoles />} />
+              <Route path="security" element={<SettingsSecurity />} />
+              <Route path="visitor-logs" element={<SettingsVisitorLogs />} />
+              <Route path="notifications" element={<SettingsNotifications />} />
+              <Route path="audit" element={<SettingsAudit />} />
+              <Route path="feedback" element={<SettingsFeedback />} />
+            </Route>
             <Route path="/profile" element={<Profile />} />
             <Route path="/about" element={<About />} />
             <Route path="/cardnav-demo" element={<CardNavDemo />} />
-            <Route path="/rules" element={<Rules />} /> {/* New Route */}
-            <Route path="/insurance" element={<Insurance />} /> {/* New Route */}
-            <Route path="/architectural-requests" element={<ArchitecturalRequests />} /> {/* New Route */}
-            <Route path="/amenities" element={<Amenities />} /> {/* New Route */}
           </Route>
 
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

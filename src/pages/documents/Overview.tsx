@@ -5,10 +5,10 @@ import BreadcrumbNav from '@/components/BreadcrumbNav';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { FileText, UploadCloud, Mail, ArrowRight } from 'lucide-react';
 import { mockDocuments } from '@/data/mock-documents';
-import { mockInboxDocuments } from '@/data/mock-inbox-documents'; // Import mockInboxDocuments
+import { mockInboxDocuments } from '@/data/mock-inbox-documents';
 import { format } from 'date-fns';
 
-const Documents = () => {
+const DocumentsOverview = () => {
   const { t } = useTranslation();
 
   const breadcrumbItems = [
@@ -87,4 +87,4 @@ const Documents = () => {
   );
 };
 
-export default Documents;
+export default DocumentsOverview;

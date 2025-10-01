@@ -36,6 +36,13 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Finance - Reports': { read: true, export: true },
     'Board': { read: true, create: true, update: true, delete: true, approve: true, export: true, special: true },
     'Board - Meetings/Votes': { read: true, create: true, update: true, approve: true },
+    'Architectural Requests': { read: true, create: true, update: true, delete: true, approve: true }, // New module
+    'Rules': { read: true, create: true, update: true, delete: true }, // New module
+    'Insurance': { read: true, create: true, update: true, delete: true }, // New module
+    'Amenities': { read: true, create: true, update: true, delete: true }, // New module
+    'Tenant & Lease Management': { read: true, create: true, update: true, delete: true }, // New module
+    'Portfolio Management': { read: true, create: true, update: true, delete: true }, // New module
+    'Visitor Logs': { read: true, create: true, update: true, delete: true }, // New module
     'Documents': { read: true, create: true, update: true, delete: true, approve: true, export: true, special: true },
     'Communications': { read: true, create: true, update: true, delete: true, approve: true, export: true, special: true },
     'Integrations': { read: true, create: true, update: true, delete: true, approve: true, export: true, special: true },
@@ -58,6 +65,13 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Finance - Reports': { read: true, export: true },
     'Board': { read: true, create: true, update: true, approve: true },
     'Board - Meetings/Votes': { read: true, create: true, update: true, approve: true },
+    'Architectural Requests': { read: true, create: true, update: true, approve: true }, // New module
+    'Rules': { read: true, create: true, update: true }, // New module
+    'Insurance': { read: true, create: true, update: true }, // New module
+    'Amenities': { read: true, create: true, update: true }, // New module
+    'Tenant & Lease Management': { read: true, create: true, update: true }, // New module
+    'Portfolio Management': { read: true, create: true, update: true }, // New module
+    'Visitor Logs': { read: true, create: true, update: true }, // New module
     'Documents': { read: true, create: true, update: true, delete: true, export: true },
     'Communications': { read: true, create: true, update: true, delete: true, approve: true },
     'Integrations': { read: true, create: true, update: true, delete: true, approve: true },
@@ -80,6 +94,13 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Finance - Reports': { read: true, export: true },
     'Board': { read: true, create: true, update: true, approve: true },
     'Board - Meetings/Votes': { read: true, create: true, update: true, approve: true },
+    'Architectural Requests': { read: true, create: true, update: true, approve: true }, // New module
+    'Rules': { read: true, create: true, update: true }, // New module
+    'Insurance': { read: true, create: true, update: true }, // New module
+    'Amenities': { read: true, create: true, update: true }, // New module
+    'Tenant & Lease Management': { read: true, create: true, update: true }, // New module
+    'Portfolio Management': { read: true, create: true, update: true }, // New module
+    'Visitor Logs': { read: true, create: true, update: true }, // New module
     'Documents': { read: true, create: true, update: true, delete: true, export: true },
     'Communications': { read: true, create: true, update: true, delete: true, approve: true },
     'Integrations': { read: true },
@@ -102,6 +123,13 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Finance - Reports': { read: true, export: true },
     'Board': { read: true, create: true, update: true },
     'Board - Meetings/Votes': { read: true, create: true, update: true },
+    'Architectural Requests': { read: true, create: true, update: true, approve: true }, // New module
+    'Rules': { read: true, create: true, update: true }, // New module
+    'Insurance': { read: true, create: true, update: true }, // New module
+    'Amenities': { read: true, create: true, update: true }, // New module
+    'Tenant & Lease Management': { read: true, create: true, update: true }, // New module
+    'Portfolio Management': { read: true, create: true, update: true }, // New module
+    'Visitor Logs': { read: true, create: true, update: true }, // New module
     'Documents': { read: true, create: true, update: true, delete: true, export: true },
     'Communications': { read: true, create: true, update: true, delete: true, approve: true },
     'Integrations': { read: true },
@@ -112,31 +140,38 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
   },
   'Accountant': {
     'Dashboard': { read: true },
-    'Issues': { read: false }, // No access to operational issues
-    'Emergency Center': { read: false }, // No access to emergency center
-    'Maintenance': { read: false }, // No access to maintenance
-    'Maintenance Agenda XLSX': { read: false }, // No access to maintenance agenda
+    'Issues': { read: false },
+    'Emergency Center': { read: false },
+    'Maintenance': { read: false },
+    'Maintenance Agenda XLSX': { read: false },
     'Finance': { read: true, create: true, update: true, delete: true, approve: true, export: true },
     'Finance - Bills/Recurring/Deposits': { read: true, create: true, update: true, delete: true, approve: true, export: true },
     'Finance - Statements': { read: true, export: true },
     'Finance - Ledger/Trial Balance': { read: true, export: true },
     'Finance - Late Fees/NSF/Reconciliation': { create: true, update: true, approve: true, export: true },
     'Finance - Reports': { read: true, export: true },
-    'Board': { read: false }, // No access to board matters
-    'Board - Meetings/Votes': { read: false }, // No access to board meetings/votes
-    'Documents': { read: true, create: true, export: true }, // Can read/create/export financial documents
-    'Communications': { read: true, create: true, approve: true }, // Can send financial communications
-    'Integrations': { read: false }, // No access to integrations
-    'Analytics': { read: true }, // Can view financial analytics
-    'Settings': { read: true, update: true }, // Can update profile and relevant financial settings
+    'Board': { read: false },
+    'Board - Meetings/Votes': { read: false },
+    'Architectural Requests': { read: false }, // New module
+    'Rules': { read: false }, // New module
+    'Insurance': { read: true }, // Can read insurance policies for financial context
+    'Amenities': { read: false }, // New module
+    'Tenant & Lease Management': { read: true }, // Can read leases for financial context
+    'Portfolio Management': { read: true }, // Can read portfolio for financial context
+    'Visitor Logs': { read: false }, // New module
+    'Documents': { read: true, create: true, export: true },
+    'Communications': { read: true, create: true, approve: true },
+    'Integrations': { read: false },
+    'Analytics': { read: true },
+    'Settings': { read: true, update: true },
     'Profile': { read: true, update: true },
     'Feedback': { read: true, create: true },
   },
   'Board Member': {
     'Dashboard': { read: true },
-    'Issues': { read: true }, // Can read issues for oversight
-    'Emergency Center': { read: true }, // Can read emergency alerts for awareness
-    'Maintenance': { read: true }, // Can read maintenance for oversight
+    'Issues': { read: true },
+    'Emergency Center': { read: true },
+    'Maintenance': { read: true },
     'Maintenance Agenda XLSX': { read: false },
     'Finance': { read: true, export: true },
     'Finance - Bills/Recurring/Deposits': { read: true, export: true },
@@ -146,8 +181,15 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Finance - Reports': { read: true, export: true },
     'Board': { read: true, create: true, update: true, approve: true },
     'Board - Meetings/Votes': { read: true, create: true, update: true, approve: true },
+    'Architectural Requests': { read: true, create: true, update: true, approve: true }, // New module
+    'Rules': { read: true }, // New module
+    'Insurance': { read: true }, // New module
+    'Amenities': { read: true }, // New module
+    'Tenant & Lease Management': { read: true }, // New module
+    'Portfolio Management': { read: true }, // New module
+    'Visitor Logs': { read: true }, // New module
     'Documents': { read: true, export: true },
-    'Communications': { read: true }, // Can read announcements
+    'Communications': { read: true },
     'Integrations': { read: false },
     'Analytics': { read: true },
     'Settings': { read: true, update: true },
@@ -156,75 +198,67 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
   },
   'Owner': {
     'Dashboard': { read: true },
-    'Issues': { read: true, create: true, update: true }, // Can manage their own unit's issues
-    'Emergency Center': { read: true }, // Can read emergency alerts
-    'Maintenance': { read: true }, // Can read status of maintenance affecting their unit
+    'Issues': { read: true, create: true, update: true },
+    'Emergency Center': { read: true },
+    'Maintenance': { read: true },
     'Maintenance Agenda XLSX': { read: false },
-    'Finance': { read: true, export: true }, // Can view their own statements/bills
+    'Finance': { read: true, export: true },
     'Finance - Bills/Recurring/Deposits': { read: true, export: true },
     'Finance - Statements': { read: true, export: true },
     'Finance - Ledger/Trial Balance': { read: false },
     'Finance - Late Fees/NSF/Reconciliation': { read: false },
     'Finance - Reports': { read: false },
-    'Board': { read: false }, // No access to board matters
-    'Board - Meetings/Votes': { read: false }, // No access to board meetings/votes
-    'Documents': { read: true, export: true }, // Can read general documents and documents related to their unit
-    'Communications': { read: true }, // Can read announcements
+    'Board': { read: false },
+    'Board - Meetings/Votes': { read: false },
+    'Architectural Requests': { read: true, create: true, update: true }, // New module (can submit/view own)
+    'Rules': { read: true }, // New module
+    'Insurance': { read: true }, // Can read general insurance info
+    'Amenities': { read: true }, // New module (can view/book)
+    'Tenant & Lease Management': { read: true }, // Can read own lease info
+    'Portfolio Management': { read: false }, // New module
+    'Visitor Logs': { read: true, create: true }, // New module (can add/view own visitors)
+    'Documents': { read: true, export: true },
+    'Communications': { read: true },
     'Integrations': { read: false },
     'Analytics': { read: false },
-    'Settings': { read: true, update: true }, // Can update profile and notification settings
+    'Settings': { read: true, update: true },
     'Profile': { read: true, update: true },
     'Feedback': { read: true, create: true },
   },
   'Tenant': {
     'Dashboard': { read: true },
-    'Issues': { read: true, create: true, update: true }, // Can manage their own unit's issues
-    'Emergency Center': { read: true }, // Can read emergency alerts
-    'Maintenance': { read: true }, // Can read status of maintenance affecting their unit
+    'Issues': { read: true, create: true, update: true },
+    'Emergency Center': { read: true },
+    'Maintenance': { read: true },
     'Maintenance Agenda XLSX': { read: false },
-    'Finance': { read: true, export: true }, // Can view their own statements/bills (e.g., rent receipts)
+    'Finance': { read: true, export: true },
     'Finance - Bills/Recurring/Deposits': { read: true, export: true },
     'Finance - Statements': { read: true, export: true },
     'Finance - Ledger/Trial Balance': { read: false },
     'Finance - Late Fees/NSF/Reconciliation': { read: false },
     'Finance - Reports': { read: false },
-    'Board': { read: false }, // No access to board matters
-    'Board - Meetings/Votes': { read: false }, // No access to board meetings/votes
-    'Documents': { read: true, export: true }, // Can read general documents and documents related to their unit
-    'Communications': { read: true }, // Can read announcements
+    'Board': { read: false },
+    'Board - Meetings/Votes': { read: false },
+    'Architectural Requests': { read: true, create: true, update: true }, // New module (can submit/view own)
+    'Rules': { read: true }, // New module
+    'Insurance': { read: true }, // Can read general insurance info
+    'Amenities': { read: true }, // New module (can view/book)
+    'Tenant & Lease Management': { read: true }, // Can read own lease info
+    'Portfolio Management': { read: false }, // New module
+    'Visitor Logs': { read: true, create: true }, // New module (can add/view own visitors)
+    'Documents': { read: true, export: true },
+    'Communications': { read: true },
     'Integrations': { read: false },
     'Analytics': { read: false },
-    'Settings': { read: true, update: true }, // Can update profile and notification settings
+    'Settings': { read: true, update: true },
     'Profile': { read: true, update: true },
     'Feedback': { read: true, create: true },
   },
   'Vendor / Service Provider': {
-    'Dashboard': { read: true }, // Can see dashboard relevant to their work (e.g., assigned tasks)
-    'Issues': { read: true, update: true }, // Can read and update assigned issues
-    'Emergency Center': { read: false }, // No access to emergency center
-    'Maintenance': { read: true, update: true }, // Can view and update assigned work orders/tasks
-    'Maintenance Agenda XLSX': { read: false },
-    'Finance': { read: false }, // No access to finance
-    'Finance - Bills/Recurring/Deposits': { read: false },
-    'Finance - Statements': { read: false },
-    'Finance - Ledger/Trial Balance': { read: false },
-    'Finance - Late Fees/NSF/Reconciliation': { read: false },
-    'Finance - Reports': { read: false },
-    'Board': { read: false }, // No access to board matters
-    'Board - Meetings/Votes': { read: false }, // No access to board meetings/votes
-    'Documents': { read: true }, // Can read relevant documents (e.g., specs, manuals)
-    'Communications': { read: true }, // Can read announcements
-    'Integrations': { read: false }, // No access to integrations
-    'Analytics': { read: false }, // No access to analytics
-    'Settings': { read: true, update: true }, // Can update profile and notification settings
-    'Profile': { read: true, update: true },
-    'Feedback': { read: true, create: true },
-  },
-  'Emergency Agent': {
     'Dashboard': { read: true },
-    'Issues': { read: true, approve: true, update: true }, // Can read, acknowledge, and update issues
-    'Emergency Center': { read: true, approve: true, special: true, update: true }, // Full control over emergency alerts
-    'Maintenance': { read: true }, // Can read maintenance schedules for context
+    'Issues': { read: true, update: true },
+    'Emergency Center': { read: false },
+    'Maintenance': { read: true, update: true },
     'Maintenance Agenda XLSX': { read: false },
     'Finance': { read: false },
     'Finance - Bills/Recurring/Deposits': { read: false },
@@ -234,8 +268,44 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Finance - Reports': { read: false },
     'Board': { read: false },
     'Board - Meetings/Votes': { read: false },
-    'Documents': { read: true }, // Can read relevant safety documents
-    'Communications': { read: true }, // Can read announcements
+    'Architectural Requests': { read: false }, // New module
+    'Rules': { read: true }, // Can read rules relevant to their work
+    'Insurance': { read: false }, // New module
+    'Amenities': { read: false }, // New module
+    'Tenant & Lease Management': { read: false }, // New module
+    'Portfolio Management': { read: false }, // New module
+    'Visitor Logs': { read: true, create: true, update: true }, // Can manage visitor logs for their work
+    'Documents': { read: true },
+    'Communications': { read: true },
+    'Integrations': { read: false },
+    'Analytics': { read: false },
+    'Settings': { read: true, update: true },
+    'Profile': { read: true, update: true },
+    'Feedback': { read: true, create: true },
+  },
+  'Emergency Agent': {
+    'Dashboard': { read: true },
+    'Issues': { read: true, approve: true, update: true },
+    'Emergency Center': { read: true, approve: true, special: true, update: true },
+    'Maintenance': { read: true },
+    'Maintenance Agenda XLSX': { read: false },
+    'Finance': { read: false },
+    'Finance - Bills/Recurring/Deposits': { read: false },
+    'Finance - Statements': { read: false },
+    'Finance - Ledger/Trial Balance': { read: false },
+    'Finance - Late Fees/NSF/Reconciliation': { read: false },
+    'Finance - Reports': { read: false },
+    'Board': { read: false },
+    'Board - Meetings/Votes': { read: false },
+    'Architectural Requests': { read: false }, // New module
+    'Rules': { read: true }, // New module
+    'Insurance': { read: true }, // Can read insurance info for emergency response
+    'Amenities': { read: false }, // New module
+    'Tenant & Lease Management': { read: false }, // New module
+    'Portfolio Management': { read: false }, // New module
+    'Visitor Logs': { read: true, create: true, update: true }, // New module
+    'Documents': { read: true },
+    'Communications': { read: true },
     'Integrations': { read: false },
     'Analytics': { read: false },
     'Settings': { read: true, update: true },
@@ -246,7 +316,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Dashboard': { read: true },
     'Issues': { read: true, create: true, update: true },
     'Emergency Center': { read: true, approve: true, special: true },
-    'Maintenance': { read: true, create: true }, // Can create basic work orders
+    'Maintenance': { read: true, create: true },
     'Maintenance Agenda XLSX': { read: false },
     'Finance': { read: false },
     'Finance - Bills/Recurring/Deposits': { read: false },
@@ -256,8 +326,15 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Finance - Reports': { read: false },
     'Board': { read: false },
     'Board - Meetings/Votes': { read: false },
+    'Architectural Requests': { read: false }, // New module
+    'Rules': { read: true }, // New module
+    'Insurance': { read: false }, // New module
+    'Amenities': { read: true, create: true, update: true }, // Can manage amenity bookings
+    'Tenant & Lease Management': { read: true }, // Can view tenant info
+    'Portfolio Management': { read: false }, // New module
+    'Visitor Logs': { read: true, create: true, update: true }, // Full control over visitor logs
     'Documents': { read: true },
-    'Communications': { read: true, create: true }, // Can send general announcements
+    'Communications': { read: true, create: true },
     'Integrations': { read: false },
     'Analytics': { read: false },
     'Settings': { read: true, update: true },
@@ -266,9 +343,9 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
   },
   'Building Maintenance Technician': {
     'Dashboard': { read: true },
-    'Issues': { read: true, update: true }, // Can read and update assigned issues
-    'Emergency Center': { read: true }, // Can read emergency alerts for awareness
-    'Maintenance': { read: true, create: true, update: true }, // Full access to assigned maintenance
+    'Issues': { read: true, update: true },
+    'Emergency Center': { read: true },
+    'Maintenance': { read: true, create: true, update: true },
     'Maintenance Agenda XLSX': { read: false },
     'Finance': { read: false },
     'Finance - Bills/Recurring/Deposits': { read: false },
@@ -278,8 +355,15 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Finance - Reports': { read: false },
     'Board': { read: false },
     'Board - Meetings/Votes': { read: false },
-    'Documents': { read: true }, // Can read relevant manuals/schematics
-    'Communications': { read: true }, // Can read announcements
+    'Architectural Requests': { read: false }, // New module
+    'Rules': { read: true }, // New module
+    'Insurance': { read: false }, // New module
+    'Amenities': { read: false }, // New module
+    'Tenant & Lease Management': { read: false }, // New module
+    'Portfolio Management': { read: false }, // New module
+    'Visitor Logs': { read: false }, // New module
+    'Documents': { read: true },
+    'Communications': { read: true },
     'Integrations': { read: false },
     'Analytics': { read: false },
     'Settings': { read: true, update: true },
@@ -300,6 +384,13 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Finance - Reports': { read: true, export: true },
     'Board': { read: true },
     'Board - Meetings/Votes': { read: true },
+    'Architectural Requests': { read: true }, // New module
+    'Rules': { read: true }, // New module
+    'Insurance': { read: true }, // New module
+    'Amenities': { read: true }, // New module
+    'Tenant & Lease Management': { read: true }, // New module
+    'Portfolio Management': { read: true }, // New module
+    'Visitor Logs': { read: true }, // New module
     'Documents': { read: true, export: true },
     'Communications': { read: true },
     'Integrations': { read: false },
