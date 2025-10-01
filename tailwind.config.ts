@@ -62,11 +62,39 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        // Custom Rovida Palette
+        rovida: {
+          navy: {
+            DEFAULT: "#183747", // Primary
+            '90': '#2A4959', // For hover states
+          },
+          gold: {
+            DEFAULT: "#C4972E", // Accent
+          },
+          'slate-green-gray': {
+            DEFAULT: "#7C8D89", // Support
+          },
+          'near-black': {
+            DEFAULT: "#111418", // Body text on light
+          },
+          'soft-gray': {
+            DEFAULT: "#E9ECEB", // Dividers, surfaces
+          },
+          success: {
+            DEFAULT: "#3A7D44",
+          },
+          warning: {
+            DEFAULT: "#E2A33B",
+          },
+          error: {
+            DEFAULT: "#B2433F",
+          },
+        },
       },
       borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        lg: "10px", // 10px for cards
+        md: "8px",  // 8px for smaller elements
+        sm: "4px",
       },
       keyframes: {
         "accordion-down": {
@@ -89,6 +117,9 @@ export default {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+      },
+      boxShadow: {
+        'subtle': '0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)', // Subtle shadow for cards
       },
     },
   },

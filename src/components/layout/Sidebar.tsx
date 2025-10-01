@@ -27,14 +27,14 @@ import {
   Handshake,
   Bell,
   MessageSquareText,
-  ChevronDown, // Import ChevronDown icon
+  ChevronDown,
 } from 'lucide-react';
 
 interface NavItem {
   title: string;
   href: string;
   icon: React.ElementType;
-  roles?: string[]; // Roles that can see this item
+  roles?: string[];
   subItems?: NavItem[];
 }
 
@@ -42,11 +42,9 @@ const Sidebar = ({ className }: { className?: string }) => {
   const { t } = useTranslation();
   const location = useLocation();
 
-  // State to manage open/closed sub-menus
   const [openSubMenus, setOpenSubMenus] = React.useState<Record<string, boolean>>({});
 
-  // Placeholder for current user role - will be dynamic with auth
-  const currentUserRole = 'Property Manager'; // Example role
+  const currentUserRole = 'Property Manager';
 
   const navItems: NavItem[] = [
     { title: t('dashboard'), href: '/dashboard', icon: LayoutDashboard },
@@ -57,7 +55,7 @@ const Sidebar = ({ className }: { className?: string }) => {
       subItems: [
         { title: t('issues'), href: '/issues', icon: ClipboardList },
         { title: 'Kanban', href: '/issues/kanban', icon: Kanban },
-        { title: 'New Incident', href: '/issues/new', icon: ClipboardList }, // This will likely be a dialog
+        { title: 'New Incident', href: '/issues/new', icon: ClipboardList },
       ],
     },
     { title: t('emergency'), href: '/emergency', icon: AlertTriangle },
@@ -94,11 +92,11 @@ const Sidebar = ({ className }: { className?: string }) => {
     },
     {
       title: t('documents'),
-      href: '/documents', // This now points to the overview page
+      href: '/documents',
       icon: FileText,
       subItems: [
         { title: 'Inbox', href: '/documents/inbox', icon: Mail },
-        { title: 'Registry', href: '/documents/registry', icon: FileText }, // Updated link
+        { title: 'Registry', href: '/documents/registry', icon: FileText },
       ],
     },
     {
@@ -132,7 +130,6 @@ const Sidebar = ({ className }: { className?: string }) => {
     { title: t('profile'), href: '/profile', icon: User },
   ];
 
-  // Effect to open sub-menus if a child route is active on initial load
   React.useEffect(() => {
     const initialOpenSubMenus: Record<string, boolean> = {};
     navItems.forEach(item => {
@@ -141,7 +138,7 @@ const Sidebar = ({ className }: { className?: string }) => {
       }
     });
     setOpenSubMenus(initialOpenSubMenus);
-  }, [location.pathname]); // Only re-run if pathname changes
+  }, [location.pathname]);
 
   const toggleSubMenu = (href: string) => {
     setOpenSubMenus(prev => ({
@@ -152,7 +149,6 @@ const Sidebar = ({ className }: { className?: string }) => {
 
   const renderNavItems = (items: NavItem[]) => {
     return items.map((item) => {
-      // Basic role check (can be expanded)
       const canView = !item.roles || item.roles.includes(currentUserRole);
 
       if (!canView) return null;
@@ -164,9 +160,9 @@ const Sidebar = ({ className }: { className?: string }) => {
         <div key={item.href}>
           <div
             className={cn(
-              "flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary",
-              isActive && "bg-muted text-primary",
-              item.subItems && "cursor-pointer" // Indicate clickable for sub-menus
+              "flex items-center gap-3 rounded-lg px-3 py-2 text-rovida-near-black transition-all hover:text-rovida-navy",
+              isActive && "bg-rovida-soft-gray text-rovida-navy",
+              item.subItems && "cursor-pointer"
             )}
             onClick={() => item.subItems ? toggleSubMenu(item.href) : null}
           >
@@ -190,8 +186,8 @@ const Sidebar = ({ className }: { className?: string }) => {
                   key={subItem.href}
                   to={subItem.href}
                   className={cn(
-                    "flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary text-sm",
-                    location.pathname === subItem.href && "bg-muted text-primary"
+                    "flex items-center gap-3 rounded-lg px-3 py-2 text-rovida-near-black transition-all hover:text-rovida-navy text-sm",
+                    location.pathname === subItem.href && "bg-rovida-soft-gray text-rovida-navy"
                   )}
                 >
                   {subItem.title}
@@ -205,12 +201,11 @@ const Sidebar = ({ className }: { className?: string }) => {
   };
 
   return (
-    <div className={cn("hidden border-r bg-muted/40 md:block", className)}>
+    <div className={cn("hidden border-r border-rovida-soft-gray bg-white/80 backdrop-blur-md md:block", className)}>
       <div className="flex h-full max-h-screen flex-col gap-2">
-        <div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
-          {/* Logo or App Name */}
+        <div className="flex h-14 items-center border-b border-rovida-soft-gray px-4 lg:h-[60px] lg:px-6">
           <Link to="/" className="flex items-center gap-2 font-semibold">
-            <span className="text-lg">{t('welcome')}</span>
+            <span className="text-lg text-rovida-navy">{t('welcome')}</span>
           </Link>
         </div>
         <div className="flex-1 overflow-y-auto custom-scrollbar">

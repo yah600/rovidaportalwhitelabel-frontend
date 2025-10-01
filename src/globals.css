@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@600&family=Roboto+Mono:wght@400&display=swap');
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -35,20 +38,24 @@
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Rovida Custom Palette */
+    --rovida-navy: 210 47% 19%; /* #183747 */
+    --rovida-navy-90: 210 38% 26%; /* #2A4959 */
+    --rovida-gold: 40 65% 47%; /* #C4972E */
+    --rovida-slate-green-gray: 160 7% 51%; /* #7C8D89 */
+    --rovida-near-black: 210 12% 8%; /* #111418 */
+    --rovida-soft-gray: 150 7% 92%; /* #E9ECEB */
+    --rovida-success: 130 38% 35%; /* #3A7D44 */
+    --rovida-warning: 36 70% 56%; /* #E2A33B */
+    --rovida-error: 3 49% 47%; /* #B2433F */
   }
 
   .dark {
@@ -87,6 +94,17 @@
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Rovida Custom Palette for Dark Mode (adjust as needed for contrast) */
+    --rovida-navy: 210 47% 19%; /* #183747 */
+    --rovida-navy-90: 210 38% 26%; /* #2A4959 */
+    --rovida-gold: 40 65% 47%; /* #C4972E */
+    --rovida-slate-green-gray: 160 7% 51%; /* #7C8D89 */
+    --rovida-near-black: 210 12% 8%; /* #111418 */
+    --rovida-soft-gray: 150 7% 92%; /* #E9ECEB */
+    --rovida-success: 130 38% 35%; /* #3A7D44 */
+    --rovida-warning: 36 70% 56%; /* #E2A33B */
+    --rovida-error: 3 49% 47%; /* #B2433F */
   }
 }
 
@@ -97,5 +115,46 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif; /* Default body font */
+    line-height: 1.65; /* Adjusted line height */
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif; /* Headings font */
+    font-weight: 600; /* SemiBold */
+    line-height: 1.5; /* Adjusted line height */
+  }
+
+  h1 { font-size: 36px; }
+  h2 { font-size: 28px; }
+  h3 { font-size: 22px; }
+  /* Body 16px is default for 'Inter' */
+  .text-sm { font-size: 14px; } /* Small 14px */
+
+  /* For numeric/finance fields */
+  .font-roboto-mono {
+    font-family: 'Roboto Mono', monospace;
+  }
+
+  /* Custom utility for liquid glass effect */
+  .backdrop-blur-md {
+    backdrop-filter: blur(10px); /* Adjust blur strength as needed */
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+  }
+}
+
+/* Custom component styles based on branding guide */
+@layer components {
+  .btn-primary {
+    @apply bg-rovida-navy text-white hover:bg-rovida-navy-90 focus-visible:ring-2 focus-visible:ring-rovida-gold focus-visible:ring-offset-2;
+  }
+  .btn-secondary {
+    @apply border border-rovida-navy text-rovida-navy bg-white hover:bg-rovida-soft-gray focus-visible:ring-2 focus-visible:ring-rovida-gold focus-visible:ring-offset-2;
+  }
+  .link-rovida {
+    @apply text-rovida-navy hover:underline hover:decoration-rovida-gold;
+  }
+  .card-rovida {
+    @apply bg-white rounded-lg border border-rovida-soft-gray shadow-subtle;
   }
 }

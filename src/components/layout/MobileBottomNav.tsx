@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils';
 import { LayoutDashboard, ClipboardList, MessageSquare, MoreHorizontal } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import Sidebar from './Sidebar'; // Re-use the Sidebar for the "More" menu
+import Sidebar from './Sidebar';
 
 const MobileBottomNav = () => {
   const { t } = useTranslation();
@@ -18,15 +18,15 @@ const MobileBottomNav = () => {
   ];
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 bg-background border-t md:hidden">
+    <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-rovida-soft-gray bg-white/80 backdrop-blur-md md:hidden shadow-lg">
       <nav className="flex justify-around h-14 items-center">
         {navItems.map((item) => (
           <Link
             key={item.href}
             to={item.href}
             className={cn(
-              "flex flex-col items-center justify-center text-xs text-muted-foreground transition-colors hover:text-primary",
-              location.pathname.startsWith(item.href) && "text-primary"
+              "flex flex-col items-center justify-center text-xs text-rovida-slate-green-gray transition-colors hover:text-rovida-navy h-full w-full",
+              location.pathname.startsWith(item.href) && "text-rovida-navy"
             )}
           >
             <item.icon className="h-5 w-5 mb-1" />
@@ -37,13 +37,13 @@ const MobileBottomNav = () => {
           <SheetTrigger asChild>
             <Button
               variant="ghost"
-              className="flex flex-col items-center justify-center text-xs text-muted-foreground transition-colors hover:text-primary h-full"
+              className="flex flex-col items-center justify-center text-xs text-rovida-slate-green-gray transition-colors hover:text-rovida-navy h-full w-full"
             >
               <MoreHorizontal className="h-5 w-5 mb-1" />
               More
             </Button>
           </SheetTrigger>
-          <SheetContent side="left" className="p-0">
+          <SheetContent side="left" className="p-0 border-r-rovida-soft-gray bg-white/80 backdrop-blur-md">
             <Sidebar className="w-full" />
           </SheetContent>
         </Sheet>
