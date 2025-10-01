@@ -1,17 +1,13 @@
+"use client";
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/components/ui/table';
+import { ColumnDef } from "@tanstack/react-table";
 import { Badge } from '@/components/ui/badge';
 import { Meeting } from '@/data/mock-meetings';
 import { format } from 'date-fns';
+import { DataTable } from '@/components/DataTable'; // Import the generic DataTable
 
 interface MeetingsTableProps {
   meetings: Meeting[];
@@ -33,45 +29,65 @@ const MeetingsTable = ({ meetings }: MeetingsTableProps) => {
     }
   };
 
+  const columns: ColumnDef<Meeting>[] = [
+    {
+      accessorKey: "id",
+      header: "ID",
+      cell: ({ row }) => (
+        <Link to={`/board/meetings/${row.original.id}`} className="text-primary hover:underline">
+          {row.getValue("id")}
+        </Link>
+      ),
+    },
+    {
+      accessorKey: "title",
+      header: "Title",
+      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("title")}</span>,
+    },
+    {
+      accessorKey: "date",
+      header: "Date",
+      cell: ({ row }) => (
+        <span className="text-rovida-slate-green-gray">
+          {format(row.getValue("date"), 'MMM dd, yyyy')}
+        </span>
+      ),
+    },
+    {
+      accessorKey: "time",
+      header: "Time",
+      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("time")}</span>,
+    },
+    {
+      accessorKey: "location",
+      header: "Location",
+      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("location")}</span>,
+    },
+    {
+      accessorKey: "status",
+      header: "Status",
+      cell: ({ row }) => (
+        <Badge variant={getStatusVariant(row.getValue("status"))}>
+          {row.getValue("status")}
+        </Badge>
+      ),
+    },
+    {
+      id: "actions",
+      header: "Actions",
+      enableSorting: false,
+      cell: ({ row }) => (
+        <div className="text-right">
+          <Link to={`/board/meetings/${row.original.id}`} className="text-sm text-rovida-slate-green-gray hover:underline">
+            View
+          </Link>
+        </div>
+      ),
+    },
+  ];
+
   return (
-    <div className="rounded-md border">
-      <Table>
-        <TableHeader>
-          <TableRow>
-            <TableHead className="w-[100px]">ID</TableHead>
-            <TableHead>Title</TableHead>
-            <TableHead>Date</TableHead>
-            <TableHead>Time</TableHead>
-            <TableHead>Location</TableHead>
-            <TableHead>Status</TableHead>
-            <TableHead className="text-right">Actions</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {meetings.map((meeting) => (
-            <TableRow key={meeting.id}>
-              <TableCell className="font-medium">
-                <Link to={`/board/meetings/${meeting.id}`} className="text-primary hover:underline">
-                  {meeting.id}
-                </Link>
-              </TableCell>
-              <TableCell>{meeting.title}</TableCell>
-              <TableCell>{format(meeting.date, 'MMM dd, yyyy')}</TableCell>
-              <TableCell>{meeting.time}</TableCell>
-              <TableCell>{meeting.location}</TableCell>
-              <TableCell>
-                <Badge variant={getStatusVariant(meeting.status)}>{meeting.status}</Badge>
-              </TableCell>
-              <TableCell className="text-right">
-                <Link to={`/board/meetings/${meeting.id}`} className="text-sm text-muted-foreground hover:underline">
-                  View
-                </Link>
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </div>
+    <DataTable columns={columns} data={meetings} />
   );
 };
 
