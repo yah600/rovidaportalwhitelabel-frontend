@@ -1,16 +1,27 @@
-import React from 'react';
-import { Outlet, useNavigate } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Outlet, useNavigate, useLocation } from 'react-router-dom';
 import Topbar from './Topbar';
 import Sidebar from './Sidebar';
 import { MadeWithDyad } from '@/components/made-with-dyad';
 import GlassIcons from '@/components/GlassIcons';
 import { PlusCircle, Receipt, Wrench, MessageSquare } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { useUser } from '@/context/UserContext'; // Import useUser
 
 const AppShell = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const location = useLocation();
+  const { currentUser } = useUser(); // Get currentUser from context
 
+  // Redirect to login if not authenticated
+  useEffect(() => {
+    if (!currentUser && !location.pathname.startsWith('/auth') && location.pathname !== '/onboarding') {
+      navigate('/auth/login');
+    }
+  }, [currentUser, location.pathname, navigate]);
+
+  // Quick actions are only available if a user is logged in
   const quickActions = [
     { icon: <PlusCircle />, label: 'New Issue', onClick: () => navigate('/issues/new') },
     { icon: <Receipt />, label: 'View Bills', onClick: () => navigate('/finance/bills') },
@@ -18,20 +29,27 @@ const AppShell = () => {
     { icon: <MessageSquare />, label: 'Announce', onClick: () => navigate('/comms/send') },
   ];
 
+  // If not logged in, render nothing or a loading spinner while redirecting
+  if (!currentUser && !location.pathname.startsWith('/auth') && location.pathname !== '/onboarding') {
+    return null;
+  }
+
   return (
     <div className="relative grid min-h-screen w-full md:grid-cols-[var(--sidebar-width)_1fr] bg-background">
       <Sidebar />
       <div className="flex flex-col">
         <Topbar />
-        <main className="flex flex-1 flex-col gap-6 p-6 pb-20"> {/* Added pb-20 to account for fixed quick actions */}
+        <main className="flex flex-1 flex-col gap-6 p-6 pb-20">
           <Outlet />
         </main>
         <MadeWithDyad />
       </div>
-      {/* Fixed Quick Actions Dock */}
-      <div className="fixed bottom-0 left-1/2 -translate-x-1/2 z-50 w-full max-w-md py-4">
-        <GlassIcons items={quickActions} className="justify-center" />
-      </div>
+      {/* Fixed Quick Actions Dock - only show if logged in */}
+      {currentUser && (
+        <div className="fixed bottom-0 left-1/2 -translate-x-1/2 z-50 w-full max-w-md py-4">
+          <GlassIcons items={quickActions} className="justify-center" />
+        </div>
+      )}
     </div>
   );
 };

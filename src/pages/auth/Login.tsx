@@ -1,14 +1,44 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import GlassSurface from '@/components/GlassSurface'; // Import GlassSurface
+import GlassSurface from '@/components/GlassSurface';
+import { useUser, MOCK_USERS } from '@/context/UserContext'; // Import MOCK_USERS and useUser
+import { toast } from 'sonner'; // Import toast for notifications
 
 const Login = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+  const { setCurrentUser } = useUser();
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    setError('');
+
+    const foundUser = MOCK_USERS.find(
+      (mockUser) => mockUser.email === email && mockUser.password === password
+    );
+
+    if (foundUser) {
+      setCurrentUser(foundUser.user);
+      toast.success(`Welcome, ${foundUser.user.name}!`, {
+        description: 'You have successfully logged in.',
+      });
+      navigate('/dashboard'); // Redirect to dashboard on successful login
+    } else {
+      setError('Invalid email or password.');
+      toast.error('Login Failed', {
+        description: 'Invalid email or password. Please try again.',
+      });
+    }
+  };
 
   return (
     <div className="relative flex min-h-screen items-center justify-center bg-background p-4">
@@ -19,7 +49,7 @@ const Login = () => {
             <CardDescription className="text-rovida-slate-green-gray">Enter your credentials to access the portal.</CardDescription>
           </CardHeader>
           <CardContent>
-            <form className="grid gap-4">
+            <form onSubmit={handleSubmit} className="grid gap-4">
               <div className="grid gap-2">
                 <Label htmlFor="email" className="text-rovida-near-black">Email</Label>
                 <Input
@@ -28,6 +58,8 @@ const Login = () => {
                   placeholder="m@example.com"
                   required
                   className="border-rovida-soft-gray text-rovida-near-black bg-white/60"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
               <div className="grid gap-2">
@@ -42,8 +74,11 @@ const Login = () => {
                   type="password"
                   required
                   className="border-rovida-soft-gray text-rovida-near-black bg-white/60"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
+              {error && <p className="text-rovida-error text-sm text-center">{error}</p>}
               <Button type="submit" className="w-full btn-primary">
                 {t('login')}
               </Button>
@@ -53,6 +88,14 @@ const Login = () => {
               <Link to="#" className="link-rovida">
                 Sign up
               </Link>
+            </div>
+            <div className="mt-6 text-center text-xs text-rovida-slate-green-gray">
+              <p className="font-semibold mb-2">Mock User Credentials (Password: 'password' for all):</p>
+              <ul className="list-disc list-inside text-left mx-auto max-w-xs">
+                {MOCK_USERS.map((user) => (
+                  <li key={user.email}>{user.email} ({user.user.roles[0].name})</li>
+                ))}
+              </ul>
             </div>
           </CardContent>
         </Card>
