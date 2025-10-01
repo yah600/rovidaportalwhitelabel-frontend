@@ -108,12 +108,26 @@
   }
 }
 
-@keyframes dynamic-gradient-animation {
+@keyframes blob-animation {
   0% {
-    background-position: 0% 0%;
+    background-position: 0% 0%, 100% 100%, 50% 50%;
+    background-size: 300% 300%, 250% 250%, 200% 200%;
+  }
+  25% {
+    background-position: 20% 80%, 80% 20%, 10% 90%;
+    background-size: 280% 280%, 270% 270%, 230% 230%;
+  }
+  50% {
+    background-position: 100% 0%, 0% 100%, 70% 30%;
+    background-size: 250% 250%, 320% 320%, 280% 280%;
+  }
+  75% {
+    background-position: 80% 20%, 20% 80%, 90% 10%;
+    background-size: 220% 220%, 290% 290%, 310% 310%;
   }
   100% {
-    background-position: 100% 100%;
+    background-position: 0% 0%, 100% 100%, 50% 50%;
+    background-size: 300% 300%, 250% 250%, 200% 200%;
   }
 }
 
@@ -126,17 +140,14 @@
     @apply text-foreground;
     font-family: 'Inter', sans-serif; /* Default body font */
     line-height: 1.65; /* Adjusted line height */
-    /* Updated gradient for more pop and dynamic movement */
-    background: linear-gradient(
-      135deg,
-      hsl(var(--rovida-navy)) 0%,
-      hsl(var(--rovida-slate-green-gray)) 25%,
-      hsl(var(--rovida-gold)) 50%,
-      hsl(var(--rovida-soft-gray)) 75%,
-      hsl(var(--rovida-navy)) 100%
-    );
-    background-size: 400% 400%; /* Significantly larger size for expansive movement */
-    animation: dynamic-gradient-animation 45s ease infinite alternate; /* Longer duration, diagonal movement, and alternates direction */
+    /* Dynamic background with multiple animated radial gradients */
+    background:
+      radial-gradient(circle at 20% 30%, hsl(var(--rovida-navy)) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, hsl(var(--rovida-gold)) 0%, transparent 50%),
+      radial-gradient(circle at 50% 10%, hsl(var(--rovida-slate-green-gray)) 0%, transparent 50%);
+    background-size: 300% 300%, 250% 250%, 200% 200%; /* Initial sizes for each gradient */
+    background-repeat: no-repeat;
+    animation: blob-animation 40s ease infinite alternate; /* Apply the animation */
   }
 
   h1, h2, h3, h4, h5, h6 {
