@@ -5,10 +5,61 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { FileText, ArrowRight } from 'lucide-react';
 import { format } from 'date-fns';
 import { mockDocuments, Document } from '@/data/mock-documents';
+import { useUser } from '@/context/UserContext'; // Import useUser
 
 const RecentDocuments = () => {
   const { t } = useTranslation();
-  const recentDocuments = mockDocuments.sort((a, b) => b.uploadedAt.getTime() - a.uploadedAt.getTime()).slice(0, 3);
+  const { currentUser } = useUser();
+
+  // Helper to filter documents based on user's scope
+  const filterDocumentsByScope = (documents: Document[]): Document[] => {
+    if (!currentUser) return [];
+
+    // Super admins and condo admins see all documents
+    if (currentUser.roles.some(role => role.scope.isSuper || role.name === 'Client Super-Administrator' || role.name === 'Condo Administrator')) {
+      return documents;
+    }
+
+    const userBuildingIds = currentUser.roles.flatMap(role => role.scope.buildingIds || []);
+    const userUnitIds = currentUser.roles.flatMap(role => role.scope.unitIds || []);
+
+    return documents.filter(doc => {
+      // Documents are generally accessible, but some might be restricted by category or specific building/unit.
+      // For simplicity, if a user has a building scope, they see documents relevant to that building.
+      // If a user has a unit scope, they see documents relevant to their unit.
+      // Accountant sees financial documents.
+      // Vendor sees maintenance documents.
+
+      const userRoleNames = currentUser.roles.map(r => r.name);
+
+      if (userRoleNames.includes('Accountant') && doc.category === 'Financial') return true;
+      if (userRoleNames.includes('Vendor / Service Provider') && doc.category === 'Maintenance') return true;
+
+      // If user has building scope, show general documents and documents related to their buildings
+      if (userBuildingIds.length > 0) {
+        // This is a simplified check. A real app would link documents to specific buildings.
+        return true;
+      }
+
+      // If user has unit scope, show general documents and documents related to their units
+      if (userUnitIds.length > 0) {
+        // This is a simplified check. A real app would link documents to specific units.
+        return true;
+      }
+
+      // Default for roles with broader read access (e.g., Board Member, Auditor)
+      const generalReadRoles = ['Board Member', 'Read-Only Auditor', 'Owner', 'Tenant', 'Emergency Agent', 'Concierge / Front Desk / Security', 'Building Maintenance Technician'];
+      if (generalReadRoles.some(roleName => userRoleNames.includes(roleName))) {
+        return true;
+      }
+
+      return false;
+    });
+  };
+
+  const recentDocuments = filterDocumentsByScope(mockDocuments)
+    .sort((a, b) => b.uploadedAt.getTime() - a.uploadedAt.getTime())
+    .slice(0, 3);
 
   return (
     <Card className="col-span-2 xl:col-span-1 card-rovida">

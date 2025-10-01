@@ -6,10 +6,58 @@ import { Badge } from '@/components/ui/badge';
 import { mockIssues, Issue } from '@/data/mock-issues';
 import { format } from 'date-fns';
 import { ArrowRight } from 'lucide-react';
+import { useUser } from '@/context/UserContext'; // Import useUser
 
 const RecentIssues = () => {
   const { t } = useTranslation();
-  const recentIssues = mockIssues.slice(0, 3); // Display up to 3 recent issues
+  const { currentUser } = useUser();
+
+  // Helper to filter issues based on user's scope
+  const filterIssuesByScope = (issues: Issue[]): Issue[] => {
+    if (!currentUser) return [];
+
+    // Super admins and condo admins see all issues
+    if (currentUser.roles.some(role => role.scope.isSuper || role.name === 'Client Super-Administrator' || role.name === 'Condo Administrator')) {
+      return issues;
+    }
+
+    const userBuildingIds = currentUser.roles.flatMap(role => role.scope.buildingIds || []);
+    const userUnitIds = currentUser.roles.flatMap(role => role.scope.unitIds || []);
+    const userVendorId = currentUser.roles.find(role => role.scope.vendorId)?.scope.vendorId;
+
+    return issues.filter(issue => {
+      // Filter by unit if user is an owner/tenant
+      if (userUnitIds.length > 0 && issue.unit) {
+        const issueUnitNumber = issue.unit.replace('Unit ', 'UNIT');
+        if (userUnitIds.includes(issueUnitNumber)) return true;
+      }
+      // Filter by building if user is property manager, board member, etc.
+      // This requires mockIssues to have buildingId, which it currently doesn't.
+      // For now, we'll assume issue.unit implies a building for simplicity.
+      // A more robust solution would involve linking units to buildings in mock data.
+      if (userBuildingIds.length > 0 && issue.unit) {
+        // Placeholder logic: if issue.unit is 'Unit 101', assume it's in BLD001
+        // This needs to be improved with actual building data if available.
+        const buildingIdFromUnit = issue.unit.startsWith('Unit 1') ? 'BLD001' : (issue.unit.startsWith('Unit 2') ? 'BLD001' : (issue.unit.startsWith('Unit 3') ? 'BLD002' : null));
+        if (buildingIdFromUnit && userBuildingIds.includes(buildingIdFromUnit)) return true;
+      }
+      // Filter by assignee for vendors/technicians
+      if (userVendorId && issue.assignee === currentUser.name) return true; // Assuming assignee name matches vendor user name
+
+      // If no specific scope matches, and the role is not a general 'read all' role, exclude.
+      // Roles like Accountant, Vendor, Owner, Tenant should not see all issues unless assigned.
+      const nonGeneralRoles = ['Accountant', 'Vendor / Service Provider', 'Owner', 'Tenant'];
+      if (nonGeneralRoles.some(roleName => currentUser.roles.map(r => r.name).includes(roleName))) {
+        return false;
+      }
+
+      return true; // Default for roles with broader read access (e.g., Board Member, Auditor)
+    });
+  };
+
+  const recentIssues = filterIssuesByScope(mockIssues)
+    .sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime())
+    .slice(0, 3); // Display up to 3 recent issues
 
   const getStatusBadgeVariant = (status: Issue['status']) => {
     switch (status) {
