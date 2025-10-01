@@ -31,7 +31,7 @@ const WorkOrdersTable = ({ workOrders }: WorkOrdersTableProps) => {
       case 'Cancelled':
         return 'destructive';
       case 'Pending Parts':
-        return 'warning'; // Assuming 'warning' variant exists or can be styled
+        return 'secondary'; // Changed from 'warning' to 'secondary'
       default:
         return 'default';
     }

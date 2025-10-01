@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import BreadcrumbNav from '@/components/BreadcrumbNav';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { BarChart2, FileText, Download } from 'lucide-react';
+import { BarChart2, FileText, Download, AlertTriangle } from 'lucide-react'; // Added AlertTriangle
 import { Button } from '@/components/ui/button';
 
 const FinanceReports = () => {
