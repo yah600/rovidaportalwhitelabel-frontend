@@ -50,6 +50,9 @@ import SettingsNotifications from "./pages/settings/Notifications";
 import SettingsAudit from "./pages/settings/Audit";
 import SettingsFeedback from "./pages/settings/Feedback";
 import Profile from "./pages/Profile";
+import LoginPage from "./pages/auth/LoginPage";
+import ForgotPasswordPage from "./pages/auth/ForgotPasswordPage";
+import ResetPasswordPage from "./pages/auth/ResetPasswordPage";
 
 const queryClient = new QueryClient();
 
@@ -62,9 +65,9 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           {/* Authentication Routes */}
-          <Route path="/auth/login" element={<div>Login Page</div>} />
-          <Route path="/auth/forgot" element={<div>Forgot Password Page</div>} />
-          <Route path="/auth/reset" element={<div>Reset Password Page</div>} />
+          <Route path="/auth/login" element={<LoginPage />} />
+          <Route path="/auth/forgot" element={<ForgotPasswordPage />} />
+          <Route path="/auth/reset" element={<ResetPasswordPage />} />
 
           {/* Protected Routes wrapped by AppShell */}
           <Route element={<AppShell />}>
