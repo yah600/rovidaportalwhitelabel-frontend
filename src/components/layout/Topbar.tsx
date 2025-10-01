@@ -13,25 +13,27 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { useUser } from '@/context/UserContext'; // Import useUser
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
-import { toast } from 'sonner'; // Import toast for notifications
-import LanguageToggle from './LanguageToggle'; // Import LanguageToggle
+import { useUser } from '@/context/UserContext';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'sonner';
+import LanguageToggle from './LanguageToggle';
+import { useAuth } from '@/hooks/useAuth'; // Import useAuth
 
 const Topbar = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const { currentUser, setCurrentUser } = useUser(); // Get currentUser and setCurrentUser
+  const { currentUser, setCurrentUser } = useUser();
+  const { canRead } = useAuth(); // Use useAuth for permission checks
 
   const [searchTerm, setSearchTerm] = React.useState('');
 
-  const userName = currentUser?.name || t("guest"); // Use current user's name
-  const userEmail = currentUser?.email || ""; // Use current user's email
+  const userName = currentUser?.name || t("guest");
+  const userEmail = currentUser?.email || "";
   const buildings = [
     { id: '1', name: t('building_a') },
     { id: '2', name: t('building_b') },
   ];
-  const currentBuildingId = '1'; // Placeholder for actual selected building
+  const currentBuildingId = '1';
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
@@ -39,19 +41,39 @@ const Topbar = () => {
   };
 
   const handleLogout = () => {
-    setCurrentUser(null); // Clear current user
+    setCurrentUser(null);
     toast.info(t('logged_out_title'), {
       description: t('logged_out_description'),
     });
-    navigate('/auth/login'); // Redirect to login page
+    navigate('/auth/login');
+  };
+
+  const handleNotificationsClick = () => {
+    if (canRead('Settings')) { // Check permission for Settings module
+      navigate('/settings/notifications');
+    } else {
+      toast.error(t('permission_denied'), {
+        description: t('no_permission_view_notifications'),
+      });
+    }
+  };
+
+  const handleFeedbackClick = () => {
+    if (canRead('Feedback')) { // Check permission for Feedback module
+      navigate('/settings/feedback');
+    } else {
+      toast.error(t('permission_denied'), {
+        description: t('no_permission_send_feedback'),
+      });
+    }
   };
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-rovida-soft-gray bg-white/80 backdrop-blur-xl px-4 py-2 flex items-center justify-between shadow-sm">
       <div className="flex items-center space-x-4">
-        <div className="text-lg font-semibold text-rovida-gold">Gestion Rovida</div>
+        <img src="/AVERO.png" alt="Gestion Rovida Logo" className="h-8 w-auto" /> {/* Replaced text with logo */}
 
-        {currentUser && ( // Only show building selector if logged in
+        {currentUser && (
           <Select defaultValue={currentBuildingId}>
             <SelectTrigger className="w-[180px] border-rovida-soft-gray text-rovida-near-black bg-white/60 backdrop-blur-sm">
               <SelectValue placeholder={t('select_building')} />
@@ -68,7 +90,7 @@ const Topbar = () => {
       </div>
 
       <div className="flex items-center space-x-4">
-        {currentUser && ( // Only show search and notifications if logged in
+        {currentUser && (
           <>
             <div className="relative hidden md:block">
               <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-4 w-4 text-rovida-slate-green-gray" />
@@ -81,18 +103,18 @@ const Topbar = () => {
               />
             </div>
 
-            <Button variant="ghost" size="icon" className="text-rovida-near-black hover:bg-rovida-soft-gray">
+            <Button variant="ghost" size="icon" className="text-rovida-near-black hover:bg-rovida-soft-gray" onClick={handleNotificationsClick}>
               <Bell className="h-5 w-5" />
             </Button>
 
-            <Button variant="ghost" size="sm" className="hidden md:flex text-rovida-near-black hover:bg-rovida-soft-gray">
+            <Button variant="ghost" size="sm" className="hidden md:flex text-rovida-near-black hover:bg-rovida-soft-gray" onClick={handleFeedbackClick}>
               <MessageSquareText className="h-4 w-4 mr-2" />
               {t('feedback')}
             </Button>
           </>
         )}
 
-        <LanguageToggle /> {/* Language Toggle */}
+        <LanguageToggle />
 
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
