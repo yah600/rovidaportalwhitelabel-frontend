@@ -7,12 +7,14 @@ import GlassIcons from '@/components/GlassIcons';
 import { PlusCircle, Receipt, Wrench, MessageSquare } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useUser } from '@/context/UserContext'; // Import useUser
+import { useAuth } from '@/hooks/useAuth'; // Import useAuth
 
 const AppShell = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
   const { currentUser } = useUser(); // Get currentUser from context
+  const { canRead, canCreate } = useAuth(); // Destructure canRead and canCreate
 
   // Redirect to login if not authenticated
   useEffect(() => {
@@ -21,13 +23,13 @@ const AppShell = () => {
     }
   }, [currentUser, location.pathname, navigate]);
 
-  // Quick actions are only available if a user is logged in
+  // Quick actions are only available if a user is logged in AND has permission
   const quickActions = [
-    { icon: <PlusCircle />, label: 'New Issue', onClick: () => navigate('/issues/new') },
-    { icon: <Receipt />, label: 'View Bills', onClick: () => navigate('/finance/bills') },
-    { icon: <Wrench />, label: 'Work Orders', onClick: () => navigate('/maintenance/work-orders') },
-    { icon: <MessageSquare />, label: 'Announce', onClick: () => navigate('/comms/send') },
-  ];
+    canCreate('Issues') && { icon: <PlusCircle />, label: 'New Issue', onClick: () => navigate('/issues/new') },
+    canRead('Finance - Bills/Recurring/Deposits') && { icon: <Receipt />, label: 'View Bills', onClick: () => navigate('/finance/bills') },
+    canRead('Maintenance') && { icon: <Wrench />, label: 'Work Orders', onClick: () => navigate('/maintenance/work-orders') },
+    canCreate('Communications') && { icon: <MessageSquare />, label: 'Announce', onClick: () => navigate('/comms/send') },
+  ].filter(Boolean); // Filter out null/false values
 
   // If not logged in, render nothing or a loading spinner while redirecting
   if (!currentUser && !location.pathname.startsWith('/auth') && location.pathname !== '/onboarding') {
@@ -44,8 +46,8 @@ const AppShell = () => {
         </main>
         <MadeWithDyad />
       </div>
-      {/* Fixed Quick Actions Dock - only show if logged in */}
-      {currentUser && (
+      {/* Fixed Quick Actions Dock - only show if logged in and there are actions */}
+      {currentUser && quickActions.length > 0 && (
         <div className="fixed bottom-0 left-1/2 -translate-x-1/2 z-50 w-full max-w-md py-4">
           <GlassIcons items={quickActions} className="justify-center" />
         </div>

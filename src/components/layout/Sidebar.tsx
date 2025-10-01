@@ -30,6 +30,7 @@ import {
   ChevronDown,
   Info,
   Menu,
+  PlusCircle, // Added PlusCircle for New Incident
 } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth'; // Import useAuth
 
@@ -60,7 +61,7 @@ const Sidebar = ({ className }: { className?: string }) => {
       subItems: [
         { title: t('issues'), href: '/issues', icon: ClipboardList, moduleName: 'Issues' },
         { title: 'Kanban', href: '/issues/kanban', icon: Kanban, moduleName: 'Issues' },
-        { title: 'New Incident', href: '/issues/new', icon: ClipboardList, moduleName: 'Issues' },
+        { title: 'New Incident', href: '/issues/new', icon: PlusCircle, moduleName: 'Issues' },
       ],
     },
     { title: t('emergency'), href: '/emergency', icon: AlertTriangle, moduleName: 'Emergency Center' },
@@ -91,7 +92,7 @@ const Sidebar = ({ className }: { className?: string }) => {
     {
       title: t('board'),
       href: '/board',
-      icon: Users,
+      icon: Users, // Changed to Users for consistency with mock-roles
       moduleName: 'Board', // General board module
       subItems: [
         { title: 'Meetings', href: '/board/meetings', icon: Handshake, moduleName: 'Board - Meetings/Votes' },
@@ -139,9 +140,7 @@ const Sidebar = ({ className }: { className?: string }) => {
       ],
     },
     { title: t('profile'), href: '/profile', icon: User, moduleName: 'Profile' },
-    { title: 'About Us', href: '/about', icon: Info, moduleName: 'About Us' },
-    { title: 'CardNav Demo', href: '/cardnav-demo', icon: Info, moduleName: 'CardNav Demo' },
-    { title: 'Onboarding', href: '/onboarding', icon: Info, moduleName: 'Onboarding' },
+    // Removed 'About Us', 'CardNav Demo', 'Onboarding' from sidebar navigation
   ];
 
   React.useEffect(() => {
