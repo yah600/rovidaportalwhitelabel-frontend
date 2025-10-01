@@ -31,108 +31,117 @@ import {
   Info,
   Menu,
 } from 'lucide-react';
+import { useAuth } from '@/hooks/useAuth'; // Import useAuth
 
 interface NavItem {
   title: string;
   href: string;
   icon: React.ElementType;
-  roles?: string[];
+  moduleName: string; // Corresponds to a key in PERMISSIONS_MATRIX
   subItems?: NavItem[];
 }
 
 const Sidebar = ({ className }: { className?: string }) => {
   const { t } = useTranslation();
   const location = useLocation();
+  const { canRead } = useAuth(); // Use the useAuth hook
   const sidebarContentRef = React.useRef<HTMLDivElement>(null);
 
   const [openSubMenus, setOpenSubMenus] = React.useState<Record<string, boolean>>({});
   const [isCollapsed, setIsCollapsed] = React.useState(false);
 
-  const currentUserRole = 'Property Manager';
-
   const navItems: NavItem[] = [
-    { title: t('dashboard'), href: '/dashboard', icon: LayoutDashboard },
+    { title: t('dashboard'), href: '/dashboard', icon: LayoutDashboard, moduleName: 'Dashboard' },
     {
       title: t('issues'),
       href: '/issues',
       icon: ClipboardList,
+      moduleName: 'Issues',
       subItems: [
-        { title: t('issues'), href: '/issues', icon: ClipboardList },
-        { title: 'Kanban', href: '/issues/kanban', icon: Kanban },
-        { title: 'New Incident', href: '/issues/new', icon: ClipboardList },
+        { title: t('issues'), href: '/issues', icon: ClipboardList, moduleName: 'Issues' },
+        { title: 'Kanban', href: '/issues/kanban', icon: Kanban, moduleName: 'Issues' },
+        { title: 'New Incident', href: '/issues/new', icon: ClipboardList, moduleName: 'Issues' },
       ],
     },
-    { title: t('emergency'), href: '/emergency', icon: AlertTriangle },
+    { title: t('emergency'), href: '/emergency', icon: AlertTriangle, moduleName: 'Emergency Center' },
     {
       title: t('maintenance'),
       href: '/maintenance',
       icon: Wrench,
+      moduleName: 'Maintenance',
       subItems: [
-        { title: 'Calendar', href: '/maintenance/calendar', icon: CalendarDays },
-        { title: 'Assets', href: '/maintenance/assets', icon: Building },
-        { title: 'Work Orders', href: '/maintenance/work-orders', icon: Wrench },
-        { title: 'Tasks', href: '/maintenance/tasks', icon: ClipboardList },
-        { title: 'Agenda (XLSX)', href: '/maintenance/agenda', icon: FileStack },
+        { title: 'Calendar', href: '/maintenance/calendar', icon: CalendarDays, moduleName: 'Maintenance' },
+        { title: 'Assets', href: '/maintenance/assets', icon: Building, moduleName: 'Maintenance' },
+        { title: 'Work Orders', href: '/maintenance/work-orders', icon: Wrench, moduleName: 'Maintenance' },
+        { title: 'Tasks', href: '/maintenance/tasks', icon: ClipboardList, moduleName: 'Maintenance' },
+        { title: 'Agenda (XLSX)', href: '/maintenance/agenda', icon: FileStack, moduleName: 'Maintenance Agenda XLSX' },
       ],
     },
     {
       title: t('finance'),
       href: '/finance',
       icon: DollarSign,
+      moduleName: 'Finance', // General finance module
       subItems: [
-        { title: 'Bills', href: '/finance/bills', icon: Receipt },
-        { title: 'Payments', href: '/finance/payments', icon: DollarSign },
-        { title: 'Reports', href: '/finance/reports', icon: BarChart2 },
+        { title: 'Bills', href: '/finance/bills', icon: Receipt, moduleName: 'Finance - Bills/Recurring/Deposits' },
+        { title: 'Payments', href: '/finance/payments', icon: DollarSign, moduleName: 'Finance - Bills/Recurring/Deposits' },
+        { title: 'Reports', href: '/finance/reports', icon: BarChart2, moduleName: 'Finance - Reports' },
       ],
     },
     {
       title: t('board'),
       href: '/board',
       icon: Users,
+      moduleName: 'Board', // General board module
       subItems: [
-        { title: 'Meetings', href: '/board/meetings', icon: Handshake },
-        { title: 'Votes', href: '/board/votes', icon: Vote },
+        { title: 'Meetings', href: '/board/meetings', icon: Handshake, moduleName: 'Board - Meetings/Votes' },
+        { title: 'Votes', href: '/board/votes', icon: Vote, moduleName: 'Board - Meetings/Votes' },
       ],
     },
     {
       title: t('documents'),
       href: '/documents',
       icon: FileText,
+      moduleName: 'Documents',
       subItems: [
-        { title: 'Inbox', href: '/documents/inbox', icon: Mail },
-        { title: 'Registry', href: '/documents/registry', icon: FileText },
+        { title: 'Inbox', href: '/documents/inbox', icon: Mail, moduleName: 'Documents' },
+        { title: 'Registry', href: '/documents/registry', icon: FileText, moduleName: 'Documents' },
       ],
     },
     {
       title: t('communications'),
       href: '/comms',
       icon: MessageSquare,
+      moduleName: 'Communications',
       subItems: [
-        { title: 'Announcements', href: '/comms/announcements', icon: Megaphone },
-        { title: 'Send', href: '/comms/send', icon: MessageSquare },
-        { title: 'Templates', href: '/comms/templates', icon: FileText },
+        { title: 'Announcements', href: '/comms/announcements', icon: Megaphone, moduleName: 'Communications' },
+        { title: 'Send', href: '/comms/send', icon: MessageSquare, moduleName: 'Communications' },
+        { title: 'Templates', href: '/comms/templates', icon: FileText, moduleName: 'Communications' },
       ],
     },
-    { title: t('integrations'), href: '/integrations', icon: Plug },
-    { title: t('analytics'), href: '/analytics', icon: BarChart2 },
+    { title: t('integrations'), href: '/integrations', icon: Plug, moduleName: 'Integrations' },
+    { title: t('analytics'), href: '/analytics', icon: BarChart2, moduleName: 'Analytics' },
     {
       title: t('settings'),
       href: '/settings',
       icon: Settings,
+      moduleName: 'Settings', // General settings module
       subItems: [
-        { title: 'Organization', href: '/settings/org', icon: Settings },
-        { title: 'Buildings', href: '/settings/buildings', icon: Building },
-        { title: 'Units', href: '/settings/units', icon: Scale },
-        { title: 'Users', href: '/settings/users', icon: Users },
-        { title: 'Roles', href: '/settings/roles', icon: Users },
-        { title: 'Security', href: '/settings/security', icon: Settings },
-        { title: 'Notifications', href: '/settings/notifications', icon: Bell },
-        { title: 'Audit Log', href: '/settings/audit', icon: FileText },
-        { title: 'Feedback', href: '/settings/feedback', icon: MessageSquareText },
+        { title: 'Organization', href: '/settings/org', icon: Settings, moduleName: 'Settings' },
+        { title: 'Buildings', href: '/settings/buildings', icon: Building, moduleName: 'Settings' },
+        { title: 'Units', href: '/settings/units', icon: Scale, moduleName: 'Settings' },
+        { title: 'Users', href: '/settings/users', icon: Users, moduleName: 'Settings' },
+        { title: 'Roles', href: '/settings/roles', icon: Users, moduleName: 'Settings' },
+        { title: 'Security', href: '/settings/security', icon: Settings, moduleName: 'Settings' },
+        { title: 'Notifications', href: '/settings/notifications', icon: Bell, moduleName: 'Settings' },
+        { title: 'Audit Log', href: '/settings/audit', icon: FileText, moduleName: 'Settings' },
+        { title: 'Feedback', href: '/settings/feedback', icon: MessageSquareText, moduleName: 'Settings' },
       ],
     },
-    { title: t('profile'), href: '/profile', icon: User },
-    { title: 'About Us', href: '/about', icon: Info },
+    { title: t('profile'), href: '/profile', icon: User, moduleName: 'Profile' },
+    { title: 'About Us', href: '/about', icon: Info, moduleName: 'About Us' },
+    { title: 'CardNav Demo', href: '/cardnav-demo', icon: Info, moduleName: 'CardNav Demo' },
+    { title: 'Onboarding', href: '/onboarding', icon: Info, moduleName: 'Onboarding' },
   ];
 
   React.useEffect(() => {
@@ -158,9 +167,10 @@ const Sidebar = ({ className }: { className?: string }) => {
 
   const renderNavItems = (items: NavItem[]) => {
     return items.map((item) => {
-      const canView = !item.roles || item.roles.includes(currentUserRole);
-
-      if (!canView) return null;
+      // Check if the user has read permission for the module
+      if (!canRead(item.moduleName)) {
+        return null;
+      }
 
       const isActive = location.pathname === item.href || (item.subItems && item.subItems.some(sub => location.pathname.startsWith(sub.href)));
       const isSubMenuOpen = openSubMenus[item.href] || false;
@@ -190,18 +200,24 @@ const Sidebar = ({ className }: { className?: string }) => {
           </div>
           {item.subItems && isSubMenuOpen && !isCollapsed && (
             <div className="ml-6 mt-1 space-y-1">
-              {item.subItems.map(subItem => (
-                <Link
-                  key={subItem.href}
-                  to={subItem.href}
-                  className={cn(
-                    "flex items-center gap-3 rounded-lg px-3 py-2 text-rovida-near-black transition-all hover:bg-rovida-soft-gray hover:text-rovida-navy text-sm",
-                    location.pathname === subItem.href && "bg-rovida-soft-gray text-rovida-navy"
-                  )}
-                >
-                  {subItem.title}
-                </Link>
-              ))}
+              {item.subItems.map(subItem => {
+                // Check read permission for sub-items as well
+                if (!canRead(subItem.moduleName)) {
+                  return null;
+                }
+                return (
+                  <Link
+                    key={subItem.href}
+                    to={subItem.href}
+                    className={cn(
+                      "flex items-center gap-3 rounded-lg px-3 py-2 text-rovida-near-black transition-all hover:bg-rovida-soft-gray hover:text-rovida-navy text-sm",
+                      location.pathname === subItem.href && "bg-rovida-soft-gray text-rovida-navy"
+                    )}
+                  >
+                    {subItem.title}
+                  </Link>
+                );
+              })}
             </div>
           )}
         </div>

@@ -59,6 +59,9 @@ import Login from "./pages/auth/Login";
 import ForgotPassword from "./pages/auth/ForgotPassword";
 import ResetPassword from "./pages/auth/ResetPassword";
 
+// User Context for Authorization
+import { UserProvider } from "./context/UserContext";
+
 
 const queryClient = new QueryClient();
 
@@ -68,65 +71,71 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          {/* Authentication Routes */}
-          <Route path="/auth/login" element={<Login />} />
-          <Route path="/auth/forgot" element={<ForgotPassword />} />
-          <Route path="/auth/reset" element={<ResetPassword />} />
-          <Route path="/onboarding" element={<OnboardingPage />} />
+        <UserProvider> {/* Wrap the entire application with UserProvider */}
+          <Routes>
+            <Route path="/" element={<Index />} />
+            {/* Authentication Routes */}
+            <Route path="/auth/login" element={<Login />} />
+            <Route path="/auth/forgot" element={<ForgotPassword />} />
+            <Route path="/auth/reset" element={<ResetPassword />} />
+            <Route path="/onboarding" element={<OnboardingPage />} />
 
-          {/* Protected Routes wrapped by AppShell */}
-          <Route element={<AppShell />}>
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/issues" element={<Issues />} />
-            <Route path="/issues/kanban" element={<Kanban />} />
-            <Route path="/issues/new" element={<NewIssue />} />
-            <Route path="/issues/:id" element={<IssueDetail />} />
-            <Route path="/emergency" element={<Emergency />} />
-            <Route path="/maintenance" element={<Maintenance />} />
-            <Route path="/maintenance/calendar" element={<MaintenanceCalendar />} />
-            <Route path="/maintenance/assets" element={<MaintenanceAssets />} />
-            <Route path="/maintenance/work-orders" element={<MaintenanceWorkOrders />} />
-            <Route path="/maintenance/tasks" element={<MaintenanceTasks />} />
-            <Route path="/maintenance/tasks/:id" element={<MaintenanceTaskDetail />} />
-            <Route path="/maintenance/agenda" element={<MaintenanceAgenda />} />
-            <Route path="/finance" element={<Finance />} />
-            <Route path="/finance/bills" element={<FinanceBills />} />
-            <Route path="/finance/bills/:id" element={<FinanceBillDetail />} />
-            <Route path="/finance/payments" element={<FinancePayments />} />
-            <Route path="/finance/reports" element={<FinanceReports />} />
-            <Route path="/board/meetings" element={<BoardMeetings />} />
-            <Route path="/board/meetings/:id" element={<BoardMeetingDetail />} />
-            <Route path="/board/votes" element={<BoardVotes />} />
-            <Route path="/board/votes/:id" element={<BoardVoteDetail />} />
-            <Route path="/documents/inbox" element={<DocumentsInbox />} />
-            <Route path="/documents" element={<DocumentsOverview />} />
-            <Route path="/documents/:id" element={<DocumentDetail />} />
-            <Route path="/comms/announcements" element={<CommsAnnouncements />} />
-            <Route path="/comms/send" element={<CommsSend />} />
-            <Route path="/comms/templates" element={<CommsTemplates />} />
-            <Route path="/integrations" element={<Integrations />} />
-            <Route path="/integrations/:slug" element={<IntegrationDetail />} />
-            <Route path="/analytics" element={<Analytics />} />
-            <Route path="/settings" element={<Settings />} />
-            <Route path="/settings/org" element={<SettingsOrganization />} />
-            <Route path="/settings/buildings" element={<SettingsBuildings />} />
-            <Route path="/settings/units" element={<SettingsUnits />} />
-            <Route path="/settings/users" element={<SettingsUsers />} />
-            <Route path="/settings/roles" element={<SettingsRoles />} />
-            <Route path="/settings/security" element={<SettingsSecurity />} />
-            <Route path="/settings/notifications" element={<SettingsNotifications />} />
-            <Route path="/settings/audit" element={<SettingsAudit />} />
-            <Route path="/settings/feedback" element={<SettingsFeedback />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/cardnav-demo" element={<CardNavDemo />} />
-          </Route>
+            {/* Protected Routes wrapped by AppShell */}
+            <Route element={<AppShell />}>
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/issues" element={<Issues />} />
+              <Route path="/issues/kanban" element={<Kanban />} />
+              <Route path="/issues/new" element={<NewIssue />} />
+              <Route path="/issues/:id" element={<IssueDetail />} />
+              <Route path="/emergency" element={<Emergency />} />
+              <Route path="/maintenance" element={<Maintenance />} />
+              <Route path="/maintenance/calendar" element={<MaintenanceCalendar />} />
+              <Route path="/maintenance/assets" element={<MaintenanceAssets />} />
+              <Route path="/maintenance/work-orders" element={<MaintenanceWorkOrders />} />
+              <Route path="/maintenance/tasks" element={<MaintenanceTasks />} />
+              <Route path="/maintenance/tasks/:id" element={<MaintenanceTaskDetail />} />
+              <Route path="/maintenance/agenda" element={<MaintenanceAgenda />} />
+              <Route path="/finance" element={<Finance />} />
+              <Route path="/finance/bills" element={<FinanceBills />} />
+              <Route path="/finance/bills/:id" element={<FinanceBillDetail />} />
+              <Route path="/finance/payments" element={<FinancePayments />} />
+              <Route path="/finance/payments" element={<FinancePayments />} />
+              <Route path="/finance/reports" element={<FinanceReports />} />
+              <Route path="/board" element={<Board />} /> {/* Added general board route */}
+              <Route path="/board/meetings" element={<BoardMeetings />} />
+              <Route path="/board/meetings/:id" element={<BoardMeetingDetail />} />
+              <Route path="/board/votes" element={<BoardVotes />} />
+              <Route path="/board/votes/:id" element={<BoardVoteDetail />} />
+              <Route path="/documents" element={<DocumentsOverview />} /> {/* Added general documents route */}
+              <Route path="/documents/inbox" element={<DocumentsInbox />} />
+              <Route path="/documents/registry" element={<DocumentsOverview />} /> {/* Registry is the overview */}
+              <Route path="/documents/:id" element={<DocumentDetail />} />
+              <Route path="/comms" element={<Comms />} /> {/* Added general comms route */}
+              <Route path="/comms/announcements" element={<CommsAnnouncements />} />
+              <Route path="/comms/send" element={<CommsSend />} />
+              <Route path="/comms/templates" element={<CommsTemplates />} />
+              <Route path="/integrations" element={<Integrations />} />
+              <Route path="/integrations/:slug" element={<IntegrationDetail />} />
+              <Route path="/analytics" element={<Analytics />} />
+              <Route path="/settings" element={<Settings />} />
+              <Route path="/settings/org" element={<SettingsOrganization />} />
+              <Route path="/settings/buildings" element={<SettingsBuildings />} />
+              <Route path="/settings/units" element={<SettingsUnits />} />
+              <Route path="/settings/users" element={<SettingsUsers />} />
+              <Route path="/settings/roles" element={<SettingsRoles />} />
+              <Route path="/settings/security" element={<SettingsSecurity />} />
+              <Route path="/settings/notifications" element={<SettingsNotifications />} />
+              <Route path="/settings/audit" element={<SettingsAudit />} />
+              <Route path="/settings/feedback" element={<SettingsFeedback />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/cardnav-demo" element={<CardNavDemo />} />
+            </Route>
 
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </UserProvider>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
