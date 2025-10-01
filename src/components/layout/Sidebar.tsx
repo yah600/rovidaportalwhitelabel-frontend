@@ -31,20 +31,20 @@ import {
   Info,
   Menu,
   PlusCircle,
-  Gavel, // New icon for Rules
-  Shield, // New icon for Insurance
-  LayoutTemplate, // New icon for Architectural Requests
-  ShoppingCart, // New icon for Purchase Orders
-  CalendarCheck, // New icon for Amenities
-  FileSignature, // New icon for Leases
-  LayoutGrid, // New icon for Portfolio
-  UserCheck, // New icon for Visitor Logs
+  Gavel,
+  Shield,
+  LayoutTemplate,
+  ShoppingCart,
+  CalendarCheck,
+  FileSignature,
+  LayoutGrid,
+  UserCheck,
 } from 'lucide-react';
-import { ShieldCheck } from 'lucide-react'; // Isolated import for ShieldCheck
+import { ShieldCheck } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
 
 interface NavItem {
-  title: string;
+  titleKey: string; // Changed from 'title' to 'titleKey'
   href: string;
   icon: React.ElementType;
   moduleName: string;
@@ -61,111 +61,111 @@ const Sidebar = ({ className }: { className?: string }) => {
   const [isCollapsed, setIsCollapsed] = React.useState(false);
 
   const navItems: NavItem[] = [
-    { title: t('dashboard'), href: '/dashboard', icon: LayoutDashboard, moduleName: 'Dashboard' },
+    { titleKey: 'dashboard', href: '/dashboard', icon: LayoutDashboard, moduleName: 'Dashboard' },
     {
-      title: t('issues'),
+      titleKey: 'issues',
       href: '/issues',
       icon: ClipboardList,
       moduleName: 'Issues',
       subItems: [
-        { title: t('issues'), href: '/issues', icon: ClipboardList, moduleName: 'Issues' },
-        { title: t('kanban'), href: '/issues/kanban', icon: Kanban, moduleName: 'Issues' },
-        { title: t('new_issue'), href: '/issues/new', icon: PlusCircle, moduleName: 'Issues' },
+        { titleKey: 'issues', href: '/issues', icon: ClipboardList, moduleName: 'Issues' },
+        { titleKey: 'kanban', href: '/issues/kanban', icon: Kanban, moduleName: 'Issues' },
+        { titleKey: 'new_issue', href: '/issues/new', icon: PlusCircle, moduleName: 'Issues' },
       ],
     },
-    { title: t('emergency'), href: '/emergency', icon: AlertTriangle, moduleName: 'Emergency Center' },
+    { titleKey: 'emergency', href: '/emergency', icon: AlertTriangle, moduleName: 'Emergency Center' },
     {
-      title: t('maintenance'),
+      titleKey: 'maintenance',
       href: '/maintenance',
       icon: Wrench,
       moduleName: 'Maintenance',
       subItems: [
-        { title: t('calendar'), href: '/maintenance/calendar', icon: CalendarDays, moduleName: 'Maintenance' },
-        { title: t('assets'), href: '/maintenance/assets', icon: Building, moduleName: 'Maintenance' },
-        { title: t('work_orders'), href: '/maintenance/work-orders', icon: Wrench, moduleName: 'Maintenance' },
-        { title: t('tasks'), href: '/maintenance/tasks', icon: ClipboardList, moduleName: 'Maintenance' },
-        { title: t('agenda_xlsx_import'), href: '/maintenance/agenda', icon: FileStack, moduleName: 'Maintenance Agenda XLSX' },
+        { titleKey: 'calendar', href: '/maintenance/calendar', icon: CalendarDays, moduleName: 'Maintenance' },
+        { titleKey: 'assets', href: '/maintenance/assets', icon: Building, moduleName: 'Maintenance' },
+        { titleKey: 'work_orders', href: '/maintenance/work-orders', icon: Wrench, moduleName: 'Maintenance' },
+        { titleKey: 'tasks', href: '/maintenance/tasks', icon: ClipboardList, moduleName: 'Maintenance' },
+        { titleKey: 'agenda_xlsx_import', href: '/maintenance/agenda', icon: FileStack, moduleName: 'Maintenance Agenda XLSX' },
       ],
     },
     {
-      title: t('finance'),
+      titleKey: 'finance',
       href: '/finance',
       icon: DollarSign,
       moduleName: 'Finance',
       subItems: [
-        { title: t('bills'), href: '/finance/bills', icon: Receipt, moduleName: 'Finance - Bills/Recurring/Deposits' },
-        { title: t('payments'), href: '/finance/payments', icon: DollarSign, moduleName: 'Finance - Bills/Recurring/Deposits' },
-        { title: t('purchase_orders'), href: '/finance/purchase-orders', icon: ShoppingCart, moduleName: 'Finance' },
-        { title: t('reports'), href: '/finance/reports', icon: BarChart2, moduleName: 'Finance - Reports' },
+        { titleKey: 'bills', href: '/finance/bills', icon: Receipt, moduleName: 'Finance - Bills/Recurring/Deposits' },
+        { titleKey: 'payments', href: '/finance/payments', icon: DollarSign, moduleName: 'Finance - Bills/Recurring/Deposits' },
+        { titleKey: 'purchase_orders', href: '/finance/purchase-orders', icon: ShoppingCart, moduleName: 'Finance' },
+        { titleKey: 'reports', href: '/finance/reports', icon: BarChart2, moduleName: 'Finance - Reports' },
       ],
     },
     {
-      title: t('board'),
+      titleKey: 'board',
       href: '/board',
       icon: Users,
       moduleName: 'Board',
       subItems: [
-        { title: t('meetings'), href: '/board/meetings', icon: Handshake, moduleName: 'Board - Meetings/Votes' },
-        { title: t('votes'), href: '/board/votes', icon: Vote, moduleName: 'Board - Meetings/Votes' },
-        { title: t('architectural_requests'), href: '/board/architectural-requests', icon: LayoutTemplate, moduleName: 'Architectural Requests' },
+        { titleKey: 'meetings', href: '/board/meetings', icon: Handshake, moduleName: 'Board - Meetings/Votes' },
+        { titleKey: 'votes', href: '/board/votes', icon: Vote, moduleName: 'Board - Meetings/Votes' },
+        { titleKey: 'architectural_requests', href: '/board/architectural-requests', icon: LayoutTemplate, moduleName: 'Architectural Requests' },
       ],
     },
-    { title: t('rules_and_violations'), href: '/rules', icon: Gavel, moduleName: 'Rules' },
-    { title: t('insurance_and_claims'), href: '/insurance', icon: Shield, moduleName: 'Insurance' },
-    { title: t('amenity_management'), href: '/amenities', icon: CalendarCheck, moduleName: 'Amenities' },
+    { titleKey: 'rules_and_violations', href: '/rules', icon: Gavel, moduleName: 'Rules' },
+    { titleKey: 'insurance_and_claims', href: '/insurance', icon: Shield, moduleName: 'Insurance' },
+    { titleKey: 'amenity_management', href: '/amenities', icon: CalendarCheck, moduleName: 'Amenities' },
     {
-      title: t('tenancy'), // New top-level module
+      titleKey: 'tenancy',
       href: '/tenancy',
       icon: FileSignature,
       moduleName: 'Tenancy',
       subItems: [
-        { title: t('leases'), href: '/tenancy/leases', icon: FileSignature, moduleName: 'Tenancy' },
+        { titleKey: 'leases', href: '/tenancy/leases', icon: FileSignature, moduleName: 'Tenancy' },
       ],
     },
     {
-      title: t('documents'),
+      titleKey: 'documents',
       href: '/documents',
       icon: FileText,
       moduleName: 'Documents',
       subItems: [
-        { title: t('overview'), href: '/documents', icon: Info, moduleName: 'Documents' },
-        { title: t('inbox'), href: '/documents/inbox', icon: Mail, moduleName: 'Documents' },
-        { title: t('registry'), href: '/documents/registry', icon: FileText, moduleName: 'Documents' },
+        { titleKey: 'overview', href: '/documents', icon: Info, moduleName: 'Documents' },
+        { titleKey: 'inbox', href: '/documents/inbox', icon: Mail, moduleName: 'Documents' },
+        { titleKey: 'registry', href: '/documents/registry', icon: FileText, moduleName: 'Documents' },
       ],
     },
     {
-      title: t('communications'),
+      titleKey: 'communications',
       href: '/comms',
       icon: MessageSquare,
       moduleName: 'Communications',
       subItems: [
-        { title: t('announcements'), href: '/comms/announcements', icon: Megaphone, moduleName: 'Communications' },
-        { title: t('send_communication'), href: '/comms/send', icon: MessageSquare, moduleName: 'Communications' },
-        { title: t('templates'), href: '/comms/templates', icon: FileText, moduleName: 'Communications' },
+        { titleKey: 'announcements', href: '/comms/announcements', icon: Megaphone, moduleName: 'Communications' },
+        { titleKey: 'send_communication', href: '/comms/send', icon: MessageSquare, moduleName: 'Communications' },
+        { titleKey: 'templates', href: '/comms/templates', icon: FileText, moduleName: 'Communications' },
       ],
     },
-    { title: t('integrations'), href: '/integrations', icon: Plug, moduleName: 'Integrations' },
-    { title: t('analytics'), href: '/analytics', icon: BarChart2, moduleName: 'Analytics' },
+    { titleKey: 'integrations', href: '/integrations', icon: Plug, moduleName: 'Integrations' },
+    { titleKey: 'analytics', href: '/analytics', icon: BarChart2, moduleName: 'Analytics' },
     {
-      title: t('settings'),
+      titleKey: 'settings',
       href: '/settings',
       icon: Settings,
       moduleName: 'Settings',
       subItems: [
-        { title: t('organization'), href: '/settings/org', icon: Settings, moduleName: 'Settings' },
-        { title: t('portfolio_management'), href: '/settings/portfolio', icon: LayoutGrid, moduleName: 'Portfolio Management' },
-        { title: t('buildings'), href: '/settings/buildings', icon: Building, moduleName: 'Settings' },
-        { title: t('units'), href: '/settings/units', icon: Scale, moduleName: 'Settings' },
-        { title: t('users'), href: '/settings/users', icon: Users, moduleName: 'Settings' },
-        { title: t('roles'), href: '/settings/roles', icon: Users, moduleName: 'Settings' },
-        { title: t('security'), href: '/settings/security', icon: ShieldCheck, moduleName: 'Settings' },
-        { title: t('visitor_logs'), href: '/settings/visitor-logs', icon: UserCheck, moduleName: 'Visitor Logs' },
-        { title: t('notifications'), href: '/settings/notifications', icon: Bell, moduleName: 'Settings' },
-        { title: t('audit_log'), href: '/settings/audit', icon: FileText, moduleName: 'Settings' },
-        { title: t('feedback'), href: '/settings/feedback', icon: MessageSquareText, moduleName: 'Settings' },
+        { titleKey: 'organization', href: '/settings/org', icon: Settings, moduleName: 'Settings' },
+        { titleKey: 'portfolio_management', href: '/settings/portfolio', icon: LayoutGrid, moduleName: 'Portfolio Management' },
+        { titleKey: 'buildings', href: '/settings/buildings', icon: Building, moduleName: 'Settings' },
+        { titleKey: 'units', href: '/settings/units', icon: Scale, moduleName: 'Settings' },
+        { titleKey: 'users', href: '/settings/users', icon: Users, moduleName: 'Settings' },
+        { titleKey: 'roles', href: '/settings/roles', icon: Users, moduleName: 'Settings' },
+        { titleKey: 'security', href: '/settings/security', icon: ShieldCheck, moduleName: 'Settings' },
+        { titleKey: 'visitor_logs', href: '/settings/visitor-logs', icon: UserCheck, moduleName: 'Visitor Logs' },
+        { titleKey: 'notifications', href: '/settings/notifications', icon: Bell, moduleName: 'Settings' },
+        { titleKey: 'audit_log', href: '/settings/audit', icon: FileText, moduleName: 'Settings' },
+        { titleKey: 'feedback', href: '/settings/feedback', icon: MessageSquareText, moduleName: 'Settings' },
       ],
     },
-    { title: t('profile'), href: '/profile', icon: User, moduleName: 'Profile' },
+    { titleKey: 'profile', href: '/profile', icon: User, moduleName: 'Profile' },
   ];
 
   React.useEffect(() => {
@@ -185,7 +185,6 @@ const Sidebar = ({ className }: { className?: string }) => {
     }));
   };
 
-  // Use useLayoutEffect for DOM manipulations that affect layout
   React.useLayoutEffect(() => {
     document.documentElement.style.setProperty('--sidebar-width', isCollapsed ? '70px' : '280px');
   }, [isCollapsed]);
@@ -211,7 +210,7 @@ const Sidebar = ({ className }: { className?: string }) => {
           >
             <Link to={item.href} className={cn("flex items-center gap-3 flex-1", isCollapsed && "justify-center")}>
               <item.icon className="h-4 w-4" />
-              {!isCollapsed && item.title}
+              {!isCollapsed && t(item.titleKey)}
             </Link>
             {item.subItems && !isCollapsed && (
               <ChevronDown
@@ -237,7 +236,7 @@ const Sidebar = ({ className }: { className?: string }) => {
                       location.pathname === subItem.href && "bg-rovida-soft-gray text-rovida-navy"
                     )}
                   >
-                    {subItem.title}
+                    {t(subItem.titleKey)}
                   </Link>
                 );
               })}
