@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { FileText, ArrowRight } from 'lucide-react';
+import { FileText, ArrowRight } from 'lucide-react'; // Added FileText and ArrowRight imports
 import { format } from 'date-fns';
 
 interface Document {

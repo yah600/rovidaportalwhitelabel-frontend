@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { CalendarDays } from 'lucide-react';
+import { CalendarDays } from 'lucide-react'; // Added CalendarDays import
 import { format, addDays } from 'date-fns';
 
 interface Event {

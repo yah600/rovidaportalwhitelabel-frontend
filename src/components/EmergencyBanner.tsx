@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { AlertTriangle } from 'lucide-react';
+import { AlertTriangle } from 'lucide-react'; // Added AlertTriangle import
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 

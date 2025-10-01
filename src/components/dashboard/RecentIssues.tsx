@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { mockIssues, Issue } from '@/data/mock-issues';
 import { format } from 'date-fns';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react'; // Added ArrowRight import
 
 const RecentIssues = () => {
   const { t } = useTranslation();
