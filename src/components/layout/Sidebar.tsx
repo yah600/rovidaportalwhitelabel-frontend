@@ -90,11 +90,11 @@ const Sidebar = ({ className }: { className?: string }) => {
     },
     {
       title: t('documents'),
-      href: '/documents',
+      href: '/documents', // This now points to the overview page
       icon: FileText,
       subItems: [
         { title: 'Inbox', href: '/documents/inbox', icon: Mail },
-        { title: 'Registry', href: '/documents', icon: FileText },
+        { title: 'Registry', href: '/documents/registry', icon: FileText }, // Updated link
       ],
     },
     {

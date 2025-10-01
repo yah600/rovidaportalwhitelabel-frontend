@@ -29,7 +29,8 @@ import BoardMeetings from "./pages/board/Meetings";
 import BoardMeetingDetail from "./pages/board/MeetingDetail";
 import BoardVotes from "./pages/board/Votes";
 import BoardVoteDetail from "./pages/board/VoteDetail";
-import Documents from "./pages/Documents";
+import Documents from "./pages/Documents"; // New Documents overview page
+import DocumentsRegistry from "./pages/documents/Registry"; // Renamed Documents table page
 import DocumentsInbox from "./pages/documents/Inbox";
 import DocumentDetail from "./pages/documents/DocumentDetail";
 import Comms from "./pages/Comms";
@@ -95,8 +96,9 @@ const App = () => (
             <Route path="board/meetings/:id" element={<BoardMeetingDetail />} />
             <Route path="board/votes" element={<BoardVotes />} />
             <Route path="board/votes/:id" element={<BoardVoteDetail />} />
-            <Route path="documents" element={<Documents />} />
+            <Route path="documents" element={<Documents />} /> {/* New Documents overview */}
             <Route path="documents/inbox" element={<DocumentsInbox />} />
+            <Route path="documents/registry" element={<DocumentsRegistry />} /> {/* Renamed Documents table */}
             <Route path="documents/:id" element={<DocumentDetail />} />
             <Route path="comms" element={<Comms />} /> {/* Added a base route for Comms */}
             <Route path="comms/announcements" element={<CommsAnnouncements />} />
