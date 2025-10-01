@@ -51,10 +51,10 @@ const IssuesTable = ({ issues }: IssuesTableProps) => {
   };
 
   return (
-    <div className="rounded-md border border-rovida-soft-gray">
+    <div className="rounded-md border border-rovida-soft-gray bg-white/80 backdrop-blur-xl shadow-subtle">
       <Table>
         <TableHeader>
-          <TableRow>
+          <TableRow className="hover:bg-transparent"> {/* Prevent hover effect on header row */}
             <TableHead className="w-[100px] text-rovida-navy">ID</TableHead>
             <TableHead className="text-rovida-navy">Title</TableHead>
             <TableHead className="text-rovida-navy">Unit</TableHead>
@@ -67,7 +67,7 @@ const IssuesTable = ({ issues }: IssuesTableProps) => {
         </TableHeader>
         <TableBody>
           {issues.map((issue) => (
-            <TableRow key={issue.id}>
+            <TableRow key={issue.id} className="hover:bg-rovida-soft-gray/50 transition-colors"> {/* Subtle hover effect */}
               <TableCell className="font-medium">
                 <Link to={`/issues/${issue.id}`} className="text-primary hover:underline">
                   {issue.id}

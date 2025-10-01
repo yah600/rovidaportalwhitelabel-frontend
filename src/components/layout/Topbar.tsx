@@ -30,7 +30,7 @@ const Topbar = () => {
         <div className="text-lg font-semibold text-rovida-gold">Gestion Rovida</div>
 
         <Select defaultValue={currentBuildingId}>
-          <SelectTrigger className="w-[180px] border-rovida-soft-gray text-rovida-near-black">
+          <SelectTrigger className="w-[180px] border-rovida-soft-gray text-rovida-near-black bg-white/60">
             <SelectValue placeholder={t('select_building')} />
           </SelectTrigger>
           <SelectContent className="bg-white/80 backdrop-blur-xl border-rovida-soft-gray">

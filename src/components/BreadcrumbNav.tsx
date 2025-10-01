@@ -38,16 +38,16 @@ const BreadcrumbNav = ({ items }: BreadcrumbNavProps) => {
   const breadcrumbItems = items || defaultItems;
 
   return (
-    <nav aria-label="breadcrumb" className="flex">
+    <nav aria-label="breadcrumb" className="flex py-2"> {/* Added vertical padding */}
       <ol className="flex items-center space-x-1 text-sm text-rovida-slate-green-gray">
         {breadcrumbItems.map((item, index) => (
           <li key={item.href} className="flex items-center">
-            {index > 0 && <ChevronRight className="h-4 w-4 mx-1" />}
+            {index > 0 && <ChevronRight className="h-4 w-4 mx-1 text-rovida-slate-green-gray" />} {/* Consistent icon color */}
             <Link
               to={item.href}
               className={cn(
                 "hover:text-rovida-gold transition-colors",
-                index === breadcrumbItems.length - 1 && "text-rovida-gold font-medium"
+                index === breadcrumbItems.length - 1 ? "text-rovida-gold font-medium" : "text-rovida-slate-green-gray" // Ensure non-active links are slate-green-gray
               )}
             >
               {index === 0 && item.href === '/' ? <HomeIcon className="h-4 w-4 inline-block mr-1" /> : null}

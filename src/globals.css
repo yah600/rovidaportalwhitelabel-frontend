@@ -154,7 +154,7 @@
     @apply text-primary hover:underline hover:decoration-rovida-gold; /* Changed to text-primary for better contrast */
   }
   .card-rovida {
-    @apply bg-white rounded-lg border border-rovida-soft-gray shadow-subtle;
+    @apply bg-white/80 backdrop-blur-xl rounded-lg border border-rovida-soft-gray shadow-subtle;
   }
   .text-page-title {
     @apply text-rovida-gold; /* New utility class for main page titles */

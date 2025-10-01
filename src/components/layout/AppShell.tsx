@@ -35,7 +35,7 @@ const AppShell = (/* { children }: AppShellProps */) => { // Remove children pro
       <Sidebar />
       <div className="flex flex-col">
         <Topbar />
-        <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
+        <main className="flex flex-1 flex-col gap-6 p-6"> {/* Increased gap and padding for more negative space */}
           <Outlet /> {/* Render child routes here */}
         </main>
         <MadeWithDyad />

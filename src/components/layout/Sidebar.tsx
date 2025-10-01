@@ -164,9 +164,8 @@ const Sidebar = ({ className }: { className?: string }) => {
         <div key={item.href}>
           <div
             className={cn(
-              "flex items-center gap-3 rounded-lg px-3 py-2 text-rovida-near-black transition-all hover:text-rovida-navy",
-              isActive && "bg-rovida-soft-gray text-rovida-navy",
-              item.subItems && "cursor-pointer"
+              "flex items-center gap-3 rounded-lg px-3 py-2 text-rovida-near-black transition-all hover:bg-rovida-soft-gray hover:text-rovida-navy",
+              isActive && "bg-rovida-soft-gray text-rovida-navy"
             )}
             onClick={() => item.subItems ? toggleSubMenu(item.href) : null}
           >
@@ -190,7 +189,7 @@ const Sidebar = ({ className }: { className?: string }) => {
                   key={subItem.href}
                   to={subItem.href}
                   className={cn(
-                    "flex items-center gap-3 rounded-lg px-3 py-2 text-rovida-near-black transition-all hover:text-rovida-navy text-sm",
+                    "flex items-center gap-3 rounded-lg px-3 py-2 text-rovida-near-black transition-all hover:bg-rovida-soft-gray hover:text-rovida-navy text-sm",
                     location.pathname === subItem.href && "bg-rovida-soft-gray text-rovida-navy"
                   )}
                 >
