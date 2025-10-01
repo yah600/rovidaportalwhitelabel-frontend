@@ -3,6 +3,14 @@ import * as math from 'mathjs';
 
 import './GradualBlur.css';
 
+const CURVE_FUNCTIONS = {
+  linear: (p: number) => p,
+  bezier: (p: number) => p * p * (3 - 2 * p),
+  'ease-in': (p: number) => p * p,
+  'ease-out': (p: number) => 1 - Math.pow(1 - p, 2),
+  'ease-in-out': (p: number) => (p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2)
+};
+
 interface GradualBlurProps {
   preset?: string;
   position?: 'top' | 'bottom' | 'left' | 'right';
@@ -273,11 +281,3 @@ const injectStyles = () => {
 if (typeof document !== 'undefined') {
   injectStyles();
 }
-
-const CURVE_FUNCTIONS = {
-  linear: (p: number) => p,
-  bezier: (p: number) => p * p * (3 - 2 * p),
-  'ease-in': (p: number) => p * p,
-  'ease-out': (p: number) => 1 - Math.pow(1 - p, 2),
-  'ease-in-out': (p: number) => (p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2)
-};
