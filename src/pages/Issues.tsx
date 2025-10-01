@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { mockIssues, Issue } from '@/data/mock-issues';
 import IssuesTable from '@/components/issues/IssuesTable';
 import GooeyNav from '@/components/GooeyNav'; // Import GooeyNav
+import BreadcrumbNav from '@/components/BreadcrumbNav'; // Import BreadcrumbNav
 
 const Issues = () => {
   const { t } = useTranslation();
@@ -29,8 +30,13 @@ const Issues = () => {
     { label: 'Closed', href: '#' },
   ];
 
+  const breadcrumbItems = [
+    { label: t('issues'), href: '/issues' },
+  ];
+
   return (
     <div className="flex flex-1 flex-col gap-4">
+      <BreadcrumbNav items={breadcrumbItems} />
       <header className="flex items-center justify-between">
         <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('issues')}</h1>
         <Link to="/issues/new">
