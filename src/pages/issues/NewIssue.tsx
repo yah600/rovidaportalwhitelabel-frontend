@@ -68,22 +68,22 @@ const NewIssue = () => {
           <Stepper onFinalStepCompleted={form.handleSubmit(onSubmit)} nextButtonText="Next" backButtonText="Back">
             <Step>
               <div className="grid gap-4">
-                <div className="grid grid-cols-4 items-center gap-4">
-                  <Label htmlFor="title" className="text-right text-rovida-near-black">
+                <div className="grid md:grid-cols-4 items-center gap-4">
+                  <Label htmlFor="title" className="md:text-right text-rovida-near-black">
                     Title
                   </Label>
-                  <div className="col-span-3">
+                  <div className="md:col-span-3">
                     <Input id="title" placeholder="Short summary of the incident" {...form.register("title")} className="border-rovida-soft-gray text-rovida-near-black" />
                     {form.formState.errors.title && (
                       <p className="text-rovida-error text-sm mt-1">{form.formState.errors.title.message}</p>
                     )}
                   </div>
                 </div>
-                <div className="grid grid-cols-4 items-center gap-4">
-                  <Label htmlFor="description" className="text-right text-rovida-near-black">
+                <div className="grid md:grid-cols-4 items-center gap-4">
+                  <Label htmlFor="description" className="md:text-right text-rovida-near-black">
                     Description
                   </Label>
-                  <div className="col-span-3">
+                  <div className="md:col-span-3">
                     <Textarea id="description" placeholder="Detailed description of the incident" {...form.register("description")} className="border-rovida-soft-gray text-rovida-near-black" />
                     {form.formState.errors.description && (
                       <p className="text-rovida-error text-sm mt-1">{form.formState.errors.description.message}</p>
@@ -94,11 +94,11 @@ const NewIssue = () => {
             </Step>
             <Step>
               <div className="grid gap-4">
-                <div className="grid grid-cols-4 items-center gap-4">
-                  <Label htmlFor="unit" className="text-right text-rovida-near-black">
+                <div className="grid md:grid-cols-4 items-center gap-4">
+                  <Label htmlFor="unit" className="md:text-right text-rovida-near-black">
                     Unit
                   </Label>
-                  <div className="col-span-3">
+                  <div className="md:col-span-3">
                     <Select onValueChange={(value) => form.setValue("unit", value)} value={form.watch("unit")}>
                       <SelectTrigger id="unit" className="border-rovida-soft-gray text-rovida-near-black">
                         <SelectValue placeholder="Select unit" />
@@ -114,11 +114,11 @@ const NewIssue = () => {
                     )}
                   </div>
                 </div>
-                <div className="grid grid-cols-4 items-center gap-4">
-                  <Label htmlFor="type" className="text-right text-rovida-near-black">
+                <div className="grid md:grid-cols-4 items-center gap-4">
+                  <Label htmlFor="type" className="md:text-right text-rovida-near-black">
                     Type
                   </Label>
-                  <div className="col-span-3">
+                  <div className="md:col-span-3">
                     <Select onValueChange={(value) => form.setValue("type", value)} value={form.watch("type")}>
                       <SelectTrigger id="type" className="border-rovida-soft-gray text-rovida-near-black">
                         <SelectValue placeholder="Select type" />
@@ -139,11 +139,11 @@ const NewIssue = () => {
             </Step>
             <Step>
               <div className="grid gap-4">
-                <div className="grid grid-cols-4 items-center gap-4">
-                  <Label htmlFor="urgent" className="text-right text-rovida-near-black">
+                <div className="grid md:grid-cols-4 items-center gap-4">
+                  <Label htmlFor="urgent" className="md:text-right text-rovida-near-black">
                     Urgent?
                   </Label>
-                  <div className="col-span-3 flex items-center space-x-2">
+                  <div className="md:col-span-3 flex items-center space-x-2">
                     <Checkbox id="urgent" checked={form.watch("urgent")} onCheckedChange={(checked) => form.setValue("urgent", !!checked)} className="border-rovida-slate-green-gray data-[state=checked]:bg-rovida-gold data-[state=checked]:text-white" />
                     <label
                       htmlFor="urgent"
@@ -153,11 +153,11 @@ const NewIssue = () => {
                     </label>
                   </div>
                 </div>
-                <div className="grid grid-cols-4 items-center gap-4">
-                  <Label htmlFor="photos" className="text-right text-rovida-near-black">
+                <div className="grid md:grid-cols-4 items-center gap-4">
+                  <Label htmlFor="photos" className="md:text-right text-rovida-near-black">
                     Photos
                   </Label>
-                  <Input id="photos" type="file" multiple className="col-span-3 border-rovida-soft-gray text-rovida-near-black" {...form.register("photos")} />
+                  <Input id="photos" type="file" multiple className="md:col-span-3 border-rovida-soft-gray text-rovida-near-black" {...form.register("photos")} />
                 </div>
               </div>
             </Step>

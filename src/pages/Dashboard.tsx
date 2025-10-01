@@ -27,13 +27,25 @@ const Dashboard = () => {
   const hasActiveEmergency = true; // This would come from an API call
 
   // Placeholder for loading states
-  const isLoadingKPIs = false;
+  const [isLoadingKPIs, setIsLoadingKPIs] = React.useState(true);
+
+  React.useEffect(() => {
+    const timer = setTimeout(() => setIsLoadingKPIs(false), 1000); // Simulate loading
+    return () => clearTimeout(timer);
+  }, []);
 
   // Calculate dynamic KPI values
   const openIssuesCount = mockIssues.filter(issue => issue.status === 'Open' || issue.status === 'In Progress' || issue.status === 'Pending').length;
   const overdueBillsCount = mockBills.filter(bill => bill.status === 'Overdue').length;
   const dueTasksCount = mockTasks.filter(task => task.status !== 'Completed' && task.dueDate <= new Date()).length;
   const openVotesCount = mockVotes.filter(vote => vote.status === 'Open').length;
+
+  const kpiCards = [
+    { title: t('open_issues'), value: openIssuesCount, trend: '+10% from last month' },
+    { title: t('overdue_bills'), value: overdueBillsCount, trend: '-5% from last month' },
+    { title: t('due_tasks'), value: dueTasksCount, trend: '+20% from last month' },
+    { title: t('open_votes'), value: openVotesCount, trend: 'No change' },
+  ];
 
   return (
     <div className="flex flex-1 flex-col gap-4">
@@ -62,80 +74,30 @@ const Dashboard = () => {
       )}
 
       <div className="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
-        {isLoadingKPIs ? (
-          Array.from({ length: 4 }).map((_, i) => (
-            <Card key={i} className="card-rovida">
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">
-                  <Skeleton className="h-4 w-[100px]" />
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold">
-                  <Skeleton className="h-8 w-[80px]" />
-                </div>
-                <p className="text-xs text-rovida-slate-green-gray">
-                  <Skeleton className="h-3 w-[150px] mt-1" />
-                </p>
-              </CardContent>
-            </Card>
-          ))
-        ) : (
-          <>
-            <AnimatedContent delay={0.1}>
-              <GlassSurface width="100%" height="auto" borderRadius={10} blur={15} backgroundOpacity={0.1} className="p-4">
-                <Card className="w-full h-full bg-transparent border-none shadow-none">
-                  <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                    <CardTitle className="text-sm font-medium text-rovida-navy">{t('open_issues')}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <Counter value={openIssuesCount} fontSize={24} places={[100, 10, 1]} textColor="#111418" fontWeight={700} gradientFrom="rgba(255,255,255,0.5)" gradientTo="rgba(255,255,255,0)" />
-                    <p className="text-xs text-rovida-slate-green-gray">+10% from last month</p> {/* Placeholder trend */}
-                  </CardContent>
-                </Card>
-              </GlassSurface>
-            </AnimatedContent>
-            <AnimatedContent delay={0.2}>
-              <GlassSurface width="100%" height="auto" borderRadius={10} blur={15} backgroundOpacity={0.1} className="p-4">
-                <Card className="w-full h-full bg-transparent border-none shadow-none">
-                  <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                    <CardTitle className="text-sm font-medium text-rovida-navy">{t('overdue_bills')}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <Counter value={overdueBillsCount} fontSize={24} places={[100, 10, 1]} textColor="#111418" fontWeight={700} gradientFrom="rgba(255,255,255,0.5)" gradientTo="rgba(255,255,255,0)" />
-                    <p className="text-xs text-rovida-slate-green-gray">-5% from last month</p> {/* Placeholder trend */}
-                  </CardContent>
-                </Card>
-              </GlassSurface>
-            </AnimatedContent>
-            <AnimatedContent delay={0.3}>
-              <GlassSurface width="100%" height="auto" borderRadius={10} blur={15} backgroundOpacity={0.1} className="p-4">
-                <Card className="w-full h-full bg-transparent border-none shadow-none">
-                  <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                    <CardTitle className="text-sm font-medium text-rovida-navy">{t('due_tasks')}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <Counter value={dueTasksCount} fontSize={24} places={[100, 10, 1]} textColor="#111418" fontWeight={700} gradientFrom="rgba(255,255,255,0.5)" gradientTo="rgba(255,255,255,0)" />
-                    <p className="text-xs text-rovida-slate-green-gray">+20% from last month</p> {/* Placeholder trend */}
-                  </CardContent>
-                </Card>
-              </GlassSurface>
-            </AnimatedContent>
-            <AnimatedContent delay={0.4}>
-              <GlassSurface width="100%" height="auto" borderRadius={10} blur={15} backgroundOpacity={0.1} className="p-4">
-                <Card className="w-full h-full bg-transparent border-none shadow-none">
-                  <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                    <CardTitle className="text-sm font-medium text-rovida-navy">{t('open_votes')}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <Counter value={openVotesCount} fontSize={24} places={[100, 10, 1]} textColor="#111418" fontWeight={700} gradientFrom="rgba(255,255,255,0.5)" gradientTo="rgba(255,255,255,0)" />
-                    <p className="text-xs text-rovida-slate-green-gray">No change</p> {/* Placeholder trend */}
-                  </CardContent>
-                </Card>
-              </GlassSurface>
-            </AnimatedContent>
-          </>
-        )}
+        {kpiCards.map((kpi, i) => (
+          <AnimatedContent key={i} delay={0.1 * (i + 1)}>
+            <GlassSurface width="100%" height="auto" borderRadius={10} blur={15} backgroundOpacity={0.1} className="p-4">
+              <Card className="w-full h-full bg-transparent border-none shadow-none flex flex-col justify-between">
+                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                  <CardTitle className="text-sm font-medium text-rovida-navy">{kpi.title}</CardTitle>
+                </CardHeader>
+                <CardContent className="flex flex-col justify-end h-full pt-0">
+                  {isLoadingKPIs ? (
+                    <>
+                      <Skeleton className="h-8 w-[80px] mb-2" />
+                      <Skeleton className="h-3 w-[150px]" />
+                    </>
+                  ) : (
+                    <>
+                      <Counter value={kpi.value} fontSize={24} places={[100, 10, 1]} textColor="#111418" fontWeight={700} gradientFrom="rgba(255,255,255,0.5)" gradientTo="rgba(255,255,255,0)" />
+                      <p className="text-xs text-rovida-slate-green-gray mt-1">{kpi.trend}</p>
+                    </>
+                  )}
+                </CardContent>
+              </Card>
+            </GlassSurface>
+          </AnimatedContent>
+        ))}
       </div>
 
       <div className="grid gap-4 md:gap-8 lg:grid-cols-2 xl:grid-cols-3">

@@ -27,13 +27,13 @@ const SettingsFeedback = () => {
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="grid gap-4">
-            <div className="grid gap-2">
-              <Label htmlFor="feedback-subject" className="text-rovida-near-black">Subject</Label>
-              <Input id="feedback-subject" type="text" placeholder="e.g., Feature Request, Bug Report" required className="border-rovida-soft-gray text-rovida-near-black" />
+            <div className="grid md:grid-cols-4 items-center gap-4">
+              <Label htmlFor="feedback-subject" className="md:text-right text-rovida-near-black">Subject</Label>
+              <Input id="feedback-subject" type="text" placeholder="e.g., Feature Request, Bug Report" required className="md:col-span-3 border-rovida-soft-gray text-rovida-near-black" />
             </div>
-            <div className="grid gap-2">
-              <Label htmlFor="feedback-message" className="text-rovida-near-black">Your Feedback</Label>
-              <Textarea id="feedback-message" placeholder="Describe your feedback here..." rows={6} required className="border-rovida-soft-gray text-rovida-near-black" />
+            <div className="grid md:grid-cols-4 items-start gap-4">
+              <Label htmlFor="feedback-message" className="md:text-right text-rovida-near-black">Your Feedback</Label>
+              <Textarea id="feedback-message" placeholder="Describe your feedback here..." rows={6} required className="md:col-span-3 border-rovida-soft-gray text-rovida-near-black" />
             </div>
             <Button type="submit" className="w-full btn-primary">
               <Send className="mr-2 h-4 w-4" /> Send Feedback
