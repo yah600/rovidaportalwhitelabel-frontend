@@ -16,10 +16,16 @@ const AppShell = () => {
   const { currentUser } = useUser(); // Get currentUser from context
   const { canRead, canCreate } = useAuth(); // Destructure canRead and canCreate
 
-  // Redirect to login if not authenticated
+  // Redirect to login if not authenticated or to onboarding if not onboarded
   useEffect(() => {
-    if (!currentUser && !location.pathname.startsWith('/auth') && location.pathname !== '/onboarding') {
-      navigate('/auth/login');
+    if (!currentUser) {
+      if (!location.pathname.startsWith('/auth') && location.pathname !== '/onboarding') {
+        navigate('/auth/login');
+      }
+    } else if (!currentUser.onboarded) {
+      if (location.pathname !== '/onboarding') {
+        navigate('/onboarding');
+      }
     }
   }, [currentUser, location.pathname, navigate]);
 
@@ -33,6 +39,11 @@ const AppShell = () => {
 
   // If not logged in, render nothing or a loading spinner while redirecting
   if (!currentUser && !location.pathname.startsWith('/auth') && location.pathname !== '/onboarding') {
+    return null;
+  }
+
+  // If logged in but not onboarded, and not on the onboarding page, render nothing to prevent flicker
+  if (currentUser && !currentUser.onboarded && location.pathname !== '/onboarding') {
     return null;
   }
 

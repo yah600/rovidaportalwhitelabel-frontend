@@ -31,7 +31,11 @@ const Login = () => {
       toast.success(`Welcome, ${foundUser.user.name}!`, {
         description: 'You have successfully logged in.',
       });
-      navigate('/dashboard'); // Redirect to dashboard on successful login
+      if (!foundUser.user.onboarded) {
+        navigate('/onboarding'); // Redirect to onboarding if not yet completed
+      } else {
+        navigate('/dashboard'); // Redirect to dashboard on successful login
+      }
     } else {
       setError('Invalid email or password.');
       toast.error('Login Failed', {

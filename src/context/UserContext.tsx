@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
 
 // Define the structure for a user's roles and scope
 export interface UserRole {
@@ -19,6 +19,15 @@ export interface CurrentUser {
   name: string;
   email: string;
   roles: UserRole[];
+  onboarded: boolean; // Added onboarded status
+  phoneNumber?: string;
+  notificationPreferences?: {
+    emailIssues: boolean;
+    emailAnnouncements: boolean;
+    emailBilling: boolean;
+    smsEmergency: boolean;
+    smsMaintenance: boolean;
+  };
   // Add any other user-specific data needed for authorization
 }
 
@@ -33,6 +42,7 @@ export const MOCK_USERS: { email: string; password: string; user: CurrentUser }[
       name: 'Platform Owner',
       email: 'platform.owner@example.com',
       roles: [{ name: 'Platform Owner', scope: { isSuper: true } }],
+      onboarded: false,
     },
   },
   {
@@ -43,6 +53,7 @@ export const MOCK_USERS: { email: string; password: string; user: CurrentUser }[
       name: 'Client Super-Admin',
       email: 'client.super@example.com',
       roles: [{ name: 'Client Super-Administrator', scope: { orgId: 'org-rovida-001' } }],
+      onboarded: false,
     },
   },
   {
@@ -53,6 +64,7 @@ export const MOCK_USERS: { email: string; password: string; user: CurrentUser }[
       name: 'Condo Admin',
       email: 'condo.admin@example.com',
       roles: [{ name: 'Condo Administrator', scope: { orgId: 'org-rovida-001', buildingIds: ['BLD001', 'BLD002'] } }],
+      onboarded: false,
     },
   },
   {
@@ -63,6 +75,7 @@ export const MOCK_USERS: { email: string; password: string; user: CurrentUser }[
       name: 'Property Manager',
       email: 'property.manager@example.com',
       roles: [{ name: 'Property Manager', scope: { orgId: 'org-rovida-001', buildingIds: ['BLD001'] } }],
+      onboarded: false,
     },
   },
   {
@@ -73,6 +86,7 @@ export const MOCK_USERS: { email: string; password: string; user: CurrentUser }[
       name: 'Accountant',
       email: 'accountant@example.com',
       roles: [{ name: 'Accountant', scope: { orgId: 'org-rovida-001' } }],
+      onboarded: false,
     },
   },
   {
@@ -83,6 +97,7 @@ export const MOCK_USERS: { email: string; password: string; user: CurrentUser }[
       name: 'Board Member',
       email: 'board.member@example.com',
       roles: [{ name: 'Board Member', scope: { orgId: 'org-rovida-001' } }],
+      onboarded: false,
     },
   },
   {
@@ -93,6 +108,7 @@ export const MOCK_USERS: { email: string; password: string; user: CurrentUser }[
       name: 'Owner',
       email: 'owner@example.com',
       roles: [{ name: 'Owner', scope: { orgId: 'org-rovida-001', unitIds: ['UNIT001'] } }],
+      onboarded: false,
     },
   },
   {
@@ -103,6 +119,7 @@ export const MOCK_USERS: { email: string; password: string; user: CurrentUser }[
       name: 'Tenant',
       email: 'tenant@example.com',
       roles: [{ name: 'Tenant', scope: { orgId: 'org-rovida-001', unitIds: ['UNIT002'] } }],
+      onboarded: false,
     },
   },
   {
@@ -113,6 +130,7 @@ export const MOCK_USERS: { email: string; password: string; user: CurrentUser }[
       name: 'Vendor',
       email: 'vendor@example.com',
       roles: [{ name: 'Vendor / Service Provider', scope: { orgId: 'org-rovida-001', vendorId: 'VND001' } }],
+      onboarded: false,
     },
   },
   {
@@ -123,6 +141,7 @@ export const MOCK_USERS: { email: string; password: string; user: CurrentUser }[
       name: 'Emergency Agent',
       email: 'emergency.agent@example.com',
       roles: [{ name: 'Emergency Agent', scope: { orgId: 'org-rovida-001', buildingIds: ['BLD001'] } }],
+      onboarded: false,
     },
   },
   {
@@ -133,6 +152,7 @@ export const MOCK_USERS: { email: string; password: string; user: CurrentUser }[
       name: 'Concierge',
       email: 'concierge@example.com',
       roles: [{ name: 'Concierge / Front Desk / Security', scope: { orgId: 'org-rovida-001', buildingIds: ['BLD001'] } }],
+      onboarded: false,
     },
   },
   {
@@ -143,6 +163,7 @@ export const MOCK_USERS: { email: string; password: string; user: CurrentUser }[
       name: 'Technician',
       email: 'technician@example.com',
       roles: [{ name: 'Building Maintenance Technician', scope: { orgId: 'org-rovida-001', buildingIds: ['BLD001'] } }],
+      onboarded: false,
     },
   },
   {
@@ -153,6 +174,7 @@ export const MOCK_USERS: { email: string; password: string; user: CurrentUser }[
       name: 'Auditor',
       email: 'auditor@example.com',
       roles: [{ name: 'Read-Only Auditor', scope: { orgId: 'org-rovida-001' } }],
+      onboarded: false,
     },
   },
 ];
@@ -160,15 +182,42 @@ export const MOCK_USERS: { email: string; password: string; user: CurrentUser }[
 interface UserContextType {
   currentUser: CurrentUser | null;
   setCurrentUser: (user: CurrentUser | null) => void;
+  updateCurrentUser: (updates: Partial<CurrentUser>) => void; // Added update function
 }
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
 
 export const UserProvider = ({ children }: { children: ReactNode }) => {
-  const [currentUser, setCurrentUser] = useState<CurrentUser | null>(null); // Initial state is null
+  const [currentUser, setCurrentUser] = useState<CurrentUser | null>(() => {
+    // Initialize from local storage
+    if (typeof window !== 'undefined') {
+      const savedUser = localStorage.getItem('currentUser');
+      return savedUser ? JSON.parse(savedUser) : null;
+    }
+    return null;
+  });
+
+  useEffect(() => {
+    // Persist to local storage whenever currentUser changes
+    if (typeof window !== 'undefined') {
+      if (currentUser) {
+        localStorage.setItem('currentUser', JSON.stringify(currentUser));
+      } else {
+        localStorage.removeItem('currentUser');
+      }
+    }
+  }, [currentUser]);
+
+  const updateCurrentUser = (updates: Partial<CurrentUser>) => {
+    setCurrentUser(prevUser => {
+      if (!prevUser) return null;
+      const updatedUser = { ...prevUser, ...updates };
+      return updatedUser;
+    });
+  };
 
   return (
-    <UserContext.Provider value={{ currentUser, setCurrentUser }}>
+    <UserContext.Provider value={{ currentUser, setCurrentUser, updateCurrentUser }}>
       {children}
     </UserContext.Provider>
   );

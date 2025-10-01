@@ -29,16 +29,20 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Maintenance': { read: true, create: true, update: true, delete: true, approve: true, export: true, special: true },
     'Maintenance Agenda XLSX': { read: true, create: true, update: true, delete: true, approve: true, export: true, special: true },
     'Finance': { read: true, create: true, update: true, delete: true, approve: true, export: true, special: true }, // Covers all finance sub-modules
+    'Finance - Bills/Recurring/Deposits': { read: true, create: true, update: true, delete: true, approve: true, export: true },
+    'Finance - Statements': { read: true, export: true },
+    'Finance - Ledger/Trial Balance': { read: true, export: true },
+    'Finance - Late Fees/NSF/Reconciliation': { approve: true, update: true, export: true },
+    'Finance - Reports': { read: true, export: true },
     'Board': { read: true, create: true, update: true, delete: true, approve: true, export: true, special: true }, // Covers all board sub-modules
+    'Board - Meetings/Votes': { read: true, create: true, update: true, approve: true },
     'Documents': { read: true, create: true, update: true, delete: true, approve: true, export: true, special: true },
     'Communications': { read: true, create: true, update: true, delete: true, approve: true, export: true, special: true },
     'Integrations': { read: true, create: true, update: true, delete: true, approve: true, export: true, special: true },
     'Analytics': { read: true, create: true, update: true, delete: true, approve: true, export: true, special: true },
     'Settings': { read: true, create: true, update: true, delete: true, approve: true, export: true, special: true }, // Covers all settings sub-modules
     'Profile': { read: true, create: true, update: true, delete: true, approve: true, export: true, special: true },
-    'About Us': { read: true },
-    'CardNav Demo': { read: true },
-    'Onboarding': { read: true },
+    'Feedback': { read: true, create: true, update: true, delete: true, approve: true, export: true, special: true },
   },
   'Client Super-Administrator': {
     'Dashboard': { read: true },
@@ -47,8 +51,8 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Maintenance': { read: true, create: true, update: true, delete: true, approve: true },
     'Maintenance Agenda XLSX': { create: true, update: true, delete: true, approve: true },
     'Finance': { read: true, create: true, update: true, delete: true, approve: true, export: true }, // General finance access
-    'Finance - Statements': { read: true, export: true },
     'Finance - Bills/Recurring/Deposits': { read: true, create: true, update: true, delete: true, approve: true, export: true },
+    'Finance - Statements': { read: true, export: true },
     'Finance - Ledger/Trial Balance': { read: true, export: true },
     'Finance - Late Fees/NSF/Reconciliation': { approve: true, update: true, export: true },
     'Finance - Reports': { read: true, export: true },
@@ -60,9 +64,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Analytics': { read: true },
     'Settings': { read: true, create: true, update: true, delete: true, export: true },
     'Profile': { read: true, update: true },
-    'About Us': { read: true },
-    'CardNav Demo': { read: true },
-    'Onboarding': { read: true },
+    'Feedback': { read: true, create: true, update: true, delete: true, approve: true },
   },
   'Condo Administrator': {
     'Dashboard': { read: true },
@@ -71,8 +73,8 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Maintenance': { read: true, create: true, update: true, delete: true, approve: true },
     'Maintenance Agenda XLSX': { create: true, update: true, delete: true, approve: true },
     'Finance': { read: true, create: true }, // General finance access, C for simple charges
-    'Finance - Statements': { read: true },
     'Finance - Bills/Recurring/Deposits': { read: true, create: true },
+    'Finance - Statements': { read: true },
     'Finance - Reports': { read: true },
     'Board': { read: true, create: true, update: true }, // General board access
     'Board - Meetings/Votes': { read: true, create: true, update: true },
@@ -82,9 +84,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Analytics': { read: true },
     'Settings': { read: true, create: true, update: true, delete: true },
     'Profile': { read: true, update: true },
-    'About Us': { read: true },
-    'CardNav Demo': { read: true },
-    'Onboarding': { read: true },
+    'Feedback': { read: true, create: true, update: true, delete: true },
   },
   'Property Manager': {
     'Dashboard': { read: true },
@@ -93,8 +93,8 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Maintenance': { read: true, create: true, update: true, delete: true, approve: true },
     'Maintenance Agenda XLSX': { create: true, update: true, delete: true, approve: true },
     'Finance': { read: true, create: true }, // General finance access, C for simple charges
-    'Finance - Statements': { read: true },
     'Finance - Bills/Recurring/Deposits': { read: true, create: true },
+    'Finance - Statements': { read: true },
     'Finance - Reports': { read: true },
     'Board': { read: true, create: true, update: true }, // General board access
     'Board - Meetings/Votes': { read: true, create: true, update: true },
@@ -104,9 +104,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Analytics': { read: true },
     'Settings': { read: true, create: true, update: true, delete: true },
     'Profile': { read: true, update: true },
-    'About Us': { read: true },
-    'CardNav Demo': { read: true },
-    'Onboarding': { read: true },
+    'Feedback': { read: true, create: true, update: true, delete: true },
   },
   'Accountant': {
     'Dashboard': { read: true },
@@ -114,8 +112,8 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Emergency Center': { read: true },
     'Maintenance': { read: true },
     'Finance': { read: true, create: true, update: true, delete: true, approve: true, export: true }, // Full finance access
-    'Finance - Statements': { read: true, export: true },
     'Finance - Bills/Recurring/Deposits': { read: true, create: true, update: true, delete: true, approve: true, export: true },
+    'Finance - Statements': { read: true, export: true },
     'Finance - Ledger/Trial Balance': { read: true, export: true },
     'Finance - Late Fees/NSF/Reconciliation': { create: true, update: true, approve: true, export: true },
     'Finance - Reports': { read: true, export: true },
@@ -127,9 +125,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Analytics': { read: true },
     'Settings': { read: true, update: true },
     'Profile': { read: true, update: true },
-    'About Us': { read: true },
-    'CardNav Demo': { read: true },
-    'Onboarding': { read: true },
+    'Feedback': { read: true, create: true },
   },
   'Board Member': {
     'Dashboard': { read: true },
@@ -146,9 +142,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Analytics': { read: true },
     'Settings': { read: true, update: true },
     'Profile': { read: true, update: true },
-    'About Us': { read: true },
-    'CardNav Demo': { read: true },
-    'Onboarding': { read: true },
+    'Feedback': { read: true, create: true },
   },
   'Owner': {
     'Dashboard': { read: true },
@@ -160,9 +154,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Documents': { read: true, export: true },
     'Communications': { read: true },
     'Profile': { read: true, update: true },
-    'About Us': { read: true },
-    'CardNav Demo': { read: true },
-    'Onboarding': { read: true },
+    'Feedback': { read: true, create: true },
   },
   'Tenant': {
     'Dashboard': { read: true },
@@ -174,9 +166,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Documents': { read: true, export: true },
     'Communications': { read: true },
     'Profile': { read: true, update: true },
-    'About Us': { read: true },
-    'CardNav Demo': { read: true },
-    'Onboarding': { read: true },
+    'Feedback': { read: true, create: true },
   },
   'Vendor / Service Provider': {
     'Dashboard': { read: true },
@@ -185,9 +175,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Documents': { read: true },
     'Communications': { read: true },
     'Profile': { read: true, update: true },
-    'About Us': { read: true },
-    'CardNav Demo': { read: true },
-    'Onboarding': { read: true },
+    'Feedback': { read: true, create: true },
   },
   'Emergency Agent': {
     'Dashboard': { read: true },
@@ -197,9 +185,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Documents': { read: true },
     'Communications': { read: true },
     'Profile': { read: true, update: true },
-    'About Us': { read: true },
-    'CardNav Demo': { read: true },
-    'Onboarding': { read: true },
+    'Feedback': { read: true, create: true },
   },
   'Concierge / Front Desk / Security': {
     'Dashboard': { read: true },
@@ -209,9 +195,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Documents': { read: true },
     'Communications': { read: true },
     'Profile': { read: true, update: true },
-    'About Us': { read: true },
-    'CardNav Demo': { read: true },
-    'Onboarding': { read: true },
+    'Feedback': { read: true, create: true },
   },
   'Building Maintenance Technician': {
     'Dashboard': { read: true },
@@ -221,9 +205,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Documents': { read: true },
     'Communications': { read: true },
     'Profile': { read: true, update: true },
-    'About Us': { read: true },
-    'CardNav Demo': { read: true },
-    'Onboarding': { read: true },
+    'Feedback': { read: true, create: true },
   },
   'Read-Only Auditor': {
     'Finance': { read: true, export: true }, // General finance access
@@ -232,9 +214,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Finance - Reports': { read: true, export: true },
     'Documents': { read: true, export: true },
     'Profile': { read: true, update: true },
-    'About Us': { read: true },
-    'CardNav Demo': { read: true },
-    'Onboarding': { read: true },
+    'Feedback': { read: true },
   },
 };
 
