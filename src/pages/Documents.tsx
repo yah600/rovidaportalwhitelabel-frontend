@@ -5,6 +5,7 @@ import BreadcrumbNav from '@/components/BreadcrumbNav';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { FileText, UploadCloud, Mail, ArrowRight } from 'lucide-react';
 import { mockDocuments } from '@/data/mock-documents';
+import { mockInboxDocuments } from '@/data/mock-inbox-documents'; // Import mockInboxDocuments
 import { format } from 'date-fns';
 
 const Documents = () => {
@@ -17,8 +18,11 @@ const Documents = () => {
   // Calculate summary data
   const totalDocuments = mockDocuments.length;
   const recentUploads = mockDocuments.sort((a, b) => b.uploadedAt.getTime() - a.uploadedAt.getTime()).slice(0, 3);
-  // Placeholder for documents needing review - in a real app, this would be dynamic
-  const documentsNeedingReview = 2; 
+  
+  // Dynamically calculate documents needing review
+  const documentsNeedingReview = mockInboxDocuments.filter(
+    doc => doc.status === 'New' || doc.status === 'Action Required'
+  ).length;
 
   return (
     <div className="flex flex-1 flex-col gap-4">
