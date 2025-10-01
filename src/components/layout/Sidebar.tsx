@@ -175,7 +175,8 @@ const Sidebar = ({ className }: { className?: string }) => {
     }));
   };
 
-  React.useEffect(() => {
+  // Use useLayoutEffect for DOM manipulations that affect layout
+  React.useLayoutEffect(() => {
     document.documentElement.style.setProperty('--sidebar-width', isCollapsed ? '70px' : '280px');
   }, [isCollapsed]);
 
@@ -241,10 +242,8 @@ const Sidebar = ({ className }: { className?: string }) => {
     <div
       className={cn(
         "hidden border-r border-rovida-soft-gray bg-white/80 backdrop-blur-xl md:flex flex-col transition-all duration-300 ease-in-out",
-        isCollapsed ? "w-[70px]" : "w-[280px]",
         className
       )}
-      style={{ '--sidebar-width': isCollapsed ? '70px' : '280px' } as React.CSSProperties}
     >
       <div className="flex h-14 items-center border-b border-rovida-soft-gray px-4 lg:h-[60px] lg:px-6 justify-between">
         {!isCollapsed && (
