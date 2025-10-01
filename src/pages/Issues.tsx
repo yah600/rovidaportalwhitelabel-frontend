@@ -13,7 +13,7 @@ const Issues = () => {
   return (
     <div className="flex flex-1 flex-col gap-4">
       <header className="flex items-center justify-between">
-        <h1 className="text-2xl font-semibold md:text-3xl">{t('issues')}</h1>
+        <h1 className="text-2xl font-semibold md:text-3xl text-rovida-navy">{t('issues')}</h1>
         <Link to="/issues/new">
           <Button>
             <PlusCircle className="mr-2 h-4 w-4" /> {t('create_first_ticket')}
@@ -26,10 +26,10 @@ const Issues = () => {
       ) : (
         <div className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm">
           <div className="flex flex-col items-center gap-1 text-center">
-            <h3 className="text-2xl font-bold tracking-tight">
+            <h3 className="text-2xl font-bold tracking-tight text-rovida-near-black">
               {t('no_tickets')}
             </h3>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-rovida-slate-green-gray">
               You can start by creating a new incident.
             </p>
             <Link to="/issues/new">

@@ -23,8 +23,8 @@ const Kanban = () => {
   return (
     <div className="flex flex-1 flex-col gap-4">
       <BreadcrumbNav items={breadcrumbItems} />
-      <h1 className="text-2xl font-semibold md:text-3xl">{t('issues')} Kanban Board</h1>
-      <p className="text-muted-foreground">Visualize and manage your incidents.</p>
+      <h1 className="text-2xl font-semibold md:text-3xl text-rovida-navy">{t('issues')} Kanban Board</h1>
+      <p className="text-rovida-slate-green-gray">Visualize and manage your incidents.</p>
 
       <div className="flex flex-1 overflow-x-auto gap-4 pb-4">
         {columns.map((column) => (

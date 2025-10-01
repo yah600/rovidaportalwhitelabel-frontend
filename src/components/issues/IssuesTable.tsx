@@ -38,53 +38,53 @@ const IssuesTable = ({ issues }: IssuesTableProps) => {
   const getPriorityColor = (priority: Issue['priority']) => {
     switch (priority) {
       case 'Critical':
-        return 'bg-red-500 text-white';
+        return 'bg-rovida-error text-white'; // Using Rovida error
       case 'High':
-        return 'bg-orange-500 text-white';
+        return 'bg-rovida-warning text-white'; // Using Rovida warning
       case 'Medium':
-        return 'bg-yellow-500 text-black';
+        return 'bg-rovida-gold text-white'; // Using Rovida gold
       case 'Low':
-        return 'bg-green-500 text-white';
+        return 'bg-rovida-success text-white'; // Using Rovida success
       default:
-        return 'bg-gray-200 text-gray-800';
+        return 'bg-rovida-soft-gray text-rovida-near-black';
     }
   };
 
   return (
-    <div className="rounded-md border">
+    <div className="rounded-md border border-rovida-soft-gray">
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead className="w-[100px]">ID</TableHead>
-            <TableHead>Title</TableHead>
-            <TableHead>Unit</TableHead>
-            <TableHead>Type</TableHead>
-            <TableHead>Status</TableHead>
-            <TableHead>Priority</TableHead>
-            <TableHead>Created At</TableHead>
-            <TableHead className="text-right">Actions</TableHead>
+            <TableHead className="w-[100px] text-rovida-navy">ID</TableHead>
+            <TableHead className="text-rovida-navy">Title</TableHead>
+            <TableHead className="text-rovida-navy">Unit</TableHead>
+            <TableHead className="text-rovida-navy">Type</TableHead>
+            <TableHead className="text-rovida-navy">Status</TableHead>
+            <TableHead className="text-rovida-navy">Priority</TableHead>
+            <TableHead className="text-rovida-navy">Created At</TableHead>
+            <TableHead className="text-right text-rovida-navy">Actions</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           {issues.map((issue) => (
             <TableRow key={issue.id}>
               <TableCell className="font-medium">
-                <Link to={`/issues/${issue.id}`} className="text-primary hover:underline">
+                <Link to={`/issues/${issue.id}`} className="text-rovida-navy hover:underline">
                   {issue.id}
                 </Link>
               </TableCell>
-              <TableCell>{issue.title}</TableCell>
-              <TableCell>{issue.unit}</TableCell>
-              <TableCell>{issue.type}</TableCell>
+              <TableCell className="text-rovida-near-black">{issue.title}</TableCell>
+              <TableCell className="text-rovida-near-black">{issue.unit}</TableCell>
+              <TableCell className="text-rovida-near-black">{issue.type}</TableCell>
               <TableCell>
                 <Badge variant={getStatusVariant(issue.status)}>{issue.status}</Badge>
               </TableCell>
               <TableCell>
                 <Badge className={getPriorityColor(issue.priority)}>{issue.priority}</Badge>
               </TableCell>
-              <TableCell>{format(issue.createdAt, 'MMM dd, yyyy')}</TableCell>
+              <TableCell className="text-rovida-slate-green-gray">{format(issue.createdAt, 'MMM dd, yyyy')}</TableCell>
               <TableCell className="text-right">
-                <Link to={`/issues/${issue.id}`} className="text-sm text-muted-foreground hover:underline">
+                <Link to={`/issues/${issue.id}`} className="text-sm text-rovida-slate-green-gray hover:underline">
                   View
                 </Link>
               </TableCell>

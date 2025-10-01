@@ -21,44 +21,44 @@ const KanbanColumn = ({ title, issues, statusFilter }: KanbanColumnProps) => {
   const getPriorityColor = (priority: Issue['priority']) => {
     switch (priority) {
       case 'Critical':
-        return 'bg-red-500 text-white';
+        return 'bg-rovida-error text-white';
       case 'High':
-        return 'bg-orange-500 text-white';
+        return 'bg-rovida-warning text-white';
       case 'Medium':
-        return 'bg-yellow-500 text-black';
+        return 'bg-rovida-gold text-white';
       case 'Low':
-        return 'bg-green-500 text-white';
+        return 'bg-rovida-success text-white';
       default:
-        return 'bg-gray-200 text-gray-800';
+        return 'bg-rovida-soft-gray text-rovida-near-black';
     }
   };
 
   return (
-    <div className="flex flex-col w-full min-w-[280px] max-w-[350px] bg-muted/40 rounded-lg p-3 shadow-sm">
-      <h3 className="text-lg font-semibold mb-4 px-2">{title} ({filteredIssues.length})</h3>
+    <div className="flex flex-col w-full min-w-[280px] max-w-[350px] bg-rovida-soft-gray/50 backdrop-blur-sm rounded-lg p-3 shadow-subtle border border-rovida-soft-gray">
+      <h3 className="text-lg font-semibold mb-4 px-2 text-rovida-navy">{title} ({filteredIssues.length})</h3>
       <div className="flex-1 space-y-3 overflow-y-auto custom-scrollbar">
         {filteredIssues.length > 0 ? (
           filteredIssues.map((issue) => (
-            <Card key={issue.id} className="cursor-grab active:cursor-grabbing">
+            <Card key={issue.id} className="cursor-grab active:cursor-grabbing bg-white/80 backdrop-blur-sm">
               <CardHeader className="pb-2">
                 <CardTitle className="text-base">
-                  <Link to={`/issues/${issue.id}`} className="hover:underline">
+                  <Link to={`/issues/${issue.id}`} className="hover:underline text-rovida-navy">
                     {issue.title}
                   </Link>
                 </CardTitle>
-                <CardDescription className="text-xs">{issue.unit}</CardDescription>
+                <CardDescription className="text-xs text-rovida-slate-green-gray">{issue.unit}</CardDescription>
               </CardHeader>
               <CardContent className="text-sm flex flex-col gap-2">
                 <div className="flex items-center justify-between">
                   <Badge className={cn("text-xs", getPriorityColor(issue.priority))}>{issue.priority}</Badge>
-                  <span className="text-muted-foreground text-xs">{format(issue.createdAt, 'MMM dd')}</span>
+                  <span className="text-rovida-slate-green-gray text-xs">{format(issue.createdAt, 'MMM dd')}</span>
                 </div>
-                <p className="text-muted-foreground text-xs line-clamp-2">{issue.description}</p>
+                <p className="text-rovida-slate-green-gray text-xs line-clamp-2">{issue.description}</p>
               </CardContent>
             </Card>
           ))
         ) : (
-          <div className="text-muted-foreground text-sm text-center p-4">No issues in this column.</div>
+          <div className="text-rovida-slate-green-gray text-sm text-center p-4">No issues in this column.</div>
         )}
       </div>
     </div>

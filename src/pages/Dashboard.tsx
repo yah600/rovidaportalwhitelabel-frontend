@@ -32,8 +32,8 @@ const Dashboard = () => {
   return (
     <div className="flex flex-1 flex-col gap-4">
       <header className="flex items-center justify-between flex-wrap gap-2">
-        <h1 className="text-2xl font-semibold md:text-3xl">{t('hello_user', { name: userName })}</h1>
-        <p className="text-muted-foreground text-sm">{currentDate}</p>
+        <h1 className="text-2xl font-semibold md:text-3xl text-rovida-navy">{t('hello_user', { name: userName })}</h1>
+        <p className="text-rovida-slate-green-gray text-sm">{currentDate}</p>
       </header>
 
       {hasActiveEmergency && (
@@ -58,7 +58,7 @@ const Dashboard = () => {
                 <div className="text-2xl font-bold">
                   <Skeleton className="h-8 w-[80px]" />
                 </div>
-                <p className="text-xs text-muted-foreground">
+                <p className="text-xs text-rovida-slate-green-gray">
                   <Skeleton className="h-3 w-[150px] mt-1" />
                 </p>
               </CardContent>
@@ -71,8 +71,8 @@ const Dashboard = () => {
                 <CardTitle className="text-sm font-medium">{t('open_issues')}</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">{openIssuesCount}</div>
-                <p className="text-xs text-muted-foreground">+10% from last month</p> {/* Placeholder trend */}
+                <div className="text-2xl font-bold text-rovida-near-black">{openIssuesCount}</div>
+                <p className="text-xs text-rovida-slate-green-gray">+10% from last month</p> {/* Placeholder trend */}
               </CardContent>
             </Card>
             <Card>
@@ -80,8 +80,8 @@ const Dashboard = () => {
                 <CardTitle className="text-sm font-medium">{t('overdue_bills')}</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">{overdueBillsCount}</div>
-                <p className="text-xs text-muted-foreground">-5% from last month</p> {/* Placeholder trend */}
+                <div className="text-2xl font-bold text-rovida-near-black">{overdueBillsCount}</div>
+                <p className="text-xs text-rovida-slate-green-gray">-5% from last month</p> {/* Placeholder trend */}
               </CardContent>
             </Card>
             <Card>
@@ -89,8 +89,8 @@ const Dashboard = () => {
                 <CardTitle className="text-sm font-medium">{t('due_tasks')}</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">{dueTasksCount}</div>
-                <p className="text-xs text-muted-foreground">+20% from last month</p> {/* Placeholder trend */}
+                <div className="text-2xl font-bold text-rovida-near-black">{dueTasksCount}</div>
+                <p className="text-xs text-rovida-slate-green-gray">+20% from last month</p> {/* Placeholder trend */}
               </CardContent>
             </Card>
             <Card>
@@ -98,8 +98,8 @@ const Dashboard = () => {
                 <CardTitle className="text-sm font-medium">{t('open_votes')}</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">{openVotesCount}</div>
-                <p className="text-xs text-muted-foreground">No change</p> {/* Placeholder trend */}
+                <div className="text-2xl font-bold text-rovida-near-black">{openVotesCount}</div>
+                <p className="text-xs text-rovida-slate-green-gray">No change</p> {/* Placeholder trend */}
               </CardContent>
             </Card>
           </>
