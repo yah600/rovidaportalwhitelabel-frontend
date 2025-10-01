@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { mockIssues, Issue } from '@/data/mock-issues';
 import { format } from 'date-fns';
-import { ArrowRight } from 'lucide-react'; // Added ArrowRight import
+import { ArrowRight } from 'lucide-react';
 
 const RecentIssues = () => {
   const { t } = useTranslation();
@@ -33,7 +33,7 @@ const RecentIssues = () => {
           <CardTitle>{t('open_issues')}</CardTitle>
           <CardDescription>Your most recent incidents.</CardDescription>
         </div>
-        <Link to="/issues" className="text-sm text-primary hover:underline flex items-center gap-1">
+        <Link to="/issues" className="text-sm text-rovida-navy hover:underline flex items-center gap-1">
           View All <ArrowRight className="h-4 w-4" />
         </Link>
       </CardHeader>
@@ -43,10 +43,10 @@ const RecentIssues = () => {
             {recentIssues.map((issue) => (
               <div key={issue.id} className="flex items-center justify-between">
                 <div>
-                  <Link to={`/issues/${issue.id}`} className="font-medium hover:underline">
+                  <Link to={`/issues/${issue.id}`} className="font-medium text-rovida-navy hover:underline">
                     {issue.title}
                   </Link>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm text-rovida-slate-green-gray">
                     {issue.unit} - {format(issue.createdAt, 'MMM dd')}
                   </p>
                 </div>
@@ -55,7 +55,7 @@ const RecentIssues = () => {
             ))}
           </div>
         ) : (
-          <p className="text-muted-foreground">{t('no_tickets')}</p>
+          <p className="text-rovida-slate-green-gray">{t('no_tickets')}</p>
         )}
       </CardContent>
     </Card>

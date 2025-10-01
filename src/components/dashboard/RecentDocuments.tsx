@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { FileText, ArrowRight } from 'lucide-react';
 import { format } from 'date-fns';
-import { mockDocuments, Document } from '@/data/mock-documents'; // Import mockDocuments and Document interface
+import { mockDocuments, Document } from '@/data/mock-documents';
 
 const RecentDocuments = () => {
   const { t } = useTranslation();
@@ -17,7 +17,7 @@ const RecentDocuments = () => {
           <CardTitle>Latest Documents</CardTitle>
           <CardDescription>Recently added or updated documents.</CardDescription>
         </div>
-        <Link to="/documents/registry" className="text-sm text-primary hover:underline flex items-center gap-1">
+        <Link to="/documents/registry" className="text-sm text-rovida-navy hover:underline flex items-center gap-1">
           View All <ArrowRight className="h-4 w-4" />
         </Link>
       </CardHeader>
@@ -26,12 +26,12 @@ const RecentDocuments = () => {
           <div className="space-y-4">
             {recentDocuments.map((doc) => (
               <div key={doc.id} className="flex items-center gap-3">
-                <FileText className="h-5 w-5 text-muted-foreground" />
+                <FileText className="h-5 w-5 text-rovida-slate-green-gray" />
                 <div>
-                  <Link to={`/documents/${doc.id}`} className="font-medium hover:underline">
+                  <Link to={`/documents/${doc.id}`} className="font-medium text-rovida-navy hover:underline">
                     {doc.title}
                   </Link>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm text-rovida-slate-green-gray">
                     {doc.type} - {format(doc.uploadedAt, 'MMM dd, yyyy')}
                   </p>
                 </div>
@@ -39,7 +39,7 @@ const RecentDocuments = () => {
             ))}
           </div>
         ) : (
-          <p className="text-muted-foreground">No recent documents.</p>
+          <p className="text-rovida-slate-green-gray">No recent documents.</p>
         )}
       </CardContent>
     </Card>

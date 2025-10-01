@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { CalendarDays } from 'lucide-react';
 import { format, addDays } from 'date-fns';
-import { mockMeetings, Meeting } from '@/data/mock-meetings'; // Import mockMeetings
+import { mockMeetings, Meeting } from '@/data/mock-meetings';
 
 const UpcomingEvents = () => {
   const { t } = useTranslation();
@@ -24,10 +24,10 @@ const UpcomingEvents = () => {
           <div className="space-y-4">
             {upcomingMeetings.map((meeting) => (
               <div key={meeting.id} className="flex items-center gap-3">
-                <CalendarDays className="h-5 w-5 text-muted-foreground" />
+                <CalendarDays className="h-5 w-5 text-rovida-slate-green-gray" />
                 <div>
-                  <p className="font-medium">{meeting.title}</p>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="font-medium text-rovida-near-black">{meeting.title}</p>
+                  <p className="text-sm text-rovida-slate-green-gray">
                     {format(meeting.date, 'MMM dd, yyyy')} at {meeting.time} - {meeting.location}
                   </p>
                 </div>
@@ -35,7 +35,7 @@ const UpcomingEvents = () => {
             ))}
           </div>
         ) : (
-          <p className="text-muted-foreground">No upcoming events.</p>
+          <p className="text-rovida-slate-green-gray">No upcoming events.</p>
         )}
       </CardContent>
     </Card>

@@ -39,15 +39,15 @@ const BreadcrumbNav = ({ items }: BreadcrumbNavProps) => {
 
   return (
     <nav aria-label="breadcrumb" className="flex">
-      <ol className="flex items-center space-x-1 text-sm text-muted-foreground">
+      <ol className="flex items-center space-x-1 text-sm text-rovida-slate-green-gray">
         {breadcrumbItems.map((item, index) => (
           <li key={item.href} className="flex items-center">
             {index > 0 && <ChevronRight className="h-4 w-4 mx-1" />}
             <Link
               to={item.href}
               className={cn(
-                "hover:text-primary transition-colors",
-                index === breadcrumbItems.length - 1 && "text-primary font-medium"
+                "hover:text-rovida-navy transition-colors",
+                index === breadcrumbItems.length - 1 && "text-rovida-navy font-medium"
               )}
             >
               {index === 0 && item.href === '/' ? <HomeIcon className="h-4 w-4 inline-block mr-1" /> : null}
