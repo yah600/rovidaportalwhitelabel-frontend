@@ -34,6 +34,7 @@ import DocumentsInbox from "./pages/documents/Inbox";
 import DocumentDetail from "./pages/documents/DocumentDetail";
 import Comms from "./pages/Comms";
 import CommsAnnouncements from "./pages/comms/Announcements";
+import AnnouncementDetail from "./pages/comms/AnnouncementDetail"; // New import
 import CommsSend from "./pages/comms/Send";
 import CommsTemplates from "./pages/comms/Templates";
 import Integrations from "./pages/Integrations";
@@ -97,6 +98,7 @@ const App = () => (
             <Route path="/documents" element={<Documents />} />
             <Route path="/documents/:id" element={<DocumentDetail />} />
             <Route path="/comms/announcements" element={<CommsAnnouncements />} />
+            <Route path="/comms/announcements/:id" element={<AnnouncementDetail />} /> {/* New route */}
             <Route path="/comms/send" element={<CommsSend />} />
             <Route path="/comms/templates" element={<CommsTemplates />} />
             <Route path="/integrations" element={<Integrations />} />
