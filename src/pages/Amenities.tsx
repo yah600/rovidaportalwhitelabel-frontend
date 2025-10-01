@@ -4,6 +4,8 @@ import BreadcrumbNav from '@/components/BreadcrumbNav';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { CalendarCheck, PlusCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { mockAmenities } from '@/data/mock-amenities'; // Import mockAmenities
+import AmenitiesTable from '@/components/amenities/AmenitiesTable'; // Import AmenitiesTable
 
 const Amenities = () => {
   const { t } = useTranslation();
@@ -12,6 +14,8 @@ const Amenities = () => {
     { label: t('home'), href: '/' },
     { label: t('amenity_management'), href: '/amenities' },
   ];
+
+  const hasAmenities = mockAmenities.length > 0;
 
   return (
     <div className="flex flex-1 flex-col gap-4">
@@ -24,15 +28,19 @@ const Amenities = () => {
       </header>
       <p className="text-rovida-slate-green-gray">{t('manage_book_amenities')}</p>
 
-      <Card className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm card-rovida mt-4 p-8">
-        <div className="flex flex-col items-center gap-2 text-rovida-slate-green-gray">
-          <CalendarCheck className="h-12 w-12 text-rovida-gold" />
-          <p>{t('amenities_managed_here')}</p>
-          <Button variant="outline" className="mt-4 btn-secondary">
-            <PlusCircle className="mr-2 h-4 w-4" /> {t('add_first_amenity')}
-          </Button>
-        </div>
-      </Card>
+      {hasAmenities ? (
+        <AmenitiesTable amenities={mockAmenities} />
+      ) : (
+        <Card className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm card-rovida mt-4 p-8">
+          <div className="flex flex-col items-center gap-2 text-rovida-slate-green-gray">
+            <CalendarCheck className="h-12 w-12 text-rovida-gold" />
+            <p>{t('amenities_managed_here')}</p>
+            <Button variant="outline" className="mt-4 btn-secondary">
+              <PlusCircle className="mr-2 h-4 w-4" /> {t('add_first_amenity')}
+            </Button>
+          </div>
+        </Card>
+      )}
     </div>
   );
 };

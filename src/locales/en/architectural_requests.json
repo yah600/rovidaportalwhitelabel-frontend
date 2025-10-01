@@ -3,5 +3,7 @@
   "submit_new_request": "Submit New Request",
   "manage_architectural_change_requests": "Manage architectural change requests from residents.",
   "architectural_requests_managed_here": "Architectural change requests will be managed here.",
-  "submit_first_request": "Submit First Request"
+  "submit_first_request": "Submit First Request",
+  "requester": "Requester",
+  "submitted_at": "Submitted At"
 }

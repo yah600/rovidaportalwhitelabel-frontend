@@ -1,0 +1,98 @@
+"use client";
+
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { ColumnDef } from "@tanstack/react-table";
+import { Badge } from '@/components/ui/badge';
+import { Lease } from '@/data/mock-leases'; // Import Lease interface
+import { format } from 'date-fns';
+import { DataTable } from '@/components/DataTable';
+
+interface LeasesTableProps {
+  leases: Lease[];
+}
+
+const LeasesTable = ({ leases }: LeasesTableProps) => {
+  const { t } = useTranslation();
+
+  const getStatusVariant = (status: Lease['status']) => {
+    switch (status) {
+      case 'Active':
+        return 'default';
+      case 'Expired':
+        return 'destructive';
+      case 'Pending Renewal':
+        return 'secondary';
+      case 'Terminated':
+        return 'outline';
+      default:
+        return 'default';
+    }
+  };
+
+  const columns: ColumnDef<Lease>[] = [
+    {
+      accessorKey: "id",
+      header: t('id'),
+      cell: ({ row }) => <span className="font-medium text-rovida-near-black">{row.getValue("id")}</span>,
+    },
+    {
+      accessorKey: "unitNumber",
+      header: t('unit_number'),
+      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("unitNumber")}</span>,
+    },
+    {
+      accessorKey: "tenantName",
+      header: t('tenant_name'),
+      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("tenantName")}</span>,
+    },
+    {
+      accessorKey: "startDate",
+      header: t('start_date'),
+      cell: ({ row }) => (
+        <span className="text-rovida-slate-green-gray">
+          {format(row.getValue("startDate"), 'MMM dd, yyyy')}
+        </span>
+      ),
+    },
+    {
+      accessorKey: "endDate",
+      header: t('end_date'),
+      cell: ({ row }) => (
+        <span className="text-rovida-slate-green-gray">
+          {format(row.getValue("endDate"), 'MMM dd, yyyy')}
+        </span>
+      ),
+    },
+    {
+      accessorKey: "rentAmount",
+      header: t('rent_amount'),
+      cell: ({ row }) => <span className="text-rovida-near-black">${row.original.rentAmount.toFixed(2)}</span>,
+    },
+    {
+      accessorKey: "status",
+      header: t('status'),
+      cell: ({ row }) => (
+        <Badge variant={getStatusVariant(row.getValue("status"))}>
+          {row.getValue("status")}
+        </Badge>
+      ),
+    },
+    {
+      id: "actions",
+      header: t('actions'),
+      enableSorting: false,
+      cell: () => (
+        <div className="text-right">
+          <span className="text-sm text-rovida-slate-green-gray">{t('view')} / {t('edit')}</span>
+        </div>
+      ),
+    },
+  ];
+
+  return (
+    <DataTable columns={columns} data={leases} />
+  );
+};
+
+export default LeasesTable;

@@ -3,5 +3,8 @@
   "add_new_rule": "Add New Rule",
   "manage_building_rules_violations": "Manage building rules and track violations.",
   "rules_violations_managed_here": "Rules and violations will be managed here.",
-  "add_first_rule": "Add First Rule"
+  "add_first_rule": "Add First Rule",
+  "effective_date": "Effective Date",
+  "enforcement_level": "Enforcement Level",
+  "category": "Category"
 }

@@ -48,5 +48,8 @@
   "create_new_purchase_order": "Create New Purchase Order",
   "manage_all_purchase_orders": "Manage all purchase orders for supplies and services.",
   "purchase_orders_managed_here": "Purchase orders will be managed here.",
-  "create_first_purchase_order": "Create First Purchase Order"
+  "create_first_purchase_order": "Create First Purchase Order",
+  "item_description": "Item Description",
+  "total_amount": "Total Amount",
+  "order_date": "Order Date"
 }

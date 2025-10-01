@@ -3,5 +3,7 @@
   "add_new_amenity": "Ajouter une nouvelle commodité",
   "manage_book_amenities": "Gérer et réserver les commodités et ressources des espaces communs.",
   "amenities_managed_here": "Les commodités et ressources seront gérées ici.",
-  "add_first_amenity": "Ajouter la première commodité"
+  "add_first_amenity": "Ajouter la première commodité",
+  "booking_required": "Réservation requise",
+  "book": "Réserver"
 }

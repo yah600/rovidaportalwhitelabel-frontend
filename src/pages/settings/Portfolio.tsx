@@ -3,9 +3,13 @@ import { useTranslation } from 'react-i18next';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { LayoutGrid, PlusCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { mockPortfolioProperties } from '@/data/mock-portfolio'; // Import mockPortfolioProperties
+import PortfolioTable from '@/components/settings/PortfolioTable'; // Import PortfolioTable
 
 const SettingsPortfolio = () => {
   const { t } = useTranslation();
+
+  const hasProperties = mockPortfolioProperties.length > 0;
 
   return (
     <div className="flex flex-1 flex-col gap-4">
@@ -17,15 +21,19 @@ const SettingsPortfolio = () => {
       </header>
       <p className="text-rovida-slate-green-gray">{t('manage_all_properties_portfolio')}</p>
 
-      <Card className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm card-rovida mt-4 p-8">
-        <div className="flex flex-col items-center gap-2 text-rovida-slate-green-gray">
-          <LayoutGrid className="h-12 w-12 text-rovida-gold" />
-          <p>{t('portfolio_managed_here')}</p>
-          <Button variant="outline" className="mt-4 btn-secondary">
-            <PlusCircle className="mr-2 h-4 w-4" /> {t('add_first_property')}
-          </Button>
-        </div>
-      </Card>
+      {hasProperties ? (
+        <PortfolioTable properties={mockPortfolioProperties} />
+      ) : (
+        <Card className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm card-rovida mt-4 p-8">
+          <div className="flex flex-col items-center gap-2 text-rovida-slate-green-gray">
+            <LayoutGrid className="h-12 w-12 text-rovida-gold" />
+            <p>{t('portfolio_managed_here')}</p>
+            <Button variant="outline" className="mt-4 btn-secondary">
+              <PlusCircle className="mr-2 h-4 w-4" /> {t('add_first_property')}
+            </Button>
+          </div>
+        </Card>
+      )}
     </div>
   );
 };

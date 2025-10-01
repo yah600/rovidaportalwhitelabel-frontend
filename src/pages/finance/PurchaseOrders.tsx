@@ -4,6 +4,8 @@ import BreadcrumbNav from '@/components/BreadcrumbNav';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { ShoppingCart, PlusCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { mockPurchaseOrders } from '@/data/mock-purchase-orders'; // Import mockPurchaseOrders
+import PurchaseOrdersTable from '@/components/finance/PurchaseOrdersTable'; // Import PurchaseOrdersTable
 
 const PurchaseOrders = () => {
   const { t } = useTranslation();
@@ -12,6 +14,8 @@ const PurchaseOrders = () => {
     { label: t('finance'), href: '/finance' },
     { label: t('purchase_orders'), href: '/finance/purchase-orders' },
   ];
+
+  const hasPurchaseOrders = mockPurchaseOrders.length > 0;
 
   return (
     <div className="flex flex-1 flex-col gap-4">
@@ -24,15 +28,19 @@ const PurchaseOrders = () => {
       </header>
       <p className="text-rovida-slate-green-gray">{t('manage_all_purchase_orders')}</p>
 
-      <Card className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm card-rovida mt-4 p-8">
-        <div className="flex flex-col items-center gap-2 text-rovida-slate-green-gray">
-          <ShoppingCart className="h-12 w-12 text-rovida-gold" />
-          <p>{t('purchase_orders_managed_here')}</p>
-          <Button variant="outline" className="mt-4 btn-secondary">
-            <PlusCircle className="mr-2 h-4 w-4" /> {t('create_first_purchase_order')}
-          </Button>
-        </div>
-      </Card>
+      {hasPurchaseOrders ? (
+        <PurchaseOrdersTable purchaseOrders={mockPurchaseOrders} />
+      ) : (
+        <Card className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm card-rovida mt-4 p-8">
+          <div className="flex flex-col items-center gap-2 text-rovida-slate-green-gray">
+            <ShoppingCart className="h-12 w-12 text-rovida-gold" />
+            <p>{t('purchase_orders_managed_here')}</p>
+            <Button variant="outline" className="mt-4 btn-secondary">
+              <PlusCircle className="mr-2 h-4 w-4" /> {t('create_first_purchase_order')}
+            </Button>
+          </div>
+        </Card>
+      )}
     </div>
   );
 };

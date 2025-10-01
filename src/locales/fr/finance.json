@@ -48,5 +48,8 @@
   "create_new_purchase_order": "Créer un nouveau bon de commande",
   "manage_all_purchase_orders": "Gérer tous les bons de commande pour les fournitures et services.",
   "purchase_orders_managed_here": "Les bons de commande seront gérés ici.",
-  "create_first_purchase_order": "Créer le premier bon de commande"
+  "create_first_purchase_order": "Créer le premier bon de commande",
+  "item_description": "Description de l'article",
+  "total_amount": "Montant total",
+  "order_date": "Date de commande"
 }
