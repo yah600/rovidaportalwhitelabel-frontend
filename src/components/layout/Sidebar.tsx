@@ -26,7 +26,8 @@ import {
   Vote,
   Handshake,
   Bell,
-  MessageSquareText, // Added MessageSquareText here
+  MessageSquareText,
+  ChevronDown, // Import ChevronDown icon
 } from 'lucide-react';
 
 interface NavItem {
@@ -40,6 +41,9 @@ interface NavItem {
 const Sidebar = ({ className }: { className?: string }) => {
   const { t } = useTranslation();
   const location = useLocation();
+
+  // State to manage open/closed sub-menus
+  const [openSubMenus, setOpenSubMenus] = React.useState<Record<string, boolean>>({});
 
   // Placeholder for current user role - will be dynamic with auth
   const currentUserRole = 'Property Manager'; // Example role
@@ -128,6 +132,24 @@ const Sidebar = ({ className }: { className?: string }) => {
     { title: t('profile'), href: '/profile', icon: User },
   ];
 
+  // Effect to open sub-menus if a child route is active on initial load
+  React.useEffect(() => {
+    const initialOpenSubMenus: Record<string, boolean> = {};
+    navItems.forEach(item => {
+      if (item.subItems && item.subItems.some(sub => location.pathname.startsWith(sub.href))) {
+        initialOpenSubMenus[item.href] = true;
+      }
+    });
+    setOpenSubMenus(initialOpenSubMenus);
+  }, [location.pathname]); // Only re-run if pathname changes
+
+  const toggleSubMenu = (href: string) => {
+    setOpenSubMenus(prev => ({
+      ...prev,
+      [href]: !prev[href],
+    }));
+  };
+
   const renderNavItems = (items: NavItem[]) => {
     return items.map((item) => {
       // Basic role check (can be expanded)
@@ -136,20 +158,32 @@ const Sidebar = ({ className }: { className?: string }) => {
       if (!canView) return null;
 
       const isActive = location.pathname === item.href || (item.subItems && item.subItems.some(sub => location.pathname.startsWith(sub.href)));
+      const isSubMenuOpen = openSubMenus[item.href] || false;
 
       return (
         <div key={item.href}>
-          <Link
-            to={item.href}
+          <div
             className={cn(
               "flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary",
-              isActive && "bg-muted text-primary"
+              isActive && "bg-muted text-primary",
+              item.subItems && "cursor-pointer" // Indicate clickable for sub-menus
             )}
+            onClick={() => item.subItems ? toggleSubMenu(item.href) : null}
           >
-            <item.icon className="h-4 w-4" />
-            {item.title}
-          </Link>
-          {item.subItems && isActive && (
+            <Link to={item.href} className="flex items-center gap-3 flex-1">
+              <item.icon className="h-4 w-4" />
+              {item.title}
+            </Link>
+            {item.subItems && (
+              <ChevronDown
+                className={cn(
+                  "h-4 w-4 transition-transform",
+                  isSubMenuOpen ? "rotate-180" : "rotate-0"
+                )}
+              />
+            )}
+          </div>
+          {item.subItems && isSubMenuOpen && (
             <div className="ml-6 mt-1 space-y-1">
               {item.subItems.map(subItem => (
                 <Link
@@ -179,7 +213,7 @@ const Sidebar = ({ className }: { className?: string }) => {
             <span className="text-lg">{t('welcome')}</span>
           </Link>
         </div>
-        <div className="flex-1">
+        <div className="flex-1 overflow-y-auto custom-scrollbar">
           <nav className="grid items-start px-2 text-sm font-medium lg:px-4">
             {renderNavItems(navItems)}
           </nav>
