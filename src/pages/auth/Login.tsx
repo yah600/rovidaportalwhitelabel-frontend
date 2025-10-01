@@ -14,14 +14,14 @@ const Login = () => {
     <div className="relative flex min-h-screen items-center justify-center bg-rovida-soft-gray/50 backdrop-blur-xl p-4">
       <Prism
         animationType="rotate"
-        timeScale={0.5}
+        timeScale={0.2} // Reduced timeScale for slower animation
         height={3.5}
         baseWidth={5.5}
         scale={3.6}
         hueShift={0}
         colorFrequency={1}
-        noise={0.5}
-        glow={1}
+        noise={0.2} // Reduced noise for a smoother effect
+        glow={0.5} // Reduced glow intensity
         transparent={true}
       />
       <Card className="w-full max-w-md card-rovida relative z-10">

@@ -28,9 +28,9 @@ const AppShell = (/* { children }: AppShellProps */) => { // Remove children pro
     <div className="relative grid min-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
       <Aurora
         colorStops={["#183747", "#C4972E", "#7C8D89"]} // Using Rovida palette colors
-        blend={0.5}
-        amplitude={1.0}
-        speed={0.5}
+        blend={0.7} // Increased blend for softer edges
+        amplitude={0.7} // Reduced amplitude for more subtle waves
+        speed={0.3} // Reduced speed for a calmer animation
       />
       <Sidebar />
       <div className="flex flex-col">

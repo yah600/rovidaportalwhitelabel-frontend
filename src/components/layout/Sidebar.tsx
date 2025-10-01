@@ -215,7 +215,7 @@ const Sidebar = ({ className }: { className?: string }) => {
           <nav className="grid items-start px-2 text-sm font-medium lg:px-4">
             {renderNavItems(navItems)}
           </nav>
-          <GradualBlur target="parent" position="bottom" height="4rem" strength={2} divCount={5} opacity={1} />
+          <GradualBlur target="parent" position="bottom" height="6rem" strength={3} divCount={8} opacity={1} /> {/* Increased height, strength, and divCount */}
         </div>
       </div>
     </div>

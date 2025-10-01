@@ -61,7 +61,7 @@
 }
 
 .icon-btn__icon {
-  font-size: 2.2rem; /* Icon size */
+  font-size: 2rem; /* Slightly reduced icon size for better centering */
   color: white; /* Icon color */
   margin-bottom: 0.25rem;
   display: flex; /* To center Lucide icons */
