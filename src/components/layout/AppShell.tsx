@@ -1,12 +1,12 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom'; // Import Outlet
+import { Outlet, useNavigate } from 'react-router-dom'; // Import Outlet and useNavigate
 import Topbar from './Topbar';
 import Sidebar from './Sidebar';
-// import MobileBottomNav from './MobileBottomNav'; // Removed
 import { MadeWithDyad } from '@/components/made-with-dyad';
 import Aurora from '@/components/Aurora'; // Import Aurora component
 import Dock from '@/components/Dock'; // Import Dock
-import { LayoutDashboard, ClipboardList, MessageSquare, MoreHorizontal, Settings, User } from 'lucide-react'; // Import icons for Dock
+import GlassIcons from '@/components/GlassIcons'; // Import GlassIcons
+import { LayoutDashboard, ClipboardList, MessageSquare, Settings, User, PlusCircle, Receipt, Wrench } from 'lucide-react'; // Import icons for Dock and GlassIcons
 import { useTranslation } from 'react-i18next'; // Import useTranslation
 
 interface AppShellProps {
@@ -15,13 +15,21 @@ interface AppShellProps {
 
 const AppShell = (/* { children }: AppShellProps */) => { // Remove children prop
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   const dockItems = [
-    { icon: <LayoutDashboard size={24} />, label: t('dashboard'), onClick: () => window.location.href = '/dashboard' },
-    { icon: <ClipboardList size={24} />, label: t('issues'), onClick: () => window.location.href = '/issues' },
-    { icon: <MessageSquare size={24} />, label: t('communications'), onClick: () => window.location.href = '/comms' },
-    { icon: <Settings size={24} />, label: t('settings'), onClick: () => window.location.href = '/settings' },
-    { icon: <User size={24} />, label: t('profile'), onClick: () => window.location.href = '/profile' },
+    { icon: <LayoutDashboard size={24} />, label: t('dashboard'), onClick: () => navigate('/dashboard') },
+    { icon: <ClipboardList size={24} />, label: t('issues'), onClick: () => navigate('/issues') },
+    { icon: <MessageSquare size={24} />, label: t('communications'), onClick: () => navigate('/comms') },
+    { icon: <Settings size={24} />, label: t('settings'), onClick: () => navigate('/settings') },
+    { icon: <User size={24} />, label: t('profile'), onClick: () => navigate('/profile') },
+  ];
+
+  const quickActions = [
+    { icon: <PlusCircle />, color: 'rovida-gold', label: 'New Issue', onClick: () => navigate('/issues/new') },
+    { icon: <Receipt />, color: 'rovida-navy', label: 'View Bills', onClick: () => navigate('/finance/bills') },
+    { icon: <Wrench />, color: 'rovida-slate-green-gray', label: 'Work Orders', onClick: () => navigate('/maintenance/work-orders') },
+    { icon: <MessageSquare />, color: 'rovida-success', label: 'Announce', onClick: () => navigate('/comms/send') },
   ];
 
   return (
@@ -37,10 +45,12 @@ const AppShell = (/* { children }: AppShellProps */) => { // Remove children pro
         <Topbar />
         <main className="flex flex-1 flex-col gap-6 p-6"> {/* Increased gap and padding for more negative space */}
           <Outlet /> {/* Render child routes here */}
+          <div className="mt-auto flex justify-center py-4"> {/* Centering quick actions at the bottom */}
+            <GlassIcons items={quickActions} className="justify-center" />
+          </div>
         </main>
         <MadeWithDyad />
       </div>
-      {/* <MobileBottomNav /> */} {/* Replaced by Dock */}
       <div className="md:hidden"> {/* Only show Dock on mobile */}
         <Dock items={dockItems} />
       </div>

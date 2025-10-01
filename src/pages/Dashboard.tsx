@@ -14,7 +14,6 @@ import { mockVotes } from '@/data/mock-votes'; // Import mock votes
 import SplitText from '@/components/SplitText'; // Import SplitText
 import AnimatedContent from '@/components/AnimatedContent'; // Import AnimatedContent
 import GlassSurface from '@/components/GlassSurface'; // Import GlassSurface
-import GlassIcons from '@/components/GlassIcons'; // Import GlassIcons
 import Counter from '@/components/Counter'; // Import Counter
 import { PlusCircle, Receipt, Wrench, MessageSquare } from 'lucide-react'; // Import icons for GlassIcons
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
@@ -37,12 +36,13 @@ const Dashboard = () => {
   const dueTasksCount = mockTasks.filter(task => task.status !== 'Completed' && task.dueDate <= new Date()).length;
   const openVotesCount = mockVotes.filter(vote => vote.status === 'Open').length;
 
-  const quickActions = [
-    { icon: <PlusCircle />, color: 'rovida-gold', label: 'New Issue', onClick: () => navigate('/issues/new') },
-    { icon: <Receipt />, color: 'rovida-navy', label: 'View Bills', onClick: () => navigate('/finance/bills') },
-    { icon: <Wrench />, color: 'rovida-slate-green-gray', label: 'Work Orders', onClick: () => navigate('/maintenance/work-orders') },
-    { icon: <MessageSquare />, color: 'rovida-success', label: 'Announce', onClick: () => navigate('/comms/send') },
-  ];
+  // Quick actions are now handled globally in AppShell
+  // const quickActions = [
+  //   { icon: <PlusCircle />, color: 'rovida-gold', label: 'New Issue', onClick: () => navigate('/issues/new') },
+  //   { icon: <Receipt />, color: 'rovida-navy', label: 'View Bills', onClick: () => navigate('/finance/bills') },
+  //   { icon: <Wrench />, color: 'rovida-slate-green-gray', label: 'Work Orders', onClick: () => navigate('/maintenance/work-orders') },
+  //   { icon: <MessageSquare />, color: 'rovida-success', label: 'Announce', onClick: () => navigate('/comms/send') },
+  // ];
 
   return (
     <div className="flex flex-1 flex-col gap-4">
@@ -159,10 +159,11 @@ const Dashboard = () => {
         </AnimatedContent>
       </div>
 
-      <div className="mt-4">
+      {/* Quick Actions are now global */}
+      {/* <div className="mt-4">
         <h2 className="text-xl font-semibold mb-4 text-rovida-navy">Quick Actions</h2>
         <GlassIcons items={quickActions} className="justify-start" />
-      </div>
+      </div> */}
     </div>
   );
 };
