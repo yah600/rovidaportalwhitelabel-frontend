@@ -1,17 +1,13 @@
+"use client";
+
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/components/ui/table';
+import { ColumnDef } from "@tanstack/react-table";
 import { Badge } from '@/components/ui/badge';
 import { InboxDocument } from '@/data/mock-inbox-documents';
 import { format } from 'date-fns';
 import { Mail, FileText, FileQuestion, Scan } from 'lucide-react';
+import { DataTable } from '@/components/DataTable'; // Import the generic DataTable
 
 interface InboxTableProps {
   documents: InboxDocument[];
@@ -48,43 +44,65 @@ const InboxTable = ({ documents }: InboxTableProps) => {
     }
   };
 
+  const columns: ColumnDef<InboxDocument>[] = [
+    {
+      accessorKey: "id",
+      header: "ID",
+      cell: ({ row }) => <span className="font-medium text-rovida-near-black">{row.getValue("id")}</span>,
+    },
+    {
+      accessorKey: "title",
+      header: "Title",
+      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("title")}</span>,
+    },
+    {
+      accessorKey: "sender",
+      header: "Sender",
+      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("sender")}</span>,
+    },
+    {
+      accessorKey: "type",
+      header: "Type",
+      cell: ({ row }) => (
+        <div className="flex items-center gap-2 text-rovida-near-black">
+          {getFileTypeIcon(row.getValue("type"))} {row.getValue("type")}
+        </div>
+      ),
+    },
+    {
+      accessorKey: "status",
+      header: "Status",
+      cell: ({ row }) => (
+        <Badge variant={getStatusVariant(row.getValue("status"))}>
+          {row.getValue("status")}
+        </Badge>
+      ),
+    },
+    {
+      accessorKey: "receivedAt",
+      header: "Received At",
+      cell: ({ row }) => (
+        <span className="text-rovida-slate-green-gray">
+          {format(row.getValue("receivedAt"), 'MMM dd, yyyy')}
+        </span>
+      ),
+    },
+    {
+      id: "actions",
+      header: "Actions",
+      enableSorting: false,
+      cell: ({ row }) => (
+        <div className="text-right">
+          <a href={row.original.previewUrl} target="_blank" rel="noopener noreferrer" className="text-sm text-rovida-slate-green-gray hover:underline">
+            View
+          </a>
+        </div>
+      ),
+    },
+  ];
+
   return (
-    <div className="rounded-md border">
-      <Table>
-        <TableHeader>
-          <TableRow>
-            <TableHead className="w-[100px]">ID</TableHead>
-            <TableHead>Title</TableHead>
-            <TableHead>Sender</TableHead>
-            <TableHead>Type</TableHead>
-            <TableHead>Status</TableHead>
-            <TableHead>Received At</TableHead>
-            <TableHead className="text-right">Actions</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {documents.map((doc) => (
-            <TableRow key={doc.id}>
-              <TableCell className="font-medium">{doc.id}</TableCell>
-              <TableCell>{doc.title}</TableCell>
-              <TableCell>{doc.sender}</TableCell>
-              <TableCell className="flex items-center gap-2">
-                {getFileTypeIcon(doc.type)} {doc.type}
-              </TableCell>
-              <TableCell>
-                <Badge variant={getStatusVariant(doc.status)}>{doc.status}</Badge>
-              </TableCell>
-              <TableCell>{format(doc.receivedAt, 'MMM dd, yyyy')}</TableCell>
-              <TableCell className="text-right">
-                <a href={doc.previewUrl} target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:underline">
-                  View
-                </a>
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </div>
+    <DataTable columns={columns} data={documents} />
   );
 };
 
