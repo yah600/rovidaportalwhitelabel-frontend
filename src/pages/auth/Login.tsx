@@ -13,7 +13,7 @@ const Login = () => {
     <div className="flex min-h-screen items-center justify-center bg-rovida-soft-gray/50 backdrop-blur-xl p-4">
       <Card className="w-full max-w-md bg-white/80 backdrop-blur-xl border-rovida-soft-gray shadow-subtle">
         <CardHeader className="text-center">
-          <CardTitle className="text-3xl font-semibold text-rovida-navy">Login to Gestion Rovida</CardTitle>
+          <CardTitle className="text-3xl font-semibold text-page-title">Login to Gestion Rovida</CardTitle>
           <CardDescription className="text-rovida-slate-green-gray">Enter your credentials to access the portal.</CardDescription>
         </CardHeader>
         <CardContent>

@@ -46,8 +46,8 @@ const BreadcrumbNav = ({ items }: BreadcrumbNavProps) => {
             <Link
               to={item.href}
               className={cn(
-                "hover:text-rovida-navy transition-colors",
-                index === breadcrumbItems.length - 1 && "text-rovida-navy font-medium"
+                "hover:text-rovida-gold transition-colors",
+                index === breadcrumbItems.length - 1 && "text-rovida-gold font-medium"
               )}
             >
               {index === 0 && item.href === '/' ? <HomeIcon className="h-4 w-4 inline-block mr-1" /> : null}

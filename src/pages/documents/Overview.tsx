@@ -27,7 +27,7 @@ const Documents = () => {
   return (
     <div className="flex flex-1 flex-col gap-4">
       <BreadcrumbNav items={breadcrumbItems} />
-      <h1 className="text-2xl font-semibold md:text-3xl">{t('documents')} Overview</h1>
+      <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('documents')} Overview</h1>
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {/* Total Documents Card */}

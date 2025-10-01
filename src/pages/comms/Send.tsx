@@ -25,7 +25,7 @@ const CommsSend = () => {
   return (
     <div className="flex flex-1 flex-col gap-4">
       <BreadcrumbNav items={breadcrumbItems} />
-      <h1 className="text-2xl font-semibold md:text-3xl">{t('communications')} Send</h1>
+      <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('communications')} Send</h1>
 
       <Card className="max-w-3xl mx-auto w-full">
         <CardHeader>

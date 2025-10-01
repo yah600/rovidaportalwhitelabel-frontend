@@ -15,7 +15,7 @@ const MaintenanceCalendar = () => {
   return (
     <div className="flex flex-1 flex-col gap-4">
       <BreadcrumbNav items={breadcrumbItems} />
-      <h1 className="text-2xl font-semibold md:text-3xl text-rovida-navy">{t('maintenance')} Calendar</h1>
+      <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('maintenance')} Calendar</h1>
       <p className="text-rovida-slate-green-gray">Visualize and manage your maintenance schedule.</p>
 
       <Card className="flex-1 bg-white/80 backdrop-blur-xl border-rovida-soft-gray shadow-subtle">

@@ -42,7 +42,7 @@ const KanbanColumn = ({ title, issues, statusFilter }: KanbanColumnProps) => {
             <Card key={issue.id} className="cursor-grab active:cursor-grabbing bg-white/80 backdrop-blur-lg">
               <CardHeader className="pb-2">
                 <CardTitle className="text-base">
-                  <Link to={`/issues/${issue.id}`} className="hover:underline text-rovida-navy">
+                  <Link to={`/issues/${issue.id}`} className="hover:underline text-primary">
                     {issue.title}
                   </Link>
                 </CardTitle>

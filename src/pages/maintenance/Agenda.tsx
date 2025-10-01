@@ -68,7 +68,7 @@ const MaintenanceAgenda = () => {
   return (
     <div className="flex flex-1 flex-col gap-4">
       <BreadcrumbNav items={breadcrumbItems} />
-      <h1 className="text-2xl font-semibold md:text-3xl text-rovida-navy">{t('maintenance')} Agenda (XLSX Import)</h1>
+      <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('maintenance')} Agenda (XLSX Import)</h1>
       <p className="text-rovida-slate-green-gray">Import maintenance schedules from XLSX files.</p>
 
       <div className="grid gap-4 lg:grid-cols-3">

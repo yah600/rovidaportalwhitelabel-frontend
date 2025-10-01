@@ -53,7 +53,7 @@ const MaintenanceTaskDetail = () => {
   return (
     <div className="flex flex-1 flex-col gap-4">
       <BreadcrumbNav items={breadcrumbItems} />
-      <h1 className="text-2xl font-semibold md:text-3xl text-rovida-navy">{task.title}</h1>
+      <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{task.title}</h1>
       <p className="text-rovida-slate-green-gray">Details for maintenance task {id}.</p>
 
       <div className="grid gap-4 lg:grid-cols-2">
@@ -123,7 +123,7 @@ const MaintenanceTaskDetail = () => {
                     <div key={attachment.id} className="flex items-center gap-3 p-2 border border-rovida-soft-gray rounded-md bg-white/60">
                       <Paperclip className="h-5 w-5 text-rovida-slate-green-gray" />
                       <div>
-                        <a href={attachment.url} target="_blank" rel="noopener noreferrer" className="font-medium text-rovida-navy hover:underline">
+                        <a href={attachment.url} target="_blank" rel="noopener noreferrer" className="font-medium text-primary hover:underline">
                           {attachment.name}
                         </a>
                         <p className="text-xs text-rovida-slate-green-gray">

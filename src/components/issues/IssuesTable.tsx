@@ -69,7 +69,7 @@ const IssuesTable = ({ issues }: IssuesTableProps) => {
           {issues.map((issue) => (
             <TableRow key={issue.id}>
               <TableCell className="font-medium">
-                <Link to={`/issues/${issue.id}`} className="text-rovida-navy hover:underline">
+                <Link to={`/issues/${issue.id}`} className="text-primary hover:underline">
                   {issue.id}
                 </Link>
               </TableCell>

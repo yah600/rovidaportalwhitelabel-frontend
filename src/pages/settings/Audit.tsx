@@ -11,7 +11,7 @@ const SettingsAudit = () => {
   return (
     <div className="flex flex-1 flex-col gap-4">
       <header className="flex items-center justify-between">
-        <h1 className="text-2xl font-semibold md:text-3xl">Audit Log</h1>
+        <h1 className="text-2xl font-semibold md:text-3xl text-page-title">Audit Log</h1>
         {/* Potentially add filters or export button here */}
       </header>
 

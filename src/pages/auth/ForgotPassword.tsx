@@ -13,7 +13,7 @@ const ForgotPassword = () => {
     <div className="flex min-h-screen items-center justify-center bg-rovida-soft-gray/50 backdrop-blur-xl p-4">
       <Card className="w-full max-w-md bg-white/80 backdrop-blur-xl border-rovida-soft-gray shadow-subtle">
         <CardHeader className="text-center">
-          <CardTitle className="text-3xl font-semibold text-rovida-navy">{t('forgot_password')}</CardTitle>
+          <CardTitle className="text-3xl font-semibold text-page-title">{t('forgot_password')}</CardTitle>
           <CardDescription className="text-rovida-slate-green-gray">Enter your email to receive a password reset link.</CardDescription>
         </CardHeader>
         <CardContent>

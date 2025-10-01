@@ -13,7 +13,7 @@ const SettingsBuildings = () => {
   return (
     <div className="flex flex-1 flex-col gap-4">
       <header className="flex items-center justify-between">
-        <h1 className="text-2xl font-semibold md:text-3xl">Buildings</h1>
+        <h1 className="text-2xl font-semibold md:text-3xl text-page-title">Buildings</h1>
         <Button>
           <PlusCircle className="mr-2 h-4 w-4" /> Add New Building
         </Button>

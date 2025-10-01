@@ -31,13 +31,13 @@ const Profile = () => {
   return (
     <div className="flex flex-1 flex-col gap-4">
       <BreadcrumbNav items={breadcrumbItems} />
-      <h1 className="text-2xl font-semibold md:text-3xl">{t('profile')}</h1>
+      <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('profile')}</h1>
 
       <Card className="max-w-3xl mx-auto w-full">
         <CardHeader className="flex flex-row items-center gap-4">
           <Avatar className="h-20 w-20">
             <AvatarImage src={currentUser.avatarUrl} alt={currentUser.name} />
-            <AvatarFallback>{currentUser.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
+            <AvatarFallback className="bg-rovida-navy text-white">{currentUser.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
           </Avatar>
           <div>
             <CardTitle className="text-2xl">{currentUser.name}</CardTitle>

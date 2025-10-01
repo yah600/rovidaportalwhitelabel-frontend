@@ -18,7 +18,7 @@ const SettingsFeedback = () => {
 
   return (
     <div className="flex flex-1 flex-col gap-4">
-      <h1 className="text-2xl font-semibold md:text-3xl">Feedback</h1>
+      <h1 className="text-2xl font-semibold md:text-3xl text-page-title">Feedback</h1>
 
       <Card className="w-full">
         <CardHeader>

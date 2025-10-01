@@ -19,7 +19,7 @@ const Integrations = () => {
     <div className="flex flex-1 flex-col gap-4">
       <BreadcrumbNav items={breadcrumbItems} />
       <header className="flex items-center justify-between">
-        <h1 className="text-2xl font-semibold md:text-3xl">{t('integrations')}</h1>
+        <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('integrations')}</h1>
         <Button>
           <PlusCircle className="mr-2 h-4 w-4" /> Add New Integration
         </Button>

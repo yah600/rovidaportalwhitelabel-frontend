@@ -40,7 +40,7 @@ const CommsTemplates = () => {
     <div className="flex flex-1 flex-col gap-4">
       <BreadcrumbNav items={breadcrumbItems} />
       <header className="flex items-center justify-between">
-        <h1 className="text-2xl font-semibold md:text-3xl">{t('communications')} Templates</h1>
+        <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('communications')} Templates</h1>
         <Button>
           <PlusCircle className="mr-2 h-4 w-4" /> Create New Template
         </Button>

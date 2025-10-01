@@ -55,7 +55,7 @@ const BoardVoteDetail = () => {
     <div className="flex flex-1 flex-col gap-4">
       <BreadcrumbNav items={breadcrumbItems} />
       <header className="flex items-center justify-between flex-wrap gap-2 mb-4">
-        <h1 className="text-2xl font-semibold md:text-3xl">{vote.title}</h1>
+        <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{vote.title}</h1>
         <div className="flex items-center gap-2">
           <Badge variant={getStatusBadgeVariant(vote.status)}>{vote.status}</Badge>
           <DropdownMenu>

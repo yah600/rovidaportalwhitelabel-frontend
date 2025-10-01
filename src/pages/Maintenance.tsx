@@ -15,7 +15,7 @@ const Maintenance = () => {
   return (
     <div className="flex flex-1 flex-col gap-4">
       <BreadcrumbNav items={breadcrumbItems} />
-      <h1 className="text-2xl font-semibold md:text-3xl text-rovida-navy">{t('maintenance')} Overview</h1>
+      <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('maintenance')} Overview</h1>
       <p className="text-rovida-slate-green-gray">Manage all aspects of property maintenance.</p>
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">

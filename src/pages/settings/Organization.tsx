@@ -18,7 +18,7 @@ const SettingsOrganization = () => {
 
   return (
     <div className="flex flex-1 flex-col gap-4">
-      <h1 className="text-2xl font-semibold md:text-3xl">Organization Details</h1>
+      <h1 className="text-2xl font-semibold md:text-3xl text-page-title">Organization Details</h1>
 
       <Card className="w-full">
         <CardHeader>

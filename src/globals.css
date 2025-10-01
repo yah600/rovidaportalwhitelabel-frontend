@@ -151,9 +151,12 @@
     @apply border border-rovida-navy text-rovida-navy bg-white hover:bg-rovida-soft-gray focus-visible:ring-2 focus-visible:ring-rovida-gold focus-visible:ring-offset-2;
   }
   .link-rovida {
-    @apply text-rovida-navy hover:underline hover:decoration-rovida-gold;
+    @apply text-primary hover:underline hover:decoration-rovida-gold; /* Changed to text-primary for better contrast */
   }
   .card-rovida {
     @apply bg-white rounded-lg border border-rovida-soft-gray shadow-subtle;
+  }
+  .text-page-title {
+    @apply text-rovida-gold; /* New utility class for main page titles */
   }
 }

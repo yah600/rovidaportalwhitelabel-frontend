@@ -32,7 +32,7 @@ const Dashboard = () => {
   return (
     <div className="flex flex-1 flex-col gap-4">
       <header className="flex items-center justify-between flex-wrap gap-2">
-        <h1 className="text-2xl font-semibold md:text-3xl text-rovida-navy">{t('hello_user', { name: userName })}</h1>
+        <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('hello_user', { name: userName })}</h1>
         <p className="text-rovida-slate-green-gray text-sm">{currentDate}</p>
       </header>
 

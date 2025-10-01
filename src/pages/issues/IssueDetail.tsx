@@ -90,7 +90,7 @@ const IssueDetail = () => {
       <div className="flex flex-col flex-1 gap-4 p-4 lg:p-6">
         <BreadcrumbNav items={breadcrumbItems} />
         <header className="flex items-center justify-between flex-wrap gap-2 mb-4">
-          <h1 className="text-2xl font-semibold md:text-3xl text-rovida-navy">{issue.title}</h1>
+          <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{issue.title}</h1>
           <div className="flex items-center gap-2">
             <Badge variant={getStatusBadgeVariant(issue.status)}>{issue.status}</Badge>
             <Badge className={getPriorityBadgeColor(issue.priority)}>{issue.priority}</Badge>
@@ -202,7 +202,7 @@ const IssueDetail = () => {
                         <div className="flex items-center gap-3">
                           <Paperclip className="h-5 w-5 text-rovida-slate-green-gray" />
                           <div>
-                            <a href={attachment.url} target="_blank" rel="noopener noreferrer" className="font-medium text-rovida-navy hover:underline">
+                            <a href={attachment.url} target="_blank" rel="noopener noreferrer" className="font-medium text-primary hover:underline">
                               {attachment.name}
                             </a>
                             <p className="text-xs text-rovida-slate-green-gray">

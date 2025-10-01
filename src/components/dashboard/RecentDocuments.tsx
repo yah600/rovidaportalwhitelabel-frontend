@@ -17,7 +17,7 @@ const RecentDocuments = () => {
           <CardTitle>Latest Documents</CardTitle>
           <CardDescription>Recently added or updated documents.</CardDescription>
         </div>
-        <Link to="/documents/registry" className="text-sm text-rovida-navy hover:underline flex items-center gap-1">
+        <Link to="/documents/registry" className="text-sm text-primary hover:underline flex items-center gap-1">
           View All <ArrowRight className="h-4 w-4" />
         </Link>
       </CardHeader>
@@ -28,7 +28,7 @@ const RecentDocuments = () => {
               <div key={doc.id} className="flex items-center gap-3">
                 <FileText className="h-5 w-5 text-rovida-slate-green-gray" />
                 <div>
-                  <Link to={`/documents/${doc.id}`} className="font-medium text-rovida-navy hover:underline">
+                  <Link to={`/documents/${doc.id}`} className="font-medium text-primary hover:underline">
                     {doc.title}
                   </Link>
                   <p className="text-sm text-rovida-slate-green-gray">

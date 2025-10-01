@@ -27,7 +27,7 @@ const Topbar = () => {
   return (
     <header className="sticky top-0 z-40 w-full border-b border-rovida-soft-gray bg-white/80 backdrop-blur-xl px-4 py-2 flex items-center justify-between shadow-sm">
       <div className="flex items-center space-x-4">
-        <div className="text-lg font-semibold text-rovida-navy">Gestion Rovida</div>
+        <div className="text-lg font-semibold text-rovida-gold">Gestion Rovida</div>
 
         <Select defaultValue={currentBuildingId}>
           <SelectTrigger className="w-[180px] border-rovida-soft-gray text-rovida-near-black">
