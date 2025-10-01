@@ -1,0 +1,88 @@
+.icon-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.icon-btn {
+  position: relative;
+  width: 80px; /* Adjust size as needed */
+  height: 80px;
+  border-radius: 15px;
+  overflow: hidden;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  background: transparent;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.icon-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.icon-btn__back {
+  position: absolute;
+  inset: 0;
+  filter: blur(8px); /* Creates the soft glow effect */
+  opacity: 0.7;
+  transition: opacity 0.2s ease-out;
+}
+
+.icon-btn__front {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.15); /* Frosted glass effect */
+  backdrop-filter: blur(10px) saturate(180%);
+  -webkit-backdrop-filter: blur(10px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
+}
+
+.icon-btn:hover .icon-btn__front {
+  background-color: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.icon-btn__icon {
+  font-size: 2.2rem; /* Icon size */
+  color: white; /* Icon color */
+  margin-bottom: 0.25rem;
+  display: flex; /* To center Lucide icons */
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-btn__label {
+  font-size: 0.75rem;
+  color: white;
+  font-weight: 500;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Dark mode adjustments */
+.dark .icon-btn__front {
+  background-color: rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.dark .icon-btn:hover .icon-btn__front {
+  background-color: rgba(0, 0, 0, 0.25);
+  border-color: rgba(0, 0, 0, 0.4);
+}

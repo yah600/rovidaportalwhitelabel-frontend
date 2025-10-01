@@ -5,13 +5,26 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
+import Prism from '@/components/Prism'; // Import Prism
 
 const ForgotPassword = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-rovida-soft-gray/50 backdrop-blur-xl p-4">
-      <Card className="w-full max-w-md bg-white/80 backdrop-blur-xl border-rovida-soft-gray shadow-subtle">
+    <div className="relative flex min-h-screen items-center justify-center bg-rovida-soft-gray/50 backdrop-blur-xl p-4">
+      <Prism
+        animationType="rotate"
+        timeScale={0.5}
+        height={3.5}
+        baseWidth={5.5}
+        scale={3.6}
+        hueShift={0}
+        colorFrequency={1}
+        noise={0.5}
+        glow={1}
+        transparent={true}
+      />
+      <Card className="w-full max-w-md bg-white/80 backdrop-blur-xl border-rovida-soft-gray shadow-subtle relative z-10">
         <CardHeader className="text-center">
           <CardTitle className="text-3xl font-semibold text-page-title">{t('forgot_password')}</CardTitle>
           <CardDescription className="text-rovida-slate-green-gray">Enter your email to receive a password reset link.</CardDescription>

@@ -1,0 +1,55 @@
+.counter-container {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.counter-counter {
+  display: flex;
+  font-family: 'Roboto Mono', monospace; /* Use a monospace font for digits */
+  position: relative;
+  z-index: 1;
+}
+
+.counter-digit {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.counter-number {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gradient-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.top-gradient,
+.bottom-gradient {
+  position: absolute;
+  left: 0;
+  right: 0;
+  opacity: 0.8;
+}
+
+.top-gradient {
+  top: 0;
+}
+
+.bottom-gradient {
+  bottom: 0;
+}

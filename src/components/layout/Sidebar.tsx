@@ -28,7 +28,9 @@ import {
   Bell,
   MessageSquareText,
   ChevronDown,
+  Info, // Import Info icon for About page
 } from 'lucide-react';
+import GradualBlur from '@/components/GradualBlur'; // Import GradualBlur
 
 interface NavItem {
   title: string;
@@ -41,6 +43,7 @@ interface NavItem {
 const Sidebar = ({ className }: { className?: string }) => {
   const { t } = useTranslation();
   const location = useLocation();
+  const sidebarContentRef = React.useRef<HTMLDivElement>(null);
 
   const [openSubMenus, setOpenSubMenus] = React.useState<Record<string, boolean>>({});
 
@@ -128,6 +131,7 @@ const Sidebar = ({ className }: { className?: string }) => {
       ],
     },
     { title: t('profile'), href: '/profile', icon: User },
+    { title: 'About Us', href: '/about', icon: Info }, // New About Us link
   ];
 
   React.useEffect(() => {
@@ -208,10 +212,11 @@ const Sidebar = ({ className }: { className?: string }) => {
             <span className="text-lg text-rovida-gold">{t('welcome')}</span>
           </Link>
         </div>
-        <div className="flex-1 overflow-y-auto custom-scrollbar">
+        <div className="flex-1 overflow-y-auto custom-scrollbar relative" ref={sidebarContentRef}>
           <nav className="grid items-start px-2 text-sm font-medium lg:px-4">
             {renderNavItems(navItems)}
           </nav>
+          <GradualBlur target="parent" position="bottom" height="4rem" strength={2} divCount={5} opacity={1} />
         </div>
       </div>
     </div>

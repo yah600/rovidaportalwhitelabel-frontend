@@ -3,12 +3,31 @@ import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { PlusCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { mockIssues } from '@/data/mock-issues';
+import { mockIssues, Issue } from '@/data/mock-issues';
 import IssuesTable from '@/components/issues/IssuesTable';
+import GooeyNav from '@/components/GooeyNav'; // Import GooeyNav
 
 const Issues = () => {
   const { t } = useTranslation();
+  const [filterStatus, setFilterStatus] = React.useState<Issue['status'] | 'All'>('All');
+
+  const handleFilterChange = (item: { label: string; href: string }, index: number) => {
+    setFilterStatus(item.label as Issue['status'] | 'All');
+  };
+
+  const filteredIssues = filterStatus === 'All'
+    ? mockIssues
+    : mockIssues.filter(issue => issue.status === filterStatus);
+
   const hasIssues = mockIssues.length > 0;
+
+  const navItems = [
+    { label: 'All', href: '#' },
+    { label: 'Open', href: '#' },
+    { label: 'In Progress', href: '#' },
+    { label: 'Pending', href: '#' },
+    { label: 'Closed', href: '#' },
+  ];
 
   return (
     <div className="flex flex-1 flex-col gap-4">
@@ -21,8 +40,12 @@ const Issues = () => {
         </Link>
       </header>
 
+      <div className="flex justify-center mb-4">
+        <GooeyNav items={navItems} onItemClick={handleFilterChange} />
+      </div>
+
       {hasIssues ? (
-        <IssuesTable issues={mockIssues} />
+        <IssuesTable issues={filteredIssues} />
       ) : (
         <div className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm">
           <div className="flex flex-col items-center gap-1 text-center">

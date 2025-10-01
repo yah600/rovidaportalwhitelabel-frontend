@@ -1,0 +1,196 @@
+.outer-container {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.step-circle-container {
+  background-color: var(--background);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.step-indicator-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.step-indicator {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+.step-indicator-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: white;
+}
+
+.step-indicator[data-status='inactive'] .step-indicator-inner {
+  background-color: var(--rovida-soft-gray);
+  color: var(--rovida-slate-green-gray);
+}
+
+.step-indicator[data-status='active'] .step-indicator-inner {
+  background-color: var(--rovida-gold);
+  color: white;
+}
+
+.step-indicator[data-status='complete'] .step-indicator-inner {
+  background-color: var(--rovida-navy);
+  color: white;
+}
+
+.active-dot {
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.check-icon {
+  width: 20px;
+  height: 20px;
+  color: white;
+}
+
+.step-connector {
+  flex-grow: 1;
+  height: 2px;
+  background-color: var(--rovida-soft-gray);
+  margin: 0 0.5rem;
+  position: relative;
+}
+
+.step-connector-inner {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background-color: var(--rovida-navy);
+}
+
+.step-content-default {
+  min-height: 150px; /* Ensure content area has a minimum height */
+  padding: 1rem 0;
+  text-align: center;
+  color: var(--foreground);
+}
+
+.footer-container {
+  margin-top: 2rem;
+  border-top: 1px solid var(--border);
+  padding-top: 1.5rem;
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-nav.end {
+  justify-content: flex-end;
+}
+
+.back-button,
+.next-button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.back-button {
+  background-color: var(--rovida-soft-gray);
+  color: var(--rovida-near-black);
+}
+
+.back-button:hover {
+  background-color: var(--rovida-slate-green-gray);
+  color: white;
+}
+
+.next-button {
+  background-color: var(--rovida-navy);
+  color: white;
+}
+
+.next-button:hover {
+  background-color: var(--rovida-navy-90);
+}
+
+.back-button.inactive {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Dark mode adjustments */
+.dark .step-circle-container {
+  background-color: var(--card);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.dark .step-indicator[data-status='inactive'] .step-indicator-inner {
+  background-color: var(--rovida-navy-90);
+  color: var(--rovida-slate-green-gray);
+}
+
+.dark .step-indicator[data-status='active'] .step-indicator-inner {
+  background-color: var(--rovida-gold);
+  color: var(--rovida-navy);
+}
+
+.dark .step-indicator[data-status='complete'] .step-indicator-inner {
+  background-color: var(--rovida-gold);
+  color: var(--rovida-navy);
+}
+
+.dark .step-connector {
+  background-color: var(--rovida-navy-90);
+}
+
+.dark .step-connector-inner {
+  background-color: var(--rovida-gold);
+}
+
+.dark .back-button {
+  background-color: var(--rovida-navy-90);
+  color: var(--rovida-soft-gray);
+}
+
+.dark .back-button:hover {
+  background-color: var(--rovida-slate-green-gray);
+  color: white;
+}
+
+.dark .next-button {
+  background-color: var(--rovida-gold);
+  color: var(--rovida-navy);
+}
+
+.dark .next-button:hover {
+  background-color: var(--rovida-gold);
+  opacity: 0.9;
+}

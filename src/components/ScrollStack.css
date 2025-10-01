@@ -1,0 +1,62 @@
+.scroll-stack-scroller {
+  height: 100vh;
+  overflow-y: auto;
+  position: relative;
+  -webkit-overflow-scrolling: touch;
+}
+
+.scroll-stack-inner {
+  position: relative;
+  width: 100%;
+  padding-top: 10vh; /* Adjust as needed to give space for the first card to appear */
+  padding-bottom: 100vh; /* Ensures enough scroll space for all cards to stack */
+}
+
+.scroll-stack-card {
+  position: sticky;
+  top: 20%; /* This is the `stackPosition` prop, default 20% */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%; /* Adjust card width as needed */
+  max-width: 600px; /* Max width for cards */
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #333;
+  transition: transform 0.1s linear, filter 0.1s linear; /* Smooth transitions for transforms */
+  z-index: 1; /* Ensure cards are layered correctly */
+}
+
+.scroll-stack-card:not(:first-child) {
+  margin-top: 100px; /* This is the `itemDistance` prop */
+}
+
+.scroll-stack-card h2 {
+  font-size: 2em;
+  margin-bottom: 0.5em;
+}
+
+.scroll-stack-card p {
+  font-size: 1.1em;
+  line-height: 1.5;
+}
+
+.scroll-stack-end {
+  height: 1px; /* Invisible marker for the end of the stack */
+  position: relative;
+  top: 0;
+}
+
+/* Dark mode adjustments */
+.dark .scroll-stack-card {
+  background-color: #1e1e1e;
+  color: #eee;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}

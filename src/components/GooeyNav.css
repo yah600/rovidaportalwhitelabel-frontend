@@ -1,0 +1,157 @@
+.gooey-nav-container {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 60px; /* Fixed height for the nav bar */
+  background-color: var(--rovida-soft-gray);
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  filter: url(#gooey);
+  z-index: 1;
+}
+
+.gooey-nav-container nav {
+  position: relative;
+  z-index: 2;
+}
+
+.gooey-nav-container ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  height: 100%;
+}
+
+.gooey-nav-container li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.gooey-nav-container li a {
+  text-decoration: none;
+  color: var(--rovida-near-black);
+  font-weight: 600;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+
+.gooey-nav-container li.active a {
+  color: var(--rovida-navy); /* Active item text color */
+}
+
+.effect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-radius: 10px;
+  transition: all var(--time) ease-in-out;
+  z-index: 1;
+}
+
+.effect.filter {
+  background-color: var(--rovida-gold); /* Background color for the gooey effect */
+  transition: all var(--time) ease-in-out;
+}
+
+.effect.text {
+  background-color: transparent;
+  color: var(--rovida-navy); /* Text color for the active item in the effect */
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.effect.text.active {
+  opacity: 1;
+}
+
+.particle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(var(--scale)) rotate(var(--rotate));
+  opacity: 0;
+  animation: particle-animation var(--time) ease-out forwards;
+}
+
+.particle .point {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--color);
+}
+
+@keyframes particle-animation {
+  0% {
+    transform: translate(var(--start-x), var(--start-y)) scale(var(--scale)) rotate(var(--rotate));
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--end-x), var(--end-y)) scale(0) rotate(var(--rotate));
+    opacity: 0;
+  }
+}
+
+/* SVG filter for the gooey effect */
+.gooey-nav-container::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.gooey-nav-container::before {
+  filter: url(#gooey);
+}
+
+/* Define colors for particles */
+.gooey-nav-container {
+  --color-1: #C4972E; /* Rovida Gold */
+  --color-2: #183747; /* Rovida Navy */
+  --color-3: #7C8D89; /* Rovida Slate Green Gray */
+  --color-4: #E9ECEB; /* Rovida Soft Gray */
+}
+
+/* Dark mode adjustments */
+.dark .gooey-nav-container {
+  background-color: var(--rovida-navy-90);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.dark .gooey-nav-container li a {
+  color: var(--rovida-soft-gray);
+}
+
+.dark .gooey-nav-container li.active a {
+  color: var(--rovida-gold);
+}
+
+.dark .effect.filter {
+  background-color: var(--rovida-gold);
+}
+
+.dark .effect.text {
+  color: var(--rovida-navy);
+}

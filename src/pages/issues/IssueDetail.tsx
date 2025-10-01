@@ -20,6 +20,7 @@ import { Separator } from '@/components/ui/separator';
 import { mockIssues, Issue, IssueTimelineEvent, IssueAttachment, IssueParticipant } from '@/data/mock-issues';
 import { format } from 'date-fns';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import CircularGallery from '@/components/CircularGallery'; // Import CircularGallery
 
 const IssueDetail = () => {
   const { id } = useParams();
@@ -84,6 +85,11 @@ const IssueDetail = () => {
         return <Clock className="h-4 w-4 text-rovida-slate-green-gray" />;
     }
   };
+
+  const galleryItems = issue.attachments.map(att => ({
+    image: att.url,
+    text: att.name,
+  }));
 
   return (
     <div className="flex flex-1">
@@ -196,23 +202,8 @@ const IssueDetail = () => {
               </CardHeader>
               <CardContent>
                 {issue.attachments.length > 0 ? (
-                  <div className="grid gap-4">
-                    {issue.attachments.map((attachment) => (
-                      <div key={attachment.id} className="flex items-center justify-between p-3 border border-rovida-soft-gray rounded-md bg-white/80 backdrop-blur-lg">
-                        <div className="flex items-center gap-3">
-                          <Paperclip className="h-5 w-5 text-rovida-slate-green-gray" />
-                          <div>
-                            <a href={attachment.url} target="_blank" rel="noopener noreferrer" className="font-medium text-primary hover:underline">
-                              {attachment.name}
-                            </a>
-                            <p className="text-xs text-rovida-slate-green-gray">
-                              Uploaded by {attachment.uploadedBy} on {format(attachment.uploadedAt, 'MMM dd, yyyy')}
-                            </p>
-                          </div>
-                        </div>
-                        <Button variant="ghost" size="sm" className="text-rovida-slate-green-gray hover:text-rovida-navy">View</Button>
-                      </div>
-                    ))}
+                  <div className="h-64 relative">
+                    <CircularGallery items={galleryItems} bend={3} textColor="#183747" borderRadius={0.05} scrollEase={0.02} />
                   </div>
                 ) : (
                   <p className="text-rovida-slate-green-gray">No attachments for this incident.</p>

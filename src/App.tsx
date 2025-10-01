@@ -50,6 +50,8 @@ import SettingsNotifications from "./pages/settings/Notifications";
 import SettingsAudit from "./pages/settings/Audit";
 import SettingsFeedback from "./pages/settings/Feedback";
 import Profile from "./pages/Profile";
+import About from "./pages/About"; // Import new About page
+import CardNavDemo from "./pages/CardNavDemo"; // Import new CardNavDemo page
 
 // Auth Pages
 import Login from "./pages/auth/Login";
@@ -91,6 +93,7 @@ const App = () => (
             <Route path="/finance/bills" element={<FinanceBills />} />
             <Route path="/finance/bills/:id" element={<FinanceBillDetail />} />
             <Route path="/finance/payments" element={<FinancePayments />} />
+            <Route path="/finance/payments" element={<FinancePayments />} />
             <Route path="/finance/reports" element={<FinanceReports />} />
             <Route path="/board/meetings" element={<BoardMeetings />} />
             <Route path="/board/meetings/:id" element={<BoardMeetingDetail />} />
@@ -116,6 +119,8 @@ const App = () => (
             <Route path="/settings/audit" element={<SettingsAudit />} />
             <Route path="/settings/feedback" element={<SettingsFeedback />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/about" element={<About />} /> {/* New About page route */}
+            <Route path="/cardnav-demo" element={<CardNavDemo />} /> {/* New CardNavDemo page route */}
           </Route>
 
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
