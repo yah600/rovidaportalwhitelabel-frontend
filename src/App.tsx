@@ -4,7 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AppShell from "./components/layout/AppShell";
-import SettingsLayout from "./components/layout/SettingsLayout"; // Import SettingsLayout
+import SettingsLayout from "./components/layout/SettingsLayout";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Dashboard from "./pages/Dashboard";
@@ -30,8 +30,8 @@ import BoardMeetings from "./pages/board/Meetings";
 import BoardMeetingDetail from "./pages/board/MeetingDetail";
 import BoardVotes from "./pages/board/Votes";
 import BoardVoteDetail from "./pages/board/VoteDetail";
-import Documents from "./pages/Documents"; // New Documents overview page
-import DocumentsRegistry from "./pages/documents/Registry"; // Renamed Documents table page
+import DocumentsOverview from "./pages/documents/Overview"; // Renamed Documents overview page
+import DocumentsRegistry from "./pages/documents/Registry";
 import DocumentsInbox from "./pages/documents/Inbox";
 import DocumentDetail from "./pages/documents/DocumentDetail";
 import Comms from "./pages/Comms";
@@ -91,13 +91,14 @@ const App = () => (
             <Route path="finance/bills" element={<FinanceBills />} />
             <Route path="finance/bills/:id" element={<FinanceBillDetail />} />
             <Route path="finance/payments" element={<FinancePayments />} />
+            <Route path="finance/payments" element={<FinancePayments />} />
             <Route path="finance/reports" element={<FinanceReports />} />
             <Route path="board" element={<Board />} /> {/* Added a base route for Board */}
             <Route path="board/meetings" element={<BoardMeetings />} />
             <Route path="board/meetings/:id" element={<BoardMeetingDetail />} />
             <Route path="board/votes" element={<BoardVotes />} />
             <Route path="board/votes/:id" element={<BoardVoteDetail />} />
-            <Route path="documents" element={<Documents />} /> {/* New Documents overview */}
+            <Route path="documents" element={<DocumentsOverview />} /> {/* New Documents overview */}
             <Route path="documents/inbox" element={<DocumentsInbox />} />
             <Route path="documents/registry" element={<DocumentsRegistry />} /> {/* Renamed Documents table */}
             <Route path="documents/:id" element={<DocumentDetail />} />

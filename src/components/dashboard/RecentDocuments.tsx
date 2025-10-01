@@ -29,7 +29,7 @@ const RecentDocuments = () => {
           <CardTitle>Latest Documents</CardTitle>
           <CardDescription>Recently added or updated documents.</CardDescription>
         </div>
-        <Link to="/documents" className="text-sm text-primary hover:underline flex items-center gap-1">
+        <Link to="/documents/registry" className="text-sm text-primary hover:underline flex items-center gap-1">
           View All <ArrowRight className="h-4 w-4" />
         </Link>
       </CardHeader>
