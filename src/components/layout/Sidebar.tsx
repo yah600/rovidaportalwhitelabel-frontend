@@ -25,7 +25,8 @@ import {
   FileStack,
   Vote,
   Handshake,
-  Bell, // Added Bell here
+  Bell,
+  MessageSquareText, // Added MessageSquareText here
 } from 'lucide-react';
 
 interface NavItem {
