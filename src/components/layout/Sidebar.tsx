@@ -30,22 +30,30 @@ import {
   ChevronDown,
   Info,
   Menu,
-  PlusCircle, // Added PlusCircle for New Incident
+  PlusCircle,
+  Gavel, // New icon for Rules
+  Shield, // New icon for Insurance
+  LayoutTemplate, // New icon for Architectural Requests
+  ShoppingCart, // New icon for Purchase Orders
+  CalendarCheck, // New icon for Amenities
+  FileSignature, // New icon for Leases
+  LayoutGrid, // New icon for Portfolio
+  UserCheck, // New icon for Visitor Logs
 } from 'lucide-react';
-import { useAuth } from '@/hooks/useAuth'; // Import useAuth
+import { useAuth } from '@/hooks/useAuth';
 
 interface NavItem {
   title: string;
   href: string;
   icon: React.ElementType;
-  moduleName: string; // Corresponds to a key in PERMISSIONS_MATRIX
+  moduleName: string;
   subItems?: NavItem[];
 }
 
 const Sidebar = ({ className }: { className?: string }) => {
   const { t } = useTranslation();
   const location = useLocation();
-  const { canRead } = useAuth(); // Use the useAuth hook
+  const { canRead } = useAuth();
   const sidebarContentRef = React.useRef<HTMLDivElement>(null);
 
   const [openSubMenus, setOpenSubMenus] = React.useState<Record<string, boolean>>({});
@@ -82,23 +90,28 @@ const Sidebar = ({ className }: { className?: string }) => {
       title: t('finance'),
       href: '/finance',
       icon: DollarSign,
-      moduleName: 'Finance', // General finance module
+      moduleName: 'Finance',
       subItems: [
         { title: t('bills'), href: '/finance/bills', icon: Receipt, moduleName: 'Finance - Bills/Recurring/Deposits' },
         { title: t('payments'), href: '/finance/payments', icon: DollarSign, moduleName: 'Finance - Bills/Recurring/Deposits' },
+        { title: t('purchase_orders'), href: '/finance/purchase-orders', icon: ShoppingCart, moduleName: 'Finance' }, // New
         { title: t('reports'), href: '/finance/reports', icon: BarChart2, moduleName: 'Finance - Reports' },
       ],
     },
     {
       title: t('board'),
       href: '/board',
-      icon: Users, // Changed to Users for consistency with mock-roles
-      moduleName: 'Board', // General board module
+      icon: Users,
+      moduleName: 'Board',
       subItems: [
         { title: t('meetings'), href: '/board/meetings', icon: Handshake, moduleName: 'Board - Meetings/Votes' },
         { title: t('votes'), href: '/board/votes', icon: Vote, moduleName: 'Board - Meetings/Votes' },
+        { title: t('architectural_requests'), href: '/architectural-requests', icon: LayoutTemplate, moduleName: 'Board' }, // New
       ],
     },
+    { title: t('rules_and_violations'), href: '/rules', icon: Gavel, moduleName: 'Rules' }, // New
+    { title: t('insurance_and_claims'), href: '/insurance', icon: Shield, moduleName: 'Insurance' }, // New
+    { title: t('amenity_management'), href: '/amenities', icon: CalendarCheck, moduleName: 'Amenities' }, // New
     {
       title: t('documents'),
       href: '/documents',
@@ -126,21 +139,23 @@ const Sidebar = ({ className }: { className?: string }) => {
       title: t('settings'),
       href: '/settings',
       icon: Settings,
-      moduleName: 'Settings', // General settings module
+      moduleName: 'Settings',
       subItems: [
         { title: t('organization'), href: '/settings/org', icon: Settings, moduleName: 'Settings' },
+        { title: t('portfolio_management'), href: '/settings/portfolio', icon: LayoutGrid, moduleName: 'Settings' }, // New
         { title: t('buildings'), href: '/settings/buildings', icon: Building, moduleName: 'Settings' },
         { title: t('units'), href: '/settings/units', icon: Scale, moduleName: 'Settings' },
+        { title: t('tenant_lease_management'), href: '/settings/leases', icon: FileSignature, moduleName: 'Settings' }, // New
         { title: t('users'), href: '/settings/users', icon: Users, moduleName: 'Settings' },
         { title: t('roles'), href: '/settings/roles', icon: Users, moduleName: 'Settings' },
-        { title: t('security'), href: '/settings/security', icon: Settings, moduleName: 'Settings' },
+        { title: t('security'), href: '/settings/security', icon: ShieldCheck, moduleName: 'Settings' },
+        { title: t('visitor_logs'), href: '/settings/visitor-logs', icon: UserCheck, moduleName: 'Settings' }, // New
         { title: t('notifications'), href: '/settings/notifications', icon: Bell, moduleName: 'Settings' },
         { title: t('audit_log'), href: '/settings/audit', icon: FileText, moduleName: 'Settings' },
         { title: t('feedback'), href: '/settings/feedback', icon: MessageSquareText, moduleName: 'Settings' },
       ],
     },
     { title: t('profile'), href: '/profile', icon: User, moduleName: 'Profile' },
-    // Removed 'About Us', 'CardNav Demo', 'Onboarding' from sidebar navigation
   ];
 
   React.useEffect(() => {
@@ -166,7 +181,6 @@ const Sidebar = ({ className }: { className?: string }) => {
 
   const renderNavItems = (items: NavItem[]) => {
     return items.map((item) => {
-      // Check if the user has read permission for the module
       if (!canRead(item.moduleName)) {
         return null;
       }
@@ -200,7 +214,6 @@ const Sidebar = ({ className }: { className?: string }) => {
           {item.subItems && isSubMenuOpen && !isCollapsed && (
             <div className="ml-6 mt-1 space-y-1">
               {item.subItems.map(subItem => {
-                // Check read permission for sub-items as well
                 if (!canRead(subItem.moduleName)) {
                   return null;
                 }
@@ -228,7 +241,7 @@ const Sidebar = ({ className }: { className?: string }) => {
     <div
       className={cn(
         "hidden border-r border-rovida-soft-gray bg-white/80 backdrop-blur-xl md:flex flex-col transition-all duration-300 ease-in-out",
-        isCollapsed ? "w-[70px]" : "w-[280px]", // Use fixed widths for collapsed/expanded
+        isCollapsed ? "w-[70px]" : "w-[280px]",
         className
       )}
       style={{ '--sidebar-width': isCollapsed ? '70px' : '280px' } as React.CSSProperties}
