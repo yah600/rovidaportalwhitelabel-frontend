@@ -41,7 +41,7 @@ import IntegrationDetail from "./pages/integrations/IntegrationDetail";
 import Analytics from "./pages/Analytics";
 import Settings from "./pages/Settings";
 import SettingsOrganization from "./pages/settings/Organization";
-import SettingsBuildings from "./热闹/settings/Buildings";
+import SettingsBuildings from "./pages/settings/Buildings";
 import SettingsUnits from "./pages/settings/Units";
 import SettingsUsers from "./pages/settings/Users";
 import SettingsRoles from "./pages/settings/Roles";
