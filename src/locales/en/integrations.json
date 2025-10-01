@@ -1,0 +1,20 @@
+{
+  "integrations": "Integrations",
+  "add_new_integration": "Add New Integration",
+  "no_integrations_found": "No integrations found.",
+  "start_by_adding_new_integration": "You can start by adding a new integration.",
+  "integration_not_found": "Integration not found.",
+  "edit_integration": "Edit Integration",
+  "deactivate": "Deactivate",
+  "activate": "Activate",
+  "remove_integration": "Remove Integration",
+  "integration_details": "Integration Details",
+  "connected_at": "Connected At",
+  "setup_instructions": "Setup Instructions",
+  "to_activate_integration_follow_steps": "To activate this integration, please follow these steps:",
+  "go_to_dashboard": "Go to the",
+  "generate_api_key": "Generate an API key.",
+  "enter_api_key_below": "Enter the API key in the settings below.",
+  "click_save_activate": "Click \"Save and Activate\".",
+  "complete_setup": "Complete Setup"
+}

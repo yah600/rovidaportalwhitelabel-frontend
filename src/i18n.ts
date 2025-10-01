@@ -1,25 +1,40 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
-import enTranslation from './locales/en.json';
-import frTranslation from './locales/fr.json';
+// Dynamically import all translation files
+const loadTranslations = async () => {
+  const enModules = import.meta.glob('./locales/en/*.json', { eager: true });
+  const frModules = import.meta.glob('./locales/fr/*.json', { eager: true });
 
-i18n
-  .use(initReactI18next)
-  .init({
-    resources: {
-      en: {
-        translation: enTranslation,
+  const resources = {
+    en: {},
+    fr: {},
+  };
+
+  for (const path in enModules) {
+    const key = path.replace('./locales/en/', '').replace('.json', '');
+    Object.assign(resources.en, enModules[path].default);
+  }
+
+  for (const path in frModules) {
+    const key = path.replace('./locales/fr/', '').replace('.json', '');
+    Object.assign(resources.fr, frModules[path].default);
+  }
+
+  return resources;
+};
+
+loadTranslations().then(resources => {
+  i18n
+    .use(initReactI18next)
+    .init({
+      resources,
+      lng: 'fr', // default language
+      fallbackLng: 'en',
+      interpolation: {
+        escapeValue: false, // react already safes from xss
       },
-      fr: {
-        translation: frTranslation,
-      },
-    },
-    lng: 'fr', // default language
-    fallbackLng: 'en',
-    interpolation: {
-      escapeValue: false, // react already safes from xss
-    },
-  });
+    });
+});
 
 export default i18n;

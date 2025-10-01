@@ -1,0 +1,13 @@
+{
+  "analytics": "Analytics",
+  "overview_key_operational_metrics": "Overview of key operational metrics.",
+  "monthly_issue_trends": "Monthly Issue Trends",
+  "open_closed_issues_6_months": "Open vs. Closed issues over the last 6 months.",
+  "issue_type_distribution": "Issue Type Distribution",
+  "breakdown_issues_by_type": "Breakdown of issues by type.",
+  "work_order_completion_rate": "Work Order Completion Rate",
+  "monthly_work_order_completion_status": "Monthly work order completion status.",
+  "closed_issues": "Closed Issues",
+  "completed": "Completed",
+  "pending": "Pending"
+}

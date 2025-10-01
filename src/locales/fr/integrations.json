@@ -1,0 +1,20 @@
+{
+  "integrations": "Intégrations",
+  "add_new_integration": "Ajouter une nouvelle intégration",
+  "no_integrations_found": "Aucune intégration trouvée.",
+  "start_by_adding_new_integration": "Vous pouvez commencer par ajouter une nouvelle intégration.",
+  "integration_not_found": "Intégration introuvable.",
+  "edit_integration": "Modifier l'intégration",
+  "deactivate": "Désactiver",
+  "activate": "Activer",
+  "remove_integration": "Supprimer l'intégration",
+  "integration_details": "Détails de l'intégration",
+  "connected_at": "Connecté le",
+  "setup_instructions": "Instructions de configuration",
+  "to_activate_integration_follow_steps": "Pour activer cette intégration, veuillez suivre ces étapes :",
+  "go_to_dashboard": "Accédez au",
+  "generate_api_key": "Générez une clé API.",
+  "enter_api_key_below": "Saisissez la clé API dans les paramètres ci-dessous.",
+  "click_save_activate": "Cliquez sur « Enregistrer et activer ».",
+  "complete_setup": "Terminer la configuration"
+}

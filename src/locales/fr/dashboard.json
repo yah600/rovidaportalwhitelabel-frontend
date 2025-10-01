@@ -1,0 +1,14 @@
+{
+  "dashboard": "Tableau de bord",
+  "open_issues": "Incidents ouverts",
+  "overdue_bills": "Factures >30j",
+  "due_tasks": "Tâches dues",
+  "open_votes": "Votes ouverts",
+  "critical_alert": "Urgence active — intervention requise maintenant.",
+  "your_most_recent_incidents": "Vos incidents les plus récents.",
+  "events_scheduled_near_future": "Événements prévus dans un futur proche.",
+  "no_upcoming_events": "Aucun événement à venir.",
+  "latest_documents": "Derniers documents",
+  "recently_added_updated_documents": "Documents récemment ajoutés ou mis à jour.",
+  "no_recent_documents": "Aucun document récent."
+}

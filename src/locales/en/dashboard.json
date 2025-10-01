@@ -1,0 +1,14 @@
+{
+  "dashboard": "Dashboard",
+  "open_issues": "Open Issues",
+  "overdue_bills": "Overdue Bills",
+  "due_tasks": "Due Tasks",
+  "open_votes": "Open Votes",
+  "critical_alert": "Critical Alert - Intervention required now.",
+  "your_most_recent_incidents": "Your most recent incidents.",
+  "events_scheduled_near_future": "Events scheduled in the near future.",
+  "no_upcoming_events": "No upcoming events.",
+  "latest_documents": "Latest Documents",
+  "recently_added_updated_documents": "Recently added or updated documents.",
+  "no_recent_documents": "No recent documents."
+}

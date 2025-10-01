@@ -1,0 +1,20 @@
+{
+  "emergency": "Urgence",
+  "emergency_management": "Gestion des urgences",
+  "monitor_manage_incidents_realtime": "Surveillez et gérez les incidents critiques en temps réel.",
+  "active_critical_alerts": "Alertes critiques actives",
+  "immediate_action_required": "Action immédiate requise pour ces incidents.",
+  "severe_water_leak_unit": "Fuite d'eau grave détectée dans l'unité 203. Risque d'inondation.",
+  "fire_alarm_triggered_lobby": "Alarme incendie déclenchée dans le hall principal. Enquête en cours.",
+  "detected": "Détecté :",
+  "acknowledge": "Accuser réception",
+  "escalate": "Escalader",
+  "no_active_critical_alerts": "Aucune alerte critique active.",
+  "live_emergency_timeline": "Chronologie d'urgence en direct",
+  "realtime_updates_emergency_events": "Mises à jour en temps réel de tous les événements d'urgence.",
+  "fire_alarm_triggered_main_lobby": "Alarme incendie déclenchée dans le hall principal.",
+  "alert_acknowledged_services_dispatched": "Alerte EMG002 reconnue. Services d'urgence dépêchés.",
+  "water_leak_detected_unit": "Fuite d'eau détectée dans l'unité 203. Alerte EMG001 créée.",
+  "onsite_assessment_initiated": "Évaluation sur site pour EMG001 initiée. Coupure d'eau principale.",
+  "no_emergency_events_timeline": "Aucun événement d'urgence dans la chronologie."
+}
