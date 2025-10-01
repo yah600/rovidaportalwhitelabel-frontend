@@ -60,13 +60,13 @@ import ForgotPassword from "./pages/auth/ForgotPassword";
 import ResetPassword from "./pages/auth/ResetPassword";
 
 // User Context for Authorization
-import { UserProvider } from "./context/UserContext";
+// import { UserProvider } from "./context/UserContext"; // Removed as it's now in main.tsx
 
 
 const queryClient = new QueryClient();
 
 const App = () => (
-  <UserProvider> {/* Moved UserProvider to the very top */}
+  // <UserProvider> {/* Removed UserProvider from here */}
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
@@ -138,7 +138,7 @@ const App = () => (
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>
-  </UserProvider>
+  // </UserProvider>
 );
 
 export default App;
