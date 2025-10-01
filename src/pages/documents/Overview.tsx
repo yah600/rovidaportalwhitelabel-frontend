@@ -31,58 +31,58 @@ const Documents = () => {
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {/* Total Documents Card */}
-        <Card>
+        <Card className="card-rovida">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Total Documents</CardTitle>
-            <FileText className="h-4 w-4 text-muted-foreground" />
+            <CardTitle className="text-sm font-medium text-rovida-navy">Total Documents</CardTitle>
+            <FileText className="h-4 w-4 text-rovida-gold" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{totalDocuments}</div>
-            <p className="text-xs text-muted-foreground">All files in your registry</p>
-            <Link to="/documents/registry" className="mt-2 inline-flex items-center text-sm text-primary hover:underline">
+            <div className="text-2xl font-bold text-rovida-near-black">{totalDocuments}</div>
+            <p className="text-xs text-rovida-slate-green-gray">All files in your registry</p>
+            <Link to="/documents/registry" className="mt-2 inline-flex items-center text-sm link-rovida">
               View Registry <ArrowRight className="ml-1 h-4 w-4" />
             </Link>
           </CardContent>
         </Card>
 
         {/* Recent Uploads Card */}
-        <Card>
+        <Card className="card-rovida">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Recent Uploads</CardTitle>
-            <UploadCloud className="h-4 w-4 text-muted-foreground" />
+            <CardTitle className="text-sm font-medium text-rovida-navy">Recent Uploads</CardTitle>
+            <UploadCloud className="h-4 w-4 text-rovida-gold" />
           </CardHeader>
           <CardContent>
             {recentUploads.length > 0 ? (
-              <div className="text-2xl font-bold">{format(recentUploads[0].uploadedAt, 'MMM dd')}</div>
+              <div className="text-2xl font-bold text-rovida-near-black">{format(recentUploads[0].uploadedAt, 'MMM dd')}</div>
             ) : (
-              <div className="text-2xl font-bold">N/A</div>
+              <div className="text-2xl font-bold text-rovida-near-black">N/A</div>
             )}
-            <p className="text-xs text-muted-foreground">{recentUploads.length} documents recently added</p>
-            <Link to="/documents/registry" className="mt-2 inline-flex items-center text-sm text-primary hover:underline">
+            <p className="text-xs text-rovida-slate-green-gray">{recentUploads.length} documents recently added</p>
+            <Link to="/documents/registry" className="mt-2 inline-flex items-center text-sm link-rovida">
               View Recent <ArrowRight className="ml-1 h-4 w-4" />
             </Link>
           </CardContent>
         </Card>
 
         {/* Documents Needing Review Card */}
-        <Card>
+        <Card className="card-rovida">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Documents Inbox</CardTitle>
-            <Mail className="h-4 w-4 text-muted-foreground" />
+            <CardTitle className="text-sm font-medium text-rovida-navy">Documents Inbox</CardTitle>
+            <Mail className="h-4 w-4 text-rovida-gold" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{documentsNeedingReview} New</div>
-            <p className="text-xs text-muted-foreground">Files awaiting your attention</p>
-            <Link to="/documents/inbox" className="mt-2 inline-flex items-center text-sm text-primary hover:underline">
+            <div className="text-2xl font-bold text-rovida-near-black">{documentsNeedingReview} New</div>
+            <p className="text-xs text-rovida-slate-green-gray">Files awaiting your attention</p>
+            <Link to="/documents/inbox" className="mt-2 inline-flex items-center text-sm link-rovida">
               Go to Inbox <ArrowRight className="ml-1 h-4 w-4" />
             </Link>
           </CardContent>
         </Card>
       </div>
 
-      <div className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm mt-4 p-8">
-        <p className="text-muted-foreground">More detailed document analytics and management tools coming soon!</p>
-      </div>
+      <Card className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm card-rovida mt-4 p-8">
+        <p className="text-rovida-slate-green-gray">More detailed document analytics and management tools coming soon!</p>
+      </Card>
     </div>
   );
 };

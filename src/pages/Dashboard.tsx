@@ -73,7 +73,7 @@ const Dashboard = () => {
       <div className="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
         {isLoadingKPIs ? (
           Array.from({ length: 4 }).map((_, i) => (
-            <Card key={i}>
+            <Card key={i} className="card-rovida">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">
                   <Skeleton className="h-4 w-[100px]" />
@@ -95,7 +95,7 @@ const Dashboard = () => {
               <GlassSurface width="100%" height="auto" borderRadius={10} blur={15} backgroundOpacity={0.1} className="p-4">
                 <Card className="w-full h-full bg-transparent border-none shadow-none">
                   <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                    <CardTitle className="text-sm font-medium">{t('open_issues')}</CardTitle>
+                    <CardTitle className="text-sm font-medium text-rovida-navy">{t('open_issues')}</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <Counter value={openIssuesCount} fontSize={24} places={[100, 10, 1]} textColor="#111418" fontWeight={700} gradientFrom="rgba(255,255,255,0.5)" gradientTo="rgba(255,255,255,0)" />
@@ -108,7 +108,7 @@ const Dashboard = () => {
               <GlassSurface width="100%" height="auto" borderRadius={10} blur={15} backgroundOpacity={0.1} className="p-4">
                 <Card className="w-full h-full bg-transparent border-none shadow-none">
                   <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                    <CardTitle className="text-sm font-medium">{t('overdue_bills')}</CardTitle>
+                    <CardTitle className="text-sm font-medium text-rovida-navy">{t('overdue_bills')}</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <Counter value={overdueBillsCount} fontSize={24} places={[100, 10, 1]} textColor="#111418" fontWeight={700} gradientFrom="rgba(255,255,255,0.5)" gradientTo="rgba(255,255,255,0)" />
@@ -121,7 +121,7 @@ const Dashboard = () => {
               <GlassSurface width="100%" height="auto" borderRadius={10} blur={15} backgroundOpacity={0.1} className="p-4">
                 <Card className="w-full h-full bg-transparent border-none shadow-none">
                   <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                    <CardTitle className="text-sm font-medium">{t('due_tasks')}</CardTitle>
+                    <CardTitle className="text-sm font-medium text-rovida-navy">{t('due_tasks')}</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <Counter value={dueTasksCount} fontSize={24} places={[100, 10, 1]} textColor="#111418" fontWeight={700} gradientFrom="rgba(255,255,255,0.5)" gradientTo="rgba(255,255,255,0)" />
@@ -134,7 +134,7 @@ const Dashboard = () => {
               <GlassSurface width="100%" height="auto" borderRadius={10} blur={15} backgroundOpacity={0.1} className="p-4">
                 <Card className="w-full h-full bg-transparent border-none shadow-none">
                   <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                    <CardTitle className="text-sm font-medium">{t('open_votes')}</CardTitle>
+                    <CardTitle className="text-sm font-medium text-rovida-navy">{t('open_votes')}</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <Counter value={openVotesCount} fontSize={24} places={[100, 10, 1]} textColor="#111418" fontWeight={700} gradientFrom="rgba(255,255,255,0.5)" gradientTo="rgba(255,255,255,0)" />

@@ -14,17 +14,17 @@ const UpcomingEvents = () => {
     .sort((a, b) => a.date.getTime() - b.date.getTime());
 
   return (
-    <Card className="col-span-2 lg:col-span-1">
+    <Card className="col-span-2 lg:col-span-1 card-rovida">
       <CardHeader>
-        <CardTitle>Upcoming Events</CardTitle>
-        <CardDescription>Events scheduled for the near future.</CardDescription>
+        <CardTitle className="text-rovida-navy">Upcoming Events</CardTitle>
+        <CardDescription className="text-rovida-slate-green-gray">Events scheduled for the near future.</CardDescription>
       </CardHeader>
       <CardContent>
         {upcomingMeetings.length > 0 ? (
           <div className="space-y-4">
             {upcomingMeetings.map((meeting) => (
               <div key={meeting.id} className="flex items-center gap-3">
-                <CalendarDays className="h-5 w-5 text-rovida-slate-green-gray" />
+                <CalendarDays className="h-5 w-5 text-rovida-gold" />
                 <div>
                   <p className="font-medium text-rovida-near-black">{meeting.title}</p>
                   <p className="text-sm text-rovida-slate-green-gray">

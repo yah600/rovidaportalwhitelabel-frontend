@@ -19,20 +19,20 @@ const MaintenanceTasks = () => {
       <BreadcrumbNav items={breadcrumbItems} />
       <header className="flex items-center justify-between">
         <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('maintenance')} Tasks</h1>
-        <Button>
+        <Button className="btn-primary">
           <PlusCircle className="mr-2 h-4 w-4" /> Create New Task
         </Button>
       </header>
       <p className="text-rovida-slate-green-gray">Manage individual maintenance tasks and their progress.</p>
 
-      <Card className="flex-1 bg-white/80 backdrop-blur-xl border-rovida-soft-gray shadow-subtle">
+      <Card className="flex-1 card-rovida">
         <CardHeader>
           <CardTitle className="text-rovida-navy">Task List</CardTitle>
           <CardDescription className="text-rovida-slate-green-gray">Overview of all maintenance tasks.</CardDescription>
         </CardHeader>
         <CardContent className="flex flex-1 items-center justify-center">
           <div className="flex flex-col items-center gap-2 text-rovida-slate-green-gray">
-            <ClipboardList className="h-12 w-12" />
+            <ClipboardList className="h-12 w-12 text-rovida-gold" />
             <p>Maintenance tasks will be listed here.</p>
             <Button variant="outline" className="mt-4 btn-secondary">
               <PlusCircle className="mr-2 h-4 w-4" /> Create First Task

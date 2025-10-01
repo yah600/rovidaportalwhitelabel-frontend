@@ -27,7 +27,7 @@ const FinanceBillDetail = () => {
   if (!bill) {
     return (
       <div className="flex flex-1 items-center justify-center">
-        <p className="text-muted-foreground">Bill not found.</p>
+        <p className="text-rovida-slate-green-gray">Bill not found.</p>
       </div>
     );
   }
@@ -57,7 +57,7 @@ const FinanceBillDetail = () => {
     <div className="flex flex-1 flex-col gap-4">
       <BreadcrumbNav items={breadcrumbItems} />
       <header className="flex items-center justify-between flex-wrap gap-2 mb-4">
-        <h1 className="text-2xl font-semibold md:text-3xl">{bill.description}</h1>
+        <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{bill.description}</h1>
         <div className="flex items-center gap-2">
           <Badge variant={getStatusBadgeVariant(bill.status)}>{bill.status}</Badge>
           <DropdownMenu>
@@ -86,12 +86,12 @@ const FinanceBillDetail = () => {
         </div>
       </header>
 
-      <Card>
+      <Card className="card-rovida">
         <CardHeader>
-          <CardTitle>Bill Details</CardTitle>
+          <CardTitle className="text-rovida-navy">Bill Details</CardTitle>
         </CardHeader>
         <CardContent className="grid gap-4">
-          <div className="grid grid-cols-2 gap-2">
+          <div className="grid grid-cols-2 gap-2 text-rovida-near-black">
             <div className="font-medium">ID:</div>
             <div>{bill.id}</div>
             <div className="font-medium">Vendor:</div>
@@ -111,10 +111,10 @@ const FinanceBillDetail = () => {
               </>
             )}
           </div>
-          <Separator />
+          <Separator className="bg-rovida-soft-gray" />
           <div>
-            <h4 className="font-medium mb-2">Description:</h4>
-            <p className="text-muted-foreground">{bill.description}</p>
+            <h4 className="font-medium mb-2 text-rovida-navy">Description:</h4>
+            <p className="text-rovida-slate-green-gray">{bill.description}</p>
           </div>
         </CardContent>
       </Card>

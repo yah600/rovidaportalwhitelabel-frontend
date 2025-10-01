@@ -85,7 +85,7 @@ const Emergency = () => {
       <p className="text-rovida-slate-green-gray">Monitor and manage critical incidents in real-time.</p>
 
       <div className="grid gap-4 lg:grid-cols-2">
-        <Card className="bg-white/80 backdrop-blur-xl border-rovida-soft-gray shadow-subtle">
+        <Card className="card-rovida">
           <CardHeader>
             <CardTitle className="text-rovida-error flex items-center gap-2">
               <AlertTriangle className="h-6 w-6" /> Active Critical Alerts
@@ -113,7 +113,7 @@ const Emergency = () => {
           </CardContent>
         </Card>
 
-        <Card className="bg-white/80 backdrop-blur-xl border-rovida-soft-gray shadow-subtle">
+        <Card className="card-rovida">
           <CardHeader>
             <CardTitle className="text-rovida-navy">Live Emergency Timeline</CardTitle>
             <CardDescription className="text-rovida-slate-green-gray">Real-time updates on all emergency events.</CardDescription>

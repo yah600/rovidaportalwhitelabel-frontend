@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { mockAuditLogs } from '@/data/mock-audit-logs';
 import AuditLogsTable from '@/components/settings/AuditLogsTable';
+import { Card } from '@/components/ui/card'; // Import Card for the empty state
 
 const SettingsAudit = () => {
   const { t } = useTranslation();
@@ -18,16 +19,16 @@ const SettingsAudit = () => {
       {hasLogs ? (
         <AuditLogsTable logs={mockAuditLogs} />
       ) : (
-        <div className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm">
+        <Card className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm card-rovida">
           <div className="flex flex-col items-center gap-1 text-center">
-            <h3 className="text-2xl font-bold tracking-tight">
+            <h3 className="text-2xl font-bold tracking-tight text-rovida-near-black">
               No audit logs found.
             </h3>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-rovida-slate-green-gray">
               Activity logs will appear here as users interact with the system.
             </p>
           </div>
-        </div>
+        </Card>
       )}
     </div>
   );

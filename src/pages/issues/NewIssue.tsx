@@ -59,10 +59,10 @@ const NewIssue = () => {
     <div className="flex flex-1 flex-col gap-4">
       <BreadcrumbNav items={breadcrumbItems} />
       <h1 className="text-2xl font-semibold md:text-3xl text-page-title">Create New Incident</h1>
-      <Card className="max-w-2xl mx-auto w-full">
+      <Card className="max-w-2xl mx-auto w-full card-rovida">
         <CardHeader>
-          <CardTitle>Incident Information</CardTitle>
-          <CardDescription>Fill in the details for the new incident.</CardDescription>
+          <CardTitle className="text-rovida-navy">Incident Information</CardTitle>
+          <CardDescription className="text-rovida-slate-green-gray">Fill in the details for the new incident.</CardDescription>
         </CardHeader>
         <CardContent>
           <Stepper onFinalStepCompleted={form.handleSubmit(onSubmit)} nextButtonText="Next" backButtonText="Back">

@@ -24,7 +24,7 @@ const ForgotPassword = () => {
         glow={1}
         transparent={true}
       />
-      <Card className="w-full max-w-md bg-white/80 backdrop-blur-xl border-rovida-soft-gray shadow-subtle relative z-10">
+      <Card className="w-full max-w-md card-rovida relative z-10">
         <CardHeader className="text-center">
           <CardTitle className="text-3xl font-semibold text-page-title">{t('forgot_password')}</CardTitle>
           <CardDescription className="text-rovida-slate-green-gray">Enter your email to receive a password reset link.</CardDescription>

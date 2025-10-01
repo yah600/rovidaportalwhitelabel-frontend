@@ -27,7 +27,7 @@ const BoardMeetingDetail = () => {
   if (!meeting) {
     return (
       <div className="flex flex-1 items-center justify-center">
-        <p className="text-muted-foreground">Meeting not found.</p>
+        <p className="text-rovida-slate-green-gray">Meeting not found.</p>
       </div>
     );
   }
@@ -89,12 +89,12 @@ const BoardMeetingDetail = () => {
         </div>
       </header>
 
-      <Card>
+      <Card className="card-rovida">
         <CardHeader>
-          <CardTitle>Meeting Details</CardTitle>
+          <CardTitle className="text-rovida-navy">Meeting Details</CardTitle>
         </CardHeader>
         <CardContent className="grid gap-4">
-          <div className="grid grid-cols-2 gap-2">
+          <div className="grid grid-cols-2 gap-2 text-rovida-near-black">
             <div className="font-medium">ID:</div>
             <div>{meeting.id}</div>
             <div className="font-medium">Date:</div>
@@ -104,19 +104,19 @@ const BoardMeetingDetail = () => {
             <div className="font-medium">Location:</div>
             <div>{meeting.location}</div>
           </div>
-          <Separator />
+          <Separator className="bg-rovida-soft-gray" />
           <div>
-            <h4 className="font-medium mb-2 flex items-center gap-2"><Users className="h-4 w-4" /> Attendees:</h4>
-            <ul className="list-disc list-inside text-muted-foreground">
+            <h4 className="font-medium mb-2 flex items-center gap-2 text-rovida-navy"><Users className="h-4 w-4 text-rovida-gold" /> Attendees:</h4>
+            <ul className="list-disc list-inside text-rovida-slate-green-gray">
               {meeting.attendees.map((attendee, index) => (
                 <li key={index}>{attendee}</li>
               ))}
             </ul>
           </div>
-          <Separator />
+          <Separator className="bg-rovida-soft-gray" />
           <div>
-            <h4 className="font-medium mb-2 flex items-center gap-2"><ListChecks className="h-4 w-4" /> Agenda:</h4>
-            <ul className="list-disc list-inside text-muted-foreground">
+            <h4 className="font-medium mb-2 flex items-center gap-2 text-rovida-navy"><ListChecks className="h-4 w-4 text-rovida-gold" /> Agenda:</h4>
+            <ul className="list-disc list-inside text-rovida-slate-green-gray">
               {meeting.agenda.map((item, index) => (
                 <li key={index}>{item}</li>
               ))}
@@ -124,10 +124,10 @@ const BoardMeetingDetail = () => {
           </div>
           {meeting.minutes && (
             <>
-              <Separator />
+              <Separator className="bg-rovida-soft-gray" />
               <div>
-                <h4 className="font-medium mb-2 flex items-center gap-2"><FileText className="h-4 w-4" /> Minutes:</h4>
-                <p className="text-muted-foreground">{meeting.minutes}</p>
+                <h4 className="font-medium mb-2 flex items-center gap-2 text-rovida-navy"><FileText className="h-4 w-4 text-rovida-gold" /> Minutes:</h4>
+                <p className="text-rovida-slate-green-gray">{meeting.minutes}</p>
               </div>
             </>
           )}

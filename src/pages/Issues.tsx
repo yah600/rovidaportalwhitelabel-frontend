@@ -7,6 +7,7 @@ import { mockIssues, Issue } from '@/data/mock-issues';
 import IssuesTable from '@/components/issues/IssuesTable';
 import GooeyNav from '@/components/GooeyNav'; // Import GooeyNav
 import BreadcrumbNav from '@/components/BreadcrumbNav'; // Import BreadcrumbNav
+import { Card } from '@/components/ui/card'; // Import Card for the empty state
 
 const Issues = () => {
   const { t } = useTranslation();
@@ -40,7 +41,7 @@ const Issues = () => {
       <header className="flex items-center justify-between">
         <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('issues')}</h1>
         <Link to="/issues/new">
-          <Button>
+          <Button className="btn-primary">
             <PlusCircle className="mr-2 h-4 w-4" /> {t('create_first_ticket')}
           </Button>
         </Link>
@@ -53,7 +54,7 @@ const Issues = () => {
       {hasIssues ? (
         <IssuesTable issues={filteredIssues} />
       ) : (
-        <div className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm">
+        <Card className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm card-rovida">
           <div className="flex flex-col items-center gap-1 text-center">
             <h3 className="text-2xl font-bold tracking-tight text-rovida-near-black">
               {t('no_tickets')}
@@ -62,12 +63,12 @@ const Issues = () => {
               You can start by creating a new incident.
             </p>
             <Link to="/issues/new">
-              <Button className="mt-4">
+              <Button className="mt-4 btn-primary">
                 <PlusCircle className="mr-2 h-4 w-4" /> {t('create_first_ticket')}
               </Button>
             </Link>
           </div>
-        </div>
+        </Card>
       )}
     </div>
   );

@@ -18,14 +18,14 @@ const MaintenanceCalendar = () => {
       <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('maintenance')} Calendar</h1>
       <p className="text-rovida-slate-green-gray">Visualize and manage your maintenance schedule.</p>
 
-      <Card className="flex-1 bg-white/80 backdrop-blur-xl border-rovida-soft-gray shadow-subtle">
+      <Card className="flex-1 card-rovida">
         <CardHeader>
           <CardTitle className="text-rovida-navy">Monthly View</CardTitle>
           <CardDescription className="text-rovida-slate-green-gray">Upcoming and completed tasks.</CardDescription>
         </CardHeader>
         <CardContent className="flex flex-1 items-center justify-center">
           <div className="flex flex-col items-center gap-2 text-rovida-slate-green-gray">
-            <CalendarDays className="h-12 w-12" />
+            <CalendarDays className="h-12 w-12 text-rovida-gold" />
             <p>Calendar view coming soon!</p>
           </div>
         </CardContent>

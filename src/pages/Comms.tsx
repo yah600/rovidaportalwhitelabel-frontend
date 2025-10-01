@@ -41,63 +41,63 @@ const Comms = () => {
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {/* Announcements Card */}
-        <Card>
+        <Card className="card-rovida">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Announcements</CardTitle>
-            <Megaphone className="h-4 w-4 text-muted-foreground" />
+            <CardTitle className="text-sm font-medium text-rovida-navy">Announcements</CardTitle>
+            <Megaphone className="h-4 w-4 text-rovida-gold" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{publishedAnnouncements} Published</div>
-            <p className="text-xs text-muted-foreground">Total: {totalAnnouncements}</p>
-            <Link to="/comms/announcements" className="mt-2 inline-flex items-center text-sm text-primary hover:underline">
+            <div className="text-2xl font-bold text-rovida-near-black">{publishedAnnouncements} Published</div>
+            <p className="text-xs text-rovida-slate-green-gray">Total: {totalAnnouncements}</p>
+            <Link to="/comms/announcements" className="mt-2 inline-flex items-center text-sm link-rovida">
               View All <ArrowRight className="ml-1 h-4 w-4" />
             </Link>
           </CardContent>
         </Card>
 
         {/* Send Communication Card */}
-        <Card>
+        <Card className="card-rovida">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Send Communication</CardTitle>
-            <MessageSquare className="h-4 w-4 text-muted-foreground" />
+            <CardTitle className="text-sm font-medium text-rovida-navy">Send Communication</CardTitle>
+            <MessageSquare className="h-4 w-4 text-rovida-gold" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">Compose New</div>
-            <p className="text-xs text-muted-foreground">Send messages to residents.</p>
-            <Link to="/comms/send" className="mt-2 inline-flex items-center text-sm text-primary hover:underline">
+            <div className="text-2xl font-bold text-rovida-near-black">Compose New</div>
+            <p className="text-xs text-rovida-slate-green-gray">Send messages to residents.</p>
+            <Link to="/comms/send" className="mt-2 inline-flex items-center text-sm link-rovida">
               Go to Sender <ArrowRight className="ml-1 h-4 w-4" />
             </Link>
           </CardContent>
         </Card>
 
         {/* Templates Card */}
-        <Card>
+        <Card className="card-rovida">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Templates</CardTitle>
-            <FileText className="h-4 w-4 text-muted-foreground" />
+            <CardTitle className="text-sm font-medium text-rovida-navy">Templates</CardTitle>
+            <FileText className="h-4 w-4 text-rovida-gold" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">Manage Templates</div>
-            <p className="text-xs text-muted-foreground">Create and edit message templates.</p>
-            <Link to="/comms/templates" className="mt-2 inline-flex items-center text-sm text-primary hover:underline">
+            <div className="text-2xl font-bold text-rovida-near-black">Manage Templates</div>
+            <p className="text-xs text-rovida-slate-green-gray">Create and edit message templates.</p>
+            <Link to="/comms/templates" className="mt-2 inline-flex items-center text-sm link-rovida">
               View Templates <ArrowRight className="ml-1 h-4 w-4" />
             </Link>
           </CardContent>
         </Card>
       </div>
 
-      <Card className="col-span-full">
+      <Card className="col-span-full card-rovida">
         <CardHeader>
-          <CardTitle>Recent Announcements</CardTitle>
-          <CardDescription>Latest published announcements.</CardDescription>
+          <CardTitle className="text-rovida-navy">Recent Announcements</CardTitle>
+          <CardDescription className="text-rovida-slate-green-gray">Latest published announcements.</CardDescription>
         </CardHeader>
         <CardContent className="h-64 overflow-hidden">
           {recentAnnouncements.length > 0 ? (
             <AnimatedList
               items={recentAnnouncements.map(ann => (
                 <div className="flex flex-col">
-                  <span className="font-medium">{ann.title}</span>
-                  <span className="text-xs text-muted-foreground">{format(ann.publishedAt, 'MMM dd, yyyy')} - {ann.author}</span>
+                  <span className="font-medium text-rovida-near-black">{ann.title}</span>
+                  <span className="text-xs text-rovida-slate-green-gray">{format(ann.publishedAt, 'MMM dd, yyyy')} - {ann.author}</span>
                 </div>
               ))}
               onItemSelect={handleAnnouncementSelect}
@@ -108,7 +108,7 @@ const Comms = () => {
             />
           ) : (
             <div className="flex flex-1 items-center justify-center h-full">
-              <p className="text-muted-foreground">No recent announcements.</p>
+              <p className="text-rovida-slate-green-gray">No recent announcements.</p>
             </div>
           )}
         </CardContent>

@@ -17,7 +17,7 @@ import {
 import { mockMonthlyIssues, mockIssueTypeDistribution, mockWorkOrderCompletion } from '@/data/mock-analytics';
 import GradientText from '@/components/GradientText'; // Import GradientText
 
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#A28DFF'];
+const COLORS = ['#C4972E', '#183747', '#7C8D89', '#E2A33B', '#3A7D44']; // Using Rovida palette
 
 const Analytics = () => {
   const { t } = useTranslation();
@@ -30,35 +30,35 @@ const Analytics = () => {
       >
         {t('analytics')}
       </GradientText>
-      <p className="text-muted-foreground">Overview of key operational metrics.</p>
+      <p className="text-rovida-slate-green-gray">Overview of key operational metrics.</p>
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        <Card className="col-span-full md:col-span-2">
+        <Card className="col-span-full md:col-span-2 card-rovida">
           <CardHeader>
-            <CardTitle>Monthly Issue Trends</CardTitle>
-            <CardDescription>Open vs. Closed issues over the last 6 months.</CardDescription>
+            <CardTitle className="text-rovida-navy">Monthly Issue Trends</CardTitle>
+            <CardDescription className="text-rovida-slate-green-gray">Open vs. Closed issues over the last 6 months.</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="h-[300px]">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={mockMonthlyIssues}>
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="month" />
-                  <YAxis />
-                  <Tooltip />
+                  <CartesianGrid strokeDasharray="3 3" stroke="#E9ECEB" />
+                  <XAxis dataKey="month" stroke="#7C8D89" />
+                  <YAxis stroke="#7C8D89" />
+                  <Tooltip contentStyle={{ backgroundColor: 'rgba(255,255,255,0.8)', border: '1px solid #E9ECEB', borderRadius: '8px' }} itemStyle={{ color: '#111418' }} />
                   <Legend />
-                  <Bar dataKey="open" fill="#8884d8" name="Open Issues" />
-                  <Bar dataKey="closed" fill="#82ca9d" name="Closed Issues" />
+                  <Bar dataKey="open" fill="#C4972E" name="Open Issues" />
+                  <Bar dataKey="closed" fill="#183747" name="Closed Issues" />
                 </BarChart>
               </ResponsiveContainer>
             </div>
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="card-rovida">
           <CardHeader>
-            <CardTitle>Issue Type Distribution</CardTitle>
-            <CardDescription>Breakdown of issues by type.</CardDescription>
+            <CardTitle className="text-rovida-navy">Issue Type Distribution</CardTitle>
+            <CardDescription className="text-rovida-slate-green-gray">Breakdown of issues by type.</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="h-[300px]">
@@ -78,7 +78,7 @@ const Analytics = () => {
                       <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                     ))}
                   </Pie>
-                  <Tooltip />
+                  <Tooltip contentStyle={{ backgroundColor: 'rgba(255,255,255,0.8)', border: '1px solid #E9ECEB', borderRadius: '8px' }} itemStyle={{ color: '#111418' }} />
                   <Legend />
                 </PieChart>
               </ResponsiveContainer>
@@ -86,22 +86,22 @@ const Analytics = () => {
           </CardContent>
         </Card>
 
-        <Card className="col-span-full md:col-span-2">
+        <Card className="col-span-full md:col-span-2 card-rovida">
           <CardHeader>
-            <CardTitle>Work Order Completion Rate</CardTitle>
-            <CardDescription>Monthly work order completion status.</CardDescription>
+            <CardTitle className="text-rovida-navy">Work Order Completion Rate</CardTitle>
+            <CardDescription className="text-rovida-slate-green-gray">Monthly work order completion status.</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="h-[300px]">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={mockWorkOrderCompletion}>
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="name" />
-                  <YAxis />
-                  <Tooltip />
+                  <CartesianGrid strokeDasharray="3 3" stroke="#E9ECEB" />
+                  <XAxis dataKey="name" stroke="#7C8D89" />
+                  <YAxis stroke="#7C8D89" />
+                  <Tooltip contentStyle={{ backgroundColor: 'rgba(255,255,255,0.8)', border: '1px solid #E9ECEB', borderRadius: '8px' }} itemStyle={{ color: '#111418' }} />
                   <Legend />
-                  <Bar dataKey="completed" fill="#4CAF50" name="Completed" />
-                  <Bar dataKey="pending" fill="#FFC107" name="Pending" />
+                  <Bar dataKey="completed" fill="#3A7D44" name="Completed" />
+                  <Bar dataKey="pending" fill="#E2A33B" name="Pending" />
                 </BarChart>
               </ResponsiveContainer>
             </div>

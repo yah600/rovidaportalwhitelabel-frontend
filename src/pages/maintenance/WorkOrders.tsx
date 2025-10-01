@@ -19,20 +19,20 @@ const MaintenanceWorkOrders = () => {
       <BreadcrumbNav items={breadcrumbItems} />
       <header className="flex items-center justify-between">
         <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('maintenance')} Work Orders</h1>
-        <Button>
+        <Button className="btn-primary">
           <PlusCircle className="mr-2 h-4 w-4" /> Create New Work Order
         </Button>
       </header>
       <p className="text-rovida-slate-green-gray">Manage all work orders for repairs and services.</p>
 
-      <Card className="flex-1 bg-white/80 backdrop-blur-xl border-rovida-soft-gray shadow-subtle">
+      <Card className="flex-1 card-rovida">
         <CardHeader>
           <CardTitle className="text-rovida-navy">Work Order List</CardTitle>
           <CardDescription className="text-rovida-slate-green-gray">Overview of all active and completed work orders.</CardDescription>
         </CardHeader>
         <CardContent className="flex flex-1 items-center justify-center">
           <div className="flex flex-col items-center gap-2 text-rovida-slate-green-gray">
-            <Wrench className="h-12 w-12" />
+            <Wrench className="h-12 w-12 text-rovida-gold" />
             <p>Work orders will be managed here.</p>
             <Button variant="outline" className="mt-4 btn-secondary">
               <PlusCircle className="mr-2 h-4 w-4" /> Create First Work Order

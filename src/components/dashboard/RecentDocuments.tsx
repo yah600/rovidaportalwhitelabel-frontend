@@ -11,13 +11,13 @@ const RecentDocuments = () => {
   const recentDocuments = mockDocuments.sort((a, b) => b.uploadedAt.getTime() - a.uploadedAt.getTime()).slice(0, 3);
 
   return (
-    <Card className="col-span-2 xl:col-span-1">
+    <Card className="col-span-2 xl:col-span-1 card-rovida">
       <CardHeader className="flex flex-row items-center justify-between">
         <div>
-          <CardTitle>Latest Documents</CardTitle>
-          <CardDescription>Recently added or updated documents.</CardDescription>
+          <CardTitle className="text-rovida-navy">Latest Documents</CardTitle>
+          <CardDescription className="text-rovida-slate-green-gray">Recently added or updated documents.</CardDescription>
         </div>
-        <Link to="/documents/registry" className="text-sm text-primary hover:underline flex items-center gap-1">
+        <Link to="/documents/registry" className="text-sm link-rovida flex items-center gap-1">
           View All <ArrowRight className="h-4 w-4" />
         </Link>
       </CardHeader>
@@ -26,9 +26,9 @@ const RecentDocuments = () => {
           <div className="space-y-4">
             {recentDocuments.map((doc) => (
               <div key={doc.id} className="flex items-center gap-3">
-                <FileText className="h-5 w-5 text-rovida-slate-green-gray" />
+                <FileText className="h-5 w-5 text-rovida-gold" />
                 <div>
-                  <Link to={`/documents/${doc.id}`} className="font-medium text-primary hover:underline">
+                  <Link to={`/documents/${doc.id}`} className="font-medium link-rovida">
                     {doc.title}
                   </Link>
                   <p className="text-sm text-rovida-slate-green-gray">

@@ -28,39 +28,39 @@ const Board = () => {
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {/* Meetings Card */}
-        <Card>
+        <Card className="card-rovida">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Meetings</CardTitle>
-            <Handshake className="h-4 w-4 text-muted-foreground" />
+            <CardTitle className="text-sm font-medium text-rovida-navy">Meetings</CardTitle>
+            <Handshake className="h-4 w-4 text-rovida-gold" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{upcomingMeetings} Upcoming</div>
-            <p className="text-xs text-muted-foreground">Total: {totalMeetings}</p>
-            <Link to="/board/meetings" className="mt-2 inline-flex items-center text-sm text-primary hover:underline">
+            <div className="text-2xl font-bold text-rovida-near-black">{upcomingMeetings} Upcoming</div>
+            <p className="text-xs text-rovida-slate-green-gray">Total: {totalMeetings}</p>
+            <Link to="/board/meetings" className="mt-2 inline-flex items-center text-sm link-rovida">
               View All <ArrowRight className="ml-1 h-4 w-4" />
             </Link>
           </CardContent>
         </Card>
 
         {/* Votes Card */}
-        <Card>
+        <Card className="card-rovida">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Votes</CardTitle>
-            <Vote className="h-4 w-4 text-muted-foreground" />
+            <CardTitle className="text-sm font-medium text-rovida-navy">Votes</CardTitle>
+            <Vote className="h-4 w-4 text-rovida-gold" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{openVotes} Open</div>
-            <p className="text-xs text-muted-foreground">Total: {totalVotes}</p>
-            <Link to="/board/votes" className="mt-2 inline-flex items-center text-sm text-primary hover:underline">
+            <div className="text-2xl font-bold text-rovida-near-black">{openVotes} Open</div>
+            <p className="text-xs text-rovida-slate-green-gray">Total: {totalVotes}</p>
+            <Link to="/board/votes" className="mt-2 inline-flex items-center text-sm link-rovida">
               View All <ArrowRight className="ml-1 h-4 w-4" />
             </Link>
           </CardContent>
         </Card>
       </div>
 
-      <div className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm mt-4 p-8">
-        <p className="text-muted-foreground">Detailed board analytics and historical data coming soon!</p>
-      </div>
+      <Card className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm card-rovida mt-4 p-8">
+        <p className="text-rovida-slate-green-gray">Detailed board analytics and historical data coming soon!</p>
+      </Card>
     </div>
   );
 };

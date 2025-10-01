@@ -27,13 +27,13 @@ const RecentIssues = () => {
   };
 
   return (
-    <Card className="col-span-2 lg:col-span-1">
+    <Card className="col-span-2 lg:col-span-1 card-rovida">
       <CardHeader className="flex flex-row items-center justify-between">
         <div>
-          <CardTitle>{t('open_issues')}</CardTitle>
-          <CardDescription>Your most recent incidents.</CardDescription>
+          <CardTitle className="text-rovida-navy">{t('open_issues')}</CardTitle>
+          <CardDescription className="text-rovida-slate-green-gray">Your most recent incidents.</CardDescription>
         </div>
-        <Link to="/issues" className="text-sm text-primary hover:underline flex items-center gap-1">
+        <Link to="/issues" className="text-sm link-rovida flex items-center gap-1">
           View All <ArrowRight className="h-4 w-4" />
         </Link>
       </CardHeader>
@@ -43,7 +43,7 @@ const RecentIssues = () => {
             {recentIssues.map((issue) => (
               <div key={issue.id} className="flex items-center justify-between">
                 <div>
-                  <Link to={`/issues/${issue.id}`} className="font-medium text-primary hover:underline">
+                  <Link to={`/issues/${issue.id}`} className="font-medium link-rovida">
                     {issue.title}
                   </Link>
                   <p className="text-sm text-rovida-slate-green-gray">

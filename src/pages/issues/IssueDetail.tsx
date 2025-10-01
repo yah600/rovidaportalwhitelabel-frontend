@@ -128,9 +128,9 @@ const IssueDetail = () => {
             <TabsTrigger value="participants" className="data-[state=active]:bg-rovida-navy data-[state=active]:text-white data-[state=active]:shadow-subtle text-rovida-near-black">Participants</TabsTrigger>
           </TabsList>
           <TabsContent value="overview" className="mt-4">
-            <Card>
+            <Card className="card-rovida">
               <CardHeader>
-                <CardTitle>Incident Details</CardTitle>
+                <CardTitle className="text-rovida-navy">Incident Details</CardTitle>
               </CardHeader>
               <CardContent className="grid gap-4">
                 <div className="grid grid-cols-2 gap-2 text-rovida-near-black">
@@ -164,9 +164,9 @@ const IssueDetail = () => {
             </Card>
           </TabsContent>
           <TabsContent value="timeline" className="mt-4">
-            <Card>
+            <Card className="card-rovida">
               <CardHeader>
-                <CardTitle>Incident Timeline</CardTitle>
+                <CardTitle className="text-rovida-navy">Incident Timeline</CardTitle>
               </CardHeader>
               <CardContent>
                 {issue.timeline.length > 0 ? (
@@ -193,10 +193,10 @@ const IssueDetail = () => {
             </Card>
           </TabsContent>
           <TabsContent value="attachments" className="mt-4">
-            <Card>
+            <Card className="card-rovida">
               <CardHeader className="flex flex-row items-center justify-between">
-                <CardTitle>Attachments</CardTitle>
-                <Button variant="outline" size="sm">
+                <CardTitle className="text-rovida-navy">Attachments</CardTitle>
+                <Button variant="outline" size="sm" className="btn-secondary">
                   <PlusCircle className="h-4 w-4 mr-2" /> Add Attachment
                 </Button>
               </CardHeader>
@@ -212,9 +212,9 @@ const IssueDetail = () => {
             </Card>
           </TabsContent>
           <TabsContent value="participants" className="mt-4">
-            <Card>
+            <Card className="card-rovida">
               <CardHeader>
-                <CardTitle>Participants</CardTitle>
+                <CardTitle className="text-rovida-navy">Participants</CardTitle>
               </CardHeader>
               <CardContent>
                 {issue.participants.length > 0 ? (
@@ -243,9 +243,9 @@ const IssueDetail = () => {
 
       <RightPanel className="w-[300px] xl:w-[350px]">
         <h3 className="text-lg font-semibold mb-4 text-rovida-navy">Contextual Information</h3>
-        <Card className="mb-4 bg-white/80 backdrop-blur-lg">
+        <Card className="mb-4 card-rovida">
           <CardHeader>
-            <CardTitle className="text-md">Maintenance Checklist</CardTitle>
+            <CardTitle className="text-md text-rovida-navy">Maintenance Checklist</CardTitle>
           </CardHeader>
           <CardContent>
             <ul className="space-y-2 text-sm text-rovida-slate-green-gray">
@@ -256,7 +256,7 @@ const IssueDetail = () => {
                 <XCircle className="h-4 w-4 text-rovida-error" /> Diagnose issue
               </li>
               <li className="flex items-center gap-2">
-                <Loader className="h-4 w-4 text-rovida-navy" /> Order parts
+                <Loader className="h-4 w-4 text-rovida-gold" /> Order parts
               </li>
               <li className="flex items-center gap-2">
                 <AlertCircle className="h-4 w-4 text-rovida-warning" /> Schedule follow-up
@@ -264,9 +264,9 @@ const IssueDetail = () => {
             </ul>
           </CardContent>
         </Card>
-        <Card className="bg-white/80 backdrop-blur-lg">
+        <Card className="card-rovida">
           <CardHeader>
-            <CardTitle className="text-md">AI Suggestions</CardTitle>
+            <CardTitle className="text-md text-rovida-navy">AI Suggestions</CardTitle>
           </CardHeader>
           <CardContent>
             <ul className="space-y-2 text-sm text-rovida-slate-green-gray">

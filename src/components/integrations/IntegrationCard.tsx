@@ -29,17 +29,17 @@ const IntegrationCard = ({ integration }: IntegrationCardProps) => {
   };
 
   return (
-    <Card className="flex flex-col">
+    <Card className="flex flex-col card-rovida">
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
         <div className="flex items-center gap-2">
-          <Plug className="h-5 w-5 text-muted-foreground" />
-          <CardTitle className="text-lg">{integration.name}</CardTitle>
+          <Plug className="h-5 w-5 text-rovida-gold" />
+          <CardTitle className="text-lg text-rovida-navy">{integration.name}</CardTitle>
         </div>
         <Badge variant={getStatusVariant(integration.status)}>{integration.status}</Badge>
       </CardHeader>
       <CardContent className="flex-1 flex flex-col justify-between">
-        <CardDescription className="mb-4">{integration.description}</CardDescription>
-        <div className="flex items-center justify-between text-sm text-muted-foreground">
+        <CardDescription className="mb-4 text-rovida-slate-green-gray">{integration.description}</CardDescription>
+        <div className="flex items-center justify-between text-sm text-rovida-slate-green-gray">
           <span>Type: {integration.type}</span>
           {integration.connectedAt && (
             <span>Connected: {format(integration.connectedAt, 'MMM dd, yyyy')}</span>
@@ -47,7 +47,7 @@ const IntegrationCard = ({ integration }: IntegrationCardProps) => {
         </div>
         <div className="mt-4 flex justify-end">
           <Link to={`/integrations/${integration.slug}`}>
-            <Button variant="outline" size="sm">
+            <Button variant="outline" size="sm" className="btn-secondary">
               <Settings className="h-4 w-4 mr-2" /> Manage
             </Button>
           </Link>

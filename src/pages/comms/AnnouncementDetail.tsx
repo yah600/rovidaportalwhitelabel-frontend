@@ -27,7 +27,7 @@ const AnnouncementDetail = () => {
   if (!announcement) {
     return (
       <div className="flex flex-1 items-center justify-center">
-        <p className="text-muted-foreground">Announcement not found.</p>
+        <p className="text-rovida-slate-green-gray">Announcement not found.</p>
       </div>
     );
   }
@@ -55,7 +55,7 @@ const AnnouncementDetail = () => {
     <div className="flex flex-1 flex-col gap-4">
       <BreadcrumbNav items={breadcrumbItems} />
       <header className="flex items-center justify-between flex-wrap gap-2 mb-4">
-        <h1 className="text-2xl font-semibold md:text-3xl">{announcement.title}</h1>
+        <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{announcement.title}</h1>
         <div className="flex items-center gap-2">
           <Badge variant={getStatusBadgeVariant(announcement.status)}>{announcement.status}</Badge>
           <DropdownMenu>
@@ -89,12 +89,12 @@ const AnnouncementDetail = () => {
         </div>
       </header>
 
-      <Card>
+      <Card className="card-rovida">
         <CardHeader>
-          <CardTitle>Announcement Details</CardTitle>
+          <CardTitle className="text-rovida-navy">Announcement Details</CardTitle>
         </CardHeader>
         <CardContent className="grid gap-4">
-          <div className="grid grid-cols-2 gap-2">
+          <div className="grid grid-cols-2 gap-2 text-rovida-near-black">
             <div className="font-medium">ID:</div>
             <div>{announcement.id}</div>
             <div className="font-medium">Author:</div>
@@ -110,10 +110,10 @@ const AnnouncementDetail = () => {
               </>
             )}
           </div>
-          <Separator />
+          <Separator className="bg-rovida-soft-gray" />
           <div>
-            <h4 className="font-medium mb-2">Content:</h4>
-            <p className="text-muted-foreground">{announcement.content}</p>
+            <h4 className="font-medium mb-2 text-rovida-navy">Content:</h4>
+            <p className="text-rovida-slate-green-gray">{announcement.content}</p>
           </div>
         </CardContent>
       </Card>

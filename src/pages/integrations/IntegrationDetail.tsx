@@ -27,7 +27,7 @@ const IntegrationDetail = () => {
   if (!integration) {
     return (
       <div className="flex flex-1 items-center justify-center">
-        <p className="text-muted-foreground">Integration not found.</p>
+        <p className="text-rovida-slate-green-gray">Integration not found.</p>
       </div>
     );
   }
@@ -87,12 +87,12 @@ const IntegrationDetail = () => {
         </div>
       </header>
 
-      <Card>
+      <Card className="card-rovida">
         <CardHeader>
-          <CardTitle>Integration Details</CardTitle>
+          <CardTitle className="text-rovida-navy">Integration Details</CardTitle>
         </CardHeader>
         <CardContent className="grid gap-4">
-          <div className="grid grid-cols-2 gap-2">
+          <div className="grid grid-cols-2 gap-2 text-rovida-near-black">
             <div className="font-medium">ID:</div>
             <div>{integration.id}</div>
             <div className="font-medium">Type:</div>
@@ -106,17 +106,17 @@ const IntegrationDetail = () => {
               </>
             )}
           </div>
-          <Separator />
+          <Separator className="bg-rovida-soft-gray" />
           <div>
-            <h4 className="font-medium mb-2">Description:</h4>
-            <p className="text-muted-foreground">{integration.description}</p>
+            <h4 className="font-medium mb-2 text-rovida-navy">Description:</h4>
+            <p className="text-rovida-slate-green-gray">{integration.description}</p>
           </div>
           {integration.status === 'Pending Setup' && (
             <>
-              <Separator />
+              <Separator className="bg-rovida-soft-gray" />
               <div>
-                <h4 className="font-medium mb-2">Setup Instructions:</h4>
-                <p className="text-muted-foreground">
+                <h4 className="font-medium mb-2 text-rovida-navy">Setup Instructions:</h4>
+                <p className="text-rovida-slate-green-gray">
                   To activate this integration, please follow these steps:
                   <ol className="list-decimal list-inside mt-2">
                     <li>Go to the {integration.name} dashboard.</li>
@@ -125,7 +125,7 @@ const IntegrationDetail = () => {
                     <li>Click "Save and Activate".</li>
                   </ol>
                 </p>
-                <Button className="mt-4">Complete Setup</Button>
+                <Button className="mt-4 btn-primary">Complete Setup</Button>
               </div>
             </>
           )}

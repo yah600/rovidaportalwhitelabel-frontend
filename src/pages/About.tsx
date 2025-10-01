@@ -29,25 +29,25 @@ const About = () => {
           blurAmount={1}
           useWindowScroll={false}
         >
-          <ScrollStackItem itemClassName="bg-white/80 backdrop-blur-xl border-rovida-soft-gray shadow-subtle">
+          <ScrollStackItem itemClassName="card-rovida">
             <h2 className="text-rovida-navy">Our Mission</h2>
             <p className="text-rovida-near-black">
               To provide exceptional property management services, fostering thriving communities and maximizing property value for our clients.
             </p>
           </ScrollStackItem>
-          <ScrollStackItem itemClassName="bg-white/80 backdrop-blur-xl border-rovida-soft-gray shadow-subtle">
+          <ScrollStackItem itemClassName="card-rovida">
             <h2 className="text-rovida-navy">Our Vision</h2>
             <p className="text-rovida-near-black">
               To be the leading property management firm, recognized for innovation, transparency, and unparalleled client satisfaction.
             </p>
           </ScrollStackItem>
-          <ScrollStackItem itemClassName="bg-white/80 backdrop-blur-xl border-rovida-soft-gray shadow-subtle">
+          <ScrollStackItem itemClassName="card-rovida">
             <h2 className="text-rovida-navy">Our Values</h2>
             <p className="text-rovida-near-black">
               Integrity, Excellence, Community, Innovation, and Accountability. These principles guide every decision we make.
             </p>
           </ScrollStackItem>
-          <ScrollStackItem itemClassName="bg-white/80 backdrop-blur-xl border-rovida-soft-gray shadow-subtle">
+          <ScrollStackItem itemClassName="card-rovida">
             <h2 className="text-rovida-navy">Our Team</h2>
             <p className="text-rovida-near-black">
               A dedicated team of professionals committed to delivering personalized and efficient service to every property and resident.

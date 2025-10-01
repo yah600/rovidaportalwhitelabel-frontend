@@ -27,7 +27,7 @@ const DocumentDetail = () => {
   if (!document) {
     return (
       <div className="flex flex-1 items-center justify-center">
-        <p className="text-muted-foreground">Document not found.</p>
+        <p className="text-rovida-slate-green-gray">Document not found.</p>
       </div>
     );
   }
@@ -57,9 +57,9 @@ const DocumentDetail = () => {
     <div className="flex flex-1 flex-col gap-4">
       <BreadcrumbNav items={breadcrumbItems} />
       <header className="flex items-center justify-between flex-wrap gap-2 mb-4">
-        <h1 className="text-2xl font-semibold md:text-3xl">{document.title}</h1>
+        <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{document.title}</h1>
         <div className="flex items-center gap-2">
-          <Badge variant="secondary" className="flex items-center gap-1">
+          <Badge variant="secondary" className="flex items-center gap-1 bg-rovida-soft-gray text-rovida-near-black">
             {getFileTypeIcon(document.type)} {document.type}
           </Badge>
           <DropdownMenu>
@@ -85,12 +85,12 @@ const DocumentDetail = () => {
         </div>
       </header>
 
-      <Card>
+      <Card className="card-rovida">
         <CardHeader>
-          <CardTitle>Document Details</CardTitle>
+          <CardTitle className="text-rovida-navy">Document Details</CardTitle>
         </CardHeader>
         <CardContent className="grid gap-4">
-          <div className="grid grid-cols-2 gap-2">
+          <div className="grid grid-cols-2 gap-2 text-rovida-near-black">
             <div className="font-medium">ID:</div>
             <div>{document.id}</div>
             <div className="font-medium">Category:</div>
@@ -100,10 +100,10 @@ const DocumentDetail = () => {
             <div className="font-medium">Uploaded At:</div>
             <div>{format(document.uploadedAt, 'MMM dd, yyyy HH:mm')}</div>
           </div>
-          <Separator />
+          <Separator className="bg-rovida-soft-gray" />
           <div>
-            <h4 className="font-medium mb-2">Preview:</h4>
-            <div className="w-full h-64 bg-muted flex items-center justify-center rounded-md overflow-hidden">
+            <h4 className="font-medium mb-2 text-rovida-navy">Preview:</h4>
+            <div className="w-full h-64 bg-rovida-soft-gray flex items-center justify-center rounded-md overflow-hidden">
               {/* Placeholder for document preview */}
               {document.type === 'Image' ? (
                 <img src={document.url} alt="Document Preview" className="max-w-full max-h-full object-contain" />
@@ -111,7 +111,7 @@ const DocumentDetail = () => {
                 <img src="/public/placeholder.svg" alt="Document Preview" className="max-w-full max-h-full object-contain" />
               )}
             </div>
-            <p className="text-sm text-muted-foreground mt-2">
+            <p className="text-sm text-rovida-slate-green-gray mt-2">
               This is a placeholder preview. In a real application, this would display the actual document content.
             </p>
           </div>
