@@ -25,7 +25,7 @@ const MaintenanceAssets = () => {
       </header>
       <p className="text-rovida-slate-green-gray">Manage all physical assets within your properties.</p>
 
-      <Card className="flex-1 bg-white/80 backdrop-blur-md border-rovida-soft-gray shadow-subtle">
+      <Card className="flex-1 bg-white/80 backdrop-blur-xl border-rovida-soft-gray shadow-subtle">
         <CardHeader>
           <CardTitle className="text-rovida-navy">Asset List</CardTitle>
           <CardDescription className="text-rovida-slate-green-gray">Overview of all registered assets.</CardDescription>

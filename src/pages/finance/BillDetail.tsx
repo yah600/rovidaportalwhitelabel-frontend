@@ -67,18 +67,18 @@ const FinanceBillDetail = () => {
                 <span className="sr-only">Actions</span>
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
+            <DropdownMenuContent align="end" className="bg-white/80 backdrop-blur-xl border-rovida-soft-gray text-rovida-near-black">
               <DropdownMenuLabel>Actions</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>
+              <DropdownMenuSeparator className="bg-rovida-soft-gray" />
+              <DropdownMenuItem className="hover:bg-rovida-soft-gray">
                 <Edit className="mr-2 h-4 w-4" /> Edit Bill
               </DropdownMenuItem>
               {bill.status !== 'Paid' && (
-                <DropdownMenuItem>
+                <DropdownMenuItem className="hover:bg-rovida-soft-gray">
                   <DollarSign className="mr-2 h-4 w-4" /> Mark as Paid
                 </DropdownMenuItem>
               )}
-              <DropdownMenuItem className="text-destructive">
+              <DropdownMenuItem className="text-destructive hover:bg-rovida-soft-gray">
                 <Trash2 className="mr-2 h-4 w-4" /> Delete Bill
               </DropdownMenuItem>
             </DropdownMenuContent>

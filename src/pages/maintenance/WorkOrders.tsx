@@ -25,7 +25,7 @@ const MaintenanceWorkOrders = () => {
       </header>
       <p className="text-rovida-slate-green-gray">Manage all work orders for repairs and services.</p>
 
-      <Card className="flex-1 bg-white/80 backdrop-blur-md border-rovida-soft-gray shadow-subtle">
+      <Card className="flex-1 bg-white/80 backdrop-blur-xl border-rovida-soft-gray shadow-subtle">
         <CardHeader>
           <CardTitle className="text-rovida-navy">Work Order List</CardTitle>
           <CardDescription className="text-rovida-slate-green-gray">Overview of all active and completed work orders.</CardDescription>

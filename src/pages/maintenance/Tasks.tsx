@@ -25,7 +25,7 @@ const MaintenanceTasks = () => {
       </header>
       <p className="text-rovida-slate-green-gray">Manage individual maintenance tasks and their progress.</p>
 
-      <Card className="flex-1 bg-white/80 backdrop-blur-md border-rovida-soft-gray shadow-subtle">
+      <Card className="flex-1 bg-white/80 backdrop-blur-xl border-rovida-soft-gray shadow-subtle">
         <CardHeader>
           <CardTitle className="text-rovida-navy">Task List</CardTitle>
           <CardDescription className="text-rovida-slate-green-gray">Overview of all maintenance tasks.</CardDescription>

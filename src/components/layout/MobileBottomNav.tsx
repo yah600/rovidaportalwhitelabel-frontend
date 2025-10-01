@@ -18,7 +18,7 @@ const MobileBottomNav = () => {
   ];
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-rovida-soft-gray bg-white/80 backdrop-blur-md md:hidden shadow-lg">
+    <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-rovida-soft-gray bg-white/80 backdrop-blur-xl md:hidden shadow-lg">
       <nav className="flex justify-around h-14 items-center">
         {navItems.map((item) => (
           <Link
@@ -43,7 +43,7 @@ const MobileBottomNav = () => {
               More
             </Button>
           </SheetTrigger>
-          <SheetContent side="left" className="p-0 border-r-rovida-soft-gray bg-white/80 backdrop-blur-md">
+          <SheetContent side="left" className="p-0 border-r-rovida-soft-gray bg-white/80 backdrop-blur-xl">
             <Sidebar className="w-full" />
           </SheetContent>
         </Sheet>

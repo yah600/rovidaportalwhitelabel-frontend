@@ -18,7 +18,7 @@ const MaintenanceCalendar = () => {
       <h1 className="text-2xl font-semibold md:text-3xl text-rovida-navy">{t('maintenance')} Calendar</h1>
       <p className="text-rovida-slate-green-gray">Visualize and manage your maintenance schedule.</p>
 
-      <Card className="flex-1 bg-white/80 backdrop-blur-md border-rovida-soft-gray shadow-subtle">
+      <Card className="flex-1 bg-white/80 backdrop-blur-xl border-rovida-soft-gray shadow-subtle">
         <CardHeader>
           <CardTitle className="text-rovida-navy">Monthly View</CardTitle>
           <CardDescription className="text-rovida-slate-green-gray">Upcoming and completed tasks.</CardDescription>

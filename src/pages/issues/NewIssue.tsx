@@ -96,7 +96,7 @@ const NewIssue = () => {
                   <SelectTrigger id="unit" className="border-rovida-soft-gray text-rovida-near-black">
                     <SelectValue placeholder="Select unit" />
                   </SelectTrigger>
-                  <SelectContent className="bg-white/80 backdrop-blur-md border-rovida-soft-gray text-rovida-near-black">
+                  <SelectContent className="bg-white/80 backdrop-blur-xl border-rovida-soft-gray text-rovida-near-black">
                     <SelectItem value="unit101">Unit 101</SelectItem>
                     <SelectItem value="unit203">Unit 203</SelectItem>
                     <SelectItem value="common_area">Common Area</SelectItem>
@@ -116,7 +116,7 @@ const NewIssue = () => {
                   <SelectTrigger id="type" className="border-rovida-soft-gray text-rovida-near-black">
                     <SelectValue placeholder="Select type" />
                   </SelectTrigger>
-                  <SelectContent className="bg-white/80 backdrop-blur-md border-rovida-soft-gray text-rovida-near-black">
+                  <SelectContent className="bg-white/80 backdrop-blur-xl border-rovida-soft-gray text-rovida-near-black">
                     <SelectItem value="plumbing">Plumbing</SelectItem>
                     <SelectItem value="electrical">Electrical</SelectItem>
                     <SelectItem value="hvac">HVAC</SelectItem>

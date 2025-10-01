@@ -34,12 +34,12 @@ const KanbanColumn = ({ title, issues, statusFilter }: KanbanColumnProps) => {
   };
 
   return (
-    <div className="flex flex-col w-full min-w-[280px] max-w-[350px] bg-rovida-soft-gray/50 backdrop-blur-sm rounded-lg p-3 shadow-subtle border border-rovida-soft-gray">
+    <div className="flex flex-col w-full min-w-[280px] max-w-[350px] bg-rovida-soft-gray/50 backdrop-blur-lg rounded-lg p-3 shadow-subtle border border-rovida-soft-gray">
       <h3 className="text-lg font-semibold mb-4 px-2 text-rovida-navy">{title} ({filteredIssues.length})</h3>
       <div className="flex-1 space-y-3 overflow-y-auto custom-scrollbar">
         {filteredIssues.length > 0 ? (
           filteredIssues.map((issue) => (
-            <Card key={issue.id} className="cursor-grab active:cursor-grabbing bg-white/80 backdrop-blur-sm">
+            <Card key={issue.id} className="cursor-grab active:cursor-grabbing bg-white/80 backdrop-blur-lg">
               <CardHeader className="pb-2">
                 <CardTitle className="text-base">
                   <Link to={`/issues/${issue.id}`} className="hover:underline text-rovida-navy">

@@ -10,7 +10,7 @@ const RightPanel = ({ children, className }: RightPanelProps) => {
   return (
     <aside
       className={cn(
-        "hidden lg:block border-l border-rovida-soft-gray bg-white/80 backdrop-blur-md p-4 lg:p-6 overflow-y-auto shadow-subtle",
+        "hidden lg:block border-l border-rovida-soft-gray bg-white/80 backdrop-blur-xl p-4 lg:p-6 overflow-y-auto shadow-subtle",
         "lg:w-[300px] xl:w-[350px] flex-shrink-0",
         className
       )}

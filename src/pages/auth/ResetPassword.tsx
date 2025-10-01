@@ -10,8 +10,8 @@ const ResetPassword = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-rovida-soft-gray/50 backdrop-blur-md p-4">
-      <Card className="w-full max-w-md bg-white/80 backdrop-blur-md border-rovida-soft-gray shadow-subtle">
+    <div className="flex min-h-screen items-center justify-center bg-rovida-soft-gray/50 backdrop-blur-xl p-4">
+      <Card className="w-full max-w-md bg-white/80 backdrop-blur-xl border-rovida-soft-gray shadow-subtle">
         <CardHeader className="text-center">
           <CardTitle className="text-3xl font-semibold text-rovida-navy">{t('reset_password')}</CardTitle>
           <CardDescription className="text-rovida-slate-green-gray">Enter your new password.</CardDescription>

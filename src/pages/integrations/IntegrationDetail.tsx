@@ -64,22 +64,22 @@ const IntegrationDetail = () => {
                 <span className="sr-only">Actions</span>
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
+            <DropdownMenuContent align="end" className="bg-white/80 backdrop-blur-xl border-rovida-soft-gray text-rovida-near-black">
               <DropdownMenuLabel>Actions</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>
+              <DropdownMenuSeparator className="bg-rovida-soft-gray" />
+              <DropdownMenuItem className="hover:bg-rovida-soft-gray">
                 <Edit className="mr-2 h-4 w-4" /> Edit Integration
               </DropdownMenuItem>
               {integration.status === 'Active' ? (
-                <DropdownMenuItem className="text-destructive">
+                <DropdownMenuItem className="text-destructive hover:bg-rovida-soft-gray">
                   <PowerOff className="mr-2 h-4 w-4" /> Deactivate
                 </DropdownMenuItem>
               ) : (
-                <DropdownMenuItem>
+                <DropdownMenuItem className="hover:bg-rovida-soft-gray">
                   <Power className="mr-2 h-4 w-4" /> Activate
                 </DropdownMenuItem>
               )}
-              <DropdownMenuItem className="text-destructive">
+              <DropdownMenuItem className="text-destructive hover:bg-rovida-soft-gray">
                 <Trash2 className="mr-2 h-4 w-4" /> Remove Integration
               </DropdownMenuItem>
             </DropdownMenuContent>

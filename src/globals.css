@@ -137,10 +137,7 @@
   }
 
   /* Custom utility for liquid glass effect */
-  .backdrop-blur-md {
-    backdrop-filter: blur(10px); /* Adjust blur strength as needed */
-    -webkit-backdrop-filter: blur(10px); /* Safari support */
-  }
+  /* Removed custom backdrop-blur-md to use Tailwind's built-in utilities */
 }
 
 /* Custom component styles based on branding guide */

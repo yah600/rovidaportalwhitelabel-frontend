@@ -19,7 +19,7 @@ const Maintenance = () => {
       <p className="text-rovida-slate-green-gray">Manage all aspects of property maintenance.</p>
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        <Card className="bg-white/80 backdrop-blur-md border-rovida-soft-gray shadow-subtle">
+        <Card className="bg-white/80 backdrop-blur-xl border-rovida-soft-gray shadow-subtle">
           <CardHeader className="flex flex-row items-center justify-between pb-2">
             <CardTitle className="text-lg text-rovida-navy">Maintenance Calendar</CardTitle>
             <CalendarDays className="h-6 w-6 text-rovida-gold" />
@@ -34,7 +34,7 @@ const Maintenance = () => {
           </CardContent>
         </Card>
 
-        <Card className="bg-white/80 backdrop-blur-md border-rovida-soft-gray shadow-subtle">
+        <Card className="bg-white/80 backdrop-blur-xl border-rovida-soft-gray shadow-subtle">
           <CardHeader className="flex flex-row items-center justify-between pb-2">
             <CardTitle className="text-lg text-rovida-navy">Assets Management</CardTitle>
             <Building className="h-6 w-6 text-rovida-gold" />
@@ -49,7 +49,7 @@ const Maintenance = () => {
           </CardContent>
         </Card>
 
-        <Card className="bg-white/80 backdrop-blur-md border-rovida-soft-gray shadow-subtle">
+        <Card className="bg-white/80 backdrop-blur-xl border-rovida-soft-gray shadow-subtle">
           <CardHeader className="flex flex-row items-center justify-between pb-2">
             <CardTitle className="text-lg text-rovida-navy">Work Orders</CardTitle>
             <Wrench className="h-6 w-6 text-rovida-gold" />
@@ -64,7 +64,7 @@ const Maintenance = () => {
           </CardContent>
         </Card>
 
-        <Card className="bg-white/80 backdrop-blur-md border-rovida-soft-gray shadow-subtle">
+        <Card className="bg-white/80 backdrop-blur-xl border-rovida-soft-gray shadow-subtle">
           <CardHeader className="flex flex-row items-center justify-between pb-2">
             <CardTitle className="text-lg text-rovida-navy">Maintenance Tasks</CardTitle>
             <ClipboardList className="h-6 w-6 text-rovida-gold" />
@@ -79,7 +79,7 @@ const Maintenance = () => {
           </CardContent>
         </Card>
 
-        <Card className="bg-white/80 backdrop-blur-md border-rovida-soft-gray shadow-subtle">
+        <Card className="bg-white/80 backdrop-blur-xl border-rovida-soft-gray shadow-subtle">
           <CardHeader className="flex flex-row items-center justify-between pb-2">
             <CardTitle className="text-lg text-rovida-navy">Agenda (XLSX Import)</CardTitle>
             <ClipboardList className="h-6 w-6 text-rovida-gold" />

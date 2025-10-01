@@ -57,7 +57,7 @@ const MaintenanceTaskDetail = () => {
       <p className="text-rovida-slate-green-gray">Details for maintenance task {id}.</p>
 
       <div className="grid gap-4 lg:grid-cols-2">
-        <Card className="bg-white/80 backdrop-blur-md border-rovida-soft-gray shadow-subtle">
+        <Card className="bg-white/80 backdrop-blur-xl border-rovida-soft-gray shadow-subtle">
           <CardHeader>
             <CardTitle className="text-rovida-navy">Task Information</CardTitle>
             <CardDescription className="text-rovida-slate-green-gray">Key details about the task.</CardDescription>
@@ -90,7 +90,7 @@ const MaintenanceTaskDetail = () => {
         </Card>
 
         <div className="grid gap-4">
-          <Card className="bg-white/80 backdrop-blur-md border-rovida-soft-gray shadow-subtle">
+          <Card className="bg-white/80 backdrop-blur-xl border-rovida-soft-gray shadow-subtle">
             <CardHeader>
               <CardTitle className="text-rovida-navy">Checklist</CardTitle>
               <CardDescription className="text-rovida-slate-green-gray">Steps to complete this task.</CardDescription>
@@ -111,7 +111,7 @@ const MaintenanceTaskDetail = () => {
             </CardContent>
           </Card>
 
-          <Card className="bg-white/80 backdrop-blur-md border-rovida-soft-gray shadow-subtle">
+          <Card className="bg-white/80 backdrop-blur-xl border-rovida-soft-gray shadow-subtle">
             <CardHeader>
               <CardTitle className="text-rovida-navy">Attachments</CardTitle>
               <CardDescription className="text-rovida-slate-green-gray">Supporting documents for this task.</CardDescription>

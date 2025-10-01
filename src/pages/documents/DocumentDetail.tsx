@@ -69,14 +69,14 @@ const DocumentDetail = () => {
                 <span className="sr-only">Actions</span>
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
+            <DropdownMenuContent align="end" className="bg-white/80 backdrop-blur-xl border-rovida-soft-gray text-rovida-near-black">
               <DropdownMenuLabel>Actions</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>
+              <DropdownMenuSeparator className="bg-rovida-soft-gray" />
+              <DropdownMenuItem className="hover:bg-rovida-soft-gray">
                 <Edit className="mr-2 h-4 w-4" /> Edit Document
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <a href={document.url} target="_blank" rel="noopener noreferrer" className="flex items-center">
+                <a href={document.url} target="_blank" rel="noopener noreferrer" className="flex items-center hover:bg-rovida-soft-gray">
                   <Download className="mr-2 h-4 w-4" /> Download
                 </a>
               </DropdownMenuItem>

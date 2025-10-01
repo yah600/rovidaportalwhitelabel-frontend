@@ -25,7 +25,7 @@ const Topbar = () => {
   const currentBuildingId = '1';
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-rovida-soft-gray bg-white/80 backdrop-blur-md px-4 py-2 flex items-center justify-between shadow-sm">
+    <header className="sticky top-0 z-40 w-full border-b border-rovida-soft-gray bg-white/80 backdrop-blur-xl px-4 py-2 flex items-center justify-between shadow-sm">
       <div className="flex items-center space-x-4">
         <div className="text-lg font-semibold text-rovida-navy">Gestion Rovida</div>
 
@@ -33,7 +33,7 @@ const Topbar = () => {
           <SelectTrigger className="w-[180px] border-rovida-soft-gray text-rovida-near-black">
             <SelectValue placeholder={t('select_building')} />
           </SelectTrigger>
-          <SelectContent className="bg-white/80 backdrop-blur-md border-rovida-soft-gray">
+          <SelectContent className="bg-white/80 backdrop-blur-xl border-rovida-soft-gray">
             {buildings.map((building) => (
               <SelectItem key={building.id} value={building.id}>
                 {building.name}
@@ -71,7 +71,7 @@ const Topbar = () => {
               </Avatar>
             </Button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent className="w-56 bg-white/80 backdrop-blur-md border-rovida-soft-gray text-rovida-near-black" align="end" forceMount>
+          <DropdownMenuContent className="w-56 bg-white/80 backdrop-blur-xl border-rovida-soft-gray text-rovida-near-black" align="end" forceMount>
             <DropdownMenuLabel className="font-normal">
               <div className="flex flex-col space-y-1">
                 <p className="text-sm font-medium leading-none">{userName}</p>

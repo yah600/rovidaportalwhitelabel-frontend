@@ -101,7 +101,7 @@ const IssueDetail = () => {
                   <span className="sr-only">Actions</span>
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="bg-white/80 backdrop-blur-md border-rovida-soft-gray text-rovida-near-black">
+              <DropdownMenuContent align="end" className="bg-white/80 backdrop-blur-xl border-rovida-soft-gray text-rovida-near-black">
                 <DropdownMenuLabel>Actions</DropdownMenuLabel>
                 <DropdownMenuSeparator className="bg-rovida-soft-gray" />
                 <DropdownMenuItem className="hover:bg-rovida-soft-gray">Assign</DropdownMenuItem>
@@ -115,7 +115,7 @@ const IssueDetail = () => {
         </header>
 
         <Tabs defaultValue="overview" className="flex-1">
-          <TabsList className="grid w-full grid-cols-4 bg-rovida-soft-gray/50 backdrop-blur-sm border-rovida-soft-gray">
+          <TabsList className="grid w-full grid-cols-4 bg-rovida-soft-gray/50 backdrop-blur-xl border-rovida-soft-gray">
             <TabsTrigger value="overview" className="data-[state=active]:bg-rovida-navy data-[state=active]:text-white data-[state=active]:shadow-subtle text-rovida-near-black">Overview</TabsTrigger>
             <TabsTrigger value="timeline" className="data-[state=active]:bg-rovida-navy data-[state=active]:text-white data-[state=active]:shadow-subtle text-rovida-near-black">Timeline</TabsTrigger>
             <TabsTrigger value="attachments" className="data-[state=active]:bg-rovida-navy data-[state=active]:text-white data-[state=active]:shadow-subtle text-rovida-near-black">Attachments</TabsTrigger>
@@ -198,7 +198,7 @@ const IssueDetail = () => {
                 {issue.attachments.length > 0 ? (
                   <div className="grid gap-4">
                     {issue.attachments.map((attachment) => (
-                      <div key={attachment.id} className="flex items-center justify-between p-3 border border-rovida-soft-gray rounded-md bg-white/80 backdrop-blur-sm">
+                      <div key={attachment.id} className="flex items-center justify-between p-3 border border-rovida-soft-gray rounded-md bg-white/80 backdrop-blur-lg">
                         <div className="flex items-center gap-3">
                           <Paperclip className="h-5 w-5 text-rovida-slate-green-gray" />
                           <div>
@@ -229,7 +229,7 @@ const IssueDetail = () => {
                 {issue.participants.length > 0 ? (
                   <div className="grid gap-4">
                     {issue.participants.map((participant) => (
-                      <div key={participant.id} className="flex items-center gap-3 p-3 border border-rovida-soft-gray rounded-md bg-white/80 backdrop-blur-sm">
+                      <div key={participant.id} className="flex items-center gap-3 p-3 border border-rovida-soft-gray rounded-md bg-white/80 backdrop-blur-lg">
                         <Avatar className="h-9 w-9">
                           <AvatarImage src={`/avatars/${participant.id}.png`} alt={participant.name} />
                           <AvatarFallback className="bg-rovida-navy text-white">{participant.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
@@ -252,7 +252,7 @@ const IssueDetail = () => {
 
       <RightPanel className="w-[300px] xl:w-[350px]">
         <h3 className="text-lg font-semibold mb-4 text-rovida-navy">Contextual Information</h3>
-        <Card className="mb-4 bg-white/80 backdrop-blur-sm">
+        <Card className="mb-4 bg-white/80 backdrop-blur-lg">
           <CardHeader>
             <CardTitle className="text-md">Maintenance Checklist</CardTitle>
           </CardHeader>
@@ -273,7 +273,7 @@ const IssueDetail = () => {
             </ul>
           </CardContent>
         </Card>
-        <Card className="bg-white/80 backdrop-blur-sm">
+        <Card className="bg-white/80 backdrop-blur-lg">
           <CardHeader>
             <CardTitle className="text-md">AI Suggestions</CardTitle>
           </CardHeader>

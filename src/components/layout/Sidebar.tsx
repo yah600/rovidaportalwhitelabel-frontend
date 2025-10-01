@@ -201,7 +201,7 @@ const Sidebar = ({ className }: { className?: string }) => {
   };
 
   return (
-    <div className={cn("hidden border-r border-rovida-soft-gray bg-white/80 backdrop-blur-md md:block", className)}>
+    <div className={cn("hidden border-r border-rovida-soft-gray bg-white/80 backdrop-blur-xl md:block", className)}>
       <div className="flex h-full max-h-screen flex-col gap-2">
         <div className="flex h-14 items-center border-b border-rovida-soft-gray px-4 lg:h-[60px] lg:px-6">
           <Link to="/" className="flex items-center gap-2 font-semibold">

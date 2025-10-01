@@ -73,7 +73,7 @@ const MaintenanceAgenda = () => {
 
       <div className="grid gap-4 lg:grid-cols-3">
         {/* Step 1: Import */}
-        <Card className="bg-white/80 backdrop-blur-md border-rovida-soft-gray shadow-subtle">
+        <Card className="bg-white/80 backdrop-blur-xl border-rovida-soft-gray shadow-subtle">
           <CardHeader>
             <CardTitle className="text-rovida-navy">Step 1: Import XLSX File</CardTitle>
             <CardDescription className="text-rovida-slate-green-gray">Drag & drop or select your maintenance agenda file.</CardDescription>
@@ -106,7 +106,7 @@ const MaintenanceAgenda = () => {
         </Card>
 
         {/* Step 2: Map Columns */}
-        <Card className="bg-white/80 backdrop-blur-md border-rovida-soft-gray shadow-subtle">
+        <Card className="bg-white/80 backdrop-blur-xl border-rovida-soft-gray shadow-subtle">
           <CardHeader>
             <CardTitle className="text-rovida-navy">Step 2: Map Columns</CardTitle>
             <CardDescription className="text-rovida-slate-green-gray">Match your file columns to agenda fields.</CardDescription>
@@ -133,7 +133,7 @@ const MaintenanceAgenda = () => {
         </Card>
 
         {/* Step 3: Generate Tasks */}
-        <Card className="bg-white/80 backdrop-blur-md border-rovida-soft-gray shadow-subtle">
+        <Card className="bg-white/80 backdrop-blur-xl border-rovida-soft-gray shadow-subtle">
           <CardHeader>
             <CardTitle className="text-rovida-navy">Step 3: Generate Tasks</CardTitle>
             <CardDescription className="text-rovida-slate-green-gray">Confirm and create maintenance tasks.</CardDescription>
