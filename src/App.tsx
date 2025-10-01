@@ -28,7 +28,7 @@ import BoardMeetings from "./pages/board/Meetings";
 import BoardMeetingDetail from "./pages/board/MeetingDetail";
 import BoardVotes from "./pages/board/Votes";
 import BoardVoteDetail from "./pages/board/VoteDetail";
-import DocumentsOverview from "./pages/documents/Overview"; // Corrected import path and component name
+import DocumentsOverview from "./pages/documents/Overview";
 import DocumentsInbox from "./pages/documents/Inbox";
 import DocumentDetail from "./pages/documents/DocumentDetail";
 import Comms from "./pages/Comms";
@@ -49,9 +49,9 @@ import SettingsNotifications from "./pages/settings/Notifications";
 import SettingsAudit from "./pages/settings/Audit";
 import SettingsFeedback from "./pages/settings/Feedback";
 import Profile from "./pages/Profile";
-import About from "./pages/About"; // Import new About page
-import CardNavDemo from "./pages/CardNavDemo"; // Import new CardNavDemo page
-import OnboardingPage from "./pages/OnboardingPage"; // Import new OnboardingPage
+import About from "./pages/About";
+import CardNavDemo from "./pages/CardNavDemo";
+import OnboardingPage from "./pages/OnboardingPage";
 
 // Auth Pages
 import Login from "./pages/auth/Login";
@@ -73,7 +73,7 @@ const App = () => (
           <Route path="/auth/login" element={<Login />} />
           <Route path="/auth/forgot" element={<ForgotPassword />} />
           <Route path="/auth/reset" element={<ResetPassword />} />
-          <Route path="/onboarding" element={<OnboardingPage />} /> {/* New Onboarding Route */}
+          <Route path="/onboarding" element={<OnboardingPage />} />
 
           {/* Protected Routes wrapped by AppShell */}
           <Route element={<AppShell />}>
@@ -100,7 +100,7 @@ const App = () => (
             <Route path="/board/votes" element={<BoardVotes />} />
             <Route path="/board/votes/:id" element={<BoardVoteDetail />} />
             <Route path="/documents/inbox" element={<DocumentsInbox />} />
-            <Route path="/documents" element={<DocumentsOverview />} /> {/* Updated route to use DocumentsOverview */}
+            <Route path="/documents" element={<DocumentsOverview />} />
             <Route path="/documents/:id" element={<DocumentDetail />} />
             <Route path="/comms/announcements" element={<CommsAnnouncements />} />
             <Route path="/comms/send" element={<CommsSend />} />
@@ -119,8 +119,8 @@ const App = () => (
             <Route path="/settings/audit" element={<SettingsAudit />} />
             <Route path="/settings/feedback" element={<SettingsFeedback />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="/about" element={<About />} /> {/* New About page route */}
-            <Route path="/cardnav-demo" element={<CardNavDemo />} /> {/* New CardNavDemo page route */}
+            <Route path="/about" element={<About />} />
+            <Route path="/cardnav-demo" element={<CardNavDemo />} />
           </Route>
 
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
