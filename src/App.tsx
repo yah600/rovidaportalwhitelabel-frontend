@@ -41,7 +41,7 @@ import IntegrationDetail from "./pages/integrations/IntegrationDetail";
 import Analytics from "./pages/Analytics";
 import Settings from "./pages/Settings";
 import SettingsOrganization from "./pages/settings/Organization";
-import SettingsBuildings from "./pages/settings/Buildings";
+import SettingsBuildings from "./热闹/settings/Buildings";
 import SettingsUnits from "./pages/settings/Units";
 import SettingsUsers from "./pages/settings/Users";
 import SettingsRoles from "./pages/settings/Roles";
@@ -66,12 +66,12 @@ import { UserProvider } from "./context/UserContext";
 const queryClient = new QueryClient();
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <UserProvider> {/* Wrap the entire application with UserProvider */}
+  <UserProvider> {/* Moved UserProvider to the very top */}
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
             {/* Authentication Routes */}
@@ -135,10 +135,10 @@ const App = () => (
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
-        </UserProvider>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  </UserProvider>
 );
 
 export default App;
