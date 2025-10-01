@@ -47,37 +47,37 @@ const SettingsNotifications = () => {
               </span>
             </Label>
             <Switch id="email-billing" className="data-[state=checked]:bg-rovida-gold" />
-          </CardContent>
-        </Card>
+          </div>
+        </CardContent>
+      </Card>
 
-        <Card className="w-full card-rovida">
-          <CardHeader>
-            <CardTitle className="text-rovida-navy">{t('sms_notifications')}</CardTitle>
-            <CardDescription className="text-rovida-slate-green-gray">{t('control_sms_notifications')}</CardDescription>
-          </CardHeader>
-          <CardContent className="grid gap-4">
-            <div className="flex items-center justify-between">
-              <Label htmlFor="sms-emergency" className="flex flex-col space-y-1 text-rovida-near-black">
-                <span>{t('emergency_alerts')}</span>
-                <span className="font-normal leading-snug text-rovida-slate-green-gray">
-                  {t('receive_critical_alerts_sms')}
-                </span>
-              </Label>
-              <Switch id="sms-emergency" defaultChecked className="data-[state=checked]:bg-rovida-gold" />
-            </div>
-            <Separator className="bg-rovida-soft-gray" />
-            <div className="flex items-center justify-between">
-              <Label htmlFor="sms-maintenance" className="flex flex-col space-y-1 text-rovida-near-black">
-                <span>{t('maintenance_updates')}</span>
-                <span className="font-normal leading-snug text-rovida-slate-green-gray">
-                  {t('get_sms_maintenance_work')}
-                </span>
-              </Label>
-              <Switch id="sms-maintenance" className="data-[state=checked]:bg-rovida-gold" />
-            </div>
-          </CardContent>
-        </Card>
-      </div>
+      <Card className="w-full card-rovida">
+        <CardHeader>
+          <CardTitle className="text-rovida-navy">{t('sms_notifications')}</CardTitle>
+          <CardDescription className="text-rovida-slate-green-gray">{t('control_sms_notifications')}</CardDescription>
+        </CardHeader>
+        <CardContent className="grid gap-4">
+          <div className="flex items-center justify-between">
+            <Label htmlFor="sms-emergency" className="flex flex-col space-y-1 text-rovida-near-black">
+              <span>{t('emergency_alerts')}</span>
+              <span className="font-normal leading-snug text-rovida-slate-green-gray">
+                {t('receive_critical_alerts_sms')}
+              </span>
+            </Label>
+            <Switch id="sms-emergency" defaultChecked className="data-[state=checked]:bg-rovida-gold" />
+          </div>
+          <Separator className="bg-rovida-soft-gray" />
+          <div className="flex items-center justify-between">
+            <Label htmlFor="sms-maintenance" className="flex flex-col space-y-1 text-rovida-near-black">
+              <span>{t('maintenance_updates')}</span>
+              <span className="font-normal leading-snug text-rovida-slate-green-gray">
+                {t('get_sms_maintenance_work')}
+              </span>
+            </Label>
+            <Switch id="sms-maintenance" className="data-[state=checked]:bg-rovida-gold" />
+          </div>
+        </CardContent>
+      </Card>
     </div>
   );
 };
