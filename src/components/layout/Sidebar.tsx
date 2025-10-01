@@ -28,9 +28,10 @@ import {
   Bell,
   MessageSquareText,
   ChevronDown,
-  Info, // Import Info icon for About page
+  Info,
+  Menu, // Import Menu icon for toggling
 } from 'lucide-react';
-import GradualBlur from '@/components/GradualBlur'; // Import GradualBlur
+// Removed GradualBlur import
 
 interface NavItem {
   title: string;
@@ -46,6 +47,7 @@ const Sidebar = ({ className }: { className?: string }) => {
   const sidebarContentRef = React.useRef<HTMLDivElement>(null);
 
   const [openSubMenus, setOpenSubMenus] = React.useState<Record<string, boolean>>({});
+  const [isCollapsed, setIsCollapsed] = React.useState(false); // State for sidebar collapse
 
   const currentUserRole = 'Property Manager';
 
@@ -131,7 +133,7 @@ const Sidebar = ({ className }: { className?: string }) => {
       ],
     },
     { title: t('profile'), href: '/profile', icon: User },
-    { title: 'About Us', href: '/about', icon: Info }, // New About Us link
+    { title: 'About Us', href: '/about', icon: Info },
   ];
 
   React.useEffect(() => {
@@ -165,15 +167,16 @@ const Sidebar = ({ className }: { className?: string }) => {
           <div
             className={cn(
               "flex items-center gap-3 rounded-lg px-3 py-2 text-rovida-near-black transition-all hover:bg-rovida-soft-gray hover:text-rovida-navy",
-              isActive && "bg-rovida-soft-gray text-rovida-navy"
+              isActive && "bg-rovida-soft-gray text-rovida-navy",
+              isCollapsed && "justify-center"
             )}
             onClick={() => item.subItems ? toggleSubMenu(item.href) : null}
           >
-            <Link to={item.href} className="flex items-center gap-3 flex-1">
+            <Link to={item.href} className={cn("flex items-center gap-3 flex-1", isCollapsed && "justify-center")}>
               <item.icon className="h-4 w-4" />
-              {item.title}
+              {!isCollapsed && item.title}
             </Link>
-            {item.subItems && (
+            {item.subItems && !isCollapsed && (
               <ChevronDown
                 className={cn(
                   "h-4 w-4 transition-transform",
@@ -182,7 +185,7 @@ const Sidebar = ({ className }: { className?: string }) => {
               />
             )}
           </div>
-          {item.subItems && isSubMenuOpen && (
+          {item.subItems && isSubMenuOpen && !isCollapsed && (
             <div className="ml-6 mt-1 space-y-1">
               {item.subItems.map(subItem => (
                 <Link
@@ -204,19 +207,35 @@ const Sidebar = ({ className }: { className?: string }) => {
   };
 
   return (
-    <div className={cn("hidden border-r border-rovida-soft-gray bg-white/80 backdrop-blur-xl md:block", className)}>
-      <div className="flex h-full max-h-screen flex-col gap-2">
-        <div className="flex h-14 items-center border-b border-rovida-soft-gray px-4 lg:h-[60px] lg:px-6">
+    <div
+      className={cn(
+        "hidden border-r border-rovida-soft-gray bg-white/80 backdrop-blur-xl md:flex flex-col transition-all duration-300 ease-in-out",
+        isCollapsed ? "w-[60px] lg:w-[70px]" : "w-[220px] lg:w-[280px]",
+        className
+      )}
+    >
+      <div className="flex h-14 items-center border-b border-rovida-soft-gray px-4 lg:h-[60px] lg:px-6 justify-between">
+        {!isCollapsed && (
           <Link to="/" className="flex items-center gap-2 font-semibold">
             <span className="text-lg text-rovida-gold">{t('welcome')}</span>
           </Link>
-        </div>
-        <div className="flex-1 overflow-y-auto custom-scrollbar relative" ref={sidebarContentRef}>
-          <nav className="grid items-start px-2 text-sm font-medium lg:px-4">
-            {renderNavItems(navItems)}
-          </nav>
-          <GradualBlur target="parent" position="bottom" height="6rem" strength={3} divCount={8} opacity={1} /> {/* Increased height, strength, and divCount */}
-        </div>
+        )}
+        <button
+          onClick={() => setIsCollapsed(!isCollapsed)}
+          className={cn(
+            "p-2 rounded-md hover:bg-rovida-soft-gray text-rovida-near-black",
+            isCollapsed ? "mx-auto" : ""
+          )}
+          aria-label={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
+        >
+          <Menu className="h-5 w-5" />
+        </button>
+      </div>
+      <div className="flex-1 overflow-y-auto custom-scrollbar relative" ref={sidebarContentRef}>
+        <nav className="grid items-start px-2 text-sm font-medium lg:px-4 py-2">
+          {renderNavItems(navItems)}
+        </nav>
+        {/* Removed GradualBlur */}
       </div>
     </div>
   );

@@ -114,11 +114,9 @@
   }
 
   body {
-    @apply text-foreground;
+    @apply text-foreground bg-background; /* Set a solid background */
     font-family: 'Inter', sans-serif; /* Default body font */
     line-height: 1.65; /* Adjusted line height */
-    /* Ensure body background is transparent to show the Aurora effect */
-    background: transparent; 
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -137,9 +135,6 @@
   .font-roboto-mono {
     font-family: 'Roboto Mono', monospace;
   }
-
-  /* Custom utility for liquid glass effect */
-  /* Removed custom backdrop-blur-md to use Tailwind's built-in utilities */
 }
 
 /* Custom component styles based on branding guide */

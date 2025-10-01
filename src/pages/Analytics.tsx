@@ -15,7 +15,7 @@ import {
   Cell,
 } from 'recharts';
 import { mockMonthlyIssues, mockIssueTypeDistribution, mockWorkOrderCompletion } from '@/data/mock-analytics';
-import GradientText from '@/components/GradientText'; // Import GradientText
+// Removed GradientText import
 
 const COLORS = ['#C4972E', '#183747', '#7C8D89', '#E2A33B', '#3A7D44']; // Using Rovida palette
 
@@ -23,13 +23,9 @@ const Analytics = () => {
   const { t } = useTranslation();
   return (
     <div className="flex flex-1 flex-col gap-4">
-      <GradientText
-        colors={["#C4972E", "#183747", "#C4972E"]} // Using Rovida gold and navy
-        animationSpeed={5}
-        className="text-2xl font-semibold md:text-3xl text-page-title"
-      >
+      <h1 className="text-2xl font-semibold md:text-3xl text-rovida-gold"> {/* Changed to standard text styling */}
         {t('analytics')}
-      </GradientText>
+      </h1>
       <p className="text-rovida-slate-green-gray">Overview of key operational metrics.</p>
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
