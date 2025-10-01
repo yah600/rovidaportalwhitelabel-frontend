@@ -129,8 +129,9 @@
     @apply text-foreground;
     font-family: 'Inter', sans-serif; /* Default body font */
     line-height: 1.65; /* Adjusted line height */
-    background: linear-gradient(-45deg, hsl(var(--rovida-soft-gray)), hsl(160 10% 95%), hsl(var(--rovida-soft-gray)));
-    background-size: 400% 400%;
+    /* Updated gradient for more pop */
+    background: linear-gradient(-45deg, hsl(var(--rovida-soft-gray)), hsl(210 20% 90%), hsl(var(--rovida-soft-gray)), hsl(160 10% 95%));
+    background-size: 600% 600%; /* Increased size for more noticeable movement */
     animation: subtle-gradient-animation 30s ease infinite;
   }
 
