@@ -1,6 +1,9 @@
+"use client";
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { ColumnDef } from "@tanstack/react-table";
 import {
   Table,
   TableBody,
@@ -12,6 +15,7 @@ import {
 import { Badge } from '@/components/ui/badge';
 import { Announcement } from '@/data/mock-announcements';
 import { format } from 'date-fns';
+import { DataTable } from '@/components/DataTable'; // Import the generic DataTable
 
 interface AnnouncementsTableProps {
   announcements: Announcement[];
@@ -33,49 +37,74 @@ const AnnouncementsTable = ({ announcements }: AnnouncementsTableProps) => {
     }
   };
 
+  const columns: ColumnDef<Announcement>[] = [
+    {
+      accessorKey: "id",
+      header: "ID",
+      cell: ({ row }) => (
+        <Link to={`/comms/announcements/${row.original.id}`} className="text-primary hover:underline">
+          {row.getValue("id")}
+        </Link>
+      ),
+    },
+    {
+      accessorKey: "title",
+      header: "Title",
+      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("title")}</span>,
+    },
+    {
+      accessorKey: "author",
+      header: "Author",
+      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("author")}</span>,
+    },
+    {
+      accessorKey: "targetAudience",
+      header: "Audience",
+      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("targetAudience")}</span>,
+    },
+    {
+      accessorKey: "status",
+      header: "Status",
+      cell: ({ row }) => (
+        <Badge variant={getStatusVariant(row.getValue("status"))}>
+          {row.getValue("status")}
+        </Badge>
+      ),
+    },
+    {
+      accessorKey: "publishedAt",
+      header: "Published At",
+      cell: ({ row }) => (
+        <span className="text-rovida-slate-green-gray">
+          {format(row.getValue("publishedAt"), 'MMM dd, yyyy')}
+        </span>
+      ),
+    },
+    {
+      accessorKey: "expiresAt",
+      header: "Expires At",
+      cell: ({ row }) => (
+        <span className="text-rovida-slate-green-gray">
+          {row.original.expiresAt ? format(row.original.expiresAt, 'MMM dd, yyyy') : 'N/A'}
+        </span>
+      ),
+    },
+    {
+      id: "actions",
+      header: "Actions",
+      enableSorting: false,
+      cell: ({ row }) => (
+        <div className="text-right">
+          <Link to={`/comms/announcements/${row.original.id}`} className="text-sm text-rovida-slate-green-gray hover:underline">
+            View
+          </Link>
+        </div>
+      ),
+    },
+  ];
+
   return (
-    <div className="rounded-md border">
-      <Table>
-        <TableHeader>
-          <TableRow>
-            <TableHead className="w-[100px]">ID</TableHead>
-            <TableHead>Title</TableHead>
-            <TableHead>Author</TableHead>
-            <TableHead>Audience</TableHead>
-            <TableHead>Status</TableHead>
-            <TableHead>Published At</TableHead>
-            <TableHead>Expires At</TableHead>
-            <TableHead className="text-right">Actions</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {announcements.map((announcement) => (
-            <TableRow key={announcement.id}>
-              <TableCell className="font-medium">
-                <Link to={`/comms/announcements/${announcement.id}`} className="text-primary hover:underline">
-                  {announcement.id}
-                </Link>
-              </TableCell>
-              <TableCell>{announcement.title}</TableCell>
-              <TableCell>{announcement.author}</TableCell>
-              <TableCell>{announcement.targetAudience}</TableCell>
-              <TableCell>
-                <Badge variant={getStatusVariant(announcement.status)}>{announcement.status}</Badge>
-              </TableCell>
-              <TableCell>{format(announcement.publishedAt, 'MMM dd, yyyy')}</TableCell>
-              <TableCell>
-                {announcement.expiresAt ? format(announcement.expiresAt, 'MMM dd, yyyy') : 'N/A'}
-              </TableCell>
-              <TableCell className="text-right">
-                <Link to={`/comms/announcements/${announcement.id}`} className="text-sm text-muted-foreground hover:underline">
-                  View
-                </Link>
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </div>
+    <DataTable columns={columns} data={announcements} />
   );
 };
 

@@ -1,18 +1,14 @@
+"use client";
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/components/ui/table';
+import { ColumnDef } from "@tanstack/react-table";
 import { Badge } from '@/components/ui/badge';
 import { Document } from '@/data/mock-documents';
 import { format } from 'date-fns';
 import { FileText, FileSpreadsheet, FileImage, FileQuestion } from 'lucide-react';
+import { DataTable } from '@/components/DataTable'; // Import the generic DataTable
 
 interface DocumentsTableProps {
   documents: Document[];
@@ -36,45 +32,65 @@ const DocumentsTable = ({ documents }: DocumentsTableProps) => {
     }
   };
 
+  const columns: ColumnDef<Document>[] = [
+    {
+      accessorKey: "id",
+      header: "ID",
+      cell: ({ row }) => (
+        <Link to={`/documents/${row.original.id}`} className="text-primary hover:underline">
+          {row.getValue("id")}
+        </Link>
+      ),
+    },
+    {
+      accessorKey: "title",
+      header: "Title",
+      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("title")}</span>,
+    },
+    {
+      accessorKey: "category",
+      header: "Category",
+      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("category")}</span>,
+    },
+    {
+      accessorKey: "type",
+      header: "Type",
+      cell: ({ row }) => (
+        <div className="flex items-center gap-2 text-rovida-near-black">
+          {getFileTypeIcon(row.getValue("type"))} {row.getValue("type")}
+        </div>
+      ),
+    },
+    {
+      accessorKey: "uploadedBy",
+      header: "Uploaded By",
+      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("uploadedBy")}</span>,
+    },
+    {
+      accessorKey: "uploadedAt",
+      header: "Uploaded At",
+      cell: ({ row }) => (
+        <span className="text-rovida-slate-green-gray">
+          {format(row.getValue("uploadedAt"), 'MMM dd, yyyy')}
+        </span>
+      ),
+    },
+    {
+      id: "actions",
+      header: "Actions",
+      enableSorting: false,
+      cell: ({ row }) => (
+        <div className="text-right">
+          <a href={row.original.url} target="_blank" rel="noopener noreferrer" className="text-sm text-rovida-slate-green-gray hover:underline">
+            View
+          </a>
+        </div>
+      ),
+    },
+  ];
+
   return (
-    <div className="rounded-md border">
-      <Table>
-        <TableHeader>
-          <TableRow>
-            <TableHead className="w-[100px]">ID</TableHead>
-            <TableHead>Title</TableHead>
-            <TableHead>Category</TableHead>
-            <TableHead>Type</TableHead>
-            <TableHead>Uploaded By</TableHead>
-            <TableHead>Uploaded At</TableHead>
-            <TableHead className="text-right">Actions</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {documents.map((doc) => (
-            <TableRow key={doc.id}>
-              <TableCell className="font-medium">
-                <Link to={`/documents/${doc.id}`} className="text-primary hover:underline">
-                  {doc.id}
-                </Link>
-              </TableCell>
-              <TableCell>{doc.title}</TableCell>
-              <TableCell>{doc.category}</TableCell>
-              <TableCell className="flex items-center gap-2">
-                {getFileTypeIcon(doc.type)} {doc.type}
-              </TableCell>
-              <TableCell>{doc.uploadedBy}</TableCell>
-              <TableCell>{format(doc.uploadedAt, 'MMM dd, yyyy')}</TableCell>
-              <TableCell className="text-right">
-                <a href={doc.url} target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:underline">
-                  View
-                </a>
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </div>
+    <DataTable columns={columns} data={documents} />
   );
 };
 
