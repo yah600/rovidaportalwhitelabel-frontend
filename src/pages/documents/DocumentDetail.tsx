@@ -1,23 +1,122 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import BreadcrumbNav from '@/components/BreadcrumbNav';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Separator } from '@/components/ui/separator';
+import { Button } from '@/components/ui/button';
+import { MoreHorizontal, Edit, Download, FileText, FileSpreadsheet, FileImage, FileQuestion } from 'lucide-react';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
+import { mockDocuments, Document } from '@/data/mock-documents';
+import { format } from 'date-fns';
 
 const DocumentDetail = () => {
   const { id } = useParams();
   const { t } = useTranslation();
+
+  const document: Document | undefined = mockDocuments.find((doc) => doc.id === id);
+
+  if (!document) {
+    return (
+      <div className="flex flex-1 items-center justify-center">
+        <p className="text-muted-foreground">Document not found.</p>
+      </div>
+    );
+  }
+
   const breadcrumbItems = [
     { label: t('documents'), href: '/documents' },
-    { label: `Document ${id}`, href: `/documents/${id}` },
+    { label: 'Registry', href: '/documents/registry' },
+    { label: `Document ${document.id}`, href: `/documents/${document.id}` },
   ];
+
+  const getFileTypeIcon = (type: Document['type']) => {
+    switch (type) {
+      case 'PDF':
+        return <FileText className="h-5 w-5 text-red-500" />;
+      case 'Word':
+        return <FileText className="h-5 w-5 text-blue-500" />;
+      case 'Excel':
+        return <FileSpreadsheet className="h-5 w-5 text-green-500" />;
+      case 'Image':
+        return <FileImage className="h-5 w-5 text-purple-500" />;
+      default:
+        return <FileQuestion className="h-5 w-5 text-gray-500" />;
+    }
+  };
 
   return (
     <div className="flex flex-1 flex-col gap-4">
       <BreadcrumbNav items={breadcrumbItems} />
-      <h1 className="text-2xl font-semibold md:text-3xl">{t('documents')} Detail: {id}</h1>
-      <div className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm">
-        <p className="text-muted-foreground">Details for document {id} coming soon!</p>
-      </div>
+      <header className="flex items-center justify-between flex-wrap gap-2 mb-4">
+        <h1 className="text-2xl font-semibold md:text-3xl">{document.title}</h1>
+        <div className="flex items-center gap-2">
+          <Badge variant="secondary" className="flex items-center gap-1">
+            {getFileTypeIcon(document.type)} {document.type}
+          </Badge>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="outline" size="sm">
+                <MoreHorizontal className="h-4 w-4" />
+                <span className="sr-only">Actions</span>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              <DropdownMenuLabel>Actions</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>
+                <Edit className="mr-2 h-4 w-4" /> Edit Document
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <a href={document.url} target="_blank" rel="noopener noreferrer" className="flex items-center">
+                  <Download className="mr-2 h-4 w-4" /> Download
+                </a>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
+      </header>
+
+      <Card>
+        <CardHeader>
+          <CardTitle>Document Details</CardTitle>
+        </CardHeader>
+        <CardContent className="grid gap-4">
+          <div className="grid grid-cols-2 gap-2">
+            <div className="font-medium">ID:</div>
+            <div>{document.id}</div>
+            <div className="font-medium">Category:</div>
+            <div>{document.category}</div>
+            <div className="font-medium">Uploaded By:</div>
+            <div>{document.uploadedBy}</div>
+            <div className="font-medium">Uploaded At:</div>
+            <div>{format(document.uploadedAt, 'MMM dd, yyyy HH:mm')}</div>
+          </div>
+          <Separator />
+          <div>
+            <h4 className="font-medium mb-2">Preview:</h4>
+            <div className="w-full h-64 bg-muted flex items-center justify-center rounded-md overflow-hidden">
+              {/* Placeholder for document preview */}
+              {document.type === 'Image' ? (
+                <img src={document.url} alt="Document Preview" className="max-w-full max-h-full object-contain" />
+              ) : (
+                <img src="/public/placeholder.svg" alt="Document Preview" className="max-w-full max-h-full object-contain" />
+              )}
+            </div>
+            <p className="text-sm text-muted-foreground mt-2">
+              This is a placeholder preview. In a real application, this would display the actual document content.
+            </p>
+          </div>
+        </CardContent>
+      </Card>
     </div>
   );
 };
