@@ -29,7 +29,7 @@ import BoardMeetings from "./pages/board/Meetings";
 import BoardMeetingDetail from "./pages/board/MeetingDetail";
 import BoardVotes from "./pages/board/Votes";
 import BoardVoteDetail from "./pages/board/VoteDetail";
-import Documents from "./pages/Documents";
+import DocumentsOverview from "./pages/documents/Overview"; // Corrected import path and component name
 import DocumentsInbox from "./pages/documents/Inbox";
 import DocumentDetail from "./pages/documents/DocumentDetail";
 import Comms from "./pages/Comms";
@@ -97,7 +97,7 @@ const App = () => (
             <Route path="/board/votes" element={<BoardVotes />} />
             <Route path="/board/votes/:id" element={<BoardVoteDetail />} />
             <Route path="/documents/inbox" element={<DocumentsInbox />} />
-            <Route path="/documents" element={<Documents />} />
+            <Route path="/documents" element={<DocumentsOverview />} /> {/* Updated route to use DocumentsOverview */}
             <Route path="/documents/:id" element={<DocumentDetail />} />
             <Route path="/comms/announcements" element={<CommsAnnouncements />} />
             <Route path="/comms/send" element={<CommsSend />} />
