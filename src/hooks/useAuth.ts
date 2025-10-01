@@ -40,7 +40,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Rules': { read: true, create: true, update: true, delete: true },
     'Insurance': { read: true, create: true, update: true, delete: true },
     'Amenities': { read: true, create: true, update: true, delete: true },
-    'Tenant & Lease Management': { read: true, create: true, update: true, delete: true },
+    'Tenancy': { read: true, create: true, update: true, delete: true }, // New Tenancy module
     'Portfolio Management': { read: true, create: true, update: true, delete: true },
     'Visitor Logs': { read: true, create: true, update: true, delete: true },
     'Documents': { read: true, create: true, update: true, delete: true, approve: true, export: true, special: true },
@@ -69,7 +69,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Rules': { read: true, create: true, update: true },
     'Insurance': { read: true, create: true, update: true },
     'Amenities': { read: true, create: true, update: true },
-    'Tenant & Lease Management': { read: true, create: true, update: true },
+    'Tenancy': { read: true, create: true, update: true }, // New Tenancy module
     'Portfolio Management': { read: true, create: true, update: true },
     'Visitor Logs': { read: true, create: true, update: true },
     'Documents': { read: true, create: true, update: true, delete: true, export: true },
@@ -98,7 +98,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Rules': { read: true, create: true, update: true },
     'Insurance': { read: true, create: true, update: true },
     'Amenities': { read: true, create: true, update: true },
-    'Tenant & Lease Management': { read: true, create: true, update: true },
+    'Tenancy': { read: true, create: true, update: true }, // New Tenancy module
     'Portfolio Management': { read: true, create: true, update: true },
     'Visitor Logs': { read: true, create: true, update: true },
     'Documents': { read: true, create: true, update: true, delete: true, export: true },
@@ -127,7 +127,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Rules': { read: true, create: true, update: true },
     'Insurance': { read: true, create: true, update: true },
     'Amenities': { read: true, create: true, update: true },
-    'Tenant & Lease Management': { read: true, create: true, update: true },
+    'Tenancy': { read: true, create: true, update: true }, // New Tenancy module
     'Portfolio Management': { read: true, create: true, update: true },
     'Visitor Logs': { read: true, create: true, update: true },
     'Documents': { read: true, create: true, update: true, delete: true, export: true },
@@ -156,7 +156,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Rules': { read: false },
     'Insurance': { read: true },
     'Amenities': { read: false },
-    'Tenant & Lease Management': { read: true },
+    'Tenancy': { read: true }, // New Tenancy module
     'Portfolio Management': { read: true },
     'Visitor Logs': { read: false },
     'Documents': { read: true, create: true, export: true },
@@ -185,7 +185,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Rules': { read: true },
     'Insurance': { read: true },
     'Amenities': { read: true },
-    'Tenant & Lease Management': { read: true },
+    'Tenancy': { read: true }, // New Tenancy module
     'Portfolio Management': { read: true },
     'Visitor Logs': { read: true },
     'Documents': { read: true, export: true },
@@ -214,7 +214,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Rules': { read: true },
     'Insurance': { read: true },
     'Amenities': { read: true },
-    'Tenant & Lease Management': { read: true },
+    'Tenancy': { read: true, create: true, update: true }, // New Tenancy module
     'Portfolio Management': { read: false },
     'Visitor Logs': { read: true, create: true },
     'Documents': { read: true, export: true },
@@ -243,7 +243,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Rules': { read: true },
     'Insurance': { read: true },
     'Amenities': { read: true },
-    'Tenant & Lease Management': { read: true },
+    'Tenancy': { read: true, create: true, update: true }, // New Tenancy module
     'Portfolio Management': { read: false },
     'Visitor Logs': { read: true, create: true },
     'Documents': { read: true, export: true },
@@ -272,7 +272,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Rules': { read: true },
     'Insurance': { read: false },
     'Amenities': { read: false },
-    'Tenant & Lease Management': { read: false },
+    'Tenancy': { read: false }, // New Tenancy module
     'Portfolio Management': { read: false },
     'Visitor Logs': { read: true, create: true, update: true },
     'Documents': { read: true },
@@ -301,7 +301,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Rules': { read: true },
     'Insurance': { read: true },
     'Amenities': { read: false },
-    'Tenant & Lease Management': { read: false },
+    'Tenancy': { read: false }, // New Tenancy module
     'Portfolio Management': { read: false },
     'Visitor Logs': { read: true, create: true, update: true },
     'Documents': { read: true },
@@ -330,7 +330,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Rules': { read: true },
     'Insurance': { read: false },
     'Amenities': { read: true, create: true, update: true },
-    'Tenant & Lease Management': { read: true },
+    'Tenancy': { read: true, create: true, update: true }, // New Tenancy module
     'Portfolio Management': { read: false },
     'Visitor Logs': { read: true, create: true, update: true },
     'Documents': { read: true },
@@ -359,7 +359,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Rules': { read: true },
     'Insurance': { read: false },
     'Amenities': { read: false },
-    'Tenant & Lease Management': { read: false },
+    'Tenancy': { read: false }, // New Tenancy module
     'Portfolio Management': { read: false },
     'Visitor Logs': { read: false },
     'Documents': { read: true },
@@ -388,7 +388,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Rules': { read: true },
     'Insurance': { read: true },
     'Amenities': { read: true },
-    'Tenant & Lease Management': { read: true },
+    'Tenancy': { read: true }, // New Tenancy module
     'Portfolio Management': { read: true },
     'Visitor Logs': { read: true },
     'Documents': { read: true, export: true },

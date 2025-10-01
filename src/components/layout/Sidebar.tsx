@@ -107,19 +107,28 @@ const Sidebar = ({ className }: { className?: string }) => {
       subItems: [
         { title: t('meetings'), href: '/board/meetings', icon: Handshake, moduleName: 'Board - Meetings/Votes' },
         { title: t('votes'), href: '/board/votes', icon: Vote, moduleName: 'Board - Meetings/Votes' },
-        { title: t('architectural_requests'), href: '/board/architectural-requests', icon: LayoutTemplate, moduleName: 'Architectural Requests' }, // Corrected moduleName
+        { title: t('architectural_requests'), href: '/board/architectural-requests', icon: LayoutTemplate, moduleName: 'Architectural Requests' },
       ],
     },
     { title: t('rules_and_violations'), href: '/rules', icon: Gavel, moduleName: 'Rules' },
     { title: t('insurance_and_claims'), href: '/insurance', icon: Shield, moduleName: 'Insurance' },
     { title: t('amenity_management'), href: '/amenities', icon: CalendarCheck, moduleName: 'Amenities' },
     {
+      title: t('tenancy'), // New top-level module
+      href: '/tenancy',
+      icon: FileSignature,
+      moduleName: 'Tenancy',
+      subItems: [
+        { title: t('leases'), href: '/tenancy/leases', icon: FileSignature, moduleName: 'Tenancy' },
+      ],
+    },
+    {
       title: t('documents'),
       href: '/documents',
       icon: FileText,
       moduleName: 'Documents',
       subItems: [
-        { title: t('overview'), href: '/documents', icon: Info, moduleName: 'Documents' }, // New overview page
+        { title: t('overview'), href: '/documents', icon: Info, moduleName: 'Documents' },
         { title: t('inbox'), href: '/documents/inbox', icon: Mail, moduleName: 'Documents' },
         { title: t('registry'), href: '/documents/registry', icon: FileText, moduleName: 'Documents' },
       ],
@@ -144,14 +153,13 @@ const Sidebar = ({ className }: { className?: string }) => {
       moduleName: 'Settings',
       subItems: [
         { title: t('organization'), href: '/settings/org', icon: Settings, moduleName: 'Settings' },
-        { title: t('portfolio_management'), href: '/settings/portfolio', icon: LayoutGrid, moduleName: 'Portfolio Management' }, // Corrected moduleName
+        { title: t('portfolio_management'), href: '/settings/portfolio', icon: LayoutGrid, moduleName: 'Portfolio Management' },
         { title: t('buildings'), href: '/settings/buildings', icon: Building, moduleName: 'Settings' },
         { title: t('units'), href: '/settings/units', icon: Scale, moduleName: 'Settings' },
-        { title: t('tenant_lease_management'), href: '/settings/leases', icon: FileSignature, moduleName: 'Tenant & Lease Management' }, // Corrected moduleName
         { title: t('users'), href: '/settings/users', icon: Users, moduleName: 'Settings' },
         { title: t('roles'), href: '/settings/roles', icon: Users, moduleName: 'Settings' },
         { title: t('security'), href: '/settings/security', icon: ShieldCheck, moduleName: 'Settings' },
-        { title: t('visitor_logs'), href: '/settings/visitor-logs', icon: UserCheck, moduleName: 'Visitor Logs' }, // Corrected moduleName
+        { title: t('visitor_logs'), href: '/settings/visitor-logs', icon: UserCheck, moduleName: 'Visitor Logs' },
         { title: t('notifications'), href: '/settings/notifications', icon: Bell, moduleName: 'Settings' },
         { title: t('audit_log'), href: '/settings/audit', icon: FileText, moduleName: 'Settings' },
         { title: t('feedback'), href: '/settings/feedback', icon: MessageSquareText, moduleName: 'Settings' },

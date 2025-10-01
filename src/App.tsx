@@ -60,7 +60,8 @@ import Insurance from "./pages/Insurance";
 import ArchitecturalRequests from "./pages/ArchitecturalRequests";
 import PurchaseOrders from "./pages/finance/PurchaseOrders";
 import Amenities from "./pages/Amenities";
-import SettingsLeases from "./pages/settings/Leases";
+import Tenancy from "./pages/Tenancy"; // New Tenancy overview page
+import Leases from "./pages/tenancy/Leases"; // Moved Leases page
 import SettingsPortfolio from "./pages/settings/Portfolio";
 import SettingsVisitorLogs from "./pages/settings/VisitorLogs";
 import SettingsUsers from "./pages/settings/Users";
@@ -122,9 +123,12 @@ const App = () => (
             <Route path="/rules" element={<Rules />} />
             <Route path="/insurance" element={<Insurance />} />
             <Route path="/amenities" element={<Amenities />} />
+            {/* Tenancy Routes */}
+            <Route path="/tenancy" element={<Tenancy />} />
+            <Route path="/tenancy/leases" element={<Leases />} />
             {/* Documents Routes */}
-            <Route path="/documents" element={<DocumentsOverview />} /> {/* Documents landing page */}
-            <Route path="/documents/registry" element={<DocumentsRegistry />} /> {/* Detailed registry */}
+            <Route path="/documents" element={<DocumentsOverview />} />
+            <Route path="/documents/registry" element={<DocumentsRegistry />} />
             <Route path="/documents/inbox" element={<DocumentsInbox />} />
             <Route path="/documents/:id" element={<DocumentDetail />} />
             <Route path="/comms" element={<Comms />} />
@@ -141,7 +145,6 @@ const App = () => (
               <Route path="portfolio" element={<SettingsPortfolio />} />
               <Route path="buildings" element={<SettingsBuildings />} />
               <Route path="units" element={<SettingsUnits />} />
-              <Route path="leases" element={<SettingsLeases />} />
               <Route path="users" element={<SettingsUsers />} />
               <Route path="roles" element={<SettingsRoles />} />
               <Route path="security" element={<SettingsSecurity />} />

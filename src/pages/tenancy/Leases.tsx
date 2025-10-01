@@ -3,18 +3,26 @@ import { useTranslation } from 'react-i18next';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { FileSignature, PlusCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { mockLeases } from '@/data/mock-leases'; // Import mockLeases
-import LeasesTable from '@/components/settings/LeasesTable'; // Import LeasesTable
+import { mockLeases } from '@/data/mock-leases';
+import LeasesTable from '@/components/tenancy/LeasesTable'; // Updated import path
+import BreadcrumbNav from '@/components/BreadcrumbNav'; // Import BreadcrumbNav
 
-const SettingsLeases = () => {
+const Leases = () => {
   const { t } = useTranslation();
+
+  const breadcrumbItems = [
+    { label: t('home'), href: '/' },
+    { label: t('tenancy'), href: '/tenancy' },
+    { label: t('leases'), href: '/tenancy/leases' },
+  ];
 
   const hasLeases = mockLeases.length > 0;
 
   return (
     <div className="flex flex-1 flex-col gap-4">
+      <BreadcrumbNav items={breadcrumbItems} />
       <header className="flex items-center justify-between">
-        <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('tenant_lease_management')}</h1>
+        <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('leases')}</h1>
         <Button className="btn-primary">
           <PlusCircle className="mr-2 h-4 w-4" /> {t('add_new_lease')}
         </Button>
@@ -38,4 +46,4 @@ const SettingsLeases = () => {
   );
 };
 
-export default SettingsLeases;
+export default Leases;

@@ -4,7 +4,7 @@ import Topbar from './Topbar';
 import Sidebar from './Sidebar';
 import { MadeWithDyad } from '@/components/made-with-dyad';
 import GlassIcons from '@/components/GlassIcons';
-import { PlusCircle, Receipt, Wrench, MessageSquare } from 'lucide-react';
+import { PlusCircle, Receipt, Wrench, MessageSquare, FileSignature } from 'lucide-react'; // Added FileSignature for Tenancy
 import { useTranslation } from 'react-i18next';
 import { useUser } from '@/context/UserContext'; // Import useUser
 import { useAuth } from '@/hooks/useAuth'; // Import useAuth
@@ -35,6 +35,7 @@ const AppShell = () => {
     canRead('Finance - Bills/Recurring/Deposits') && { icon: <Receipt />, label: t('view_bills'), onClick: () => navigate('/finance/bills') },
     canRead('Maintenance') && { icon: <Wrench />, label: t('work_orders'), onClick: () => navigate('/maintenance/work-orders') },
     canCreate('Communications') && { icon: <MessageSquare />, label: t('announce'), onClick: () => navigate('/comms/send') },
+    canRead('Tenancy') && { icon: <FileSignature />, label: t('view_leases'), onClick: () => navigate('/tenancy/leases') }, // Added quick action for Tenancy
   ].filter(Boolean); // Filter out null/false values
 
   // If not logged in, render nothing or a loading spinner while redirecting

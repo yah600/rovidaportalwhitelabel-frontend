@@ -12,7 +12,6 @@ import {
   Settings as SettingsIcon,
   Scale,
   Handshake,
-  FileSignature, // New icon for Leases
   LayoutGrid, // New icon for Portfolio
   UserCheck, // New icon for Visitor Logs
 } from 'lucide-react';
@@ -37,7 +36,7 @@ const settingsNavItems: SettingsNavItem[] = [
     title: 'Portfolio Management',
     href: '/settings/portfolio',
     icon: LayoutGrid,
-    moduleName: 'Portfolio Management', // Corrected moduleName
+    moduleName: 'Portfolio Management',
   },
   {
     title: 'Buildings',
@@ -50,12 +49,6 @@ const settingsNavItems: SettingsNavItem[] = [
     href: '/settings/units',
     icon: Scale,
     moduleName: 'Settings',
-  },
-  {
-    title: 'Tenant & Lease Management',
-    href: '/settings/leases',
-    icon: FileSignature,
-    moduleName: 'Tenant & Lease Management', // Corrected moduleName
   },
   {
     title: 'Users',
@@ -79,7 +72,7 @@ const settingsNavItems: SettingsNavItem[] = [
     title: 'Visitor Logs',
     href: '/settings/visitor-logs',
     icon: UserCheck,
-    moduleName: 'Visitor Logs', // Corrected moduleName
+    moduleName: 'Visitor Logs',
   },
   {
     title: 'Notifications',

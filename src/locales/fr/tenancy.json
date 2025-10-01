@@ -1,0 +1,23 @@
+{
+  "tenancy": "Location",
+  "overview": "Aperçu",
+  "manage_tenant_leases_relationships": "Gérer tous les baux et relations avec les locataires.",
+  "active_leases": "Baux actifs",
+  "currently_active_agreements": "Accords actuellement actifs.",
+  "view_leases": "Voir les baux",
+  "pending_renewals": "Renouvellements en attente",
+  "leases_due_for_renewal": "Baux à renouveler prochainement.",
+  "review_renewals": "Examiner les renouvellements",
+  "total_tenants": "Total des locataires",
+  "residents_under_lease": "Résidents actuellement sous bail.",
+  "manage_tenants": "Gérer les locataires",
+  "detailed_tenancy_analytics_soon": "Des analyses détaillées de la location et des tableaux de bord seront bientôt disponibles !",
+  "leases": "Baux",
+  "add_new_lease": "Ajouter un nouveau bail",
+  "manage_tenant_information_leases": "Gérer les informations des locataires et les contrats de location.",
+  "leases_managed_here": "Les informations sur les locataires et les baux seront gérées ici.",
+  "add_first_lease": "Ajouter le premier bail",
+  "tenant_name": "Nom du locataire",
+  "start_date": "Date de début",
+  "rent_amount": "Montant du loyer"
+}
