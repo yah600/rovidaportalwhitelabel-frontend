@@ -27,15 +27,15 @@ const AnnouncementDetail = () => {
   if (!announcement) {
     return (
       <div className="flex flex-1 items-center justify-center">
-        <p className="text-rovida-slate-green-gray">Announcement not found.</p>
+        <p className="text-rovida-slate-green-gray">{t('announcement_not_found')}</p>
       </div>
     );
   }
 
   const breadcrumbItems = [
     { label: t('communications'), href: '/comms' },
-    { label: 'Announcements', href: '/comms/announcements' },
-    { label: `Announcement ${announcement.id}`, href: `/comms/announcements/${announcement.id}` },
+    { label: t('announcements'), href: '/comms/announcements' },
+    { label: `${t('announcement')} ${announcement.id}`, href: `/comms/announcements/${announcement.id}` },
   ];
 
   const getStatusBadgeVariant = (status: Announcement['status']) => {
@@ -62,27 +62,27 @@ const AnnouncementDetail = () => {
             <DropdownMenuTrigger asChild>
               <Button variant="outline" size="sm">
                 <MoreHorizontal className="h-4 w-4" />
-                <span className="sr-only">Actions</span>
+                <span className="sr-only">{t('actions')}</span>
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="bg-white/80 backdrop-blur-xl border-rovida-soft-gray text-rovida-near-black">
-              <DropdownMenuLabel>Actions</DropdownMenuLabel>
+              <DropdownMenuLabel>{t('actions')}</DropdownMenuLabel>
               <DropdownMenuSeparator className="bg-rovida-soft-gray" />
               <DropdownMenuItem className="hover:bg-rovida-soft-gray">
-                <Edit className="mr-2 h-4 w-4" /> Edit Announcement
+                <Edit className="mr-2 h-4 w-4" /> {t('edit_announcement')}
               </DropdownMenuItem>
               {announcement.status === 'Draft' && (
                 <DropdownMenuItem className="hover:bg-rovida-soft-gray">
-                  <CalendarDays className="mr-2 h-4 w-4" /> Publish
+                  <CalendarDays className="mr-2 h-4 w-4" /> {t('publish')}
                 </DropdownMenuItem>
               )}
               {announcement.status === 'Published' && (
                 <DropdownMenuItem className="hover:bg-rovida-soft-gray">
-                  <CalendarDays className="mr-2 h-4 w-4" /> Archive
+                  <CalendarDays className="mr-2 h-4 w-4" /> {t('archive')}
                 </DropdownMenuItem>
               )}
               <DropdownMenuItem className="text-destructive hover:bg-rovida-soft-gray">
-                <Trash2 className="mr-2 h-4 w-4" /> Delete Announcement
+                <Trash2 className="mr-2 h-4 w-4" /> {t('delete_announcement')}
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -91,28 +91,28 @@ const AnnouncementDetail = () => {
 
       <Card className="card-rovida">
         <CardHeader>
-          <CardTitle className="text-rovida-navy">Announcement Details</CardTitle>
+          <CardTitle className="text-rovida-navy">{t('announcement_details')}</CardTitle>
         </CardHeader>
         <CardContent className="grid gap-4">
           <div className="grid grid-cols-2 gap-2 text-rovida-near-black">
-            <div className="font-medium">ID:</div>
+            <div className="font-medium">{t('id')}:</div>
             <div>{announcement.id}</div>
-            <div className="font-medium">Author:</div>
+            <div className="font-medium">{t('author')}:</div>
             <div>{announcement.author}</div>
-            <div className="font-medium">Target Audience:</div>
+            <div className="font-medium">{t('target_audience')}:</div>
             <div>{announcement.targetAudience}</div>
-            <div className="font-medium">Published At:</div>
+            <div className="font-medium">{t('published_at')}:</div>
             <div>{format(announcement.publishedAt, 'MMM dd, yyyy HH:mm')}</div>
             {announcement.expiresAt && (
               <>
-                <div className="font-medium">Expires At:</div>
+                <div className="font-medium">{t('expires_at')}:</div>
                 <div>{format(announcement.expiresAt, 'MMM dd, yyyy HH:mm')}</div>
               </>
             )}
           </div>
           <Separator className="bg-rovida-soft-gray" />
           <div>
-            <h4 className="font-medium mb-2 text-rovida-navy">Content:</h4>
+            <h4 className="font-medium mb-2 text-rovida-navy">{t('content')}:</h4>
             <p className="text-rovida-slate-green-gray">{announcement.content}</p>
           </div>
         </CardContent>

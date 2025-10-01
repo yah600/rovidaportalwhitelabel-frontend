@@ -22,11 +22,11 @@ const RolesTable = ({ roles }: RolesTableProps) => {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead className="w-[100px]">ID</TableHead>
-            <TableHead>Name</TableHead>
-            <TableHead>Description</TableHead>
-            <TableHead>Users</TableHead>
-            <TableHead className="text-right">Actions</TableHead>
+            <TableHead className="w-[100px]">{t('id')}</TableHead>
+            <TableHead>{t('name')}</TableHead>
+            <TableHead>{t('description')}</TableHead>
+            <TableHead>{t('users')}</TableHead>
+            <TableHead className="text-right">{t('actions')}</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -38,7 +38,7 @@ const RolesTable = ({ roles }: RolesTableProps) => {
               <TableCell>{role.usersCount}</TableCell>
               <TableCell className="text-right">
                 {/* Add action buttons here, e.g., Edit Permissions */}
-                <span className="text-sm text-muted-foreground">Manage</span>
+                <span className="text-sm text-muted-foreground">{t('manage')}</span>
               </TableCell>
             </TableRow>
           ))}

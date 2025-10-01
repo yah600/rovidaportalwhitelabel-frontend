@@ -15,25 +15,25 @@ const ResetPasswordPage = () => {
         <CardHeader className="text-center">
           <CardTitle className="text-2xl text-page-title">{t('reset_password')}</CardTitle>
           <CardDescription className="text-rovida-slate-green-gray">
-            Enter your new password below.
+            {t('enter_new_password_below')}
           </CardDescription>
         </CardHeader>
         <CardContent>
           <div className="grid gap-4">
             <div className="grid gap-2">
-              <Label htmlFor="password" className="text-rovida-near-black">New Password</Label>
+              <Label htmlFor="password" className="text-rovida-near-black">{t('new_password')}</Label>
               <Input id="password" type="password" required className="border-rovida-soft-gray text-rovida-near-black" />
             </div>
             <div className="grid gap-2">
-              <Label htmlFor="confirm-password" className="text-rovida-near-black">Confirm New Password</Label>
+              <Label htmlFor="confirm-password" className="text-rovida-near-black">{t('confirm_new_password')}</Label>
               <Input id="confirm-password" type="password" required className="border-rovida-soft-gray text-rovida-near-black" />
             </div>
             <Button type="submit" className="w-full btn-primary">
-              Reset Password
+              {t('reset_password_button')}
             </Button>
             <div className="mt-4 text-center text-sm text-rovida-slate-green-gray">
               <Link to="/auth/login" className="link-rovida">
-                Return to {t('login')}
+                {t('return_to_login')}
               </Link>
             </div>
           </div>

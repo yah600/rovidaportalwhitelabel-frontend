@@ -27,15 +27,15 @@ const FinanceBillDetail = () => {
   if (!bill) {
     return (
       <div className="flex flex-1 items-center justify-center">
-        <p className="text-rovida-slate-green-gray">Bill not found.</p>
+        <p className="text-rovida-slate-green-gray">{t('bill_not_found')}</p>
       </div>
     );
   }
 
   const breadcrumbItems = [
     { label: t('finance'), href: '/finance' },
-    { label: 'Bills', href: '/finance/bills' },
-    { label: `Bill ${bill.id}`, href: `/finance/bills/${bill.id}` },
+    { label: t('bills'), href: '/finance/bills' },
+    { label: `${t('bill')} ${bill.id}`, href: `/finance/bills/${bill.id}` },
   ];
 
   const getStatusBadgeVariant = (status: Bill['status']) => {
@@ -64,22 +64,22 @@ const FinanceBillDetail = () => {
             <DropdownMenuTrigger asChild>
               <Button variant="outline" size="sm">
                 <MoreHorizontal className="h-4 w-4" />
-                <span className="sr-only">Actions</span>
+                <span className="sr-only">{t('actions')}</span>
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="bg-white/80 backdrop-blur-xl border-rovida-soft-gray text-rovida-near-black">
-              <DropdownMenuLabel>Actions</DropdownMenuLabel>
+              <DropdownMenuLabel>{t('actions')}</DropdownMenuLabel>
               <DropdownMenuSeparator className="bg-rovida-soft-gray" />
               <DropdownMenuItem className="hover:bg-rovida-soft-gray">
-                <Edit className="mr-2 h-4 w-4" /> Edit Bill
+                <Edit className="mr-2 h-4 w-4" /> {t('edit_bill')}
               </DropdownMenuItem>
               {bill.status !== 'Paid' && (
                 <DropdownMenuItem className="hover:bg-rovida-soft-gray">
-                  <DollarSign className="mr-2 h-4 w-4" /> Mark as Paid
+                  <DollarSign className="mr-2 h-4 w-4" /> {t('mark_as_paid')}
                 </DropdownMenuItem>
               )}
               <DropdownMenuItem className="text-destructive hover:bg-rovida-soft-gray">
-                <Trash2 className="mr-2 h-4 w-4" /> Delete Bill
+                <Trash2 className="mr-2 h-4 w-4" /> {t('delete_bill')}
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -88,32 +88,32 @@ const FinanceBillDetail = () => {
 
       <Card className="card-rovida">
         <CardHeader>
-          <CardTitle className="text-rovida-navy">Bill Details</CardTitle>
+          <CardTitle className="text-rovida-navy">{t('bill_details')}</CardTitle>
         </CardHeader>
         <CardContent className="grid gap-4">
           <div className="grid grid-cols-2 gap-2 text-rovida-near-black">
-            <div className="font-medium">ID:</div>
+            <div className="font-medium">{t('id')}:</div>
             <div>{bill.id}</div>
-            <div className="font-medium">Vendor:</div>
+            <div className="font-medium">{t('vendor')}:</div>
             <div>{bill.vendor}</div>
-            <div className="font-medium">Category:</div>
+            <div className="font-medium">{t('category')}:</div>
             <div>{bill.category}</div>
-            <div className="font-medium">Amount:</div>
+            <div className="font-medium">{t('amount')}:</div>
             <div>{bill.amount.toFixed(2)} {bill.currency}</div>
-            <div className="font-medium">Issue Date:</div>
+            <div className="font-medium">{t('issue_date')}:</div>
             <div>{format(bill.issueDate, 'MMM dd, yyyy')}</div>
-            <div className="font-medium">Due Date:</div>
+            <div className="font-medium">{t('due_date')}:</div>
             <div>{format(bill.dueDate, 'MMM dd, yyyy')}</div>
             {bill.paidDate && (
               <>
-                <div className="font-medium">Paid Date:</div>
+                <div className="font-medium">{t('paid_date')}:</div>
                 <div>{format(bill.paidDate, 'MMM dd, yyyy')}</div>
               </>
             )}
           </div>
           <Separator className="bg-rovida-soft-gray" />
           <div>
-            <h4 className="font-medium mb-2 text-rovida-navy">Description:</h4>
+            <h4 className="font-medium mb-2 text-rovida-navy">{t('description')}:</h4>
             <p className="text-rovida-slate-green-gray">{bill.description}</p>
           </div>
         </CardContent>

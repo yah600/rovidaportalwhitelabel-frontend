@@ -27,7 +27,7 @@ const IntegrationDetail = () => {
   if (!integration) {
     return (
       <div className="flex flex-1 items-center justify-center">
-        <p className="text-rovida-slate-green-gray">Integration not found.</p>
+        <p className="text-rovida-slate-green-gray">{t('integration_not_found')}</p>
       </div>
     );
   }
@@ -61,26 +61,26 @@ const IntegrationDetail = () => {
             <DropdownMenuTrigger asChild>
               <Button variant="outline" size="sm">
                 <MoreHorizontal className="h-4 w-4" />
-                <span className="sr-only">Actions</span>
+                <span className="sr-only">{t('actions')}</span>
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="bg-white/80 backdrop-blur-xl border-rovida-soft-gray text-rovida-near-black">
-              <DropdownMenuLabel>Actions</DropdownMenuLabel>
+              <DropdownMenuLabel>{t('actions')}</DropdownMenuLabel>
               <DropdownMenuSeparator className="bg-rovida-soft-gray" />
               <DropdownMenuItem className="hover:bg-rovida-soft-gray">
-                <Edit className="mr-2 h-4 w-4" /> Edit Integration
+                <Edit className="mr-2 h-4 w-4" /> {t('edit_integration')}
               </DropdownMenuItem>
               {integration.status === 'Active' ? (
                 <DropdownMenuItem className="text-destructive hover:bg-rovida-soft-gray">
-                  <PowerOff className="mr-2 h-4 w-4" /> Deactivate
+                  <PowerOff className="mr-2 h-4 w-4" /> {t('deactivate')}
                 </DropdownMenuItem>
               ) : (
                 <DropdownMenuItem className="hover:bg-rovida-soft-gray">
-                  <Power className="mr-2 h-4 w-4" /> Activate
+                  <Power className="mr-2 h-4 w-4" /> {t('activate')}
                 </DropdownMenuItem>
               )}
               <DropdownMenuItem className="text-destructive hover:bg-rovida-soft-gray">
-                <Trash2 className="mr-2 h-4 w-4" /> Remove Integration
+                <Trash2 className="mr-2 h-4 w-4" /> {t('remove_integration')}
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -89,43 +89,43 @@ const IntegrationDetail = () => {
 
       <Card className="card-rovida">
         <CardHeader>
-          <CardTitle className="text-rovida-navy">Integration Details</CardTitle>
+          <CardTitle className="text-rovida-navy">{t('integration_details')}</CardTitle>
         </CardHeader>
         <CardContent className="grid gap-4">
           <div className="grid grid-cols-2 gap-2 text-rovida-near-black">
-            <div className="font-medium">ID:</div>
+            <div className="font-medium">{t('id')}:</div>
             <div>{integration.id}</div>
-            <div className="font-medium">Type:</div>
+            <div className="font-medium">{t('type')}:</div>
             <div>{integration.type}</div>
-            <div className="font-medium">Status:</div>
+            <div className="font-medium">{t('status')}:</div>
             <div>{integration.status}</div>
             {integration.connectedAt && (
               <>
-                <div className="font-medium">Connected At:</div>
+                <div className="font-medium">{t('connected_at')}:</div>
                 <div>{format(integration.connectedAt, 'MMM dd, yyyy HH:mm')}</div>
               </>
             )}
           </div>
           <Separator className="bg-rovida-soft-gray" />
           <div>
-            <h4 className="font-medium mb-2 text-rovida-navy">Description:</h4>
+            <h4 className="font-medium mb-2 text-rovida-navy">{t('description')}:</h4>
             <p className="text-rovida-slate-green-gray">{integration.description}</p>
           </div>
           {integration.status === 'Pending Setup' && (
             <>
               <Separator className="bg-rovida-soft-gray" />
               <div>
-                <h4 className="font-medium mb-2 text-rovida-navy">Setup Instructions:</h4>
+                <h4 className="font-medium mb-2 text-rovida-navy">{t('setup_instructions')}:</h4>
                 <p className="text-rovida-slate-green-gray">
-                  To activate this integration, please follow these steps:
+                  {t('to_activate_integration_follow_steps')}
                   <ol className="list-decimal list-inside mt-2">
-                    <li>Go to the {integration.name} dashboard.</li>
-                    <li>Generate an API key.</li>
-                    <li>Enter the API key in the settings below.</li>
-                    <li>Click "Save and Activate".</li>
+                    <li>{t('go_to_dashboard')} {integration.name} {t('dashboard')}.</li>
+                    <li>{t('generate_api_key')}</li>
+                    <li>{t('enter_api_key_below')}</li>
+                    <li>{t('click_save_activate')}</li>
                   </ol>
                 </p>
-                <Button className="mt-4 btn-primary">Complete Setup</Button>
+                <Button className="mt-4 btn-primary">{t('complete_setup')}</Button>
               </div>
             </>
           )}

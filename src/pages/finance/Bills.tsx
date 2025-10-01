@@ -11,7 +11,7 @@ const FinanceBills = () => {
   const { t } = useTranslation();
   const breadcrumbItems = [
     { label: t('finance'), href: '/finance' },
-    { label: 'Bills', href: '/finance/bills' },
+    { label: t('bills'), href: '/finance/bills' },
   ];
 
   const hasBills = mockBills.length > 0;
@@ -20,9 +20,9 @@ const FinanceBills = () => {
     <div className="flex flex-1 flex-col gap-4">
       <BreadcrumbNav items={breadcrumbItems} />
       <header className="flex items-center justify-between">
-        <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('finance')} Bills</h1>
+        <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('finance')} {t('bills')}</h1>
         <Button>
-          <PlusCircle className="mr-2 h-4 w-4" /> Create New Bill
+          <PlusCircle className="mr-2 h-4 w-4" /> {t('create_new_bill')}
         </Button>
       </header>
 
@@ -32,13 +32,13 @@ const FinanceBills = () => {
         <div className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm">
           <div className="flex flex-col items-center gap-1 text-center">
             <h3 className="text-2xl font-bold tracking-tight">
-              No bills found.
+              {t('no_bills_found')}
             </h3>
             <p className="text-sm text-muted-foreground">
-              You can start by creating a new bill.
+              {t('start_by_creating_new_bill')}
             </p>
             <Button className="mt-4">
-              <PlusCircle className="mr-2 h-4 w-4" /> Create New Bill
+              <PlusCircle className="mr-2 h-4 w-4" /> {t('create_new_bill')}
             </Button>
           </div>
         </div>

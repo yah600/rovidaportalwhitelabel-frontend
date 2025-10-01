@@ -9,24 +9,24 @@ const MaintenanceCalendar = () => {
 
   const breadcrumbItems = [
     { label: t('maintenance'), href: '/maintenance' },
-    { label: 'Calendar', href: '/maintenance/calendar' },
+    { label: t('calendar'), href: '/maintenance/calendar' },
   ];
 
   return (
     <div className="flex flex-1 flex-col gap-4">
       <BreadcrumbNav items={breadcrumbItems} />
-      <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('maintenance')} Calendar</h1>
-      <p className="text-rovida-slate-green-gray">Visualize and manage your maintenance schedule.</p>
+      <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('maintenance')} {t('calendar')}</h1>
+      <p className="text-rovida-slate-green-gray">{t('visualize_manage_schedule')}</p>
 
       <Card className="flex-1 card-rovida">
         <CardHeader>
-          <CardTitle className="text-rovida-navy">Monthly View</CardTitle>
-          <CardDescription className="text-rovida-slate-green-gray">Upcoming and completed tasks.</CardDescription>
+          <CardTitle className="text-rovida-navy">{t('monthly_view')}</CardTitle>
+          <CardDescription className="text-rovida-slate-green-gray">{t('upcoming_completed_tasks')}</CardDescription>
         </CardHeader>
         <CardContent className="flex flex-1 items-center justify-center">
           <div className="flex flex-col items-center gap-2 text-rovida-slate-green-gray">
             <CalendarDays className="h-12 w-12 text-rovida-gold" />
-            <p>Calendar view coming soon!</p>
+            <p>{t('calendar_view_coming_soon')}</p>
           </div>
         </CardContent>
       </Card>

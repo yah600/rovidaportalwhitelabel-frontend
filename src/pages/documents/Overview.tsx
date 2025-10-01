@@ -27,20 +27,20 @@ const Documents = () => {
   return (
     <div className="flex flex-1 flex-col gap-4">
       <BreadcrumbNav items={breadcrumbItems} />
-      <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('documents')} Overview</h1>
+      <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('documents')} {t('overview')}</h1>
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {/* Total Documents Card */}
         <Card className="card-rovida">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-rovida-navy">Total Documents</CardTitle>
+            <CardTitle className="text-sm font-medium text-rovida-navy">{t('total_documents')}</CardTitle>
             <FileText className="h-4 w-4 text-rovida-gold" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold text-rovida-near-black">{totalDocuments}</div>
-            <p className="text-xs text-rovida-slate-green-gray">All files in your registry</p>
+            <p className="text-xs text-rovida-slate-green-gray">{t('all_files_in_registry')}</p>
             <Link to="/documents/registry" className="mt-2 inline-flex items-center text-sm link-rovida">
-              View Registry <ArrowRight className="ml-1 h-4 w-4" />
+              {t('view_registry')} <ArrowRight className="ml-1 h-4 w-4" />
             </Link>
           </CardContent>
         </Card>
@@ -48,7 +48,7 @@ const Documents = () => {
         {/* Recent Uploads Card */}
         <Card className="card-rovida">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-rovida-navy">Recent Uploads</CardTitle>
+            <CardTitle className="text-sm font-medium text-rovida-navy">{t('recent_uploads')}</CardTitle>
             <UploadCloud className="h-4 w-4 text-rovida-gold" />
           </CardHeader>
           <CardContent>
@@ -57,9 +57,9 @@ const Documents = () => {
             ) : (
               <div className="text-2xl font-bold text-rovida-near-black">N/A</div>
             )}
-            <p className="text-xs text-rovida-slate-green-gray">{recentUploads.length} documents recently added</p>
+            <p className="text-xs text-rovida-slate-green-gray">{recentUploads.length} {t('documents_recently_added')}</p>
             <Link to="/documents/registry" className="mt-2 inline-flex items-center text-sm link-rovida">
-              View Recent <ArrowRight className="ml-1 h-4 w-4" />
+              {t('view_recent')} <ArrowRight className="ml-1 h-4 w-4" />
             </Link>
           </CardContent>
         </Card>
@@ -67,21 +67,21 @@ const Documents = () => {
         {/* Documents Needing Review Card */}
         <Card className="card-rovida">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-rovida-navy">Documents Inbox</CardTitle>
+            <CardTitle className="text-sm font-medium text-rovida-navy">{t('documents_inbox')}</CardTitle>
             <Mail className="h-4 w-4 text-rovida-gold" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-rovida-near-black">{documentsNeedingReview} New</div>
-            <p className="text-xs text-rovida-slate-green-gray">Files awaiting your attention</p>
+            <div className="text-2xl font-bold text-rovida-near-black">{documentsNeedingReview} {t('new')}</div>
+            <p className="text-xs text-rovida-slate-green-gray">{t('files_awaiting_attention')}</p>
             <Link to="/documents/inbox" className="mt-2 inline-flex items-center text-sm link-rovida">
-              Go to Inbox <ArrowRight className="ml-1 h-4 w-4" />
+              {t('go_to_inbox')} <ArrowRight className="ml-1 h-4 w-4" />
             </Link>
           </CardContent>
         </Card>
       </div>
 
       <Card className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm card-rovida mt-4 p-8">
-        <p className="text-rovida-slate-green-gray">More detailed document analytics and management tools coming soon!</p>
+        <p className="text-rovida-slate-green-gray">{t('more_detailed_document_analytics_soon')}</p>
       </Card>
     </div>
   );

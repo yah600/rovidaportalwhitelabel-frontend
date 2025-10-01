@@ -33,16 +33,16 @@ const CommsTemplates = () => {
   const { t } = useTranslation();
   const breadcrumbItems = [
     { label: t('communications'), href: '/comms' },
-    { label: 'Templates', href: '/comms/templates' },
+    { label: t('templates'), href: '/comms/templates' },
   ];
 
   return (
     <div className="flex flex-1 flex-col gap-4">
       <BreadcrumbNav items={breadcrumbItems} />
       <header className="flex items-center justify-between">
-        <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('communications')} Templates</h1>
+        <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('communications')} {t('templates')}</h1>
         <Button>
-          <PlusCircle className="mr-2 h-4 w-4" /> Create New Template
+          <PlusCircle className="mr-2 h-4 w-4" /> {t('create_new_template')}
         </Button>
       </header>
 
@@ -56,10 +56,10 @@ const CommsTemplates = () => {
               </CardHeader>
               <CardContent className="flex justify-end gap-2">
                 <Button variant="outline" size="sm">
-                  <Edit className="h-4 w-4 mr-2" /> Edit
+                  <Edit className="h-4 w-4 mr-2" /> {t('edit')}
                 </Button>
                 <Button variant="destructive" size="sm">
-                  <Trash2 className="h-4 w-4 mr-2" /> Delete
+                  <Trash2 className="h-4 w-4 mr-2" /> {t('delete')}
                 </Button>
               </CardContent>
             </Card>
@@ -68,13 +68,13 @@ const CommsTemplates = () => {
           <div className="col-span-full flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm p-8">
             <div className="flex flex-col items-center gap-1 text-center">
               <h3 className="text-2xl font-bold tracking-tight">
-                No templates found.
+                {t('no_templates_found')}
               </h3>
               <p className="text-sm text-muted-foreground">
-                You can start by creating a new communication template.
+                {t('start_by_creating_new_template')}
               </p>
               <Button className="mt-4">
-                <PlusCircle className="mr-2 h-4 w-4" /> Create New Template
+                <PlusCircle className="mr-2 h-4 w-4" /> {t('create_new_template')}
               </Button>
             </div>
           </div>

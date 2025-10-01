@@ -22,6 +22,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useTranslation } from "react-i18next"; // Import useTranslation
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -37,6 +38,7 @@ export function DataTable<TData, TValue>({
   className,
 }: DataTableProps<TData, TValue>) {
   const [sorting, setSorting] = React.useState<SortingState>([]);
+  const { t } = useTranslation(); // Initialize useTranslation
 
   const table = useReactTable({
     data,
@@ -109,7 +111,7 @@ export function DataTable<TData, TValue>({
           ) : (
             <TableRow>
               <TableCell colSpan={columns.length} className="h-24 text-center text-rovida-slate-green-gray">
-                No results.
+                {t('no_results')}
               </TableCell>
             </TableRow>
           )}
@@ -123,7 +125,7 @@ export function DataTable<TData, TValue>({
           disabled={!table.getCanPreviousPage()}
           className="btn-secondary"
         >
-          <ChevronLeft className="h-4 w-4 mr-2" /> Previous
+          <ChevronLeft className="h-4 w-4 mr-2" /> {t('previous')}
         </Button>
         <Button
           variant="outline"
@@ -132,7 +134,7 @@ export function DataTable<TData, TValue>({
           disabled={!table.getCanNextPage()}
           className="btn-secondary"
         >
-          Next <ChevronRight className="h-4 w-4 ml-2" />
+          {t('next')} <ChevronRight className="h-4 w-4 ml-2" />
         </Button>
       </div>
     </div>

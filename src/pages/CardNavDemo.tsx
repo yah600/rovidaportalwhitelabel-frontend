@@ -43,19 +43,19 @@ const CardNavDemo = () => {
 
   const breadcrumbItems = [
     { label: t('home'), href: '/' },
-    { label: 'CardNav Demo', href: '/cardnav-demo' },
+    { label: t('card_navigation_demo'), href: '/cardnav-demo' },
   ];
 
   return (
     <div className="flex flex-1 flex-col gap-4">
       <BreadcrumbNav items={breadcrumbItems} />
-      <h1 className="text-2xl font-semibold md:text-3xl text-page-title">Card Navigation Demo</h1>
-      <p className="text-rovida-slate-green-gray">Explore the interactive card-based navigation menu.</p>
+      <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('card_navigation_demo')}</h1>
+      <p className="text-rovida-slate-green-gray">{t('explore_interactive_card_menu')}</p>
 
       <Card className="flex-1 flex flex-col items-center justify-center p-8 card-rovida">
         <CardHeader className="text-center">
-          <CardTitle className="text-rovida-navy">Interactive Navigation</CardTitle>
-          <CardDescription className="text-rovida-slate-green-gray">Click the hamburger icon to expand the menu.</CardDescription>
+          <CardTitle className="text-rovida-navy">{t('interactive_navigation')}</CardTitle>
+          <CardDescription className="text-rovida-slate-green-gray">{t('click_hamburger_expand_menu')}</CardDescription>
         </CardHeader>
         <CardContent className="w-full h-full flex items-center justify-center">
           <CardNav

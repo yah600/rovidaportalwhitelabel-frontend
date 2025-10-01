@@ -40,7 +40,7 @@ const AnnouncementsTable = ({ announcements }: AnnouncementsTableProps) => {
   const columns: ColumnDef<Announcement>[] = [
     {
       accessorKey: "id",
-      header: "ID",
+      header: t('id'),
       cell: ({ row }) => (
         <Link to={`/comms/announcements/${row.original.id}`} className="text-primary hover:underline">
           {row.getValue("id")}
@@ -49,22 +49,22 @@ const AnnouncementsTable = ({ announcements }: AnnouncementsTableProps) => {
     },
     {
       accessorKey: "title",
-      header: "Title",
+      header: t('title'),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("title")}</span>,
     },
     {
       accessorKey: "author",
-      header: "Author",
+      header: t('author'),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("author")}</span>,
     },
     {
       accessorKey: "targetAudience",
-      header: "Audience",
+      header: t('target_audience'),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("targetAudience")}</span>,
     },
     {
       accessorKey: "status",
-      header: "Status",
+      header: t('status'),
       cell: ({ row }) => (
         <Badge variant={getStatusVariant(row.getValue("status"))}>
           {row.getValue("status")}
@@ -73,7 +73,7 @@ const AnnouncementsTable = ({ announcements }: AnnouncementsTableProps) => {
     },
     {
       accessorKey: "publishedAt",
-      header: "Published At",
+      header: t('published_at'),
       cell: ({ row }) => (
         <span className="text-rovida-slate-green-gray">
           {format(row.getValue("publishedAt"), 'MMM dd, yyyy')}
@@ -82,7 +82,7 @@ const AnnouncementsTable = ({ announcements }: AnnouncementsTableProps) => {
     },
     {
       accessorKey: "expiresAt",
-      header: "Expires At",
+      header: t('expires_at'),
       cell: ({ row }) => (
         <span className="text-rovida-slate-green-gray">
           {row.original.expiresAt ? format(row.original.expiresAt, 'MMM dd, yyyy') : 'N/A'}
@@ -91,12 +91,12 @@ const AnnouncementsTable = ({ announcements }: AnnouncementsTableProps) => {
     },
     {
       id: "actions",
-      header: "Actions",
+      header: t('actions'),
       enableSorting: false,
       cell: ({ row }) => (
         <div className="text-right">
           <Link to={`/comms/announcements/${row.original.id}`} className="text-sm text-rovida-slate-green-gray hover:underline">
-            View
+            {t('view')}
           </Link>
         </div>
       ),

@@ -58,7 +58,7 @@ const KanbanColumn = ({ title, issues, statusFilter }: KanbanColumnProps) => {
             </Card>
           ))
         ) : (
-          <div className="text-rovida-slate-green-gray text-sm text-center p-4">No issues in this column.</div>
+          <div className="text-rovida-slate-green-gray text-sm text-center p-4">{t('no_issues_in_column')}</div>
         )}
       </div>
     </div>

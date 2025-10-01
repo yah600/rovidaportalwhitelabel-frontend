@@ -55,8 +55,8 @@ const OnboardingPage = () => {
         onboarded: true,
       };
       updateCurrentUser(updatedUser);
-      toast.success('Onboarding complete!', {
-        description: 'Your dashboard is now personalized.',
+      toast.success(t('onboarding_complete_title'), {
+        description: t('dashboard_personalized_description'),
       });
       navigate('/dashboard');
     }
@@ -64,101 +64,101 @@ const OnboardingPage = () => {
 
   const breadcrumbItems = [
     { label: t('home'), href: '/' },
-    { label: 'Onboarding', href: '/onboarding' },
+    { label: t('onboarding'), href: '/onboarding' },
   ];
 
   return (
     <div className="flex flex-1 flex-col gap-4 items-center"> {/* Centered content */}
       <BreadcrumbNav items={breadcrumbItems} />
-      <h1 className="text-2xl font-semibold md:text-3xl text-page-title text-center">Welcome Onboard!</h1>
-      <p className="text-rovida-slate-green-gray text-center">Let's set up your account and preferences.</p>
+      <h1 className="text-2xl font-semibold md:text-3xl text-page-title text-center">{t('welcome_onboard')}</h1>
+      <p className="text-rovida-slate-green-gray text-center">{t('setup_account_preferences')}</p>
 
       <GlassSurface width="100%" height="auto" borderRadius={10} blur={15} backgroundOpacity={0.1} className="max-w-3xl mx-auto p-4"> {/* Added padding to GlassSurface */}
         <Card className="w-full bg-transparent border-none shadow-none">
           <CardHeader className="text-center"> {/* Centered card header */}
-            <CardTitle className="text-rovida-navy">Account Setup</CardTitle>
-            <CardDescription className="text-rovida-slate-green-gray">Follow these steps to get started.</CardDescription>
+            <CardTitle className="text-rovida-navy">{t('account_setup')}</CardTitle>
+            <CardDescription className="text-rovida-slate-green-gray">{t('follow_steps_get_started')}</CardDescription>
           </CardHeader>
           <CardContent className="p-6"> {/* Added padding to CardContent */}
-            <Stepper onFinalStepCompleted={handleOnboardingComplete}>
+            <Stepper onFinalStepCompleted={handleOnboardingComplete} nextButtonText={t('next')} backButtonText={t('back')}>
               <Step>
                 <div className="grid gap-4 text-rovida-near-black text-left"> {/* Aligned text left */}
-                  <h3 className="text-xl font-semibold">Step 1: Personal Information</h3>
-                  <p className="text-rovida-slate-green-gray">Tell us a bit about yourself.</p>
+                  <h3 className="text-xl font-semibold">{t('step_1_personal_info')}</h3>
+                  <p className="text-rovida-slate-green-gray">{t('tell_us_about_yourself')}</p>
                   <div className="grid gap-2">
-                    <Label htmlFor="name">Your Name</Label>
+                    <Label htmlFor="name">{t('your_name')}</Label>
                     <Input id="name" placeholder="John Doe" value={name} onChange={(e) => setName(e.target.value)} className="border-rovida-soft-gray text-rovida-near-black bg-white/60" />
                   </div>
                   <div className="grid gap-2">
-                    <Label htmlFor="email">Email</Label>
+                    <Label htmlFor="email">{t('email')}</Label>
                     <Input id="email" type="email" placeholder="john.doe@example.com" value={email} onChange={(e) => setEmail(e.target.value)} className="border-rovida-soft-gray text-rovida-near-black bg-white/60" />
                   </div>
                 </div>
               </Step>
               <Step>
                 <div className="grid gap-4 text-rovida-near-black text-left"> {/* Aligned text left */}
-                  <h3 className="text-xl font-semibold">Step 2: Building Selection</h3>
-                  <p className="text-rovida-slate-green-gray">Choose the building you manage or reside in.</p>
+                  <h3 className="text-xl font-semibold">{t('step_2_building_selection')}</h3>
+                  <p className="text-rovida-slate-green-gray">{t('choose_building_manage_reside')}</p>
                   <div className="grid gap-2">
-                    <Label htmlFor="building">Select Building</Label>
+                    <Label htmlFor="building">{t('select_building')}</Label>
                     <Input id="building" placeholder="Building A" value={building} onChange={(e) => setBuilding(e.target.value)} className="border-rovida-soft-gray text-rovida-near-black bg-white/60" />
                   </div>
                 </div>
               </Step>
               <Step>
                 <div className="grid gap-4 text-rovida-near-black text-left"> {/* Aligned text left */}
-                  <h3 className="text-xl font-semibold">Step 3: Contact & Notification Preferences</h3>
-                  <p className="text-rovida-slate-green-gray">How should we reach you and what updates do you want?</p>
+                  <h3 className="text-xl font-semibold">{t('step_3_contact_notifications')}</h3>
+                  <p className="text-rovida-slate-green-gray">{t('how_reach_you_updates')}</p>
                   <div className="grid gap-2">
-                    <Label htmlFor="phoneNumber">Phone Number</Label>
+                    <Label htmlFor="phoneNumber">{t('phone_number')}</Label>
                     <Input id="phoneNumber" type="tel" placeholder="+1 (555) 123-4567" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} className="border-rovida-soft-gray text-rovida-near-black bg-white/60" />
                   </div>
                   <div className="grid gap-2 mt-4">
-                    <h4 className="font-medium">Email Notifications</h4>
+                    <h4 className="font-medium">{t('email_notifications')}</h4>
                     <div className="flex items-center justify-between">
                       <Label htmlFor="email-issues" className="flex flex-col space-y-1 text-rovida-near-black">
-                        <span>New Issue Alerts</span>
+                        <span>{t('new_issue_alerts')}</span>
                         <span className="font-normal leading-snug text-rovida-slate-green-gray">
-                          Receive an email when a new issue is reported.
+                          {t('receive_email_new_issue')}
                         </span>
                       </Label>
                       <Switch id="email-issues" checked={notificationPreferences.emailIssues} onCheckedChange={(checked) => setNotificationPreferences(prev => ({ ...prev, emailIssues: !!checked }))} className="data-[state=checked]:bg-rovida-gold" />
                     </div>
                     <div className="flex items-center justify-between">
                       <Label htmlFor="email-announcements" className="flex flex-col space-y-1 text-rovida-near-black">
-                        <span>Announcements</span>
+                        <span>{t('announcements_email')}</span>
                         <span className="font-normal leading-snug text-rovida-slate-green-gray">
-                          Get emails for important building announcements.
+                          {t('get_emails_announcements')}
                         </span>
                       </Label>
                       <Switch id="email-announcements" checked={notificationPreferences.emailAnnouncements} onCheckedChange={(checked) => setNotificationPreferences(prev => ({ ...prev, emailAnnouncements: !!checked }))} className="data-[state=checked]:bg-rovida-gold" />
                     </div>
                     <div className="flex items-center justify-between">
                       <Label htmlFor="email-billing" className="flex flex-col space-y-1 text-rovida-near-black">
-                        <span>Billing Reminders</span>
+                        <span>{t('billing_reminders')}</span>
                         <span className="font-normal leading-snug text-rovida-slate-green-gray">
-                          Receive reminders for upcoming bill due dates.
+                          {t('receive_reminders_bill_due_dates')}
                         </span>
                       </Label>
                       <Switch id="email-billing" checked={notificationPreferences.emailBilling} onCheckedChange={(checked) => setNotificationPreferences(prev => ({ ...prev, emailBilling: !!checked }))} className="data-[state=checked]:bg-rovida-gold" />
                     </div>
                   </div>
                   <div className="grid gap-2 mt-4">
-                    <h4 className="font-medium">SMS Notifications</h4>
+                    <h4 className="font-medium">{t('sms_notifications')}</h4>
                     <div className="flex items-center justify-between">
                       <Label htmlFor="sms-emergency" className="flex flex-col space-y-1 text-rovida-near-black">
-                        <span>Emergency Alerts</span>
+                        <span>{t('emergency_alerts')}</span>
                         <span className="font-normal leading-snug text-rovida-slate-green-gray">
-                          Receive critical alerts via SMS.
+                          {t('receive_critical_alerts_sms')}
                         </span>
                       </Label>
                       <Switch id="sms-emergency" checked={notificationPreferences.smsEmergency} onCheckedChange={(checked) => setNotificationPreferences(prev => ({ ...prev, smsEmergency: !!checked }))} className="data-[state=checked]:bg-rovida-gold" />
                     </div>
                     <div className="flex items-center justify-between">
                       <Label htmlFor="sms-maintenance" className="flex flex-col space-y-1 text-rovida-near-black">
-                        <span>Maintenance Updates</span>
+                        <span>{t('maintenance_updates')}</span>
                         <span className="font-normal leading-snug text-rovida-slate-green-gray">
-                          Get SMS updates for maintenance work affecting your unit.
+                          {t('get_sms_maintenance_work')}
                         </span>
                       </Label>
                       <Switch id="sms-maintenance" checked={notificationPreferences.smsMaintenance} onCheckedChange={(checked) => setNotificationPreferences(prev => ({ ...prev, smsMaintenance: !!checked }))} className="data-[state=checked]:bg-rovida-gold" />
@@ -168,19 +168,19 @@ const OnboardingPage = () => {
               </Step>
               <Step>
                 <div className="grid gap-4 text-rovida-near-black text-left"> {/* Aligned text left */}
-                  <h3 className="text-xl font-semibold">Step 4: Finalizing Setup</h3>
-                  <p className="text-rovida-slate-green-gray">Setting up your dashboard based on your preferences.</p>
+                  <h3 className="text-xl font-semibold">{t('step_4_finalizing_setup')}</h3>
+                  <p className="text-rovida-slate-green-gray">{t('setting_up_dashboard')}</p>
                   <div className="mt-4">
-                    <Label>Loading your personalized experience...</Label>
+                    <Label>{t('loading_personalized_experience')}</Label>
                     <Progress value={progress} className="w-full mt-2 h-2 bg-rovida-soft-gray [&>*]:bg-rovida-gold" />
                   </div>
                 </div>
               </Step>
               <Step>
                 <div className="grid gap-4 text-rovida-near-black text-left"> {/* Aligned text left */}
-                  <h3 className="text-xl font-semibold">Step 5: Ready to Go!</h3>
-                  <p className="text-rovida-slate-green-gray">Your account is all set up. Enjoy Gestion Rovida!</p>
-                  <Button onClick={handleOnboardingComplete} className="btn-primary">Go to Dashboard</Button>
+                  <h3 className="text-xl font-semibold">{t('step_5_ready_to_go')}</h3>
+                  <p className="text-rovida-slate-green-gray">{t('account_set_up_enjoy')}</p>
+                  <Button onClick={handleOnboardingComplete} className="btn-primary">{t('go_to_dashboard')}</Button>
                 </div>
               </Step>
             </Stepper>

@@ -65,11 +65,11 @@ const RecentDocuments = () => {
     <Card className="col-span-2 xl:col-span-1 card-rovida">
       <CardHeader className="flex flex-row items-center justify-between">
         <div>
-          <CardTitle className="text-rovida-navy">Latest Documents</CardTitle>
-          <CardDescription className="text-rovida-slate-green-gray">Recently added or updated documents.</CardDescription>
+          <CardTitle className="text-rovida-navy">{t('latest_documents')}</CardTitle>
+          <CardDescription className="text-rovida-slate-green-gray">{t('recently_added_updated_documents')}</CardDescription>
         </div>
         <Link to="/documents/registry" className="text-sm link-rovida flex items-center gap-1">
-          View All <ArrowRight className="h-4 w-4" />
+          {t('view_all')} <ArrowRight className="h-4 w-4" />
         </Link>
       </CardHeader>
       <CardContent>
@@ -90,7 +90,7 @@ const RecentDocuments = () => {
             ))}
           </div>
         ) : (
-          <p className="text-rovida-slate-green-gray">No recent documents.</p>
+          <p className="text-rovida-slate-green-gray">{t('no_recent_documents')}</p>
         )}
       </CardContent>
     </Card>

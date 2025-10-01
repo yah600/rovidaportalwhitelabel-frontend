@@ -13,22 +13,22 @@ const Settings = () => {
         <Card className="w-full bg-transparent border-none shadow-none">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <SettingsIcon className="h-6 w-6" /> {t('settings')} Overview
+              <SettingsIcon className="h-6 w-6" /> {t('settings_overview')}
             </CardTitle>
             <CardDescription>
-              Select a category from the sidebar to manage specific application settings.
+              {t('select_category_manage_settings')}
             </CardDescription>
           </CardHeader>
           <CardContent>
             <p className="text-muted-foreground">
-              Here you can configure various aspects of your application, from organization details to user management and security.
+              {t('configure_app_settings_description')}
             </p>
           </CardContent>
         </Card>
       </GlassSurface>
 
       <div className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm p-8">
-        <p className="text-muted-foreground">Explore the settings categories using the navigation on the left.</p>
+        <p className="text-muted-foreground">{t('explore_settings_navigation_left')}</p>
       </div>
     </div>
   );

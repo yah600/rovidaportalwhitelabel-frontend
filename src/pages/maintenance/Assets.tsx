@@ -13,7 +13,7 @@ const MaintenanceAssets = () => {
 
   const breadcrumbItems = [
     { label: t('maintenance'), href: '/maintenance' },
-    { label: 'Assets', href: '/maintenance/assets' },
+    { label: t('assets'), href: '/maintenance/assets' },
   ];
 
   const hasAssets = mockAssets.length > 0;
@@ -22,27 +22,27 @@ const MaintenanceAssets = () => {
     <div className="flex flex-1 flex-col gap-4">
       <BreadcrumbNav items={breadcrumbItems} />
       <header className="flex items-center justify-between">
-        <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('maintenance')} Assets</h1>
+        <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('maintenance')} {t('assets')}</h1>
         <Button className="btn-primary">
-          <PlusCircle className="mr-2 h-4 w-4" /> Add New Asset
+          <PlusCircle className="mr-2 h-4 w-4" /> {t('add_new_asset')}
         </Button>
       </header>
-      <p className="text-rovida-slate-green-gray">Manage all physical assets within your properties.</p>
+      <p className="text-rovida-slate-green-gray">{t('manage_physical_assets')}</p>
 
       {hasAssets ? (
         <AssetsTable assets={mockAssets} />
       ) : (
         <Card className="flex-1 card-rovida">
           <CardHeader>
-            <CardTitle className="text-rovida-navy">Asset List</CardTitle>
-            <CardDescription className="text-rovida-slate-green-gray">Overview of all registered assets.</CardDescription>
+            <CardTitle className="text-rovida-navy">{t('asset_list')}</CardTitle>
+            <CardDescription className="text-rovida-slate-green-gray">{t('overview_registered_assets')}</CardDescription>
           </CardHeader>
           <CardContent className="flex flex-1 items-center justify-center">
             <div className="flex flex-col items-center gap-2 text-rovida-slate-green-gray">
               <Building className="h-12 w-12 text-rovida-gold" />
-              <p>Asset management will be available here.</p>
+              <p>{t('asset_management_available_here')}</p>
               <Button variant="outline" className="mt-4 btn-secondary">
-                <PlusCircle className="mr-2 h-4 w-4" /> Add First Asset
+                <PlusCircle className="mr-2 h-4 w-4" /> {t('add_first_asset')}
               </Button>
             </div>
           </CardContent>

@@ -31,27 +31,27 @@ const AssetsTable = ({ assets }: AssetsTableProps) => {
   const columns: ColumnDef<Asset>[] = [
     {
       accessorKey: "id",
-      header: "ID",
+      header: t('id'),
       cell: ({ row }) => <span className="font-medium text-rovida-near-black">{row.getValue("id")}</span>,
     },
     {
       accessorKey: "name",
-      header: "Name",
+      header: t('name'),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("name")}</span>,
     },
     {
       accessorKey: "type",
-      header: "Type",
+      header: t('type'),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("type")}</span>,
     },
     {
       accessorKey: "location",
-      header: "Location",
+      header: t('location'),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("location")}</span>,
     },
     {
       accessorKey: "status",
-      header: "Status",
+      header: t('status'),
       cell: ({ row }) => (
         <Badge variant={getStatusVariant(row.getValue("status"))}>
           {row.getValue("status")}
@@ -60,7 +60,7 @@ const AssetsTable = ({ assets }: AssetsTableProps) => {
     },
     {
       accessorKey: "lastMaintenance",
-      header: "Last Maintenance",
+      header: t('last_maintenance'),
       cell: ({ row }) => (
         <span className="text-rovida-slate-green-gray">
           {format(row.getValue("lastMaintenance"), 'MMM dd, yyyy')}
@@ -69,7 +69,7 @@ const AssetsTable = ({ assets }: AssetsTableProps) => {
     },
     {
       accessorKey: "nextMaintenance",
-      header: "Next Maintenance",
+      header: t('next_maintenance'),
       cell: ({ row }) => (
         <span className="text-rovida-slate-green-gray">
           {format(row.getValue("nextMaintenance"), 'MMM dd, yyyy')}
@@ -78,11 +78,12 @@ const AssetsTable = ({ assets }: AssetsTableProps) => {
     },
     {
       id: "actions",
-      header: "Actions",
+      header: t('actions'),
       enableSorting: false,
       cell: () => (
         <div className="text-right">
-          <span className="text-sm text-rovida-slate-green-gray">Manage</span>
+          {/* Add action buttons here, e.g., Edit, View Units */}
+          <span className="text-sm text-rovida-slate-green-gray">{t('manage')}</span>
         </div>
       ),
     },

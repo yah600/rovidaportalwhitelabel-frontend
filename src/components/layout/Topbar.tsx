@@ -16,6 +16,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { useUser } from '@/context/UserContext'; // Import useUser
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import { toast } from 'sonner'; // Import toast for notifications
+import LanguageToggle from './LanguageToggle'; // Import LanguageToggle
 
 const Topbar = () => {
   const { t } = useTranslation();
@@ -24,11 +25,11 @@ const Topbar = () => {
 
   const [searchTerm, setSearchTerm] = React.useState('');
 
-  const userName = currentUser?.name || "Guest"; // Use current user's name
+  const userName = currentUser?.name || t("guest"); // Use current user's name
   const userEmail = currentUser?.email || ""; // Use current user's email
   const buildings = [
-    { id: '1', name: 'Building A' },
-    { id: '2', name: 'Building B' },
+    { id: '1', name: t('building_a') },
+    { id: '2', name: t('building_b') },
   ];
   const currentBuildingId = '1'; // Placeholder for actual selected building
 
@@ -39,8 +40,8 @@ const Topbar = () => {
 
   const handleLogout = () => {
     setCurrentUser(null); // Clear current user
-    toast.info('Logged Out', {
-      description: 'You have been successfully logged out.',
+    toast.info(t('logged_out_title'), {
+      description: t('logged_out_description'),
     });
     navigate('/auth/login'); // Redirect to login page
   };
@@ -73,7 +74,7 @@ const Topbar = () => {
               <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-4 w-4 text-rovida-slate-green-gray" />
               <Input
                 type="text"
-                placeholder="Search..."
+                placeholder={t('search_placeholder')}
                 className="pl-8 w-[200px] lg:w-[300px] border-rovida-soft-gray text-rovida-near-black bg-white/60 backdrop-blur-sm"
                 value={searchTerm}
                 onChange={handleSearchChange}
@@ -90,6 +91,8 @@ const Topbar = () => {
             </Button>
           </>
         )}
+
+        <LanguageToggle /> {/* Language Toggle */}
 
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
@@ -113,7 +116,7 @@ const Topbar = () => {
             <DropdownMenuItem className="hover:bg-rovida-soft-gray">{t('profile')}</DropdownMenuItem>
             <DropdownMenuItem className="hover:bg-rovida-soft-gray">{t('settings')}</DropdownMenuItem>
             <DropdownMenuSeparator className="bg-rovida-soft-gray" />
-            <DropdownMenuItem className="hover:bg-rovida-soft-gray" onClick={handleLogout}>Log out</DropdownMenuItem>
+            <DropdownMenuItem className="hover:bg-rovida-soft-gray" onClick={handleLogout}>{t('logout')}</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </div>

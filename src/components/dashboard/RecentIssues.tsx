@@ -79,10 +79,10 @@ const RecentIssues = () => {
       <CardHeader className="flex flex-row items-center justify-between">
         <div>
           <CardTitle className="text-rovida-navy">{t('open_issues')}</CardTitle>
-          <CardDescription className="text-rovida-slate-green-gray">Your most recent incidents.</CardDescription>
+          <CardDescription className="text-rovida-slate-green-gray">{t('your_most_recent_incidents')}</CardDescription>
         </div>
         <Link to="/issues" className="text-sm link-rovida flex items-center gap-1">
-          View All <ArrowRight className="h-4 w-4" />
+          {t('view_all')} <ArrowRight className="h-4 w-4" />
         </Link>
       </CardHeader>
       <CardContent>

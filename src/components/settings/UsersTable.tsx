@@ -31,27 +31,27 @@ const UsersTable = ({ users }: UsersTableProps) => {
   const columns: ColumnDef<User>[] = [
     {
       accessorKey: "id",
-      header: "ID",
+      header: t('id'),
       cell: ({ row }) => <span className="font-medium text-rovida-near-black">{row.getValue("id")}</span>,
     },
     {
       accessorKey: "name",
-      header: "Name",
+      header: t('name'),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("name")}</span>,
     },
     {
       accessorKey: "email",
-      header: "Email",
+      header: t('email'),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("email")}</span>,
     },
     {
       accessorKey: "role",
-      header: "Role",
+      header: t('role'),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("role")}</span>,
     },
     {
       accessorKey: "status",
-      header: "Status",
+      header: t('status'),
       cell: ({ row }) => (
         <Badge variant={getStatusVariant(row.getValue("status"))}>
           {row.getValue("status")}
@@ -60,7 +60,7 @@ const UsersTable = ({ users }: UsersTableProps) => {
     },
     {
       accessorKey: "lastLogin",
-      header: "Last Login",
+      header: t('last_login'),
       cell: ({ row }) => (
         <span className="text-rovida-slate-green-gray">
           {format(row.getValue("lastLogin"), 'MMM dd, yyyy HH:mm')}
@@ -69,12 +69,12 @@ const UsersTable = ({ users }: UsersTableProps) => {
     },
     {
       id: "actions",
-      header: "Actions",
+      header: t('actions'),
       enableSorting: false,
       cell: () => (
         <div className="text-right">
           {/* Add action buttons here, e.g., Edit, Deactivate */}
-          <span className="text-sm text-rovida-slate-green-gray">Manage</span>
+          <span className="text-sm text-rovida-slate-green-gray">{t('manage')}</span>
         </div>
       ),
     },

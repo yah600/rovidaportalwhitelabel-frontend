@@ -30,27 +30,27 @@ const UnitsTable = ({ units }: UnitsTableProps) => {
   const columns: ColumnDef<Unit>[] = [
     {
       accessorKey: "id",
-      header: "ID",
+      header: t('id'),
       cell: ({ row }) => <span className="font-medium text-rovida-near-black">{row.getValue("id")}</span>,
     },
     {
       accessorKey: "unitNumber",
-      header: "Unit Number",
+      header: t('unit_number'),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("unitNumber")}</span>,
     },
     {
       accessorKey: "buildingName",
-      header: "Building",
+      header: t('building'),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("buildingName")}</span>,
     },
     {
       accessorKey: "owner",
-      header: "Owner",
+      header: t('owner'),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("owner")}</span>,
     },
     {
       accessorKey: "status",
-      header: "Status",
+      header: t('status'),
       cell: ({ row }) => (
         <Badge variant={getStatusVariant(row.getValue("status"))}>
           {row.getValue("status")}
@@ -59,22 +59,22 @@ const UnitsTable = ({ units }: UnitsTableProps) => {
     },
     {
       accessorKey: "bedrooms",
-      header: "Bedrooms",
+      header: t('bedrooms'),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("bedrooms")}</span>,
     },
     {
       accessorKey: "bathrooms",
-      header: "Bathrooms",
+      header: t('bathrooms'),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("bathrooms")}</span>,
     },
     {
       id: "actions",
-      header: "Actions",
+      header: t('actions'),
       enableSorting: false,
       cell: () => (
         <div className="text-right">
           {/* Add action buttons here, e.g., Edit, View Details */}
-          <span className="text-sm text-rovida-slate-green-gray">Manage</span>
+          <span className="text-sm text-rovida-slate-green-gray">{t('manage')}</span>
         </div>
       ),
     },

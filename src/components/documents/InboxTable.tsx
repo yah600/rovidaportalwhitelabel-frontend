@@ -47,22 +47,22 @@ const InboxTable = ({ documents }: InboxTableProps) => {
   const columns: ColumnDef<InboxDocument>[] = [
     {
       accessorKey: "id",
-      header: "ID",
+      header: t('id'),
       cell: ({ row }) => <span className="font-medium text-rovida-near-black">{row.getValue("id")}</span>,
     },
     {
       accessorKey: "title",
-      header: "Title",
+      header: t('title'),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("title")}</span>,
     },
     {
       accessorKey: "sender",
-      header: "Sender",
+      header: t('sender'),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("sender")}</span>,
     },
     {
       accessorKey: "type",
-      header: "Type",
+      header: t('type'),
       cell: ({ row }) => (
         <div className="flex items-center gap-2 text-rovida-near-black">
           {getFileTypeIcon(row.getValue("type"))} {row.getValue("type")}
@@ -71,7 +71,7 @@ const InboxTable = ({ documents }: InboxTableProps) => {
     },
     {
       accessorKey: "status",
-      header: "Status",
+      header: t('status'),
       cell: ({ row }) => (
         <Badge variant={getStatusVariant(row.getValue("status"))}>
           {row.getValue("status")}
@@ -80,7 +80,7 @@ const InboxTable = ({ documents }: InboxTableProps) => {
     },
     {
       accessorKey: "receivedAt",
-      header: "Received At",
+      header: t('received_at'),
       cell: ({ row }) => (
         <span className="text-rovida-slate-green-gray">
           {format(row.getValue("receivedAt"), 'MMM dd, yyyy')}
@@ -89,12 +89,12 @@ const InboxTable = ({ documents }: InboxTableProps) => {
     },
     {
       id: "actions",
-      header: "Actions",
+      header: t('actions'),
       enableSorting: false,
       cell: ({ row }) => (
         <div className="text-right">
           <a href={row.original.previewUrl} target="_blank" rel="noopener noreferrer" className="text-sm text-rovida-slate-green-gray hover:underline">
-            View
+            {t('view')}
           </a>
         </div>
       ),

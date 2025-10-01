@@ -34,7 +34,7 @@ const BillsTable = ({ bills }: BillsTableProps) => {
   const columns: ColumnDef<Bill>[] = [
     {
       accessorKey: "id",
-      header: "ID",
+      header: t('id'),
       cell: ({ row }) => (
         <Link to={`/finance/bills/${row.original.id}`} className="text-primary hover:underline">
           {row.getValue("id")}
@@ -43,22 +43,22 @@ const BillsTable = ({ bills }: BillsTableProps) => {
     },
     {
       accessorKey: "vendor",
-      header: "Vendor",
+      header: t('vendor'),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("vendor")}</span>,
     },
     {
       accessorKey: "description",
-      header: "Description",
+      header: t('description'),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("description")}</span>,
     },
     {
       accessorKey: "amount",
-      header: "Amount",
+      header: t('amount'),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.original.amount.toFixed(2)} {row.original.currency}</span>,
     },
     {
       accessorKey: "status",
-      header: "Status",
+      header: t('status'),
       cell: ({ row }) => (
         <Badge variant={getStatusVariant(row.getValue("status"))}>
           {row.getValue("status")}
@@ -67,7 +67,7 @@ const BillsTable = ({ bills }: BillsTableProps) => {
     },
     {
       accessorKey: "dueDate",
-      header: "Due Date",
+      header: t('due_date'),
       cell: ({ row }) => (
         <span className="text-rovida-slate-green-gray">
           {format(row.getValue("dueDate"), 'MMM dd, yyyy')}
@@ -76,12 +76,12 @@ const BillsTable = ({ bills }: BillsTableProps) => {
     },
     {
       id: "actions",
-      header: "Actions",
+      header: t('actions'),
       enableSorting: false,
       cell: ({ row }) => (
         <div className="text-right">
           <Link to={`/finance/bills/${row.original.id}`} className="text-sm text-rovida-slate-green-gray hover:underline">
-            View
+            {t('view')}
           </Link>
         </div>
       ),

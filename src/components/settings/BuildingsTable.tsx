@@ -16,42 +16,42 @@ const BuildingsTable = ({ buildings }: BuildingsTableProps) => {
   const columns: ColumnDef<Building>[] = [
     {
       accessorKey: "id",
-      header: "ID",
+      header: t('id'),
       cell: ({ row }) => <span className="font-medium text-rovida-near-black">{row.getValue("id")}</span>,
     },
     {
       accessorKey: "name",
-      header: "Name",
+      header: t('name'),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("name")}</span>,
     },
     {
       accessorKey: "address",
-      header: "Address",
+      header: t('address'),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("address")}</span>,
     },
     {
       accessorKey: "unitsCount",
-      header: "Units",
+      header: t('units'),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("unitsCount")}</span>,
     },
     {
       accessorKey: "yearBuilt",
-      header: "Year Built",
+      header: t('year_built'),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("yearBuilt")}</span>,
     },
     {
       accessorKey: "propertyManager",
-      header: "Property Manager",
+      header: t('property_manager'),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("propertyManager")}</span>,
     },
     {
       id: "actions",
-      header: "Actions",
+      header: t('actions'),
       enableSorting: false,
       cell: () => (
         <div className="text-right">
           {/* Add action buttons here, e.g., Edit, View Units */}
-          <span className="text-sm text-rovida-slate-green-gray">Manage</span>
+          <span className="text-sm text-rovida-slate-green-gray">{t('manage')}</span>
         </div>
       ),
     },

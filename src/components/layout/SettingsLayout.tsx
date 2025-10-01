@@ -86,7 +86,7 @@ const SettingsLayout = () => {
       } else {
         const navItem = settingsNavItems.find(item => item.href === currentPath);
         if (navItem) {
-          items.push({ label: navItem.title, href: navItem.href });
+          items.push({ label: t(navItem.title.toLowerCase().replace(/\s/g, '_')), href: navItem.href });
         } else {
           // Fallback for dynamic segments or untranslated paths
           const translatedLabel = t(name.toLowerCase()) !== name.toLowerCase() ? t(name.toLowerCase()) : name.charAt(0).toUpperCase() + name.slice(1);
@@ -100,8 +100,8 @@ const SettingsLayout = () => {
   return (
     <div className="flex flex-1 flex-col gap-4">
       <BreadcrumbNav items={generateBreadcrumbItems()} />
-      <h1 className="text-2xl font-semibold md:text-3xl">{t('settings')}</h1>
-      <p className="text-muted-foreground">Manage your application settings and configurations.</p>
+      <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('settings')}</h1>
+      <p className="text-muted-foreground">{t('manage_app_settings')}</p>
 
       <div className="flex flex-col lg:flex-row gap-6 flex-1">
         <aside className="w-full lg:w-64 flex-shrink-0">
@@ -116,7 +116,7 @@ const SettingsLayout = () => {
                 )}
               >
                 <item.icon className="h-4 w-4" />
-                {item.title}
+                {t(item.title.toLowerCase().replace(/\s/g, '_'))}
               </Link>
             ))}
           </nav>

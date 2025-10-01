@@ -15,20 +15,20 @@ const ForgotPasswordPage = () => {
         <CardHeader className="text-center">
           <CardTitle className="text-2xl text-page-title">{t('forgot_password')}</CardTitle>
           <CardDescription className="text-rovida-slate-green-gray">
-            Enter your email below to receive a password reset link.
+            {t('enter_email_receive_reset_link')}
           </CardDescription>
         </CardHeader>
         <CardContent>
           <div className="grid gap-4">
             <div className="grid gap-2">
-              <Label htmlFor="email" className="text-rovida-near-black">Email</Label>
+              <Label htmlFor="email" className="text-rovida-near-black">{t('email')}</Label>
               <Input id="email" type="email" placeholder="m@example.com" required className="border-rovida-soft-gray text-rovida-near-black" />
             </div>
             <Button type="submit" className="w-full btn-primary">
-              Send Reset Link
+              {t('send_reset_link')}
             </Button>
             <div className="mt-4 text-center text-sm text-rovida-slate-green-gray">
-              Remember your password?{" "}
+              {t('remember_password')}{" "}
               <Link to="/auth/login" className="link-rovida">
                 {t('login')}
               </Link>

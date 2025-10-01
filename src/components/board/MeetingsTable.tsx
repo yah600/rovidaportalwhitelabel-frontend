@@ -32,7 +32,7 @@ const MeetingsTable = ({ meetings }: MeetingsTableProps) => {
   const columns: ColumnDef<Meeting>[] = [
     {
       accessorKey: "id",
-      header: "ID",
+      header: t('id'),
       cell: ({ row }) => (
         <Link to={`/board/meetings/${row.original.id}`} className="text-primary hover:underline">
           {row.getValue("id")}
@@ -41,12 +41,12 @@ const MeetingsTable = ({ meetings }: MeetingsTableProps) => {
     },
     {
       accessorKey: "title",
-      header: "Title",
+      header: t('title'),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("title")}</span>,
     },
     {
       accessorKey: "date",
-      header: "Date",
+      header: t('date'),
       cell: ({ row }) => (
         <span className="text-rovida-slate-green-gray">
           {format(row.getValue("date"), 'MMM dd, yyyy')}
@@ -55,17 +55,17 @@ const MeetingsTable = ({ meetings }: MeetingsTableProps) => {
     },
     {
       accessorKey: "time",
-      header: "Time",
+      header: t('time'),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("time")}</span>,
     },
     {
       accessorKey: "location",
-      header: "Location",
+      header: t('location'),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("location")}</span>,
     },
     {
       accessorKey: "status",
-      header: "Status",
+      header: t('status'),
       cell: ({ row }) => (
         <Badge variant={getStatusVariant(row.getValue("status"))}>
           {row.getValue("status")}
@@ -74,12 +74,12 @@ const MeetingsTable = ({ meetings }: MeetingsTableProps) => {
     },
     {
       id: "actions",
-      header: "Actions",
+      header: t('actions'),
       enableSorting: false,
       cell: ({ row }) => (
         <div className="text-right">
           <Link to={`/board/meetings/${row.original.id}`} className="text-sm text-rovida-slate-green-gray hover:underline">
-            View
+            {t('view')}
           </Link>
         </div>
       ),

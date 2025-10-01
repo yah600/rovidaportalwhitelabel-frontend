@@ -27,15 +27,15 @@ const DocumentDetail = () => {
   if (!document) {
     return (
       <div className="flex flex-1 items-center justify-center">
-        <p className="text-rovida-slate-green-gray">Document not found.</p>
+        <p className="text-rovida-slate-green-gray">{t('document_not_found')}</p>
       </div>
     );
   }
 
   const breadcrumbItems = [
     { label: t('documents'), href: '/documents' },
-    { label: 'Registry', href: '/documents/registry' },
-    { label: `Document ${document.id}`, href: `/documents/${document.id}` },
+    { label: t('registry'), href: '/documents/registry' },
+    { label: `${t('document')} ${document.id}`, href: `/documents/${document.id}` },
   ];
 
   const getFileTypeIcon = (type: Document['type']) => {
@@ -66,18 +66,18 @@ const DocumentDetail = () => {
             <DropdownMenuTrigger asChild>
               <Button variant="outline" size="sm">
                 <MoreHorizontal className="h-4 w-4" />
-                <span className="sr-only">Actions</span>
+                <span className="sr-only">{t('actions')}</span>
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="bg-white/80 backdrop-blur-xl border-rovida-soft-gray text-rovida-near-black">
-              <DropdownMenuLabel>Actions</DropdownMenuLabel>
+              <DropdownMenuLabel>{t('actions')}</DropdownMenuLabel>
               <DropdownMenuSeparator className="bg-rovida-soft-gray" />
               <DropdownMenuItem className="hover:bg-rovida-soft-gray">
-                <Edit className="mr-2 h-4 w-4" /> Edit Document
+                <Edit className="mr-2 h-4 w-4" /> {t('edit_document')}
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
                 <a href={document.url} target="_blank" rel="noopener noreferrer" className="flex items-center hover:bg-rovida-soft-gray">
-                  <Download className="mr-2 h-4 w-4" /> Download
+                  <Download className="mr-2 h-4 w-4" /> {t('download')}
                 </a>
               </DropdownMenuItem>
             </DropdownMenuContent>
@@ -87,22 +87,22 @@ const DocumentDetail = () => {
 
       <Card className="card-rovida">
         <CardHeader>
-          <CardTitle className="text-rovida-navy">Document Details</CardTitle>
+          <CardTitle className="text-rovida-navy">{t('document_details')}</CardTitle>
         </CardHeader>
         <CardContent className="grid gap-4">
           <div className="grid grid-cols-2 gap-2 text-rovida-near-black">
-            <div className="font-medium">ID:</div>
+            <div className="font-medium">{t('id')}:</div>
             <div>{document.id}</div>
-            <div className="font-medium">Category:</div>
+            <div className="font-medium">{t('category')}:</div>
             <div>{document.category}</div>
-            <div className="font-medium">Uploaded By:</div>
+            <div className="font-medium">{t('uploaded_by')}:</div>
             <div>{document.uploadedBy}</div>
-            <div className="font-medium">Uploaded At:</div>
+            <div className="font-medium">{t('uploaded_at')}:</div>
             <div>{format(document.uploadedAt, 'MMM dd, yyyy HH:mm')}</div>
           </div>
           <Separator className="bg-rovida-soft-gray" />
           <div>
-            <h4 className="font-medium mb-2 text-rovida-navy">Preview:</h4>
+            <h4 className="font-medium mb-2 text-rovida-navy">{t('preview')}:</h4>
             <div className="w-full h-64 bg-rovida-soft-gray flex items-center justify-center rounded-md overflow-hidden">
               {/* Placeholder for document preview */}
               {document.type === 'Image' ? (
@@ -112,7 +112,7 @@ const DocumentDetail = () => {
               )}
             </div>
             <p className="text-sm text-rovida-slate-green-gray mt-2">
-              This is a placeholder preview. In a real application, this would display the actual document content.
+              {t('placeholder_preview_text')}
             </p>
           </div>
         </CardContent>

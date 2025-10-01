@@ -47,7 +47,7 @@ const TasksTable = ({ tasks }: TasksTableProps) => {
   const columns: ColumnDef<Task>[] = [
     {
       accessorKey: "id",
-      header: "ID",
+      header: t('id'),
       cell: ({ row }) => (
         <Link to={`/maintenance/tasks/${row.original.id}`} className="text-primary hover:underline">
           {row.getValue("id")}
@@ -56,17 +56,17 @@ const TasksTable = ({ tasks }: TasksTableProps) => {
     },
     {
       accessorKey: "title",
-      header: "Title",
+      header: t('title'),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("title")}</span>,
     },
     {
       accessorKey: "assignedTo",
-      header: "Assigned To",
+      header: t('assigned_to'),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("assignedTo")}</span>,
     },
     {
       accessorKey: "status",
-      header: "Status",
+      header: t('status'),
       cell: ({ row }) => (
         <Badge variant={getStatusVariant(row.getValue("status"))}>
           {row.getValue("status")}
@@ -75,7 +75,7 @@ const TasksTable = ({ tasks }: TasksTableProps) => {
     },
     {
       accessorKey: "priority",
-      header: "Priority",
+      header: t('priority'),
       cell: ({ row }) => (
         <Badge className={getPriorityColor(row.getValue("priority"))}>
           {row.getValue("priority")}
@@ -84,7 +84,7 @@ const TasksTable = ({ tasks }: TasksTableProps) => {
     },
     {
       accessorKey: "dueDate",
-      header: "Due Date",
+      header: t('due_date'),
       cell: ({ row }) => (
         <span className="text-rovida-slate-green-gray">
           {format(row.getValue("dueDate"), 'MMM dd, yyyy')}
@@ -93,12 +93,12 @@ const TasksTable = ({ tasks }: TasksTableProps) => {
     },
     {
       id: "actions",
-      header: "Actions",
+      header: t('actions'),
       enableSorting: false,
       cell: ({ row }) => (
         <div className="text-right">
           <Link to={`/maintenance/tasks/${row.original.id}`} className="text-sm text-rovida-slate-green-gray hover:underline">
-            View
+            {t('view')}
           </Link>
         </div>
       ),

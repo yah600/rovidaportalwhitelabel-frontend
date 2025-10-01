@@ -60,8 +60,8 @@ const Sidebar = ({ className }: { className?: string }) => {
       moduleName: 'Issues',
       subItems: [
         { title: t('issues'), href: '/issues', icon: ClipboardList, moduleName: 'Issues' },
-        { title: 'Kanban', href: '/issues/kanban', icon: Kanban, moduleName: 'Issues' },
-        { title: 'New Incident', href: '/issues/new', icon: PlusCircle, moduleName: 'Issues' },
+        { title: t('kanban'), href: '/issues/kanban', icon: Kanban, moduleName: 'Issues' },
+        { title: t('new_issue'), href: '/issues/new', icon: PlusCircle, moduleName: 'Issues' },
       ],
     },
     { title: t('emergency'), href: '/emergency', icon: AlertTriangle, moduleName: 'Emergency Center' },
@@ -71,11 +71,11 @@ const Sidebar = ({ className }: { className?: string }) => {
       icon: Wrench,
       moduleName: 'Maintenance',
       subItems: [
-        { title: 'Calendar', href: '/maintenance/calendar', icon: CalendarDays, moduleName: 'Maintenance' },
-        { title: 'Assets', href: '/maintenance/assets', icon: Building, moduleName: 'Maintenance' },
-        { title: 'Work Orders', href: '/maintenance/work-orders', icon: Wrench, moduleName: 'Maintenance' },
-        { title: 'Tasks', href: '/maintenance/tasks', icon: ClipboardList, moduleName: 'Maintenance' },
-        { title: 'Agenda (XLSX)', href: '/maintenance/agenda', icon: FileStack, moduleName: 'Maintenance Agenda XLSX' },
+        { title: t('calendar'), href: '/maintenance/calendar', icon: CalendarDays, moduleName: 'Maintenance' },
+        { title: t('assets'), href: '/maintenance/assets', icon: Building, moduleName: 'Maintenance' },
+        { title: t('work_orders'), href: '/maintenance/work-orders', icon: Wrench, moduleName: 'Maintenance' },
+        { title: t('tasks'), href: '/maintenance/tasks', icon: ClipboardList, moduleName: 'Maintenance' },
+        { title: t('agenda_xlsx_import'), href: '/maintenance/agenda', icon: FileStack, moduleName: 'Maintenance Agenda XLSX' },
       ],
     },
     {
@@ -84,9 +84,9 @@ const Sidebar = ({ className }: { className?: string }) => {
       icon: DollarSign,
       moduleName: 'Finance', // General finance module
       subItems: [
-        { title: 'Bills', href: '/finance/bills', icon: Receipt, moduleName: 'Finance - Bills/Recurring/Deposits' },
-        { title: 'Payments', href: '/finance/payments', icon: DollarSign, moduleName: 'Finance - Bills/Recurring/Deposits' },
-        { title: 'Reports', href: '/finance/reports', icon: BarChart2, moduleName: 'Finance - Reports' },
+        { title: t('bills'), href: '/finance/bills', icon: Receipt, moduleName: 'Finance - Bills/Recurring/Deposits' },
+        { title: t('payments'), href: '/finance/payments', icon: DollarSign, moduleName: 'Finance - Bills/Recurring/Deposits' },
+        { title: t('reports'), href: '/finance/reports', icon: BarChart2, moduleName: 'Finance - Reports' },
       ],
     },
     {
@@ -95,8 +95,8 @@ const Sidebar = ({ className }: { className?: string }) => {
       icon: Users, // Changed to Users for consistency with mock-roles
       moduleName: 'Board', // General board module
       subItems: [
-        { title: 'Meetings', href: '/board/meetings', icon: Handshake, moduleName: 'Board - Meetings/Votes' },
-        { title: 'Votes', href: '/board/votes', icon: Vote, moduleName: 'Board - Meetings/Votes' },
+        { title: t('meetings'), href: '/board/meetings', icon: Handshake, moduleName: 'Board - Meetings/Votes' },
+        { title: t('votes'), href: '/board/votes', icon: Vote, moduleName: 'Board - Meetings/Votes' },
       ],
     },
     {
@@ -105,8 +105,8 @@ const Sidebar = ({ className }: { className?: string }) => {
       icon: FileText,
       moduleName: 'Documents',
       subItems: [
-        { title: 'Inbox', href: '/documents/inbox', icon: Mail, moduleName: 'Documents' },
-        { title: 'Registry', href: '/documents/registry', icon: FileText, moduleName: 'Documents' },
+        { title: t('inbox'), href: '/documents/inbox', icon: Mail, moduleName: 'Documents' },
+        { title: t('registry'), href: '/documents/registry', icon: FileText, moduleName: 'Documents' },
       ],
     },
     {
@@ -115,9 +115,9 @@ const Sidebar = ({ className }: { className?: string }) => {
       icon: MessageSquare,
       moduleName: 'Communications',
       subItems: [
-        { title: 'Announcements', href: '/comms/announcements', icon: Megaphone, moduleName: 'Communications' },
-        { title: 'Send', href: '/comms/send', icon: MessageSquare, moduleName: 'Communications' },
-        { title: 'Templates', href: '/comms/templates', icon: FileText, moduleName: 'Communications' },
+        { title: t('announcements'), href: '/comms/announcements', icon: Megaphone, moduleName: 'Communications' },
+        { title: t('send_communication'), href: '/comms/send', icon: MessageSquare, moduleName: 'Communications' },
+        { title: t('templates'), href: '/comms/templates', icon: FileText, moduleName: 'Communications' },
       ],
     },
     { title: t('integrations'), href: '/integrations', icon: Plug, moduleName: 'Integrations' },
@@ -128,15 +128,15 @@ const Sidebar = ({ className }: { className?: string }) => {
       icon: Settings,
       moduleName: 'Settings', // General settings module
       subItems: [
-        { title: 'Organization', href: '/settings/org', icon: Settings, moduleName: 'Settings' },
-        { title: 'Buildings', href: '/settings/buildings', icon: Building, moduleName: 'Settings' },
-        { title: 'Units', href: '/settings/units', icon: Scale, moduleName: 'Settings' },
-        { title: 'Users', href: '/settings/users', icon: Users, moduleName: 'Settings' },
-        { title: 'Roles', href: '/settings/roles', icon: Users, moduleName: 'Settings' },
-        { title: 'Security', href: '/settings/security', icon: Settings, moduleName: 'Settings' },
-        { title: 'Notifications', href: '/settings/notifications', icon: Bell, moduleName: 'Settings' },
-        { title: 'Audit Log', href: '/settings/audit', icon: FileText, moduleName: 'Settings' },
-        { title: 'Feedback', href: '/settings/feedback', icon: MessageSquareText, moduleName: 'Settings' },
+        { title: t('organization'), href: '/settings/org', icon: Settings, moduleName: 'Settings' },
+        { title: t('buildings'), href: '/settings/buildings', icon: Building, moduleName: 'Settings' },
+        { title: t('units'), href: '/settings/units', icon: Scale, moduleName: 'Settings' },
+        { title: t('users'), href: '/settings/users', icon: Users, moduleName: 'Settings' },
+        { title: t('roles'), href: '/settings/roles', icon: Users, moduleName: 'Settings' },
+        { title: t('security'), href: '/settings/security', icon: Settings, moduleName: 'Settings' },
+        { title: t('notifications'), href: '/settings/notifications', icon: Bell, moduleName: 'Settings' },
+        { title: t('audit_log'), href: '/settings/audit', icon: FileText, moduleName: 'Settings' },
+        { title: t('feedback'), href: '/settings/feedback', icon: MessageSquareText, moduleName: 'Settings' },
       ],
     },
     { title: t('profile'), href: '/profile', icon: User, moduleName: 'Profile' },

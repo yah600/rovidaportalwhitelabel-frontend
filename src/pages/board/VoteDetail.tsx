@@ -27,15 +27,15 @@ const BoardVoteDetail = () => {
   if (!vote) {
     return (
       <div className="flex flex-1 items-center justify-center">
-        <p className="text-rovida-slate-green-gray">Vote not found.</p>
+        <p className="text-rovida-slate-green-gray">{t('vote_not_found')}</p>
       </div>
     );
   }
 
   const breadcrumbItems = [
     { label: t('board'), href: '/board' },
-    { label: 'Votes', href: '/board/votes' },
-    { label: `Vote ${vote.id}`, href: `/board/votes/${vote.id}` },
+    { label: t('votes'), href: '/board/votes' },
+    { label: `${t('vote')} ${vote.id}`, href: `/board/votes/${vote.id}` },
   ];
 
   const getStatusBadgeVariant = (status: Vote['status']) => {
@@ -62,22 +62,22 @@ const BoardVoteDetail = () => {
             <DropdownMenuTrigger asChild>
               <Button variant="outline" size="sm">
                 <MoreHorizontal className="h-4 w-4" />
-                <span className="sr-only">Actions</span>
+                <span className="sr-only">{t('actions')}</span>
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="bg-white/80 backdrop-blur-xl border-rovida-soft-gray text-rovida-near-black">
-              <DropdownMenuLabel>Actions</DropdownMenuLabel>
+              <DropdownMenuLabel>{t('actions')}</DropdownMenuLabel>
               <DropdownMenuSeparator className="bg-rovida-soft-gray" />
               <DropdownMenuItem className="hover:bg-rovida-soft-gray">
-                <Edit className="mr-2 h-4 w-4" /> Edit Vote
+                <Edit className="mr-2 h-4 w-4" /> {t('edit_vote')}
               </DropdownMenuItem>
               {vote.status === 'Open' && (
                 <DropdownMenuItem className="hover:bg-rovida-soft-gray">
-                  <CheckCircle className="mr-2 h-4 w-4" /> Close Vote
+                  <CheckCircle className="mr-2 h-4 w-4" /> {t('close_vote')}
                 </DropdownMenuItem>
               )}
               <DropdownMenuItem className="text-destructive hover:bg-rovida-soft-gray">
-                <Trash2 className="mr-2 h-4 w-4" /> Delete Vote
+                <Trash2 className="mr-2 h-4 w-4" /> {t('delete_vote')}
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -86,33 +86,33 @@ const BoardVoteDetail = () => {
 
       <Card className="card-rovida">
         <CardHeader>
-          <CardTitle className="text-rovida-navy">Vote Details</CardTitle>
+          <CardTitle className="text-rovida-navy">{t('vote_details')}</CardTitle>
         </CardHeader>
         <CardContent className="grid gap-4">
           <div className="grid grid-cols-2 gap-2 text-rovida-near-black">
-            <div className="font-medium">ID:</div>
+            <div className="font-medium">{t('id')}:</div>
             <div>{vote.id}</div>
-            <div className="font-medium">Status:</div>
+            <div className="font-medium">{t('status')}:</div>
             <div>{vote.status}</div>
-            <div className="font-medium">Due Date:</div>
+            <div className="font-medium">{t('due_date')}:</div>
             <div>{format(vote.dueDate, 'MMM dd, yyyy')}</div>
-            <div className="font-medium">Created At:</div>
+            <div className="font-medium">{t('created_at')}:</div>
             <div>{format(vote.createdAt, 'MMM dd, yyyy HH:mm')}</div>
           </div>
           <Separator className="bg-rovida-soft-gray" />
           <div>
-            <h4 className="font-medium mb-2 text-rovida-navy">Description:</h4>
+            <h4 className="font-medium mb-2 text-rovida-navy">{t('description')}:</h4>
             <p className="text-rovida-slate-green-gray">{vote.description}</p>
           </div>
           {vote.results && (
             <>
               <Separator className="bg-rovida-soft-gray" />
               <div>
-                <h4 className="font-medium mb-2 flex items-center gap-2 text-rovida-navy"><BarChart2 className="h-4 w-4 text-rovida-gold" /> Results:</h4>
+                <h4 className="font-medium mb-2 flex items-center gap-2 text-rovida-navy"><BarChart2 className="h-4 w-4 text-rovida-gold" /> {t('results')}:</h4>
                 <div className="grid grid-cols-3 gap-2 text-rovida-slate-green-gray">
-                  <div className="flex items-center gap-1"><CheckCircle className="h-4 w-4 text-rovida-success" /> Yes: {vote.results.yes}</div>
-                  <div className="flex items-center gap-1"><XCircle className="h-4 w-4 text-rovida-error" /> No: {vote.results.no}</div>
-                  <div className="flex items-center gap-1">Abstain: {vote.results.abstain}</div>
+                  <div className="flex items-center gap-1"><CheckCircle className="h-4 w-4 text-rovida-success" /> {t('yes')}: {vote.results.yes}</div>
+                  <div className="flex items-center gap-1"><XCircle className="h-4 w-4 text-rovida-error" /> {t('no')}: {vote.results.no}</div>
+                  <div className="flex items-center gap-1">{t('abstain')}: {vote.results.abstain}</div>
                 </div>
               </div>
             </>

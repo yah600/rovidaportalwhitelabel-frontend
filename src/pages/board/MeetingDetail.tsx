@@ -27,15 +27,15 @@ const BoardMeetingDetail = () => {
   if (!meeting) {
     return (
       <div className="flex flex-1 items-center justify-center">
-        <p className="text-rovida-slate-green-gray">Meeting not found.</p>
+        <p className="text-rovida-slate-green-gray">{t('meeting_not_found')}</p>
       </div>
     );
   }
 
   const breadcrumbItems = [
     { label: t('board'), href: '/board' },
-    { label: 'Meetings', href: '/board/meetings' },
-    { label: `Meeting ${meeting.id}`, href: `/board/meetings/${meeting.id}` },
+    { label: t('meetings'), href: '/board/meetings' },
+    { label: `${t('meeting')} ${meeting.id}`, href: `/board/meetings/${meeting.id}` },
   ];
 
   const getStatusBadgeVariant = (status: Meeting['status']) => {
@@ -62,27 +62,27 @@ const BoardMeetingDetail = () => {
             <DropdownMenuTrigger asChild>
               <Button variant="outline" size="sm">
                 <MoreHorizontal className="h-4 w-4" />
-                <span className="sr-only">Actions</span>
+                <span className="sr-only">{t('actions')}</span>
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="bg-white/80 backdrop-blur-xl border-rovida-soft-gray text-rovida-near-black">
-              <DropdownMenuLabel>Actions</DropdownMenuLabel>
+              <DropdownMenuLabel>{t('actions')}</DropdownMenuLabel>
               <DropdownMenuSeparator className="bg-rovida-soft-gray" />
               <DropdownMenuItem className="hover:bg-rovida-soft-gray">
-                <Edit className="mr-2 h-4 w-4" /> Edit Meeting
+                <Edit className="mr-2 h-4 w-4" /> {t('edit_meeting')}
               </DropdownMenuItem>
               {meeting.status === 'Scheduled' && (
                 <DropdownMenuItem className="hover:bg-rovida-soft-gray">
-                  <CalendarDays className="mr-2 h-4 w-4" /> Reschedule
+                  <CalendarDays className="mr-2 h-4 w-4" /> {t('reschedule')}
                 </DropdownMenuItem>
               )}
               {meeting.status !== 'Completed' && (
                 <DropdownMenuItem className="hover:bg-rovida-soft-gray">
-                  <ListChecks className="mr-2 h-4 w-4" /> Mark as Completed
+                  <ListChecks className="mr-2 h-4 w-4" /> {t('mark_as_completed')}
                 </DropdownMenuItem>
               )}
               <DropdownMenuItem className="text-destructive hover:bg-rovida-soft-gray">
-                <Trash2 className="mr-2 h-4 w-4" /> Cancel Meeting
+                <Trash2 className="mr-2 h-4 w-4" /> {t('cancel_meeting')}
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -91,22 +91,22 @@ const BoardMeetingDetail = () => {
 
       <Card className="card-rovida">
         <CardHeader>
-          <CardTitle className="text-rovida-navy">Meeting Details</CardTitle>
+          <CardTitle className="text-rovida-navy">{t('meeting_details')}</CardTitle>
         </CardHeader>
         <CardContent className="grid gap-4">
           <div className="grid grid-cols-2 gap-2 text-rovida-near-black">
-            <div className="font-medium">ID:</div>
+            <div className="font-medium">{t('id')}:</div>
             <div>{meeting.id}</div>
-            <div className="font-medium">Date:</div>
+            <div className="font-medium">{t('date')}:</div>
             <div>{format(meeting.date, 'MMM dd, yyyy')}</div>
-            <div className="font-medium">Time:</div>
+            <div className="font-medium">{t('time')}:</div>
             <div>{meeting.time}</div>
-            <div className="font-medium">Location:</div>
+            <div className="font-medium">{t('location')}:</div>
             <div>{meeting.location}</div>
           </div>
           <Separator className="bg-rovida-soft-gray" />
           <div>
-            <h4 className="font-medium mb-2 flex items-center gap-2 text-rovida-navy"><Users className="h-4 w-4 text-rovida-gold" /> Attendees:</h4>
+            <h4 className="font-medium mb-2 flex items-center gap-2 text-rovida-navy"><Users className="h-4 w-4 text-rovida-gold" /> {t('attendees')}:</h4>
             <ul className="list-disc list-inside text-rovida-slate-green-gray">
               {meeting.attendees.map((attendee, index) => (
                 <li key={index}>{attendee}</li>
@@ -115,7 +115,7 @@ const BoardMeetingDetail = () => {
           </div>
           <Separator className="bg-rovida-soft-gray" />
           <div>
-            <h4 className="font-medium mb-2 flex items-center gap-2 text-rovida-navy"><ListChecks className="h-4 w-4 text-rovida-gold" /> Agenda:</h4>
+            <h4 className="font-medium mb-2 flex items-center gap-2 text-rovida-navy"><ListChecks className="h-4 w-4 text-rovida-gold" /> {t('agenda')}:</h4>
             <ul className="list-disc list-inside text-rovida-slate-green-gray">
               {meeting.agenda.map((item, index) => (
                 <li key={index}>{item}</li>
@@ -126,7 +126,7 @@ const BoardMeetingDetail = () => {
             <>
               <Separator className="bg-rovida-soft-gray" />
               <div>
-                <h4 className="font-medium mb-2 flex items-center gap-2 text-rovida-navy"><FileText className="h-4 w-4 text-rovida-gold" /> Minutes:</h4>
+                <h4 className="font-medium mb-2 flex items-center gap-2 text-rovida-navy"><FileText className="h-4 w-4 text-rovida-gold" /> {t('minutes')}:</h4>
                 <p className="text-rovida-slate-green-gray">{meeting.minutes}</p>
               </div>
             </>

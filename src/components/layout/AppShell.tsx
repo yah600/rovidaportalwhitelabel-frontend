@@ -31,10 +31,10 @@ const AppShell = () => {
 
   // Quick actions are only available if a user is logged in AND has permission
   const quickActions = [
-    canCreate('Issues') && { icon: <PlusCircle />, label: 'New Issue', onClick: () => navigate('/issues/new') },
-    canRead('Finance - Bills/Recurring/Deposits') && { icon: <Receipt />, label: 'View Bills', onClick: () => navigate('/finance/bills') },
-    canRead('Maintenance') && { icon: <Wrench />, label: 'Work Orders', onClick: () => navigate('/maintenance/work-orders') },
-    canCreate('Communications') && { icon: <MessageSquare />, label: 'Announce', onClick: () => navigate('/comms/send') },
+    canCreate('Issues') && { icon: <PlusCircle />, label: t('new_issue'), onClick: () => navigate('/issues/new') },
+    canRead('Finance - Bills/Recurring/Deposits') && { icon: <Receipt />, label: t('view_bills'), onClick: () => navigate('/finance/bills') },
+    canRead('Maintenance') && { icon: <Wrench />, label: t('work_orders'), onClick: () => navigate('/maintenance/work-orders') },
+    canCreate('Communications') && { icon: <MessageSquare />, label: t('announce'), onClick: () => navigate('/comms/send') },
   ].filter(Boolean); // Filter out null/false values
 
   // If not logged in, render nothing or a loading spinner while redirecting

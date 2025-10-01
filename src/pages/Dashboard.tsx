@@ -22,7 +22,7 @@ const Dashboard = () => {
   const { t } = useTranslation();
   const { currentUser } = useUser();
   const { canRead } = useAuth();
-  const userName = currentUser?.name || "Guest";
+  const userName = currentUser?.name || t("guest");
   const currentDate = format(new Date(), 'PPP');
 
   const [isLoadingKPIs, setIsLoadingKPIs] = React.useState(true);
@@ -56,13 +56,10 @@ const Dashboard = () => {
       if (moduleName === 'Issues' && userVendorId && (item as any).assignee === currentUser.name) return true; // Assuming assignee matches user name for mock
 
       // If no specific scope, and not a super admin, filter out
-      if (userBuildingIds.length === 0 && userUnitIds.length === 0 && !userVendorId) {
-        // For roles like Accountant, Board Member, Auditor, they might see org-wide data
-        // This logic needs to be more specific per module if needed.
-        // For now, if no specific scope, they see all if they have read permission for the module.
-        return canRead(moduleName);
-      }
-      return false;
+      // For roles like Accountant, Board Member, Auditor, they might see org-wide data
+      // This logic needs to be more specific per module if needed.
+      // For now, if no specific scope, they see all if they have read permission for the module.
+      return canRead(moduleName);
     });
   };
 
@@ -108,7 +105,7 @@ const Dashboard = () => {
         <EmergencyBanner
           isActive={hasActiveEmergency}
           message={t('critical_alert')}
-          ctaText="View Emergency"
+          ctaText={t('view_emergency')}
           ctaLink="/emergency"
         />
       )}

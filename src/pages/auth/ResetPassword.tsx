@@ -16,12 +16,12 @@ const ResetPassword = () => {
       <Card className="w-full max-w-md card-rovida relative z-10">
         <CardHeader className="text-center">
           <CardTitle className="text-3xl font-semibold text-page-title">{t('reset_password')}</CardTitle>
-          <CardDescription className="text-rovida-slate-green-gray">Enter your new password.</CardDescription>
+          <CardDescription className="text-rovida-slate-green-gray">{t('enter_new_password')}</CardDescription>
         </CardHeader>
         <CardContent>
           <form className="grid gap-4">
             <div className="grid gap-2">
-              <Label htmlFor="password" className="text-rovida-near-black">New Password</Label>
+              <Label htmlFor="password" className="text-rovida-near-black">{t('new_password')}</Label>
               <Input
                 id="password"
                 type="password"
@@ -30,7 +30,7 @@ const ResetPassword = () => {
               />
             </div>
             <div className="grid gap-2">
-              <Label htmlFor="confirm-password" className="text-rovida-near-black">Confirm New Password</Label>
+              <Label htmlFor="confirm-password" className="text-rovida-near-black">{t('confirm_new_password')}</Label>
               <Input
                 id="confirm-password"
                 type="password"
@@ -39,12 +39,12 @@ const ResetPassword = () => {
               />
             </div>
             <Button type="submit" className="w-full btn-primary">
-              Reset Password
+              {t('reset_password_button')}
             </Button>
           </form>
           <div className="mt-4 text-center text-sm text-rovida-slate-green-gray">
             <Link to="/auth/login" className="link-rovida">
-              Back to Login
+              {t('back_to_login')}
             </Link>
           </div>
         </CardContent>

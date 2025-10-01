@@ -24,20 +24,20 @@ const Board = () => {
   return (
     <div className="flex flex-1 flex-col gap-4">
       <BreadcrumbNav items={breadcrumbItems} />
-      <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('board')} Overview</h1>
+      <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('board')} {t('overview')}</h1>
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {/* Meetings Card */}
         <Card className="card-rovida">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-rovida-navy">Meetings</CardTitle>
+            <CardTitle className="text-sm font-medium text-rovida-navy">{t('meetings')}</CardTitle>
             <Handshake className="h-4 w-4 text-rovida-gold" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-rovida-near-black">{upcomingMeetings} Upcoming</div>
-            <p className="text-xs text-rovida-slate-green-gray">Total: {totalMeetings}</p>
+            <div className="text-2xl font-bold text-rovida-near-black">{upcomingMeetings} {t('upcoming')}</div>
+            <p className="text-xs text-rovida-slate-green-gray">{t('total')}: {totalMeetings}</p>
             <Link to="/board/meetings" className="mt-2 inline-flex items-center text-sm link-rovida">
-              View All <ArrowRight className="ml-1 h-4 w-4" />
+              {t('view_all')} <ArrowRight className="ml-1 h-4 w-4" />
             </Link>
           </CardContent>
         </Card>
@@ -45,21 +45,21 @@ const Board = () => {
         {/* Votes Card */}
         <Card className="card-rovida">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-rovida-navy">Votes</CardTitle>
+            <CardTitle className="text-sm font-medium text-rovida-navy">{t('votes')}</CardTitle>
             <Vote className="h-4 w-4 text-rovida-gold" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-rovida-near-black">{openVotes} Open</div>
-            <p className="text-xs text-rovida-slate-green-gray">Total: {totalVotes}</p>
+            <div className="text-2xl font-bold text-rovida-near-black">{openVotes} {t('open')}</div>
+            <p className="text-xs text-rovida-slate-green-gray">{t('total')}: {totalVotes}</p>
             <Link to="/board/votes" className="mt-2 inline-flex items-center text-sm link-rovida">
-              View All <ArrowRight className="ml-1 h-4 w-4" />
+              {t('view_all')} <ArrowRight className="ml-1 h-4 w-4" />
             </Link>
           </CardContent>
         </Card>
       </div>
 
       <Card className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm card-rovida mt-4 p-8">
-        <p className="text-rovida-slate-green-gray">Detailed board analytics and historical data coming soon!</p>
+        <p className="text-rovida-slate-green-gray">{t('detailed_board_analytics_soon')}</p>
       </Card>
     </div>
   );

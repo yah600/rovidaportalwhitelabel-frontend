@@ -49,7 +49,7 @@ const IssuesTable = ({ issues }: IssuesTableProps) => {
   const columns: ColumnDef<Issue>[] = [
     {
       accessorKey: "id",
-      header: "ID",
+      header: t('id'),
       cell: ({ row }) => (
         <Link to={`/issues/${row.original.id}`} className="text-primary hover:underline">
           {row.getValue("id")}
@@ -58,22 +58,22 @@ const IssuesTable = ({ issues }: IssuesTableProps) => {
     },
     {
       accessorKey: "title",
-      header: "Title",
+      header: t('title'),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("title")}</span>,
     },
     {
       accessorKey: "unit",
-      header: "Unit",
+      header: t('unit'),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("unit")}</span>,
     },
     {
       accessorKey: "type",
-      header: "Type",
+      header: t('type'),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("type")}</span>,
     },
     {
       accessorKey: "status",
-      header: "Status",
+      header: t('status'),
       cell: ({ row }) => (
         <Badge variant={getStatusVariant(row.getValue("status"))}>
           {row.getValue("status")}
@@ -82,7 +82,7 @@ const IssuesTable = ({ issues }: IssuesTableProps) => {
     },
     {
       accessorKey: "priority",
-      header: "Priority",
+      header: t('priority'),
       cell: ({ row }) => (
         <Badge className={getPriorityColor(row.getValue("priority"))}>
           {row.getValue("priority")}
@@ -91,7 +91,7 @@ const IssuesTable = ({ issues }: IssuesTableProps) => {
     },
     {
       accessorKey: "createdAt",
-      header: "Created At",
+      header: t('created_at'),
       cell: ({ row }) => (
         <span className="text-rovida-slate-green-gray">
           {format(row.getValue("createdAt"), 'MMM dd, yyyy')}
@@ -100,12 +100,12 @@ const IssuesTable = ({ issues }: IssuesTableProps) => {
     },
     {
       id: "actions",
-      header: "Actions",
+      header: t('actions'),
       enableSorting: false,
       cell: ({ row }) => (
         <div className="text-right">
           <Link to={`/issues/${row.original.id}`} className="text-sm text-rovida-slate-green-gray hover:underline">
-            View
+            {t('view')}
           </Link>
         </div>
       ),

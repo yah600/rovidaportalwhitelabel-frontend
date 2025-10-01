@@ -23,12 +23,12 @@ const AuditLogsTable = ({ logs }: AuditLogsTableProps) => {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead className="w-[100px]">ID</TableHead>
-            <TableHead>Timestamp</TableHead>
-            <TableHead>User</TableHead>
-            <TableHead>Action</TableHead>
-            <TableHead>Details</TableHead>
-            <TableHead className="text-right">IP Address</TableHead>
+            <TableHead className="w-[100px]">{t('id')}</TableHead>
+            <TableHead>{t('timestamp')}</TableHead>
+            <TableHead>{t('user')}</TableHead>
+            <TableHead>{t('action')}</TableHead>
+            <TableHead>{t('details')}</TableHead>
+            <TableHead className="text-right">{t('ip_address')}</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>

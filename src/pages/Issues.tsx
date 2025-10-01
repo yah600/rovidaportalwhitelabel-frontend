@@ -24,11 +24,11 @@ const Issues = () => {
   const hasIssues = mockIssues.length > 0;
 
   const navItems = [
-    { label: 'All', href: '#' },
-    { label: 'Open', href: '#' },
-    { label: 'In Progress', href: '#' },
-    { label: 'Pending', href: '#' },
-    { label: 'Closed', href: '#' },
+    { label: t('all'), href: '#' },
+    { label: t('open'), href: '#' },
+    { label: t('in_progress'), href: '#' },
+    { label: t('pending'), href: '#' },
+    { label: t('closed'), href: '#' },
   ];
 
   const breadcrumbItems = [
@@ -60,7 +60,7 @@ const Issues = () => {
               {t('no_tickets')}
             </h3>
             <p className="text-sm text-rovida-slate-green-gray">
-              You can start by creating a new incident.
+              {t('you_can_start_by_creating_new_incident')}
             </p>
             <Link to="/issues/new">
               <Button className="mt-4 btn-primary">

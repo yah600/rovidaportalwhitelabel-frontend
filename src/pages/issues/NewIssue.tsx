@@ -32,7 +32,7 @@ const NewIssue = () => {
 
   const breadcrumbItems = [
     { label: t('issues'), href: '/issues' },
-    { label: 'New Incident', href: '/issues/new' },
+    { label: t('new_issue'), href: '/issues/new' },
   ];
 
   const form = useForm<NewIssueFormValues>({
@@ -58,22 +58,22 @@ const NewIssue = () => {
   return (
     <div className="flex flex-1 flex-col gap-4">
       <BreadcrumbNav items={breadcrumbItems} />
-      <h1 className="text-2xl font-semibold md:text-3xl text-page-title">Create New Incident</h1>
+      <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('create_new_incident')}</h1>
       <Card className="max-w-2xl mx-auto w-full card-rovida">
         <CardHeader>
-          <CardTitle className="text-rovida-navy">Incident Information</CardTitle>
-          <CardDescription className="text-rovida-slate-green-gray">Fill in the details for the new incident.</CardDescription>
+          <CardTitle className="text-rovida-navy">{t('incident_information')}</CardTitle>
+          <CardDescription className="text-rovida-slate-green-gray">{t('fill_details_new_incident')}</CardDescription>
         </CardHeader>
         <CardContent>
-          <Stepper onFinalStepCompleted={form.handleSubmit(onSubmit)} nextButtonText="Next" backButtonText="Back">
+          <Stepper onFinalStepCompleted={form.handleSubmit(onSubmit)} nextButtonText={t('next')} backButtonText={t('back')}>
             <Step>
               <div className="grid gap-4">
                 <div className="grid md:grid-cols-4 items-center gap-4">
                   <Label htmlFor="title" className="md:text-right text-rovida-near-black">
-                    Title
+                    {t('title')}
                   </Label>
                   <div className="md:col-span-3">
-                    <Input id="title" placeholder="Short summary of the incident" {...form.register("title")} className="border-rovida-soft-gray text-rovida-near-black" />
+                    <Input id="title" placeholder={t('short_summary_incident')} {...form.register("title")} className="border-rovida-soft-gray text-rovida-near-black" />
                     {form.formState.errors.title && (
                       <p className="text-rovida-error text-sm mt-1">{form.formState.errors.title.message}</p>
                     )}
@@ -81,10 +81,10 @@ const NewIssue = () => {
                 </div>
                 <div className="grid md:grid-cols-4 items-center gap-4">
                   <Label htmlFor="description" className="md:text-right text-rovida-near-black">
-                    Description
+                    {t('description')}
                   </Label>
                   <div className="md:col-span-3">
-                    <Textarea id="description" placeholder="Detailed description of the incident" {...form.register("description")} className="border-rovida-soft-gray text-rovida-near-black" />
+                    <Textarea id="description" placeholder={t('detailed_description_incident')} {...form.register("description")} className="border-rovida-soft-gray text-rovida-near-black" />
                     {form.formState.errors.description && (
                       <p className="text-rovida-error text-sm mt-1">{form.formState.errors.description.message}</p>
                     )}
@@ -96,12 +96,12 @@ const NewIssue = () => {
               <div className="grid gap-4">
                 <div className="grid md:grid-cols-4 items-center gap-4">
                   <Label htmlFor="unit" className="md:text-right text-rovida-near-black">
-                    Unit
+                    {t('unit')}
                   </Label>
                   <div className="md:col-span-3">
                     <Select onValueChange={(value) => form.setValue("unit", value)} value={form.watch("unit")}>
                       <SelectTrigger id="unit" className="border-rovida-soft-gray text-rovida-near-black">
-                        <SelectValue placeholder="Select unit" />
+                        <SelectValue placeholder={t('select_unit')} />
                       </SelectTrigger>
                       <SelectContent className="bg-white/80 backdrop-blur-xl border-rovida-soft-gray text-rovida-near-black">
                         <SelectItem value="unit101">Unit 101</SelectItem>
@@ -116,12 +116,12 @@ const NewIssue = () => {
                 </div>
                 <div className="grid md:grid-cols-4 items-center gap-4">
                   <Label htmlFor="type" className="md:text-right text-rovida-near-black">
-                    Type
+                    {t('type')}
                   </Label>
                   <div className="md:col-span-3">
                     <Select onValueChange={(value) => form.setValue("type", value)} value={form.watch("type")}>
                       <SelectTrigger id="type" className="border-rovida-soft-gray text-rovida-near-black">
-                        <SelectValue placeholder="Select type" />
+                        <SelectValue placeholder={t('select_type')} />
                       </SelectTrigger>
                       <SelectContent className="bg-white/80 backdrop-blur-xl border-rovida-soft-gray text-rovida-near-black">
                         <SelectItem value="plumbing">Plumbing</SelectItem>
@@ -141,7 +141,7 @@ const NewIssue = () => {
               <div className="grid gap-4">
                 <div className="grid md:grid-cols-4 items-center gap-4">
                   <Label htmlFor="urgent" className="md:text-right text-rovida-near-black">
-                    Urgent?
+                    {t('urgent_question')}
                   </Label>
                   <div className="md:col-span-3 flex items-center space-x-2">
                     <Checkbox id="urgent" checked={form.watch("urgent")} onCheckedChange={(checked) => form.setValue("urgent", !!checked)} className="border-rovida-slate-green-gray data-[state=checked]:bg-rovida-gold data-[state=checked]:text-white" />
@@ -149,13 +149,13 @@ const NewIssue = () => {
                       htmlFor="urgent"
                       className="text-sm font-medium leading-none text-rovida-near-black peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                     >
-                      Mark as urgent
+                      {t('mark_as_urgent')}
                     </label>
                   </div>
                 </div>
                 <div className="grid md:grid-cols-4 items-center gap-4">
                   <Label htmlFor="photos" className="md:text-right text-rovida-near-black">
-                    Photos
+                    {t('photos')}
                   </Label>
                   <Input id="photos" type="file" multiple className="md:col-span-3 border-rovida-soft-gray text-rovida-near-black" {...form.register("photos")} />
                 </div>

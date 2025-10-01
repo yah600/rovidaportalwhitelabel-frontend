@@ -10,7 +10,7 @@ const FinancePayments = () => {
   const { t } = useTranslation();
   const breadcrumbItems = [
     { label: t('finance'), href: '/finance' },
-    { label: 'Payments', href: '/finance/payments' },
+    { label: t('payments'), href: '/finance/payments' },
   ];
 
   const hasPayments = mockPayments.length > 0;
@@ -19,9 +19,9 @@ const FinancePayments = () => {
     <div className="flex flex-1 flex-col gap-4">
       <BreadcrumbNav items={breadcrumbItems} />
       <header className="flex items-center justify-between">
-        <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('finance')} Payments</h1>
+        <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('finance')} {t('payments')}</h1>
         <Button>
-          <PlusCircle className="mr-2 h-4 w-4" /> Record Payment
+          <PlusCircle className="mr-2 h-4 w-4" /> {t('record_payment')}
         </Button>
       </header>
 
@@ -31,13 +31,13 @@ const FinancePayments = () => {
         <div className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm">
           <div className="flex flex-col items-center gap-1 text-center">
             <h3 className="text-2xl font-bold tracking-tight">
-              No payments found.
+              {t('no_payments_found')}
             </h3>
             <p className="text-sm text-muted-foreground">
-              You can start by recording a new payment.
+              {t('start_by_recording_new_payment')}
             </p>
             <Button className="mt-4">
-              <PlusCircle className="mr-2 h-4 w-4" /> Record Payment
+              <PlusCircle className="mr-2 h-4 w-4" /> {t('record_payment')}
             </Button>
           </div>
         </div>

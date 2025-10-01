@@ -32,7 +32,7 @@ const VotesTable = ({ votes }: VotesTableProps) => {
   const columns: ColumnDef<Vote>[] = [
     {
       accessorKey: "id",
-      header: "ID",
+      header: t('id'),
       cell: ({ row }) => (
         <Link to={`/board/votes/${row.original.id}`} className="text-primary hover:underline">
           {row.getValue("id")}
@@ -41,12 +41,12 @@ const VotesTable = ({ votes }: VotesTableProps) => {
     },
     {
       accessorKey: "title",
-      header: "Title",
+      header: t('title'),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("title")}</span>,
     },
     {
       accessorKey: "status",
-      header: "Status",
+      header: t('status'),
       cell: ({ row }) => (
         <Badge variant={getStatusVariant(row.getValue("status"))}>
           {row.getValue("status")}
@@ -55,7 +55,7 @@ const VotesTable = ({ votes }: VotesTableProps) => {
     },
     {
       accessorKey: "dueDate",
-      header: "Due Date",
+      header: t('due_date'),
       cell: ({ row }) => (
         <span className="text-rovida-slate-green-gray">
           {format(row.getValue("dueDate"), 'MMM dd, yyyy')}
@@ -64,12 +64,12 @@ const VotesTable = ({ votes }: VotesTableProps) => {
     },
     {
       id: "actions",
-      header: "Actions",
+      header: t('actions'),
       enableSorting: false,
       cell: ({ row }) => (
         <div className="text-right">
           <Link to={`/board/votes/${row.original.id}`} className="text-sm text-rovida-slate-green-gray hover:underline">
-            View
+            {t('view')}
           </Link>
         </div>
       ),

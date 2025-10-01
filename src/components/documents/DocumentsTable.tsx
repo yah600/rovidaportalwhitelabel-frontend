@@ -35,7 +35,7 @@ const DocumentsTable = ({ documents }: DocumentsTableProps) => {
   const columns: ColumnDef<Document>[] = [
     {
       accessorKey: "id",
-      header: "ID",
+      header: t('id'),
       cell: ({ row }) => (
         <Link to={`/documents/${row.original.id}`} className="text-primary hover:underline">
           {row.getValue("id")}
@@ -44,17 +44,17 @@ const DocumentsTable = ({ documents }: DocumentsTableProps) => {
     },
     {
       accessorKey: "title",
-      header: "Title",
+      header: t('title'),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("title")}</span>,
     },
     {
       accessorKey: "category",
-      header: "Category",
+      header: t('category'),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("category")}</span>,
     },
     {
       accessorKey: "type",
-      header: "Type",
+      header: t('type'),
       cell: ({ row }) => (
         <div className="flex items-center gap-2 text-rovida-near-black">
           {getFileTypeIcon(row.getValue("type"))} {row.getValue("type")}
@@ -63,12 +63,12 @@ const DocumentsTable = ({ documents }: DocumentsTableProps) => {
     },
     {
       accessorKey: "uploadedBy",
-      header: "Uploaded By",
+      header: t('uploaded_by'),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("uploadedBy")}</span>,
     },
     {
       accessorKey: "uploadedAt",
-      header: "Uploaded At",
+      header: t('uploaded_at'),
       cell: ({ row }) => (
         <span className="text-rovida-slate-green-gray">
           {format(row.getValue("uploadedAt"), 'MMM dd, yyyy')}
@@ -77,12 +77,12 @@ const DocumentsTable = ({ documents }: DocumentsTableProps) => {
     },
     {
       id: "actions",
-      header: "Actions",
+      header: t('actions'),
       enableSorting: false,
       cell: ({ row }) => (
         <div className="text-right">
           <a href={row.original.url} target="_blank" rel="noopener noreferrer" className="text-sm text-rovida-slate-green-gray hover:underline">
-            View
+            {t('view')}
           </a>
         </div>
       ),

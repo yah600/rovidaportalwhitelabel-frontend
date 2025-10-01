@@ -15,81 +15,81 @@ const Maintenance = () => {
   return (
     <div className="flex flex-1 flex-col gap-4">
       <BreadcrumbNav items={breadcrumbItems} />
-      <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('maintenance')} Overview</h1>
-      <p className="text-rovida-slate-green-gray">Manage all aspects of property maintenance.</p>
+      <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('maintenance')} {t('overview')}</h1>
+      <p className="text-rovida-slate-green-gray">{t('manage_all_property_maintenance')}</p>
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         <Card className="card-rovida">
           <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-lg text-rovida-navy">Maintenance Calendar</CardTitle>
+            <CardTitle className="text-lg text-rovida-navy">{t('maintenance_calendar_link')}</CardTitle>
             <CalendarDays className="h-6 w-6 text-rovida-gold" />
           </CardHeader>
           <CardContent>
             <CardDescription className="text-rovida-slate-green-gray mb-4">
-              View scheduled preventive maintenance and upcoming tasks.
+              {t('view_scheduled_maintenance_tasks')}
             </CardDescription>
             <Link to="/maintenance/calendar" className="link-rovida flex items-center gap-1">
-              Go to Calendar <ArrowRight className="h-4 w-4" />
+              {t('go_to_calendar')} <ArrowRight className="h-4 w-4" />
             </Link>
           </CardContent>
         </Card>
 
         <Card className="card-rovida">
           <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-lg text-rovida-navy">Assets Management</CardTitle>
+            <CardTitle className="text-lg text-rovida-navy">{t('assets_management')}</CardTitle>
             <Building className="h-6 w-6 text-rovida-gold" />
           </CardHeader>
           <CardContent>
             <CardDescription className="text-rovida-slate-green-gray mb-4">
-              Keep track of all property assets and their maintenance history.
+              {t('track_property_assets_history')}
             </CardDescription>
             <Link to="/maintenance/assets" className="link-rovida flex items-center gap-1">
-              Manage Assets <ArrowRight className="h-4 w-4" />
+              {t('manage_assets')} <ArrowRight className="h-4 w-4" />
             </Link>
           </CardContent>
         </Card>
 
         <Card className="card-rovida">
           <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-lg text-rovida-navy">Work Orders</CardTitle>
+            <CardTitle className="text-lg text-rovida-navy">{t('work_orders_link')}</CardTitle>
             <Wrench className="h-6 w-6 text-rovida-gold" />
           </CardHeader>
           <CardContent>
             <CardDescription className="text-rovida-slate-green-gray mb-4">
-              Create, assign, and track work orders for repairs and services.
+              {t('create_assign_track_work_orders')}
             </CardDescription>
             <Link to="/maintenance/work-orders" className="link-rovida flex items-center gap-1">
-              View Work Orders <ArrowRight className="h-4 w-4" />
+              {t('view_work_orders')} <ArrowRight className="h-4 w-4" />
             </Link>
           </CardContent>
         </Card>
 
         <Card className="card-rovida">
           <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-lg text-rovida-navy">Maintenance Tasks</CardTitle>
+            <CardTitle className="text-lg text-rovida-navy">{t('maintenance_tasks_link')}</CardTitle>
             <ClipboardList className="h-6 w-6 text-rovida-gold" />
           </CardHeader>
           <CardContent>
             <CardDescription className="text-rovida-slate-green-gray mb-4">
-              Manage individual maintenance tasks and their progress.
+              {t('manage_individual_tasks_progress')}
             </CardDescription>
             <Link to="/maintenance/tasks" className="link-rovida flex items-center gap-1">
-              View Tasks <ArrowRight className="h-4 w-4" />
+              {t('view_tasks')} <ArrowRight className="h-4 w-4" />
             </Link>
           </CardContent>
         </Card>
 
         <Card className="card-rovida">
           <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-lg text-rovida-navy">Agenda (XLSX Import)</CardTitle>
+            <CardTitle className="text-lg text-rovida-navy">{t('agenda_xlsx_import')}</CardTitle>
             <ClipboardList className="h-6 w-6 text-rovida-gold" />
           </CardHeader>
           <CardContent>
             <CardDescription className="text-rovida-slate-green-gray mb-4">
-              Import maintenance schedules from XLSX files and generate tasks.
+              {t('import_schedules_xlsx_generate_tasks')}
             </CardDescription>
             <Link to="/maintenance/agenda" className="link-rovida flex items-center gap-1">
-              Import Agenda <ArrowRight className="h-4 w-4" />
+              {t('import_agenda')} <ArrowRight className="h-4 w-4" />
             </Link>
           </CardContent>
         </Card>

@@ -8,14 +8,14 @@ const About = () => {
 
   const breadcrumbItems = [
     { label: t('home'), href: '/' },
-    { label: 'About Us', href: '/about' },
+    { label: t('about_us'), href: '/about' },
   ];
 
   return (
     <div className="flex flex-1 flex-col gap-4">
       <BreadcrumbNav items={breadcrumbItems} />
-      <h1 className="text-2xl font-semibold md:text-3xl text-page-title">About Gestion Rovida</h1>
-      <p className="text-rovida-slate-green-gray">Learn more about our mission and values.</p>
+      <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('about_gestion_rovida')}</h1>
+      <p className="text-rovida-slate-green-gray">{t('learn_more_mission_values')}</p>
 
       <div className="flex-1 h-[calc(100vh-200px)] overflow-hidden"> {/* Adjust height as needed */}
         <ScrollStack
@@ -30,27 +30,27 @@ const About = () => {
           useWindowScroll={false}
         >
           <ScrollStackItem itemClassName="card-rovida">
-            <h2 className="text-rovida-navy">Our Mission</h2>
+            <h2 className="text-rovida-navy">{t('our_mission')}</h2>
             <p className="text-rovida-near-black">
-              To provide exceptional property management services, fostering thriving communities and maximizing property value for our clients.
+              {t('mission_description')}
             </p>
           </ScrollStackItem>
           <ScrollStackItem itemClassName="card-rovida">
-            <h2 className="text-rovida-navy">Our Vision</h2>
+            <h2 className="text-rovida-navy">{t('our_vision')}</h2>
             <p className="text-rovida-near-black">
-              To be the leading property management firm, recognized for innovation, transparency, and unparalleled client satisfaction.
+              {t('vision_description')}
             </p>
           </ScrollStackItem>
           <ScrollStackItem itemClassName="card-rovida">
-            <h2 className="text-rovida-navy">Our Values</h2>
+            <h2 className="text-rovida-navy">{t('our_values')}</h2>
             <p className="text-rovida-near-black">
-              Integrity, Excellence, Community, Innovation, and Accountability. These principles guide every decision we make.
+              {t('values_description')}
             </p>
           </ScrollStackItem>
           <ScrollStackItem itemClassName="card-rovida">
-            <h2 className="text-rovida-navy">Our Team</h2>
+            <h2 className="text-rovida-navy">{t('our_team')}</h2>
             <p className="text-rovida-near-black">
-              A dedicated team of professionals committed to delivering personalized and efficient service to every property and resident.
+              {t('team_description')}
             </p>
           </ScrollStackItem>
         </ScrollStack>

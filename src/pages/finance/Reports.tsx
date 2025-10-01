@@ -9,63 +9,63 @@ const FinanceReports = () => {
   const { t } = useTranslation();
   const breadcrumbItems = [
     { label: t('finance'), href: '/finance' },
-    { label: 'Reports', href: '/finance/reports' },
+    { label: t('reports'), href: '/finance/reports' },
   ];
 
   return (
     <div className="flex flex-1 flex-col gap-4">
       <BreadcrumbNav items={breadcrumbItems} />
-      <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('finance')} Reports</h1>
+      <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('finance')} {t('reports')}</h1>
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         <Card className="card-rovida">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-lg font-medium text-rovida-navy">Monthly Expense Report</CardTitle>
+            <CardTitle className="text-lg font-medium text-rovida-navy">{t('monthly_expense_report')}</CardTitle>
             <BarChart2 className="h-5 w-5 text-rovida-gold" />
           </CardHeader>
           <CardContent>
             <p className="text-sm text-rovida-slate-green-gray mb-4">
-              Generate a detailed report of all expenses for a selected month.
+              {t('generate_detailed_expense_report')}
             </p>
             <Button variant="outline" size="sm" className="btn-secondary">
-              <Download className="mr-2 h-4 w-4" /> Generate Report
+              <Download className="mr-2 h-4 w-4" /> {t('generate_report')}
             </Button>
           </CardContent>
         </Card>
 
         <Card className="card-rovida">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-lg font-medium text-rovida-navy">Income Statement</CardTitle>
+            <CardTitle className="text-lg font-medium text-rovida-navy">{t('income_statement')}</CardTitle>
             <FileText className="h-5 w-5 text-rovida-gold" />
           </CardHeader>
           <CardContent>
             <p className="text-sm text-rovida-slate-green-gray mb-4">
-              View a summary of income and expenses over a specified period.
+              {t('view_summary_income_expenses')}
             </p>
             <Button variant="outline" size="sm" className="btn-secondary">
-              <Download className="mr-2 h-4 w-4" /> Generate Report
+              <Download className="mr-2 h-4 w-4" /> {t('generate_report')}
             </Button>
           </CardContent>
         </Card>
 
         <Card className="card-rovida">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-lg font-medium text-rovida-navy">Overdue Bills Report</CardTitle>
+            <CardTitle className="text-lg font-medium text-rovida-navy">{t('overdue_bills_report')}</CardTitle>
             <AlertTriangle className="h-5 w-5 text-rovida-gold" />
           </CardHeader>
           <CardContent>
             <p className="text-sm text-rovida-slate-green-gray mb-4">
-              List all bills that are currently overdue.
+              {t('list_all_overdue_bills')}
             </p>
             <Button variant="outline" size="sm" className="btn-secondary">
-              <Download className="mr-2 h-4 w-4" /> Generate Report
+              <Download className="mr-2 h-4 w-4" /> {t('generate_report')}
             </Button>
           </CardContent>
         </Card>
       </div>
 
       <Card className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm card-rovida mt-4">
-        <p className="text-rovida-slate-green-gray">Financial reports will be displayed here after generation.</p>
+        <p className="text-rovida-slate-green-gray">{t('financial_reports_displayed_here')}</p>
       </Card>
     </div>
   );

@@ -81,16 +81,16 @@ const Emergency = () => {
   return (
     <div className="flex flex-1 flex-col gap-4">
       <BreadcrumbNav items={breadcrumbItems} />
-      <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('emergency')} Management</h1>
-      <p className="text-rovida-slate-green-gray">Monitor and manage critical incidents in real-time.</p>
+      <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('emergency')} {t('management')}</h1>
+      <p className="text-rovida-slate-green-gray">{t('monitor_manage_incidents_realtime')}</p>
 
       <div className="grid gap-4 lg:grid-cols-2">
         <Card className="card-rovida">
           <CardHeader>
             <CardTitle className="text-rovida-error flex items-center gap-2">
-              <AlertTriangle className="h-6 w-6" /> Active Critical Alerts
+              <AlertTriangle className="h-6 w-6" /> {t('active_critical_alerts')}
             </CardTitle>
-            <CardDescription className="text-rovida-slate-green-gray">Immediate action required for these incidents.</CardDescription>
+            <CardDescription className="text-rovida-slate-green-gray">{t('immediate_action_required')}</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             {mockActiveAlerts.length > 0 ? (
@@ -99,24 +99,24 @@ const Emergency = () => {
                   <h3 className="font-semibold text-rovida-near-black">{alert.title}</h3>
                   <p className="text-sm text-rovida-slate-green-gray">{alert.description}</p>
                   <p className="text-xs text-rovida-slate-green-gray mt-1">
-                    Detected: {format(alert.timestamp, 'MMM dd, yyyy HH:mm')}
+                    {t('detected')}: {format(alert.timestamp, 'MMM dd, yyyy HH:mm')}
                   </p>
                   <div className="mt-3 flex gap-2">
-                    <Button variant="destructive" className="btn-primary bg-rovida-error border border-white">Acknowledge</Button>
-                    <Button variant="outline" className="btn-secondary border-rovida-error text-rovida-error hover:bg-rovida-error/10">Escalate</Button>
+                    <Button variant="destructive" className="btn-primary bg-rovida-error border border-white">{t('acknowledge')}</Button>
+                    <Button variant="outline" className="btn-secondary border-rovida-error text-rovida-error hover:bg-rovida-error/10">{t('escalate')}</Button>
                   </div>
                 </div>
               ))
             ) : (
-              <p className="text-rovida-slate-green-gray">No active critical alerts.</p>
+              <p className="text-rovida-slate-green-gray">{t('no_active_critical_alerts')}</p>
             )}
           </CardContent>
         </Card>
 
         <Card className="card-rovida">
           <CardHeader>
-            <CardTitle className="text-rovida-navy">Live Emergency Timeline</CardTitle>
-            <CardDescription className="text-rovida-slate-green-gray">Real-time updates on all emergency events.</CardDescription>
+            <CardTitle className="text-rovida-navy">{t('live_emergency_timeline')}</CardTitle>
+            <CardDescription className="text-rovida-slate-green-gray">{t('realtime_updates_emergency_events')}</CardDescription>
           </CardHeader>
           <CardContent>
             {mockEmergencyTimeline.length > 0 ? (
@@ -137,7 +137,7 @@ const Emergency = () => {
                 ))}
               </ol>
             ) : (
-              <p className="text-rovida-slate-green-gray">No emergency events in the timeline.</p>
+              <p className="text-rovida-slate-green-gray">{t('no_emergency_events_timeline')}</p>
             )}
           </CardContent>
         </Card>

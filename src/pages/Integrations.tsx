@@ -21,7 +21,7 @@ const Integrations = () => {
       <header className="flex items-center justify-between">
         <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('integrations')}</h1>
         <Button>
-          <PlusCircle className="mr-2 h-4 w-4" /> Add New Integration
+          <PlusCircle className="mr-2 h-4 w-4" /> {t('add_new_integration')}
         </Button>
       </header>
 
@@ -35,13 +35,13 @@ const Integrations = () => {
         <div className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm">
           <div className="flex flex-col items-center gap-1 text-center">
             <h3 className="text-2xl font-bold tracking-tight">
-              No integrations found.
+              {t('no_integrations_found')}
             </h3>
             <p className="text-sm text-muted-foreground">
-              You can start by adding a new integration.
+              {t('start_by_adding_new_integration')}
             </p>
             <Button className="mt-4">
-              <PlusCircle className="mr-2 h-4 w-4" /> Add New Integration
+              <PlusCircle className="mr-2 h-4 w-4" /> {t('add_new_integration')}
             </Button>
           </div>
         </div>

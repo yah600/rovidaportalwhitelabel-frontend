@@ -15,18 +15,18 @@ const LoginPage = () => {
         <CardHeader className="text-center">
           <CardTitle className="text-2xl text-page-title">{t('login')}</CardTitle>
           <CardDescription className="text-rovida-slate-green-gray">
-            Enter your email and password to access your account.
+            {t('enter_email_password_access_account')}
           </CardDescription>
         </CardHeader>
         <CardContent>
           <div className="grid gap-4">
             <div className="grid gap-2">
-              <Label htmlFor="email" className="text-rovida-near-black">Email</Label>
+              <Label htmlFor="email" className="text-rovida-near-black">{t('email')}</Label>
               <Input id="email" type="email" placeholder="m@example.com" required className="border-rovida-soft-gray text-rovida-near-black" />
             </div>
             <div className="grid gap-2">
               <div className="flex items-center">
-                <Label htmlFor="password" className="text-rovida-near-black">Password</Label>
+                <Label htmlFor="password" className="text-rovida-near-black">{t('password')}</Label>
                 <Link to="/auth/forgot" className="ml-auto inline-block text-sm link-rovida">
                   {t('forgot_password')}?
                 </Link>
@@ -38,9 +38,9 @@ const LoginPage = () => {
             </Button>
             {/* Placeholder for social login or other options */}
             <div className="mt-4 text-center text-sm text-rovida-slate-green-gray">
-              Don&apos;t have an account?{" "}
+              {t('dont_have_account')}{" "}
               <Link to="#" className="link-rovida">
-                Sign up
+                {t('sign_up')}
               </Link>
             </div>
           </div>

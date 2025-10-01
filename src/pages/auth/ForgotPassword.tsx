@@ -16,12 +16,12 @@ const ForgotPassword = () => {
       <Card className="w-full max-w-md card-rovida relative z-10">
         <CardHeader className="text-center">
           <CardTitle className="text-3xl font-semibold text-page-title">{t('forgot_password')}</CardTitle>
-          <CardDescription className="text-rovida-slate-green-gray">Enter your email to receive a password reset link.</CardDescription>
+          <CardDescription className="text-rovida-slate-green-gray">{t('enter_email_receive_reset_link')}</CardDescription>
         </CardHeader>
         <CardContent>
           <form className="grid gap-4">
             <div className="grid gap-2">
-              <Label htmlFor="email" className="text-rovida-near-black">Email</Label>
+              <Label htmlFor="email" className="text-rovida-near-black">{t('email')}</Label>
               <Input
                 id="email"
                 type="email"
@@ -31,12 +31,12 @@ const ForgotPassword = () => {
               />
             </div>
             <Button type="submit" className="w-full btn-primary">
-              Send Reset Link
+              {t('send_reset_link')}
             </Button>
           </form>
           <div className="mt-4 text-center text-sm text-rovida-slate-green-gray">
             <Link to="/auth/login" className="link-rovida">
-              Back to Login
+              {t('back_to_login')}
             </Link>
           </div>
         </CardContent>

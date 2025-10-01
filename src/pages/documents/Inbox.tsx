@@ -10,7 +10,7 @@ const DocumentsInbox = () => {
   const { t } = useTranslation();
   const breadcrumbItems = [
     { label: t('documents'), href: '/documents' },
-    { label: 'Inbox', href: '/documents/inbox' },
+    { label: t('inbox'), href: '/documents/inbox' },
   ];
 
   const hasInboxDocuments = mockInboxDocuments.length > 0;
@@ -19,9 +19,9 @@ const DocumentsInbox = () => {
     <div className="flex flex-1 flex-col gap-4">
       <BreadcrumbNav items={breadcrumbItems} />
       <header className="flex items-center justify-between">
-        <h1 className="text-2xl font-semibold md:text-3xl">{t('documents')} Inbox</h1>
+        <h1 className="text-2xl font-semibold md:text-3xl">{t('documents')} {t('inbox')}</h1>
         <Button>
-          <PlusCircle className="mr-2 h-4 w-4" /> Upload to Inbox
+          <PlusCircle className="mr-2 h-4 w-4" /> {t('upload_to_inbox')}
         </Button>
       </header>
 
@@ -31,13 +31,13 @@ const DocumentsInbox = () => {
         <div className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm">
           <div className="flex flex-col items-center gap-1 text-center">
             <h3 className="text-2xl font-bold tracking-tight">
-              No new documents in your inbox.
+              {t('no_new_documents_in_inbox')}
             </h3>
             <p className="text-sm text-muted-foreground">
-              Incoming documents will appear here.
+              {t('incoming_documents_appear_here')}
             </p>
             <Button className="mt-4">
-              <PlusCircle className="mr-2 h-4 w-4" /> Upload to Inbox
+              <PlusCircle className="mr-2 h-4 w-4" /> {t('upload_to_inbox')}
             </Button>
           </div>
         </div>

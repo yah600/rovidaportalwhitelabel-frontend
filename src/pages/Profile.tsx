@@ -47,19 +47,19 @@ const Profile = () => {
         <CardContent>
           <form onSubmit={handleSubmit} className="grid gap-4">
             <div className="grid md:grid-cols-4 items-center gap-4">
-              <Label htmlFor="name" className="md:text-right text-rovida-near-black">Full Name</Label>
+              <Label htmlFor="name" className="md:text-right text-rovida-near-black">{t('full_name')}</Label>
               <Input id="name" type="text" defaultValue={currentUser.name} className="md:col-span-3 border-rovida-soft-gray text-rovida-near-black" />
             </div>
             <div className="grid md:grid-cols-4 items-center gap-4">
-              <Label htmlFor="email" className="md:text-right text-rovida-near-black">Email</Label>
+              <Label htmlFor="email" className="md:text-right text-rovida-near-black">{t('email')}</Label>
               <Input id="email" type="email" defaultValue={currentUser.email} disabled className="md:col-span-3 border-rovida-soft-gray text-rovida-near-black" />
             </div>
             <div className="grid md:grid-cols-4 items-center gap-4">
-              <Label htmlFor="role" className="md:text-right text-rovida-near-black">Role</Label>
+              <Label htmlFor="role" className="md:text-right text-rovida-near-black">{t('role')}</Label>
               <Input id="role" type="text" defaultValue={currentUser.role} disabled className="md:col-span-3 border-rovida-soft-gray text-rovida-near-black" />
             </div>
             <Button type="submit" className="w-full btn-primary">
-              <Save className="mr-2 h-4 w-4" /> Save Changes
+              <Save className="mr-2 h-4 w-4" /> {t('save_changes')}
             </Button>
           </form>
         </CardContent>

@@ -15,13 +15,13 @@ const MaintenanceAgenda = () => {
 
   const breadcrumbItems = [
     { label: t('maintenance'), href: '/maintenance' },
-    { label: 'Agenda (XLSX)', href: '/maintenance/agenda' },
+    { label: t('agenda_xlsx_import'), href: '/maintenance/agenda' },
   ];
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files[0]) {
       setSelectedFile(event.target.files[0]);
-      toast.info(`File selected: ${event.target.files[0].name}`);
+      toast.info(`${t('file_selected')}: ${event.target.files[0].name}`);
     }
   };
 
@@ -29,7 +29,7 @@ const MaintenanceAgenda = () => {
     event.preventDefault();
     if (event.dataTransfer.files && event.dataTransfer.files[0]) {
       setSelectedFile(event.dataTransfer.files[0]);
-      toast.info(`File dropped: ${event.dataTransfer.files[0].name}`);
+      toast.info(`${t('file_dropped')}: ${event.dataTransfer.files[0].name}`);
     }
   };
 
@@ -40,27 +40,27 @@ const MaintenanceAgenda = () => {
   const handleImport = () => {
     if (selectedFile) {
       // Simulate file upload and processing
-      toast.success("File imported successfully!", {
-        description: `Ready for mapping: ${selectedFile.name}`,
+      toast.success(t('file_imported_successfully'), {
+        description: `${t('ready_for_mapping')}: ${selectedFile.name}`,
       });
       setCurrentStep(2); // Move to mapping step
     } else {
-      toast.error("Please select a file to import.");
+      toast.error(t('please_select_file_to_import'));
     }
   };
 
   const handleMapColumns = () => {
     // Simulate column mapping
-    toast.success("Columns mapped successfully!", {
-      description: "Preview generated tasks.",
+    toast.success(t('columns_mapped_successfully'), {
+      description: t('preview_generated_tasks'),
     });
     setCurrentStep(3); // Move to generation step
   };
 
   const handleGenerateTasks = () => {
     // Simulate task generation
-    toast.success("Maintenance tasks generated!", {
-      description: "Tasks are now visible in the calendar and task list.",
+    toast.success(t('maintenance_tasks_generated'), {
+      description: t('tasks_visible_calendar_list'),
     });
     setSelectedFile(null);
     setCurrentStep(1); // Reset to import step
@@ -69,15 +69,15 @@ const MaintenanceAgenda = () => {
   return (
     <div className="flex flex-1 flex-col gap-4">
       <BreadcrumbNav items={breadcrumbItems} />
-      <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('maintenance')} Agenda (XLSX Import)</h1>
-      <p className="text-rovida-slate-green-gray">Import maintenance schedules from XLSX files.</p>
+      <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('maintenance')} {t('agenda_xlsx_import')}</h1>
+      <p className="text-rovida-slate-green-gray">{t('import_maintenance_schedules_xlsx')}</p>
 
       <div className="grid gap-4 lg:grid-cols-3">
         {/* Step 1: Import */}
         <Card className="card-rovida">
           <CardHeader>
-            <CardTitle className="text-rovida-navy">Step 1: Import XLSX File</CardTitle>
-            <CardDescription className="text-rovida-slate-green-gray">Drag & drop or select your maintenance agenda file.</CardDescription>
+            <CardTitle className="text-rovida-navy">{t('step_1_import_xlsx')}</CardTitle>
+            <CardDescription className="text-rovida-slate-green-gray">{t('drag_drop_select_file')}</CardDescription>
           </CardHeader>
           <CardContent className="grid gap-4">
             <div
@@ -86,8 +86,8 @@ const MaintenanceAgenda = () => {
               className="flex flex-col items-center justify-center p-6 border-2 border-dashed border-rovida-soft-gray rounded-lg text-center text-rovida-slate-green-gray bg-white/60 h-48"
             >
               <UploadCloud className="h-12 w-12 mb-3 text-rovida-gold" />
-              <p className="font-medium">Drag & drop your file here</p>
-              <p className="text-sm">or</p>
+              <p className="font-medium">{t('drag_drop_file_here')}</p>
+              <p className="text-sm">{t('or')}</p>
               <Input
                 id="file-upload"
                 type="file"
@@ -96,12 +96,12 @@ const MaintenanceAgenda = () => {
                 accept=".xls,.xlsx"
               />
               <Label htmlFor="file-upload" className="btn-secondary mt-3 cursor-pointer inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2">
-                Browse Files
+                {t('browse_files')}
               </Label>
-              {selectedFile && <p className="mt-2 text-rovida-near-black">Selected: {selectedFile.name}</p>}
+              {selectedFile && <p className="mt-2 text-rovida-near-black">{t('selected')}: {selectedFile.name}</p>}
             </div>
             <Button onClick={handleImport} disabled={!selectedFile || currentStep !== 1} className="btn-primary">
-              <FileText className="mr-2 h-4 w-4" /> Import File
+              <FileText className="mr-2 h-4 w-4" /> {t('import_file')}
             </Button>
           </CardContent>
         </Card>
@@ -109,26 +109,26 @@ const MaintenanceAgenda = () => {
         {/* Step 2: Map Columns */}
         <Card className="card-rovida">
           <CardHeader>
-            <CardTitle className="text-rovida-navy">Step 2: Map Columns</CardTitle>
-            <CardDescription className="text-rovida-slate-green-gray">Match your file columns to agenda fields.</CardDescription>
+            <CardTitle className="text-rovida-navy">{t('step_2_map_columns')}</CardTitle>
+            <CardDescription className="text-rovida-slate-green-gray">{t('match_file_columns_fields')}</CardDescription>
           </CardHeader>
           <CardContent className="grid gap-4">
             <div className="flex flex-col items-center justify-center p-6 border border-rovida-soft-gray rounded-lg text-center text-rovida-slate-green-gray bg-white/60 h-48">
               {currentStep >= 2 ? (
                 <>
                   <CheckCircle className="h-12 w-12 mb-3 text-rovida-success" />
-                  <p className="font-medium text-rovida-near-black">File imported. Ready for mapping.</p>
-                  <p className="text-sm">Column mapping interface will appear here.</p>
+                  <p className="font-medium text-rovida-near-black">{t('file_imported_ready_mapping')}</p>
+                  <p className="text-sm">{t('column_mapping_interface_here')}</p>
                 </>
               ) : (
                 <>
                   <XCircle className="h-12 w-12 mb-3 text-rovida-slate-green-gray" />
-                  <p className="font-medium">Import file first.</p>
+                  <p className="font-medium">{t('import_file_first')}</p>
                 </>
               )}
             </div>
             <Button onClick={handleMapColumns} disabled={currentStep !== 2} className="btn-primary">
-              Map Columns & Preview
+              {t('map_columns_preview')}
             </Button>
           </CardContent>
         </Card>
@@ -136,26 +136,26 @@ const MaintenanceAgenda = () => {
         {/* Step 3: Generate Tasks */}
         <Card className="card-rovida">
           <CardHeader>
-            <CardTitle className="text-rovida-navy">Step 3: Generate Tasks</CardTitle>
-            <CardDescription className="text-rovida-slate-green-gray">Confirm and create maintenance tasks.</CardDescription>
+            <CardTitle className="text-rovida-navy">{t('step_3_generate_tasks')}</CardTitle>
+            <CardDescription className="text-rovida-slate-green-gray">{t('confirm_create_maintenance_tasks')}</CardDescription>
           </CardHeader>
           <CardContent className="grid gap-4">
             <div className="flex flex-col items-center justify-center p-6 border border-rovida-soft-gray rounded-lg text-center text-rovida-slate-green-gray bg-white/60 h-48">
               {currentStep >= 3 ? (
                 <>
                   <CheckCircle className="h-12 w-12 mb-3 text-rovida-success" />
-                  <p className="font-medium text-rovida-near-black">Mapping complete. Ready to generate.</p>
-                  <p className="text-sm">Preview of tasks will be shown here.</p>
+                  <p className="font-medium text-rovida-near-black">{t('mapping_complete_ready_generate')}</p>
+                  <p className="text-sm">{t('preview_tasks_shown_here')}</p>
                 </>
               ) : (
                 <>
                   <XCircle className="h-12 w-12 mb-3 text-rovida-slate-green-gray" />
-                  <p className="font-medium">Map columns first.</p>
+                  <p className="font-medium">{t('map_columns_first')}</p>
                 </>
               )}
             </div>
             <Button onClick={handleGenerateTasks} disabled={currentStep !== 3} className="btn-primary">
-              Generate Maintenance Tasks
+              {t('generate_maintenance_tasks')}
             </Button>
           </CardContent>
         </Card>

@@ -32,12 +32,12 @@ const PaymentsTable = ({ payments }: PaymentsTableProps) => {
   const columns: ColumnDef<Payment>[] = [
     {
       accessorKey: "id",
-      header: "ID",
+      header: t('id'),
       cell: ({ row }) => <span className="font-medium text-rovida-near-black">{row.getValue("id")}</span>,
     },
     {
       accessorKey: "billId",
-      header: "Bill ID",
+      header: t('bill_id'),
       cell: ({ row }) => (
         <Link to={`/finance/bills/${row.original.billId}`} className="text-primary hover:underline">
           {row.getValue("billId")}
@@ -46,22 +46,22 @@ const PaymentsTable = ({ payments }: PaymentsTableProps) => {
     },
     {
       accessorKey: "vendor",
-      header: "Vendor",
+      header: t('vendor'),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("vendor")}</span>,
     },
     {
       accessorKey: "amount",
-      header: "Amount",
+      header: t('amount'),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.original.amount.toFixed(2)} {row.original.currency}</span>,
     },
     {
       accessorKey: "method",
-      header: "Method",
+      header: t('method'),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("method")}</span>,
     },
     {
       accessorKey: "status",
-      header: "Status",
+      header: t('status'),
       cell: ({ row }) => (
         <Badge variant={getStatusVariant(row.getValue("status"))}>
           {row.getValue("status")}
@@ -70,7 +70,7 @@ const PaymentsTable = ({ payments }: PaymentsTableProps) => {
     },
     {
       accessorKey: "paymentDate",
-      header: "Payment Date",
+      header: t('payment_date'),
       cell: ({ row }) => (
         <span className="text-rovida-slate-green-gray">
           {format(row.getValue("paymentDate"), 'MMM dd, yyyy')}

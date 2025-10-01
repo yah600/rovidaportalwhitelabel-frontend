@@ -18,25 +18,25 @@ const SettingsFeedback = () => {
 
   return (
     <div className="flex flex-1 flex-col gap-4">
-      <h1 className="text-2xl font-semibold md:text-3xl text-page-title">Feedback</h1>
+      <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('feedback')}</h1>
 
       <Card className="w-full card-rovida">
         <CardHeader>
-          <CardTitle className="text-rovida-navy">Submit Feedback</CardTitle>
-          <CardDescription className="text-rovida-slate-green-gray">Help us improve by sharing your thoughts and suggestions.</CardDescription>
+          <CardTitle className="text-rovida-navy">{t('submit_feedback')}</CardTitle>
+          <CardDescription className="text-rovida-slate-green-gray">{t('help_improve_suggestions')}</CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="grid gap-4">
             <div className="grid md:grid-cols-4 items-center gap-4">
-              <Label htmlFor="feedback-subject" className="md:text-right text-rovida-near-black">Subject</Label>
+              <Label htmlFor="feedback-subject" className="md:text-right text-rovida-near-black">{t('subject')}</Label>
               <Input id="feedback-subject" type="text" placeholder="e.g., Feature Request, Bug Report" required className="md:col-span-3 border-rovida-soft-gray text-rovida-near-black" />
             </div>
             <div className="grid md:grid-cols-4 items-start gap-4">
-              <Label htmlFor="feedback-message" className="md:text-right text-rovida-near-black">Your Feedback</Label>
+              <Label htmlFor="feedback-message" className="md:text-right text-rovida-near-black">{t('your_feedback')}</Label>
               <Textarea id="feedback-message" placeholder="Describe your feedback here..." rows={6} required className="md:col-span-3 border-rovida-soft-gray text-rovida-near-black" />
             </div>
             <Button type="submit" className="w-full btn-primary">
-              <Send className="mr-2 h-4 w-4" /> Send Feedback
+              <Send className="mr-2 h-4 w-4" /> {t('send_feedback')}
             </Button>
           </form>
         </CardContent>
