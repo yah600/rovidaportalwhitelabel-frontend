@@ -4,7 +4,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AppShell from "./components/layout/AppShell";
-import SettingsLayout from "./components/layout/SettingsLayout";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Dashboard from "./pages/Dashboard";
@@ -30,13 +29,11 @@ import BoardMeetings from "./pages/board/Meetings";
 import BoardMeetingDetail from "./pages/board/MeetingDetail";
 import BoardVotes from "./pages/board/Votes";
 import BoardVoteDetail from "./pages/board/VoteDetail";
-import DocumentsOverview from "./pages/documents/Overview"; // Renamed Documents overview page
-import DocumentsRegistry from "./pages/documents/Registry";
+import Documents from "./pages/Documents";
 import DocumentsInbox from "./pages/documents/Inbox";
 import DocumentDetail from "./pages/documents/DocumentDetail";
 import Comms from "./pages/Comms";
 import CommsAnnouncements from "./pages/comms/Announcements";
-import AnnouncementDetail from "./pages/comms/AnnouncementDetail";
 import CommsSend from "./pages/comms/Send";
 import CommsTemplates from "./pages/comms/Templates";
 import Integrations from "./pages/Integrations";
@@ -53,9 +50,12 @@ import SettingsNotifications from "./pages/settings/Notifications";
 import SettingsAudit from "./pages/settings/Audit";
 import SettingsFeedback from "./pages/settings/Feedback";
 import Profile from "./pages/Profile";
-import LoginPage from "./pages/auth/LoginPage";
-import ForgotPasswordPage from "./pages/auth/ForgotPasswordPage";
-import ResetPasswordPage from "./pages/auth/ResetPasswordPage";
+
+// Auth Pages
+import Login from "./pages/auth/Login";
+import ForgotPassword from "./pages/auth/ForgotPassword";
+import ResetPassword from "./pages/auth/ResetPassword";
+
 
 const queryClient = new QueryClient();
 
@@ -66,69 +66,59 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          {/* Authentication Routes - these do not use the AppShell layout */}
-          <Route path="/auth/login" element={<LoginPage />} />
-          <Route path="/auth/forgot" element={<ForgotPasswordPage />} />
-          <Route path="/auth/reset" element={<ResetPasswordPage />} />
+          <Route path="/" element={<Index />} />
+          {/* Authentication Routes */}
+          <Route path="/auth/login" element={<Login />} />
+          <Route path="/auth/forgot" element={<ForgotPassword />} />
+          <Route path="/auth/reset" element={<ResetPassword />} />
 
-          {/* Main application routes wrapped by AppShell layout */}
-          <Route path="/" element={<AppShell />}>
-            <Route index element={<Index />} /> {/* Renders Index at / */}
-            <Route path="dashboard" element={<Dashboard />} />
-            <Route path="issues" element={<Issues />} />
-            <Route path="issues/kanban" element={<Kanban />} />
-            <Route path="issues/new" element={<NewIssue />} />
-            <Route path="issues/:id" element={<IssueDetail />} />
-            <Route path="emergency" element={<Emergency />} />
-            <Route path="maintenance" element={<Maintenance />} />
-            <Route path="maintenance/calendar" element={<MaintenanceCalendar />} />
-            <Route path="maintenance/assets" element={<MaintenanceAssets />} />
-            <Route path="maintenance/work-orders" element={<MaintenanceWorkOrders />} />
-            <Route path="maintenance/tasks" element={<MaintenanceTasks />} />
-            <Route path="maintenance/tasks/:id" element={<MaintenanceTaskDetail />} />
-            <Route path="maintenance/agenda" element={<MaintenanceAgenda />} />
-            <Route path="finance" element={<Finance />} />
-            <Route path="finance/bills" element={<FinanceBills />} />
-            <Route path="finance/bills/:id" element={<FinanceBillDetail />} />
-            <Route path="finance/payments" element={<FinancePayments />} />
-            <Route path="finance/payments" element={<FinancePayments />} />
-            <Route path="finance/reports" element={<FinanceReports />} />
-            <Route path="board" element={<Board />} /> {/* Added a base route for Board */}
-            <Route path="board/meetings" element={<BoardMeetings />} />
-            <Route path="board/meetings/:id" element={<BoardMeetingDetail />} />
-            <Route path="board/votes" element={<BoardVotes />} />
-            <Route path="board/votes/:id" element={<BoardVoteDetail />} />
-            <Route path="documents" element={<DocumentsOverview />} /> {/* New Documents overview */}
-            <Route path="documents/inbox" element={<DocumentsInbox />} />
-            <Route path="documents/registry" element={<DocumentsRegistry />} /> {/* Renamed Documents table */}
-            <Route path="documents/:id" element={<DocumentDetail />} />
-            <Route path="comms" element={<Comms />} /> {/* Added a base route for Comms */}
-            <Route path="comms/announcements" element={<CommsAnnouncements />} />
-            <Route path="comms/announcements/:id" element={<AnnouncementDetail />} />
-            <Route path="comms/send" element={<CommsSend />} />
-            <Route path="comms/templates" element={<CommsTemplates />} />
-            <Route path="integrations" element={<Integrations />} />
-            <Route path="integrations/:slug" element={<IntegrationDetail />} />
-            <Route path="analytics" element={<Analytics />} />
-            
-            {/* Settings routes wrapped by SettingsLayout */}
-            <Route path="settings" element={<SettingsLayout />}>
-              <Route index element={<Settings />} /> {/* Default settings overview */}
-              <Route path="org" element={<SettingsOrganization />} />
-              <Route path="buildings" element={<SettingsBuildings />} />
-              <Route path="units" element={<SettingsUnits />} />
-              <Route path="users" element={<SettingsUsers />} />
-              <Route path="roles" element={<SettingsRoles />} />
-              <Route path="security" element={<SettingsSecurity />} />
-              <Route path="notifications" element={<SettingsNotifications />} />
-              <Route path="audit" element={<SettingsAudit />} />
-              <Route path="feedback" element={<SettingsFeedback />} />
-            </Route>
-
-            <Route path="profile" element={<Profile />} />
+          {/* Protected Routes wrapped by AppShell */}
+          <Route element={<AppShell />}>
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/issues" element={<Issues />} />
+            <Route path="/issues/kanban" element={<Kanban />} />
+            <Route path="/issues/new" element={<NewIssue />} />
+            <Route path="/issues/:id" element={<IssueDetail />} />
+            <Route path="/emergency" element={<Emergency />} />
+            <Route path="/maintenance" element={<Maintenance />} />
+            <Route path="/maintenance/calendar" element={<MaintenanceCalendar />} />
+            <Route path="/maintenance/assets" element={<MaintenanceAssets />} />
+            <Route path="/maintenance/work-orders" element={<MaintenanceWorkOrders />} />
+            <Route path="/maintenance/tasks" element={<MaintenanceTasks />} />
+            <Route path="/maintenance/tasks/:id" element={<MaintenanceTaskDetail />} />
+            <Route path="/maintenance/agenda" element={<MaintenanceAgenda />} />
+            <Route path="/finance" element={<Finance />} />
+            <Route path="/finance/bills" element={<FinanceBills />} />
+            <Route path="/finance/bills/:id" element={<FinanceBillDetail />} />
+            <Route path="/finance/payments" element={<FinancePayments />} />
+            <Route path="/finance/reports" element={<FinanceReports />} />
+            <Route path="/board/meetings" element={<BoardMeetings />} />
+            <Route path="/board/meetings/:id" element={<BoardMeetingDetail />} />
+            <Route path="/board/votes" element={<BoardVotes />} />
+            <Route path="/board/votes/:id" element={<BoardVoteDetail />} />
+            <Route path="/documents/inbox" element={<DocumentsInbox />} />
+            <Route path="/documents" element={<Documents />} />
+            <Route path="/documents/:id" element={<DocumentDetail />} />
+            <Route path="/comms/announcements" element={<CommsAnnouncements />} />
+            <Route path="/comms/send" element={<CommsSend />} />
+            <Route path="/comms/templates" element={<CommsTemplates />} />
+            <Route path="/integrations" element={<Integrations />} />
+            <Route path="/integrations/:slug" element={<IntegrationDetail />} />
+            <Route path="/analytics" element={<Analytics />} />
+            <Route path="/settings" element={<Settings />} />
+            <Route path="/settings/org" element={<SettingsOrganization />} />
+            <Route path="/settings/buildings" element={<SettingsBuildings />} />
+            <Route path="/settings/units" element={<SettingsUnits />} />
+            <Route path="/settings/users" element={<SettingsUsers />} />
+            <Route path="/settings/roles" element={<SettingsRoles />} />
+            <Route path="/settings/security" element={<SettingsSecurity />} />
+            <Route path="/settings/notifications" element={<SettingsNotifications />} />
+            <Route path="/settings/audit" element={<SettingsAudit />} />
+            <Route path="/settings/feedback" element={<SettingsFeedback />} />
+            <Route path="/profile" element={<Profile />} />
           </Route>
 
-          {/* Catch-all route for any unmatched paths */}
+          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
