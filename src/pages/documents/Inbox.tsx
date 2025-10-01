@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import BreadcrumbNav from '@/components/BreadcrumbNav';
+import { Mail } from 'lucide-react'; // Added Mail icon
 
 const DocumentsInbox = () => {
   const { t } = useTranslation();

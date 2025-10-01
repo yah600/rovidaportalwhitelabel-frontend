@@ -53,7 +53,7 @@ const SettingsNotifications = () => {
               </span>
             </Label>
             <Switch id="email-billing" />
-          </div>
+          </div
         </CardContent>
       </Card>
 
