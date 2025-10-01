@@ -108,15 +108,12 @@
   }
 }
 
-@keyframes subtle-gradient-animation {
+@keyframes dynamic-gradient-animation {
   0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
+    background-position: 0% 0%;
   }
   100% {
-    background-position: 0% 50%;
+    background-position: 100% 100%;
   }
 }
 
@@ -129,10 +126,17 @@
     @apply text-foreground;
     font-family: 'Inter', sans-serif; /* Default body font */
     line-height: 1.65; /* Adjusted line height */
-    /* Updated gradient for more pop */
-    background: linear-gradient(-45deg, hsl(var(--rovida-soft-gray)), hsl(var(--rovida-slate-green-gray)), hsl(var(--rovida-gold)), hsl(var(--rovida-soft-gray)));
-    background-size: 600% 600%; /* Increased size for more noticeable movement */
-    animation: subtle-gradient-animation 30s ease infinite;
+    /* Updated gradient for more pop and dynamic movement */
+    background: linear-gradient(
+      135deg,
+      hsl(var(--rovida-navy)) 0%,
+      hsl(var(--rovida-slate-green-gray)) 25%,
+      hsl(var(--rovida-gold)) 50%,
+      hsl(var(--rovida-soft-gray)) 75%,
+      hsl(var(--rovida-navy)) 100%
+    );
+    background-size: 400% 400%; /* Significantly larger size for expansive movement */
+    animation: dynamic-gradient-animation 45s ease infinite alternate; /* Longer duration, diagonal movement, and alternates direction */
   }
 
   h1, h2, h3, h4, h5, h6 {
