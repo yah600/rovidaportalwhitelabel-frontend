@@ -1,6 +1,5 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import BreadcrumbNav from '@/components/BreadcrumbNav';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Switch } from '@/components/ui/switch';
 import { Label } from '@/components/ui/label';
@@ -9,17 +8,12 @@ import { Bell, Mail, MessageSquare } from 'lucide-react';
 
 const SettingsNotifications = () => {
   const { t } = useTranslation();
-  const breadcrumbItems = [
-    { label: t('settings'), href: '/settings' },
-    { label: 'Notifications', href: '/settings/notifications' },
-  ];
 
   return (
     <div className="flex flex-1 flex-col gap-4">
-      <BreadcrumbNav items={breadcrumbItems} />
-      <h1 className="text-2xl font-semibold md:text-3xl">{t('settings')} Notifications</h1>
+      <h1 className="text-2xl font-semibold md:text-3xl">Notifications</h1>
 
-      <Card className="max-w-3xl mx-auto w-full">
+      <Card className="w-full">
         <CardHeader>
           <CardTitle>Email Notifications</CardTitle>
           <CardDescription>Control which email notifications you receive.</CardDescription>
@@ -57,7 +51,7 @@ const SettingsNotifications = () => {
         </CardContent>
       </Card>
 
-      <Card className="max-w-3xl mx-auto w-full">
+      <Card className="w-full">
         <CardHeader>
           <CardTitle>SMS Notifications</CardTitle>
           <CardDescription>Control which SMS notifications you receive.</CardDescription>

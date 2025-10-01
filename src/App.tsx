@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AppShell from "./components/layout/AppShell";
+import SettingsLayout from "./components/layout/SettingsLayout"; // Import SettingsLayout
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Dashboard from "./pages/Dashboard";
@@ -108,16 +109,21 @@ const App = () => (
             <Route path="integrations" element={<Integrations />} />
             <Route path="integrations/:slug" element={<IntegrationDetail />} />
             <Route path="analytics" element={<Analytics />} />
-            <Route path="settings" element={<Settings />} /> {/* Added a base route for Settings */}
-            <Route path="settings/org" element={<SettingsOrganization />} />
-            <Route path="settings/buildings" element={<SettingsBuildings />} />
-            <Route path="settings/units" element={<SettingsUnits />} />
-            <Route path="settings/users" element={<SettingsUsers />} />
-            <Route path="settings/roles" element={<SettingsRoles />} />
-            <Route path="settings/security" element={<SettingsSecurity />} />
-            <Route path="settings/notifications" element={<SettingsNotifications />} />
-            <Route path="settings/audit" element={<SettingsAudit />} />
-            <Route path="settings/feedback" element={<SettingsFeedback />} />
+            
+            {/* Settings routes wrapped by SettingsLayout */}
+            <Route path="settings" element={<SettingsLayout />}>
+              <Route index element={<Settings />} /> {/* Default settings overview */}
+              <Route path="org" element={<SettingsOrganization />} />
+              <Route path="buildings" element={<SettingsBuildings />} />
+              <Route path="units" element={<SettingsUnits />} />
+              <Route path="users" element={<SettingsUsers />} />
+              <Route path="roles" element={<SettingsRoles />} />
+              <Route path="security" element={<SettingsSecurity />} />
+              <Route path="notifications" element={<SettingsNotifications />} />
+              <Route path="audit" element={<SettingsAudit />} />
+              <Route path="feedback" element={<SettingsFeedback />} />
+            </Route>
+
             <Route path="profile" element={<Profile />} />
           </Route>
 

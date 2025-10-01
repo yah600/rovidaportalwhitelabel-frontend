@@ -1,6 +1,5 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import BreadcrumbNav from '@/components/BreadcrumbNav';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
@@ -10,10 +9,6 @@ import { Send } from 'lucide-react';
 
 const SettingsFeedback = () => {
   const { t } = useTranslation();
-  const breadcrumbItems = [
-    { label: t('settings'), href: '/settings' },
-    { label: 'Feedback', href: '/settings/feedback' },
-  ];
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
@@ -23,10 +18,9 @@ const SettingsFeedback = () => {
 
   return (
     <div className="flex flex-1 flex-col gap-4">
-      <BreadcrumbNav items={breadcrumbItems} />
-      <h1 className="text-2xl font-semibold md:text-3xl">{t('settings')} Feedback</h1>
+      <h1 className="text-2xl font-semibold md:text-3xl">Feedback</h1>
 
-      <Card className="max-w-3xl mx-auto w-full">
+      <Card className="w-full">
         <CardHeader>
           <CardTitle>Submit Feedback</CardTitle>
           <CardDescription>Help us improve by sharing your thoughts and suggestions.</CardDescription>

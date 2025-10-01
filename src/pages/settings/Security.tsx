@@ -1,6 +1,5 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import BreadcrumbNav from '@/components/BreadcrumbNav';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Switch } from '@/components/ui/switch';
@@ -9,15 +8,10 @@ import { Key, ShieldCheck } from 'lucide-react';
 
 const SettingsSecurity = () => {
   const { t } = useTranslation();
-  const breadcrumbItems = [
-    { label: t('settings'), href: '/settings' },
-    { label: 'Security', href: '/settings/security' },
-  ];
 
   return (
     <div className="flex flex-1 flex-col gap-4">
-      <BreadcrumbNav items={breadcrumbItems} />
-      <h1 className="text-2xl font-semibold md:text-3xl">{t('settings')} Security</h1>
+      <h1 className="text-2xl font-semibold md:text-3xl">Security</h1>
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         <Card>

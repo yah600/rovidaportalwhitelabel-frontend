@@ -1,6 +1,5 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import BreadcrumbNav from '@/components/BreadcrumbNav';
 import { Button } from '@/components/ui/button';
 import { PlusCircle } from 'lucide-react';
 import { mockRoles } from '@/data/mock-roles';
@@ -8,18 +7,13 @@ import RolesTable from '@/components/settings/RolesTable';
 
 const SettingsRoles = () => {
   const { t } = useTranslation();
-  const breadcrumbItems = [
-    { label: t('settings'), href: '/settings' },
-    { label: 'Roles', href: '/settings/roles' },
-  ];
 
   const hasRoles = mockRoles.length > 0;
 
   return (
     <div className="flex flex-1 flex-col gap-4">
-      <BreadcrumbNav items={breadcrumbItems} />
       <header className="flex items-center justify-between">
-        <h1 className="text-2xl font-semibold md:text-3xl">{t('settings')} Roles</h1>
+        <h1 className="text-2xl font-semibold md:text-3xl">Roles</h1>
         <Button>
           <PlusCircle className="mr-2 h-4 w-4" /> Create New Role
         </Button>

@@ -1,23 +1,17 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import BreadcrumbNav from '@/components/BreadcrumbNav';
 import { mockAuditLogs } from '@/data/mock-audit-logs';
 import AuditLogsTable from '@/components/settings/AuditLogsTable';
 
 const SettingsAudit = () => {
   const { t } = useTranslation();
-  const breadcrumbItems = [
-    { label: t('settings'), href: '/settings' },
-    { label: 'Audit Log', href: '/settings/audit' },
-  ];
 
   const hasLogs = mockAuditLogs.length > 0;
 
   return (
     <div className="flex flex-1 flex-col gap-4">
-      <BreadcrumbNav items={breadcrumbItems} />
       <header className="flex items-center justify-between">
-        <h1 className="text-2xl font-semibold md:text-3xl">{t('settings')} Audit Log</h1>
+        <h1 className="text-2xl font-semibold md:text-3xl">Audit Log</h1>
         {/* Potentially add filters or export button here */}
       </header>
 

@@ -1,6 +1,5 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import BreadcrumbNav from '@/components/BreadcrumbNav';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
@@ -10,10 +9,6 @@ import { Save } from 'lucide-react';
 
 const SettingsOrganization = () => {
   const { t } = useTranslation();
-  const breadcrumbItems = [
-    { label: t('settings'), href: '/settings' },
-    { label: 'Organization', href: '/settings/org' },
-  ];
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
@@ -23,10 +18,9 @@ const SettingsOrganization = () => {
 
   return (
     <div className="flex flex-1 flex-col gap-4">
-      <BreadcrumbNav items={breadcrumbItems} />
-      <h1 className="text-2xl font-semibold md:text-3xl">{t('settings')} Organization</h1>
+      <h1 className="text-2xl font-semibold md:text-3xl">Organization Details</h1>
 
-      <Card className="max-w-3xl mx-auto w-full">
+      <Card className="w-full">
         <CardHeader>
           <CardTitle>Organization Details</CardTitle>
           <CardDescription>Manage your organization's general information.</CardDescription>
