@@ -16,6 +16,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 
 const Topbar = () => {
   const { t } = useTranslation();
+  const [searchTerm, setSearchTerm] = React.useState('');
 
   const userName = "John Doe";
   const buildings = [
@@ -24,13 +25,19 @@ const Topbar = () => {
   ];
   const currentBuildingId = '1';
 
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(event.target.value);
+    console.log("Search Term:", event.target.value); // Log search term for now
+    // In a real app, you'd trigger a search function here
+  };
+
   return (
     <header className="sticky top-0 z-40 w-full border-b border-rovida-soft-gray bg-white/80 backdrop-blur-xl px-4 py-2 flex items-center justify-between shadow-sm">
       <div className="flex items-center space-x-4">
         <div className="text-lg font-semibold text-rovida-gold">Gestion Rovida</div>
 
         <Select defaultValue={currentBuildingId}>
-          <SelectTrigger className="w-[180px] border-rovida-soft-gray text-rovida-near-black bg-white/60">
+          <SelectTrigger className="w-[180px] border-rovida-soft-gray text-rovida-near-black bg-white/60 backdrop-blur-sm">
             <SelectValue placeholder={t('select_building')} />
           </SelectTrigger>
           <SelectContent className="bg-white/80 backdrop-blur-xl border-rovida-soft-gray">
@@ -49,7 +56,9 @@ const Topbar = () => {
           <Input
             type="text"
             placeholder="Search..."
-            className="pl-8 w-[200px] lg:w-[300px] border-rovida-soft-gray text-rovida-near-black bg-white/60"
+            className="pl-8 w-[200px] lg:w-[300px] border-rovida-soft-gray text-rovida-near-black bg-white/60 backdrop-blur-sm"
+            value={searchTerm}
+            onChange={handleSearchChange}
           />
         </div>
 

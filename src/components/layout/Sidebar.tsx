@@ -29,9 +29,8 @@ import {
   MessageSquareText,
   ChevronDown,
   Info,
-  Menu, // Import Menu icon for toggling
+  Menu,
 } from 'lucide-react';
-// Removed GradualBlur import
 
 interface NavItem {
   title: string;
@@ -47,7 +46,7 @@ const Sidebar = ({ className }: { className?: string }) => {
   const sidebarContentRef = React.useRef<HTMLDivElement>(null);
 
   const [openSubMenus, setOpenSubMenus] = React.useState<Record<string, boolean>>({});
-  const [isCollapsed, setIsCollapsed] = React.useState(false); // State for sidebar collapse
+  const [isCollapsed, setIsCollapsed] = React.useState(false);
 
   const currentUserRole = 'Property Manager';
 
@@ -153,6 +152,10 @@ const Sidebar = ({ className }: { className?: string }) => {
     }));
   };
 
+  React.useEffect(() => {
+    document.documentElement.style.setProperty('--sidebar-width', isCollapsed ? '70px' : '280px');
+  }, [isCollapsed]);
+
   const renderNavItems = (items: NavItem[]) => {
     return items.map((item) => {
       const canView = !item.roles || item.roles.includes(currentUserRole);
@@ -210,9 +213,10 @@ const Sidebar = ({ className }: { className?: string }) => {
     <div
       className={cn(
         "hidden border-r border-rovida-soft-gray bg-white/80 backdrop-blur-xl md:flex flex-col transition-all duration-300 ease-in-out",
-        isCollapsed ? "w-[60px] lg:w-[70px]" : "w-[220px] lg:w-[280px]",
+        isCollapsed ? "w-[70px]" : "w-[280px]", // Use fixed widths for collapsed/expanded
         className
       )}
+      style={{ '--sidebar-width': isCollapsed ? '70px' : '280px' } as React.CSSProperties}
     >
       <div className="flex h-14 items-center border-b border-rovida-soft-gray px-4 lg:h-[60px] lg:px-6 justify-between">
         {!isCollapsed && (
@@ -235,7 +239,6 @@ const Sidebar = ({ className }: { className?: string }) => {
         <nav className="grid items-start px-2 text-sm font-medium lg:px-4 py-2">
           {renderNavItems(navItems)}
         </nav>
-        {/* Removed GradualBlur */}
       </div>
     </div>
   );
