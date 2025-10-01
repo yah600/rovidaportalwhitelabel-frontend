@@ -52,7 +52,6 @@ import Profile from "./pages/Profile";
 import About from "./pages/About"; // Import new About page
 import CardNavDemo from "./pages/CardNavDemo"; // Import new CardNavDemo page
 import OnboardingPage from "./pages/OnboardingPage"; // Import new OnboardingPage
-import MaintenanceWorkOrders from "./pages/maintenance/WorkOrders"; // Re-added missing import
 
 // Auth Pages
 import Login from "./pages/auth/Login";
@@ -94,7 +93,6 @@ const App = () => (
             <Route path="/finance" element={<Finance />} />
             <Route path="/finance/bills" element={<FinanceBills />} />
             <Route path="/finance/bills/:id" element={<FinanceBillDetail />} />
-            <Route path="/finance/payments" element={<FinancePayments />} />
             <Route path="/finance/payments" element={<FinancePayments />} />
             <Route path="/finance/reports" element={<FinanceReports />} />
             <Route path="/board/meetings" element={<BoardMeetings />} />
