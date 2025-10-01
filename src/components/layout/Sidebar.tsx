@@ -40,6 +40,7 @@ import {
   LayoutGrid, // New icon for Portfolio
   UserCheck, // New icon for Visitor Logs
 } from 'lucide-react';
+import { ShieldCheck } from 'lucide-react'; // Isolated import for ShieldCheck
 import { useAuth } from '@/hooks/useAuth';
 
 interface NavItem {
