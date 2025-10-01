@@ -16,7 +16,6 @@ import Maintenance from "./pages/Maintenance";
 import MaintenanceCalendar from "./pages/maintenance/Calendar";
 import MaintenanceAssets from "./pages/maintenance/Assets";
 import MaintenanceWorkOrders from "./pages/maintenance/WorkOrders";
-import MaintenanceTasks from "./pages/maintenance/Tasks";
 import MaintenanceTaskDetail from "./pages/maintenance/TaskDetail";
 import MaintenanceAgenda from "./pages/maintenance/Agenda";
 import Finance from "./pages/Finance";
@@ -52,6 +51,8 @@ import SettingsFeedback from "./pages/settings/Feedback";
 import Profile from "./pages/Profile";
 import About from "./pages/About"; // Import new About page
 import CardNavDemo from "./pages/CardNavDemo"; // Import new CardNavDemo page
+import OnboardingPage from "./pages/OnboardingPage"; // Import new OnboardingPage
+import MaintenanceWorkOrders from "./pages/maintenance/WorkOrders"; // Re-added missing import
 
 // Auth Pages
 import Login from "./pages/auth/Login";
@@ -73,6 +74,7 @@ const App = () => (
           <Route path="/auth/login" element={<Login />} />
           <Route path="/auth/forgot" element={<ForgotPassword />} />
           <Route path="/auth/reset" element={<ResetPassword />} />
+          <Route path="/onboarding" element={<OnboardingPage />} /> {/* New Onboarding Route */}
 
           {/* Protected Routes wrapped by AppShell */}
           <Route element={<AppShell />}>
