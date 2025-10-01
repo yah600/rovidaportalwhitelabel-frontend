@@ -1,17 +1,13 @@
+"use client";
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/components/ui/table';
+import { ColumnDef } from "@tanstack/react-table";
 import { Badge } from '@/components/ui/badge';
 import { WorkOrder } from '@/data/mock-work-orders';
 import { format } from 'date-fns';
+import { DataTable } from '@/components/DataTable';
 
 interface WorkOrdersTableProps {
   workOrders: WorkOrder[];
@@ -31,7 +27,7 @@ const WorkOrdersTable = ({ workOrders }: WorkOrdersTableProps) => {
       case 'Cancelled':
         return 'destructive';
       case 'Pending Parts':
-        return 'secondary'; // Changed from 'warning' to 'secondary'
+        return 'secondary';
       default:
         return 'default';
     }
@@ -52,49 +48,74 @@ const WorkOrdersTable = ({ workOrders }: WorkOrdersTableProps) => {
     }
   };
 
+  const columns: ColumnDef<WorkOrder>[] = [
+    {
+      accessorKey: "id",
+      header: "ID",
+      cell: ({ row }) => (
+        <Link to={`/maintenance/work-orders/${row.original.id}`} className="text-primary hover:underline">
+          {row.getValue("id")}
+        </Link>
+      ),
+    },
+    {
+      accessorKey: "title",
+      header: "Title",
+      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("title")}</span>,
+    },
+    {
+      accessorKey: "unit",
+      header: "Unit",
+      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("unit")}</span>,
+    },
+    {
+      accessorKey: "assignedTo",
+      header: "Assigned To",
+      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("assignedTo")}</span>,
+    },
+    {
+      accessorKey: "status",
+      header: "Status",
+      cell: ({ row }) => (
+        <Badge variant={getStatusVariant(row.getValue("status"))}>
+          {row.getValue("status")}
+        </Badge>
+      ),
+    },
+    {
+      accessorKey: "priority",
+      header: "Priority",
+      cell: ({ row }) => (
+        <Badge className={getPriorityColor(row.getValue("priority"))}>
+          {row.getValue("priority")}
+        </Badge>
+      ),
+    },
+    {
+      accessorKey: "dueDate",
+      header: "Due Date",
+      cell: ({ row }) => (
+        <span className="text-rovida-slate-green-gray">
+          {format(row.getValue("dueDate"), 'MMM dd, yyyy')}
+        </span>
+      ),
+    },
+    {
+      id: "actions",
+      header: "Actions",
+      enableSorting: false,
+      cell: ({ row }) => (
+        <div className="text-right">
+          <Link to={`/maintenance/work-orders/${row.original.id}`} className="text-sm text-rovida-slate-green-gray hover:underline">
+            View
+          </Link>
+        </div>
+      ),
+    },
+  ];
+
   return (
-    <div className="rounded-md border">
-      <Table>
-        <TableHeader>
-          <TableRow>
-            <TableHead className="w-[100px]">ID</TableHead>
-            <TableHead>Title</TableHead>
-            <TableHead>Unit</TableHead>
-            <TableHead>Assigned To</TableHead>
-            <TableHead>Status</TableHead>
-            <TableHead>Priority</TableHead>
-            <TableHead>Due Date</TableHead>
-            <TableHead className="text-right">Actions</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {workOrders.map((order) => (
-            <TableRow key={order.id}>
-              <TableCell className="font-medium">
-                <Link to={`/maintenance/work-orders/${order.id}`} className="text-primary hover:underline">
-                  {order.id}
-                </Link>
-              </TableCell>
-              <TableCell>{order.title}</TableCell>
-              <TableCell>{order.unit}</TableCell>
-              <TableCell>{order.assignedTo}</TableCell>
-              <TableCell>
-                <Badge variant={getStatusVariant(order.status)}>{order.status}</Badge>
-              </TableCell>
-              <TableCell>
-                <Badge className={getPriorityColor(order.priority)}>{order.priority}</Badge>
-              </TableCell>
-              <TableCell>{format(order.dueDate, 'MMM dd, yyyy')}</TableCell>
-              <TableCell className="text-right">
-                <Link to={`/maintenance/work-orders/${order.id}`} className="text-sm text-muted-foreground hover:underline">
-                  View
-                </Link>
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </div>
+    <DataTable columns={columns} data={workOrders} />
   );
 };
 
