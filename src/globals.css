@@ -108,15 +108,30 @@
   }
 }
 
+@keyframes subtle-gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 @layer base {
   * {
     @apply border-border;
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
     font-family: 'Inter', sans-serif; /* Default body font */
     line-height: 1.65; /* Adjusted line height */
+    background: linear-gradient(-45deg, hsl(var(--rovida-soft-gray)), hsl(160 10% 95%), hsl(var(--rovida-soft-gray)));
+    background-size: 400% 400%;
+    animation: subtle-gradient-animation 30s ease infinite;
   }
 
   h1, h2, h3, h4, h5, h6 {
