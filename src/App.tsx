@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"; // Import Navigate
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import AppShell from "./components/layout/AppShell";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
@@ -29,8 +29,8 @@ import BoardMeetings from "./pages/board/Meetings";
 import BoardMeetingDetail from "./pages/board/MeetingDetail";
 import BoardVotes from "./pages/board/Votes";
 import BoardVoteDetail from "./pages/board/VoteDetail";
-import DocumentsOverview from "./pages/documents/Overview"; // New Overview
-import DocumentsRegistry from "./pages/documents/Registry"; // Renamed from Overview
+import DocumentsOverview from "./pages/documents/Overview";
+import DocumentsRegistry from "./pages/documents/Registry";
 import DocumentsInbox from "./pages/documents/Inbox";
 import DocumentDetail from "./pages/documents/DocumentDetail";
 import Comms from "./pages/Comms";
@@ -63,7 +63,7 @@ import Amenities from "./pages/Amenities";
 import SettingsLeases from "./pages/settings/Leases";
 import SettingsPortfolio from "./pages/settings/Portfolio";
 import SettingsVisitorLogs from "./pages/settings/VisitorLogs";
-import SettingsUsers from "./pages/settings/Users"; // Added missing import
+import SettingsUsers from "./pages/settings/Users";
 import SettingsLayout from "./components/layout/SettingsLayout";
 
 // Auth Pages
@@ -112,19 +112,19 @@ const App = () => (
             <Route path="/finance/bills/:id" element={<FinanceBillDetail />} />
             <Route path="/finance/payments" element={<FinancePayments />} />
             <Route path="/finance/reports" element={<FinanceReports />} />
-            <Route path="/finance/purchase-orders" element={<PurchaseOrders />} /> {/* Moved under /finance */}
+            <Route path="/finance/purchase-orders" element={<PurchaseOrders />} />
             <Route path="/board" element={<Board />} />
             <Route path="/board/meetings" element={<BoardMeetings />} />
             <Route path="/board/meetings/:id" element={<BoardMeetingDetail />} />
             <Route path="/board/votes" element={<BoardVotes />} />
             <Route path="/board/votes/:id" element={<BoardVoteDetail />} />
-            <Route path="/board/architectural-requests" element={<ArchitecturalRequests />} /> {/* Moved under /board */}
+            <Route path="/board/architectural-requests" element={<ArchitecturalRequests />} />
             <Route path="/rules" element={<Rules />} />
             <Route path="/insurance" element={<Insurance />} />
             <Route path="/amenities" element={<Amenities />} />
             {/* Documents Routes */}
-            <Route path="/documents" element={<Navigate to="/documents/registry" replace />} /> {/* Redirect /documents to /documents/registry */}
-            <Route path="/documents/registry" element={<DocumentsRegistry />} /> {/* Renamed Registry page */}
+            <Route path="/documents" element={<DocumentsOverview />} /> {/* Documents landing page */}
+            <Route path="/documents/registry" element={<DocumentsRegistry />} /> {/* Detailed registry */}
             <Route path="/documents/inbox" element={<DocumentsInbox />} />
             <Route path="/documents/:id" element={<DocumentDetail />} />
             <Route path="/comms" element={<Comms />} />
@@ -136,7 +136,7 @@ const App = () => (
             <Route path="/analytics" element={<Analytics />} />
             {/* Settings Routes with Layout */}
             <Route path="/settings" element={<SettingsLayout />}>
-              <Route index element={<Settings />} /> {/* Default settings page */}
+              <Route index element={<Settings />} />
               <Route path="org" element={<SettingsOrganization />} />
               <Route path="portfolio" element={<SettingsPortfolio />} />
               <Route path="buildings" element={<SettingsBuildings />} />

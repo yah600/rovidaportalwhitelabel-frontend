@@ -37,7 +37,7 @@ const settingsNavItems: SettingsNavItem[] = [
     title: 'Portfolio Management',
     href: '/settings/portfolio',
     icon: LayoutGrid,
-    moduleName: 'Settings', // Assuming it falls under general settings permissions
+    moduleName: 'Portfolio Management', // Corrected moduleName
   },
   {
     title: 'Buildings',
@@ -55,7 +55,7 @@ const settingsNavItems: SettingsNavItem[] = [
     title: 'Tenant & Lease Management',
     href: '/settings/leases',
     icon: FileSignature,
-    moduleName: 'Settings', // Assuming it falls under general settings permissions
+    moduleName: 'Tenant & Lease Management', // Corrected moduleName
   },
   {
     title: 'Users',
@@ -79,7 +79,7 @@ const settingsNavItems: SettingsNavItem[] = [
     title: 'Visitor Logs',
     href: '/settings/visitor-logs',
     icon: UserCheck,
-    moduleName: 'Settings', // Assuming it falls under general settings permissions
+    moduleName: 'Visitor Logs', // Corrected moduleName
   },
   {
     title: 'Notifications',

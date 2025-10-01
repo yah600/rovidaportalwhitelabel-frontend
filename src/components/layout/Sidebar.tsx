@@ -95,7 +95,7 @@ const Sidebar = ({ className }: { className?: string }) => {
       subItems: [
         { title: t('bills'), href: '/finance/bills', icon: Receipt, moduleName: 'Finance - Bills/Recurring/Deposits' },
         { title: t('payments'), href: '/finance/payments', icon: DollarSign, moduleName: 'Finance - Bills/Recurring/Deposits' },
-        { title: t('purchase_orders'), href: '/finance/purchase_orders', icon: ShoppingCart, moduleName: 'Finance' },
+        { title: t('purchase_orders'), href: '/finance/purchase-orders', icon: ShoppingCart, moduleName: 'Finance' },
         { title: t('reports'), href: '/finance/reports', icon: BarChart2, moduleName: 'Finance - Reports' },
       ],
     },
@@ -107,7 +107,7 @@ const Sidebar = ({ className }: { className?: string }) => {
       subItems: [
         { title: t('meetings'), href: '/board/meetings', icon: Handshake, moduleName: 'Board - Meetings/Votes' },
         { title: t('votes'), href: '/board/votes', icon: Vote, moduleName: 'Board - Meetings/Votes' },
-        { title: t('architectural_requests'), href: '/board/architectural-requests', icon: LayoutTemplate, moduleName: 'Board' },
+        { title: t('architectural_requests'), href: '/board/architectural-requests', icon: LayoutTemplate, moduleName: 'Architectural Requests' }, // Corrected moduleName
       ],
     },
     { title: t('rules_and_violations'), href: '/rules', icon: Gavel, moduleName: 'Rules' },
@@ -119,6 +119,7 @@ const Sidebar = ({ className }: { className?: string }) => {
       icon: FileText,
       moduleName: 'Documents',
       subItems: [
+        { title: t('overview'), href: '/documents', icon: Info, moduleName: 'Documents' }, // New overview page
         { title: t('inbox'), href: '/documents/inbox', icon: Mail, moduleName: 'Documents' },
         { title: t('registry'), href: '/documents/registry', icon: FileText, moduleName: 'Documents' },
       ],
@@ -143,14 +144,14 @@ const Sidebar = ({ className }: { className?: string }) => {
       moduleName: 'Settings',
       subItems: [
         { title: t('organization'), href: '/settings/org', icon: Settings, moduleName: 'Settings' },
-        { title: t('portfolio_management'), href: '/settings/portfolio', icon: LayoutGrid, moduleName: 'Settings' },
+        { title: t('portfolio_management'), href: '/settings/portfolio', icon: LayoutGrid, moduleName: 'Portfolio Management' }, // Corrected moduleName
         { title: t('buildings'), href: '/settings/buildings', icon: Building, moduleName: 'Settings' },
         { title: t('units'), href: '/settings/units', icon: Scale, moduleName: 'Settings' },
-        { title: t('tenant_lease_management'), href: '/settings/leases', icon: FileSignature, moduleName: 'Settings' },
+        { title: t('tenant_lease_management'), href: '/settings/leases', icon: FileSignature, moduleName: 'Tenant & Lease Management' }, // Corrected moduleName
         { title: t('users'), href: '/settings/users', icon: Users, moduleName: 'Settings' },
         { title: t('roles'), href: '/settings/roles', icon: Users, moduleName: 'Settings' },
         { title: t('security'), href: '/settings/security', icon: ShieldCheck, moduleName: 'Settings' },
-        { title: t('visitor_logs'), href: '/settings/visitor-logs', icon: UserCheck, moduleName: 'Settings' },
+        { title: t('visitor_logs'), href: '/settings/visitor-logs', icon: UserCheck, moduleName: 'Visitor Logs' }, // Corrected moduleName
         { title: t('notifications'), href: '/settings/notifications', icon: Bell, moduleName: 'Settings' },
         { title: t('audit_log'), href: '/settings/audit', icon: FileText, moduleName: 'Settings' },
         { title: t('feedback'), href: '/settings/feedback', icon: MessageSquareText, moduleName: 'Settings' },
