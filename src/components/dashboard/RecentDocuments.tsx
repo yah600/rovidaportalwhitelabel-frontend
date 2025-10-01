@@ -2,21 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { FileText, ArrowRight } from 'lucide-react'; // Added FileText and ArrowRight imports
+import { FileText, ArrowRight } from 'lucide-react';
 import { format } from 'date-fns';
-
-interface Document {
-  id: string;
-  title: string;
-  type: string;
-  uploadedAt: Date;
-}
-
-const mockDocuments: Document[] = [
-  { id: 'DOC001', title: 'Annual Budget 2024', type: 'PDF', uploadedAt: new Date('2024-01-15T10:00:00Z') },
-  { id: 'DOC002', title: 'Building A Renovation Plan', type: 'PDF', uploadedAt: new Date('2024-02-20T14:30:00Z') },
-  { id: 'DOC003', title: 'Emergency Contact List', type: 'Excel', uploadedAt: new Date('2024-03-01T09:00:00Z') },
-];
+import { mockDocuments, Document } from '@/data/mock-documents'; // Import mockDocuments and Document interface
 
 const RecentDocuments = () => {
   const { t } = useTranslation();
