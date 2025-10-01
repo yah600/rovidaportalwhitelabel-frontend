@@ -16,6 +16,7 @@ import Maintenance from "./pages/Maintenance";
 import MaintenanceCalendar from "./pages/maintenance/Calendar";
 import MaintenanceAssets from "./pages/maintenance/Assets";
 import MaintenanceWorkOrders from "./pages/maintenance/WorkOrders";
+import MaintenanceTasks from "./pages/maintenance/Tasks";
 import MaintenanceTaskDetail from "./pages/maintenance/TaskDetail";
 import MaintenanceAgenda from "./pages/maintenance/Agenda";
 import Finance from "./pages/Finance";
