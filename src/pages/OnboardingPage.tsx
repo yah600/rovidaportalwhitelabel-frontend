@@ -68,21 +68,21 @@ const OnboardingPage = () => {
   ];
 
   return (
-    <div className="flex flex-1 flex-col gap-4">
+    <div className="flex flex-1 flex-col gap-4 items-center"> {/* Centered content */}
       <BreadcrumbNav items={breadcrumbItems} />
-      <h1 className="text-2xl font-semibold md:text-3xl text-page-title">Welcome Onboard!</h1>
-      <p className="text-rovida-slate-green-gray">Let's set up your account and preferences.</p>
+      <h1 className="text-2xl font-semibold md:text-3xl text-page-title text-center">Welcome Onboard!</h1>
+      <p className="text-rovida-slate-green-gray text-center">Let's set up your account and preferences.</p>
 
-      <GlassSurface width="100%" height="auto" borderRadius={10} blur={15} backgroundOpacity={0.1} className="max-w-3xl mx-auto">
+      <GlassSurface width="100%" height="auto" borderRadius={10} blur={15} backgroundOpacity={0.1} className="max-w-3xl mx-auto p-4"> {/* Added padding to GlassSurface */}
         <Card className="w-full bg-transparent border-none shadow-none">
-          <CardHeader>
+          <CardHeader className="text-center"> {/* Centered card header */}
             <CardTitle className="text-rovida-navy">Account Setup</CardTitle>
             <CardDescription className="text-rovida-slate-green-gray">Follow these steps to get started.</CardDescription>
           </CardHeader>
-          <CardContent>
+          <CardContent className="p-6"> {/* Added padding to CardContent */}
             <Stepper onFinalStepCompleted={handleOnboardingComplete}>
               <Step>
-                <div className="grid gap-4 text-rovida-near-black">
+                <div className="grid gap-4 text-rovida-near-black text-left"> {/* Aligned text left */}
                   <h3 className="text-xl font-semibold">Step 1: Personal Information</h3>
                   <p className="text-rovida-slate-green-gray">Tell us a bit about yourself.</p>
                   <div className="grid gap-2">
@@ -96,7 +96,7 @@ const OnboardingPage = () => {
                 </div>
               </Step>
               <Step>
-                <div className="grid gap-4 text-rovida-near-black">
+                <div className="grid gap-4 text-rovida-near-black text-left"> {/* Aligned text left */}
                   <h3 className="text-xl font-semibold">Step 2: Building Selection</h3>
                   <p className="text-rovida-slate-green-gray">Choose the building you manage or reside in.</p>
                   <div className="grid gap-2">
@@ -106,7 +106,7 @@ const OnboardingPage = () => {
                 </div>
               </Step>
               <Step>
-                <div className="grid gap-4 text-rovida-near-black">
+                <div className="grid gap-4 text-rovida-near-black text-left"> {/* Aligned text left */}
                   <h3 className="text-xl font-semibold">Step 3: Contact & Notification Preferences</h3>
                   <p className="text-rovida-slate-green-gray">How should we reach you and what updates do you want?</p>
                   <div className="grid gap-2">
@@ -167,7 +167,7 @@ const OnboardingPage = () => {
                 </div>
               </Step>
               <Step>
-                <div className="grid gap-4 text-rovida-near-black">
+                <div className="grid gap-4 text-rovida-near-black text-left"> {/* Aligned text left */}
                   <h3 className="text-xl font-semibold">Step 4: Finalizing Setup</h3>
                   <p className="text-rovida-slate-green-gray">Setting up your dashboard based on your preferences.</p>
                   <div className="mt-4">
@@ -177,7 +177,7 @@ const OnboardingPage = () => {
                 </div>
               </Step>
               <Step>
-                <div className="grid gap-4 text-rovida-near-black">
+                <div className="grid gap-4 text-rovida-near-black text-left"> {/* Aligned text left */}
                   <h3 className="text-xl font-semibold">Step 5: Ready to Go!</h3>
                   <p className="text-rovida-slate-green-gray">Your account is all set up. Enjoy Gestion Rovida!</p>
                   <Button onClick={handleOnboardingComplete} className="btn-primary">Go to Dashboard</Button>
