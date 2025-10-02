@@ -22,10 +22,12 @@ import { format } from 'date-fns';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import CircularGallery from '@/components/CircularGallery'; // Import CircularGallery
 import { toast } from 'sonner'; // Import toast for actions
+import { useAuth } from '@/hooks/useAuth'; // Import useAuth
 
 const IssueDetail = () => {
   const { id } = useParams();
   const { t } = useTranslation(['issues', 'common']); // Specify namespaces
+  const { canRead, canUpdate, canDelete, canApprove } = useAuth();
 
   const issue: Issue | undefined = mockIssues.find((issue) => issue.id === id);
 
@@ -115,7 +117,7 @@ const IssueDetail = () => {
         <header className="flex items-center justify-between flex-wrap gap-2 mb-4">
           <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{issue.title}</h1>
           <div className="flex items-center gap-2">
-            <Badge variant={getStatusBadgeVariant(issue.status)}>{t(issue.status.toLowerCase().replace(/ /g, ''), { ns: 'issues' })}</Badge>
+            <Badge variant={getStatusBadgeVariant(issue.status)}>{t(issue.status.toLowerCase(), { ns: 'issues' })}</Badge>
             <Badge className={getPriorityBadgeColor(issue.priority)}>{t(issue.priority.toLowerCase(), { ns: 'common' })}</Badge>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -127,11 +129,21 @@ const IssueDetail = () => {
               <DropdownMenuContent align="end" className="bg-white/80 backdrop-blur-xl border-rovida-soft-gray text-rovida-near-black">
                 <DropdownMenuLabel>{t('actions', { ns: 'common' })}</DropdownMenuLabel>
                 <DropdownMenuSeparator className="bg-rovida-soft-gray" />
-                <DropdownMenuItem className="hover:bg-rovida-soft-gray" onClick={handleAssign}>{t('assign', { ns: 'issues' })}</DropdownMenuItem>
-                <DropdownMenuItem className="hover:bg-rovida-soft-gray" onClick={handleChangeStatus}>{t('change status', { ns: 'issues' })}</DropdownMenuItem>
-                <DropdownMenuItem className="hover:bg-rovida-soft-gray" onClick={handleAddAttachment}>{t('add attachment', { ns: 'issues' })}</DropdownMenuItem>
-                <DropdownMenuSeparator className="bg-rovida-soft-gray" />
-                <DropdownMenuItem className="text-rovida-error hover:bg-rovida-soft-gray" onClick={handleDeleteIncident}>{t('delete incident', { ns: 'issues' })}</DropdownMenuItem>
+                {canUpdate('Issues') && (
+                  <DropdownMenuItem className="hover:bg-rovida-soft-gray" onClick={handleAssign}>{t('assign', { ns: 'issues' })}</DropdownMenuItem>
+                )}
+                {canUpdate('Issues') && (
+                  <DropdownMenuItem className="hover:bg-rovida-soft-gray" onClick={handleChangeStatus}>{t('change status', { ns: 'issues' })}</DropdownMenuItem>
+                )}
+                {canUpdate('Issues') && (
+                  <DropdownMenuItem className="hover:bg-rovida-soft-gray" onClick={handleAddAttachment}>{t('add attachment', { ns: 'issues' })}</DropdownMenuItem>
+                )}
+                {canDelete('Issues') && (
+                  <>
+                    <DropdownMenuSeparator className="bg-rovida-soft-gray" />
+                    <DropdownMenuItem className="text-rovida-error hover:bg-rovida-soft-gray" onClick={handleDeleteIncident}>{t('delete incident', { ns: 'issues' })}</DropdownMenuItem>
+                  </>
+                )}
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
@@ -213,9 +225,11 @@ const IssueDetail = () => {
             <Card className="card-rovida">
               <CardHeader className="flex flex-row items-center justify-between">
                 <CardTitle className="text-rovida-navy">{t('attachments', { ns: 'issues' })}</CardTitle>
-                <Button variant="outline" size="sm" className="btn-secondary" onClick={handleAddAttachment}>
-                  <PlusCircle className="h-4 w-4 mr-2" /> {t('add attachment', { ns: 'issues' })}
-                </Button>
+                {canUpdate('Issues') && (
+                  <Button variant="outline" size="sm" className="btn-secondary" onClick={handleAddAttachment}>
+                    <PlusCircle className="h-4 w-4 mr-2" /> {t('add attachment', { ns: 'issues' })}
+                  </Button>
+                )}
               </CardHeader>
               <CardContent>
                 {issue.attachments.length > 0 ? (
