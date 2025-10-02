@@ -16,5 +16,13 @@
   "parking": "Parking",
   "amenities": "Amenities",
   "safety": "Safety",
-  "add new rule action": "Add new rule action triggered."
+  "add new rule action": "Add new rule action triggered.",
+  "rule not found": "Rule not found.",
+  "rule": "Rule",
+  "rule details": "Rule Details",
+  "last revised": "Last Revised",
+  "edit rule": "Edit Rule",
+  "delete rule": "Delete Rule",
+  "edit rule action": "Edit rule action triggered for ID: {{id}}.",
+  "delete rule action": "Delete rule action triggered for ID: {{id}}."
 }

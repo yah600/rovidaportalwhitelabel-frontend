@@ -9,6 +9,7 @@ import { format } from 'date-fns';
 import { DataTable } from '@/components/DataTable';
 import { toast } from 'sonner'; // Import toast for actions
 import { useAuth } from '@/hooks/useAuth'; // Import useAuth
+import { Link } from 'react-router-dom'; // Import Link
 
 interface PoliciesTableProps {
   policies: InsurancePolicy[];
@@ -38,7 +39,11 @@ const PoliciesTable = ({ policies }: PoliciesTableProps) => {
     {
       accessorKey: "id",
       header: t('id', { ns: 'common' }),
-      cell: ({ row }) => <span className="font-medium text-rovida-near-black">{row.getValue("id") as string}</span>,
+      cell: ({ row }) => (
+        <Link to={`/insurance/${row.original.id}`} className="text-primary hover:underline">
+          {row.getValue("id") as string}
+        </Link>
+      ),
     },
     {
       accessorKey: "provider",
@@ -84,9 +89,9 @@ const PoliciesTable = ({ policies }: PoliciesTableProps) => {
       enableSorting: false,
       cell: ({ row }) => (
         <div className="text-right">
-          <button onClick={() => handleViewEditPolicy(row.original.id)} className="text-sm text-rovida-slate-green-gray hover:underline">
+          <Link to={`/insurance/${row.original.id}`} className="text-sm text-rovida-slate-green-gray hover:underline">
             {t('view', { ns: 'common' })} / {t('edit', { ns: 'common' })}
-          </button>
+          </Link>
         </div>
       ),
     },

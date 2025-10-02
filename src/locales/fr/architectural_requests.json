@@ -11,5 +11,18 @@
   "rejected": "Rejeté",
   "in progress": "En cours",
   "submit new request action": "Action de soumettre une nouvelle demande architecturale déclenchée.",
-  "view manage request action": "Action de voir/gérer la demande déclenchée pour l'ID : {{id}}."
+  "view manage request action": "Action de voir/gérer la demande déclenchée pour l'ID : {{id}}.",
+  "architectural request not found": "Demande architecturale introuvable.",
+  "request": "Demande",
+  "request details": "Détails de la demande",
+  "approval date": "Date d'approbation",
+  "reviewer": "Réviseur",
+  "edit request": "Modifier la demande",
+  "approve request": "Approuver la demande",
+  "reject request": "Rejeter la demande",
+  "delete request": "Supprimer la demande",
+  "edit request action": "Action de modifier la demande déclenchée pour l'ID : {{id}}.",
+  "approve request action": "Action d'approuver la demande déclenchée pour l'ID : {{id}}.",
+  "reject request action": "Action de rejeter la demande déclenchée pour l'ID : {{id}}.",
+  "delete request action": "Action de supprimer la demande déclenchée pour l'ID : {{id}}."
 }

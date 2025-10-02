@@ -16,5 +16,13 @@
   "parking": "Stationnement",
   "amenities": "Commodités",
   "safety": "Sécurité",
-  "add new rule action": "Action d'ajout de nouvelle règle déclenchée."
+  "add new rule action": "Action d'ajout de nouvelle règle déclenchée.",
+  "rule not found": "Règle introuvable.",
+  "rule": "Règle",
+  "rule details": "Détails de la règle",
+  "last revised": "Dernière révision",
+  "edit rule": "Modifier la règle",
+  "delete rule": "Supprimer la règle",
+  "edit rule action": "Action de modifier la règle déclenchée pour l'ID : {{id}}.",
+  "delete rule action": "Action de supprimer la règle déclenchée pour l'ID : {{id}}."
 }

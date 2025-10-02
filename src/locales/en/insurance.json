@@ -16,5 +16,18 @@
   "property": "Property",
   "flood": "Flood",
   "add new policy action": "Add new insurance policy action triggered.",
-  "view edit policy action": "View/Edit policy action triggered for ID: {{id}}."
+  "view edit policy action": "View/Edit policy action triggered for ID: {{id}}.",
+  "policy not found": "Policy not found.",
+  "policy": "Policy",
+  "policy details": "Policy Details",
+  "deductible": "Deductible",
+  "contact person": "Contact Person",
+  "contact phone": "Contact Phone",
+  "edit policy": "Edit Policy",
+  "renew policy": "Renew Policy",
+  "delete policy": "Delete Policy",
+  "policy for": "policy for",
+  "edit policy action": "Edit policy action triggered for ID: {{id}}.",
+  "renew policy action": "Renew policy action triggered for ID: {{id}}.",
+  "delete policy action": "Delete policy action triggered for ID: {{id}}."
 }

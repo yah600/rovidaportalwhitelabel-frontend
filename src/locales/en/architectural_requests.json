@@ -11,5 +11,18 @@
   "rejected": "Rejected",
   "in progress": "In Progress",
   "submit new request action": "Submit new architectural request action triggered.",
-  "view manage request action": "View/Manage request action triggered for ID: {{id}}."
+  "view manage request action": "View/Manage request action triggered for ID: {{id}}.",
+  "architectural request not found": "Architectural request not found.",
+  "request": "Request",
+  "request details": "Request Details",
+  "approval date": "Approval Date",
+  "reviewer": "Reviewer",
+  "edit request": "Edit Request",
+  "approve request": "Approve Request",
+  "reject request": "Reject Request",
+  "delete request": "Delete Request",
+  "edit request action": "Edit request action triggered for ID: {{id}}.",
+  "approve request action": "Approve request action triggered for ID: {{id}}.",
+  "reject request action": "Reject request action triggered for ID: {{id}}.",
+  "delete request action": "Delete request action triggered for ID: {{id}}."
 }

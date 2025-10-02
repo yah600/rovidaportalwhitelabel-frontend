@@ -7,6 +7,7 @@ import { Badge } from '@/components/ui/badge';
 import { Rule } from '@/data/mock-rules';
 import { format } from 'date-fns';
 import { DataTable } from '@/components/DataTable';
+import { Link } from 'react-router-dom'; // Import Link
 
 interface RulesTableProps {
   rules: Rule[];
@@ -32,7 +33,11 @@ const RulesTable = ({ rules }: RulesTableProps) => {
     {
       accessorKey: "id",
       header: t('id', { ns: 'common' }),
-      cell: ({ row }) => <span className="font-medium text-rovida-near-black">{row.getValue("id") as string}</span>,
+      cell: ({ row }) => (
+        <Link to={`/rules/${row.original.id}`} className="text-primary hover:underline">
+          {row.getValue("id") as string}
+        </Link>
+      ),
     },
     {
       accessorKey: "title",
@@ -66,9 +71,11 @@ const RulesTable = ({ rules }: RulesTableProps) => {
       id: "actions",
       header: t('actions', { ns: 'common' }),
       enableSorting: false,
-      cell: () => (
+      cell: ({ row }) => (
         <div className="text-right">
-          <span className="text-sm text-rovida-slate-green-gray">{t('view', { ns: 'common' })} / {t('edit', { ns: 'common' })}</span>
+          <Link to={`/rules/${row.original.id}`} className="text-sm text-rovida-slate-green-gray hover:underline">
+            {t('view', { ns: 'common' })} / {t('edit', { ns: 'common' })}
+          </Link>
         </div>
       ),
     },

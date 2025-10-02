@@ -16,5 +16,18 @@
   "property": "Propriété",
   "flood": "Inondation",
   "add new policy action": "Action d'ajout de nouvelle police d'assurance déclenchée.",
-  "view edit policy action": "Action de voir/modifier la police déclenchée pour l'ID : {{id}}."
+  "view edit policy action": "Action de voir/modifier la police déclenchée pour l'ID : {{id}}.",
+  "policy not found": "Police introuvable.",
+  "policy": "Police",
+  "policy details": "Détails de la police",
+  "deductible": "Franchise",
+  "contact person": "Personne de contact",
+  "contact phone": "Téléphone de contact",
+  "edit policy": "Modifier la police",
+  "renew policy": "Renouveler la police",
+  "delete policy": "Supprimer la police",
+  "policy for": "police pour",
+  "edit policy action": "Action de modifier la police déclenchée pour l'ID : {{id}}.",
+  "renew policy action": "Action de renouveler la police déclenchée pour l'ID : {{id}}.",
+  "delete policy action": "Action de supprimer la police déclenchée pour l'ID : {{id}}."
 }

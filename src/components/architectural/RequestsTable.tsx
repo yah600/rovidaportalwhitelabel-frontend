@@ -8,6 +8,7 @@ import { ArchitecturalRequest } from '@/data/mock-architectural-requests';
 import { format } from 'date-fns';
 import { DataTable } from '@/components/DataTable';
 import { toast } from 'sonner'; // Import toast for actions
+import { Link } from 'react-router-dom'; // Import Link
 
 interface RequestsTableProps {
   requests: ArchitecturalRequest[];
@@ -39,7 +40,11 @@ const RequestsTable = ({ requests }: RequestsTableProps) => {
     {
       accessorKey: "id",
       header: t('id', { ns: 'common' }),
-      cell: ({ row }) => <span className="font-medium text-rovida-near-black">{row.getValue("id") as string}</span>,
+      cell: ({ row }) => (
+        <Link to={`/board/architectural-requests/${row.original.id}`} className="text-primary hover:underline">
+          {row.getValue("id") as string}
+        </Link>
+      ),
     },
     {
       accessorKey: "title",
@@ -70,7 +75,7 @@ const RequestsTable = ({ requests }: RequestsTableProps) => {
       header: t('status', { ns: 'common' }),
       cell: ({ row }) => (
         <Badge variant={getStatusVariant(row.getValue("status") as ArchitecturalRequest['status'])}>
-          {t((row.getValue("status") as string).toLowerCase(), { ns: 'architectural_requests' })}
+          {t((row.getValue("status") as string).toLowerCase().replace(/ /g, '_'), { ns: 'architectural_requests' })}
         </Badge>
       ),
     },
@@ -80,9 +85,9 @@ const RequestsTable = ({ requests }: RequestsTableProps) => {
       enableSorting: false,
       cell: ({ row }) => (
         <div className="text-right">
-          <button onClick={() => handleViewManageRequest(row.original.id)} className="text-sm text-rovida-slate-green-gray hover:underline">
+          <Link to={`/board/architectural-requests/${row.original.id}`} className="text-sm text-rovida-slate-green-gray hover:underline">
             {t('view', { ns: 'common' })} / {t('manage', { ns: 'common' })}
-          </button>
+          </Link>
         </div>
       ),
     },

@@ -23,16 +23,19 @@ import FinanceBillDetail from './pages/finance/BillDetail';
 import FinancePayments from './pages/finance/Payments';
 import FinancePurchaseOrders from './pages/finance/PurchaseOrders';
 import FinanceReports from './pages/finance/Reports';
-import FinanceLateFeesNSF from './pages/finance/LateFeesNSF'; // New import
-import FinanceBankReconciliation from './pages/finance/BankReconciliation'; // New import
+import FinanceLateFeesNSF from './pages/finance/LateFeesNSF';
+import FinanceBankReconciliation from './pages/finance/BankReconciliation';
 import Board from './pages/Board';
 import BoardMeetings from './pages/board/Meetings';
 import BoardMeetingDetail from './pages/board/MeetingDetail';
 import BoardVotes from './pages/board/Votes';
 import BoardVoteDetail from './pages/board/VoteDetail';
 import ArchitecturalRequests from './pages/ArchitecturalRequests';
+import ArchitecturalRequestDetail from './pages/board/ArchitecturalRequestDetail'; // New import
 import Rules from './pages/Rules';
+import RuleDetail from './pages/rules/RuleDetail'; // New import
 import Insurance from './pages/Insurance';
+import InsurancePolicyDetail from './pages/insurance/PolicyDetail'; // New import
 import Amenities from './pages/Amenities';
 import Tenancy from './pages/Tenancy';
 import Leases from './pages/tenancy/Leases';
@@ -115,16 +118,19 @@ const App = () => {
             <Route path="/finance/payments" element={<FinancePayments />} />
             <Route path="/finance/purchase-orders" element={<FinancePurchaseOrders />} />
             <Route path="/finance/reports" element={<FinanceReports />} />
-            <Route path="/finance/late-fees-nsf" element={<FinanceLateFeesNSF />} /> {/* New route */}
-            <Route path="/finance/bank-reconciliation" element={<FinanceBankReconciliation />} /> {/* New route */}
+            <Route path="/finance/late-fees-nsf" element={<FinanceLateFeesNSF />} />
+            <Route path="/finance/bank-reconciliation" element={<FinanceBankReconciliation />} />
             <Route path="/board" element={<Board />} />
             <Route path="/board/meetings" element={<BoardMeetings />} />
             <Route path="/board/meetings/:id" element={<BoardMeetingDetail />} />
             <Route path="/board/votes" element={<BoardVotes />} />
             <Route path="/board/votes/:id" element={<BoardVoteDetail />} />
             <Route path="/board/architectural-requests" element={<ArchitecturalRequests />} />
+            <Route path="/board/architectural-requests/:id" element={<ArchitecturalRequestDetail />} /> {/* New route */}
             <Route path="/rules" element={<Rules />} />
+            <Route path="/rules/:id" element={<RuleDetail />} /> {/* New route */}
             <Route path="/insurance" element={<Insurance />} />
+            <Route path="/insurance/:id" element={<InsurancePolicyDetail />} /> {/* New route */}
             <Route path="/amenities" element={<Amenities />} />
             <Route path="/tenancy" element={<Tenancy />} />
             <Route path="/tenancy/leases" element={<Leases />} />
