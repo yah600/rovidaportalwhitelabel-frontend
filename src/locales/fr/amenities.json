@@ -1,9 +1,9 @@
 {
   "amenity management": "Gestion des Commodités",
   "add new amenity": "Ajouter une nouvelle commodité",
-  "manage book amenities": "Gérer et réserver les commodités et ressources des espaces communs.",
-  "amenities managed here": "Les commodités et ressources seront gérées ici.",
-  "add first amenity": "Ajouter la première commodité",
+  "manage book amenities": "Gérer et réserver les commodités et ressources des espaces communs pour les résidents.",
+  "amenities managed here": "Toutes les commodités des espaces communs et leurs plannings de réservation seront gérés ici.",
+  "add first amenity": "Ajouter la première commodité.",
   "booking required": "Réservation requise",
   "book": "Réserver",
   "available": "Disponible",

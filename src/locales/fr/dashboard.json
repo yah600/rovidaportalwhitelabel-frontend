@@ -5,15 +5,16 @@
   "due tasks": "Tâches dues",
   "open votes": "Votes ouverts",
   "critical alert": "Urgence active — intervention requise maintenant.",
-  "your most recent incidents": "Vos incidents les plus récents.",
-  "events scheduled near future": "Événements prévus dans un futur proche.",
+  "your most recent incidents": "Aperçu rapide de vos incidents les plus récents, permettant une action immédiate.",
+  "events scheduled near future": "Un aperçu des réunions et événements importants prévus dans un futur proche.",
   "no upcoming events": "Aucun événement à venir.",
   "latest documents": "Derniers documents",
-  "recently added updated documents": "Documents récemment ajoutés ou mis à jour.",
+  "recently added updated documents": "Documents récemment ajoutés ou mis à jour pour un accès et une révision rapides.",
   "no recent documents": "Aucun document récent.",
   "trend issues": "+10% par rapport au mois dernier",
   "trend bills": "-5% par rapport au mois dernier",
   "trend tasks": "+20% par rapport au mois dernier",
   "trend votes": "Aucun changement",
-  "hello user": "Bonjour {{name}}"
+  "hello user": "Bonjour {{name}}",
+  "upcoming events": "Événements à venir"
 }

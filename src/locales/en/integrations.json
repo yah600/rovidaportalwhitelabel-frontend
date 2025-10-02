@@ -1,7 +1,7 @@
 {
   "integrations": "Integrations",
   "add new integration": "Add New Integration",
-  "no integrations found": "No integrations found.",
+  "no integrations found": "No integrations found. Add a new integration to connect with external services.",
   "start by adding new integration": "You can start by adding a new integration.",
   "integration not found": "Integration not found.",
   "edit integration": "Edit Integration",

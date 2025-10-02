@@ -1,9 +1,9 @@
 {
   "architectural requests": "Architectural Requests",
   "submit new request": "Submit New Request",
-  "manage architectural change requests": "Manage architectural change requests from residents.",
-  "architectural requests managed here": "Architectural change requests will be managed here.",
-  "submit first request": "Submit First Request",
+  "manage architectural change requests": "Manage architectural change requests from residents, from submission to approval and tracking progress.",
+  "architectural requests managed here": "Architectural change requests will be managed and tracked here, ensuring compliance and proper documentation.",
+  "submit first request": "Submit your first architectural request.",
   "requester": "Requester",
   "submitted at": "Submitted At",
   "pending review": "Pending Review",

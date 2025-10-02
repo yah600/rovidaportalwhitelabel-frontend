@@ -1,12 +1,12 @@
 {
   "analytics": "Analytiques",
-  "overview key operational metrics": "Aperçu des indicateurs opérationnels clés.",
+  "overview key operational metrics": "Un aperçu des indicateurs clés de performance et des métriques opérationnelles pour vos propriétés.",
   "monthly issue trends": "Tendances mensuelles des incidents",
-  "open closed issues 6 months": "Incidents ouverts vs. fermés sur les 6 derniers mois.",
+  "open closed issues 6 months": "Visualisez la tendance des incidents ouverts par rapport aux incidents fermés sur les 6 derniers mois.",
   "issue type distribution": "Répartition par type d'incident",
-  "breakdown issues by type": "Répartition des incidents par type.",
+  "breakdown issues by type": "Une répartition de tous les incidents signalés par leurs types respectifs.",
   "work order completion rate": "Taux d'achèvement des ordres de travail",
-  "monthly work order completion status": "Statut d'achèvement mensuel des ordres de travail.",
+  "monthly work order completion status": "Suivez le statut d'achèvement mensuel des ordres de travail, montrant les tâches terminées par rapport aux tâches en attente.",
   "closed issues": "Incidents fermés",
   "completed": "Terminé",
   "pending": "En attente"

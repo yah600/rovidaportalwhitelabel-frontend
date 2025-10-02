@@ -14,6 +14,8 @@ import { toast } from 'sonner';
 import BreadcrumbNav from '@/components/BreadcrumbNav';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import Stepper, { Step } from '@/components/Stepper'; // Import Stepper and Step
+import { mockUnits } from '@/data/mock-units'; // Import mock units
+import { useAuth } from '@/hooks/useAuth'; // Import useAuth
 
 // Define the Zod schema for the new incident form
 const newIssueSchema = z.object({
@@ -29,6 +31,7 @@ type NewIssueFormValues = z.infer<typeof newIssueSchema>;
 
 const NewIssue = () => {
   const { t } = useTranslation(['issues', 'common']); // Specify namespaces
+  const { canCreate } = useAuth();
 
   const breadcrumbItems = [
     { label: t('issues', { ns: 'issues' }), href: '/issues' },
@@ -54,6 +57,19 @@ const NewIssue = () => {
     });
     form.reset(); // Reset form after successful submission
   };
+
+  if (!canCreate('Issues')) {
+    return (
+      <div className="flex flex-1 items-center justify-center">
+        <Card className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm card-rovida mt-4 p-8">
+          <div className="flex flex-col items-center gap-2 text-rovida-slate-green-gray">
+            <PlusCircle className="h-12 w-12 text-rovida-gold" />
+            <p>{t('no permission create issues', { ns: 'common' })}</p>
+          </div>
+        </Card>
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-1 flex-col gap-4">
@@ -104,9 +120,9 @@ const NewIssue = () => {
                         <SelectValue placeholder={t('select unit', { ns: 'issues' })} />
                       </SelectTrigger>
                       <SelectContent className="bg-white/80 backdrop-blur-xl border-rovida-soft-gray text-rovida-near-black">
-                        <SelectItem value="unit101">Unit 101</SelectItem>
-                        <SelectItem value="unit203">Unit 203</SelectItem>
-                        <SelectItem value="common_area">Common Area</SelectItem>
+                        {mockUnits.map(unit => (
+                          <SelectItem key={unit.id} value={unit.unitNumber}>Unit {unit.unitNumber}</SelectItem>
+                        ))}
                       </SelectContent>
                     </Select>
                     {form.formState.errors.unit && (
@@ -124,10 +140,10 @@ const NewIssue = () => {
                         <SelectValue placeholder={t('select type', { ns: 'issues' })} />
                       </SelectTrigger>
                       <SelectContent className="bg-white/80 backdrop-blur-xl border-rovida-soft-gray text-rovida-near-black">
-                        <SelectItem value="plumbing">Plumbing</SelectItem>
-                        <SelectItem value="electrical">Electrical</SelectItem>
-                        <SelectItem value="hvac">HVAC</SelectItem>
-                        <SelectItem value="other">Other</SelectItem>
+                        <SelectItem value="Plumbing">Plumbing</SelectItem>
+                        <SelectItem value="Electrical">Electrical</SelectItem>
+                        <SelectItem value="HVAC">HVAC</SelectItem>
+                        <SelectItem value="Other">Other</SelectItem>
                       </SelectContent>
                     </Select>
                     {form.formState.errors.type && (

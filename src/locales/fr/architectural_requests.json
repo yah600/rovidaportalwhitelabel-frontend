@@ -1,9 +1,9 @@
 {
   "architectural requests": "Demandes Architecturales",
   "submit new request": "Soumettre une nouvelle demande",
-  "manage architectural change requests": "Gérer les demandes de modification architecturale des résidents.",
-  "architectural requests managed here": "Les demandes de modification architecturale seront gérées ici.",
-  "submit first request": "Soumettre la première demande",
+  "manage architectural change requests": "Gérer les demandes de modification architecturale des résidents, de la soumission à l'approbation et au suivi de la progression.",
+  "architectural requests managed here": "Les demandes de modification architecturale seront gérées et suivies ici, assurant la conformité et une documentation appropriée.",
+  "submit first request": "Soumettez votre première demande architecturale.",
   "requester": "Demandeur",
   "submitted at": "Soumis le",
   "pending review": "En attente de révision",

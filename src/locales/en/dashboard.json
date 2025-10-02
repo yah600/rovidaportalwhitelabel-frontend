@@ -5,15 +5,16 @@
   "due tasks": "Due Tasks",
   "open votes": "Open Votes",
   "critical alert": "Critical Alert - Intervention required now.",
-  "your most recent incidents": "Your most recent incidents.",
-  "events scheduled near future": "Events scheduled in the near future.",
+  "your most recent incidents": "Quick overview of your most recent incidents, allowing for immediate action.",
+  "events scheduled near future": "A glance at important meetings and events scheduled in the near future.",
   "no upcoming events": "No upcoming events.",
   "latest documents": "Latest Documents",
-  "recently added updated documents": "Recently added or updated documents.",
+  "recently added updated documents": "Recently added or updated documents for quick access and review.",
   "no recent documents": "No recent documents.",
   "trend issues": "+10% from last month",
   "trend bills": "-5% from last month",
   "trend tasks": "+20% from last month",
   "trend votes": "No change",
-  "hello user": "Hello {{name}}"
+  "hello user": "Hello {{name}}",
+  "upcoming events": "Upcoming Events"
 }

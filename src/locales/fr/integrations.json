@@ -1,7 +1,7 @@
 {
   "integrations": "Intégrations",
   "add new integration": "Ajouter une nouvelle intégration",
-  "no integrations found": "Aucune intégration trouvée.",
+  "no integrations found": "Aucune intégration trouvée. Ajoutez une nouvelle intégration pour vous connecter à des services externes.",
   "start by adding new integration": "Vous pouvez commencer par ajouter une nouvelle intégration.",
   "integration not found": "Intégration introuvable.",
   "edit integration": "Modifier l'intégration",

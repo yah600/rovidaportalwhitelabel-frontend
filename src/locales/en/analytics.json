@@ -1,12 +1,12 @@
 {
   "analytics": "Analytics",
-  "overview key operational metrics": "Overview of key operational metrics.",
+  "overview key operational metrics": "An overview of key operational metrics and performance indicators for your properties.",
   "monthly issue trends": "Monthly Issue Trends",
-  "open closed issues 6 months": "Open vs. Closed issues over the last 6 months.",
+  "open closed issues 6 months": "Visualize the trend of open versus closed issues over the last 6 months.",
   "issue type distribution": "Issue Type Distribution",
-  "breakdown issues by type": "Breakdown of issues by type.",
+  "breakdown issues by type": "A breakdown of all reported issues by their respective types.",
   "work order completion rate": "Work Order Completion Rate",
-  "monthly work order completion status": "Monthly work order completion status.",
+  "monthly work order completion status": "Track the monthly completion status of work orders, showing completed versus pending.",
   "closed issues": "Closed Issues",
   "completed": "Completed",
   "pending": "Pending"
