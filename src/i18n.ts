@@ -13,13 +13,15 @@ const loadTranslations = async () => {
 
   for (const path in enModules) {
     const namespace = path.replace('./locales/en/', '').replace('.json', '');
-    resources.en[namespace] = enModules[path]; // Removed .default
+    // Safely access the default export or the module itself
+    resources.en[namespace] = (enModules[path] as any).default || enModules[path];
     console.log(`i18n: Loaded English namespace: ${namespace}`);
   }
 
   for (const path in frModules) {
     const namespace = path.replace('./locales/fr/', '').replace('.json', '');
-    resources.fr[namespace] = frModules[path]; // Removed .default
+    // Safely access the default export or the module itself
+    resources.fr[namespace] = (frModules[path] as any).default || frModules[path];
     console.log(`i18n: Loaded French namespace: ${namespace}`);
   }
 
