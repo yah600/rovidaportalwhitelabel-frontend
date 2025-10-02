@@ -71,5 +71,9 @@
   "mark as paid action": "Bill {{id}} marked as paid.",
   "delete bill action": "Delete bill action triggered for ID: {{id}}.",
   "create new bill action": "Create new bill action triggered.",
-  "record payment action": "Record payment action triggered."
+  "record payment action": "Record payment action triggered.",
+  "view bill action": "View bill action triggered for ID: {{id}}.",
+  "generate report action": "Generate {{type}} report action triggered.",
+  "create new purchase order action": "Create new purchase order action triggered.",
+  "view manage purchase order action": "View/Manage purchase order action triggered for ID: {{id}}."
 }

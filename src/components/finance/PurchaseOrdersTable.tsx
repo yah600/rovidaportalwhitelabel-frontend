@@ -7,13 +7,14 @@ import { Badge } from '@/components/ui/badge';
 import { PurchaseOrder } from '@/data/mock-purchase-orders';
 import { format } from 'date-fns';
 import { DataTable } from '@/components/DataTable';
+import { toast } from 'sonner'; // Import toast for actions
 
 interface PurchaseOrdersTableProps {
   purchaseOrders: PurchaseOrder[];
 }
 
 const PurchaseOrdersTable = ({ purchaseOrders }: PurchaseOrdersTableProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(['finance', 'common']); // Ensure 'finance' and 'common' namespaces are loaded
 
   const getStatusVariant = (status: PurchaseOrder['status']) => {
     switch (status) {
@@ -32,30 +33,34 @@ const PurchaseOrdersTable = ({ purchaseOrders }: PurchaseOrdersTableProps) => {
     }
   };
 
+  const handleViewManagePurchaseOrder = (purchaseOrderId: string) => {
+    toast.info(t('view manage purchase order action', { ns: 'finance', id: purchaseOrderId })); // Placeholder action with toast
+  };
+
   const columns: ColumnDef<PurchaseOrder>[] = [
     {
       accessorKey: "id",
-      header: t('id'),
+      header: t('id', { ns: 'common' }),
       cell: ({ row }) => <span className="font-medium text-rovida-near-black">{row.getValue("id")}</span>,
     },
     {
       accessorKey: "vendor",
-      header: t('vendor'),
+      header: t('vendor', { ns: 'finance' }),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("vendor")}</span>,
     },
     {
       accessorKey: "itemDescription",
-      header: t('item description'),
+      header: t('item description', { ns: 'finance' }),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("itemDescription")}</span>,
     },
     {
       accessorKey: "totalAmount",
-      header: t('total amount'),
+      header: t('total amount', { ns: 'finance' }),
       cell: ({ row }) => <span className="text-rovida-near-black">${row.original.totalAmount.toFixed(2)}</span>,
     },
     {
       accessorKey: "orderDate",
-      header: t('order date'),
+      header: t('order date', { ns: 'finance' }),
       cell: ({ row }) => (
         <span className="text-rovida-slate-green-gray">
           {format(row.getValue("orderDate"), 'MMM dd, yyyy')}
@@ -64,20 +69,22 @@ const PurchaseOrdersTable = ({ purchaseOrders }: PurchaseOrdersTableProps) => {
     },
     {
       accessorKey: "status",
-      header: t('status'),
+      header: t('status', { ns: 'common' }),
       cell: ({ row }) => (
         <Badge variant={getStatusVariant(row.getValue("status"))}>
-          {t(row.getValue("status").toLowerCase())}
+          {t(row.getValue("status").toLowerCase(), { ns: 'finance' })}
         </Badge>
       ),
     },
     {
       id: "actions",
-      header: t('actions'),
+      header: t('actions', { ns: 'common' }),
       enableSorting: false,
-      cell: () => (
+      cell: ({ row }) => (
         <div className="text-right">
-          <span className="text-sm text-rovida-slate-green-gray">{t('view')} / {t('manage')}</span>
+          <button onClick={() => handleViewManagePurchaseOrder(row.original.id)} className="text-sm text-rovida-slate-green-gray hover:underline">
+            {t('view', { ns: 'common' })} / {t('manage', { ns: 'common' })}
+          </button>
         </div>
       ),
     },

@@ -14,5 +14,7 @@
   "building": "Bâtiment",
   "liability": "Responsabilité",
   "property": "Propriété",
-  "flood": "Inondation"
+  "flood": "Inondation",
+  "add new policy action": "Action d'ajout de nouvelle police d'assurance déclenchée.",
+  "view edit policy action": "Action de voir/modifier la police déclenchée pour l'ID : {{id}}."
 }

@@ -71,5 +71,9 @@
   "mark as paid action": "Facture {{id}} marquée comme payée.",
   "delete bill action": "Action de supprimer la facture déclenchée pour l'ID : {{id}}.",
   "create new bill action": "Action de créer une nouvelle facture déclenchée.",
-  "record payment action": "Action d'enregistrer un paiement déclenchée."
+  "record payment action": "Action d'enregistrer un paiement déclenchée.",
+  "view bill action": "Action de voir la facture déclenchée pour l'ID : {{id}}.",
+  "generate report action": "Action de générer le rapport {{type}} déclenchée.",
+  "create new purchase order action": "Action de créer un nouveau bon de commande déclenchée.",
+  "view manage purchase order action": "Action de voir/gérer la demande déclenchée pour l'ID : {{id}}."
 }

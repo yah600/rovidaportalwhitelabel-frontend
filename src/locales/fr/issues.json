@@ -40,5 +40,12 @@
   "no issues in column": "Aucun incident dans cette colonne.",
   "all": "Tous",
   "incident not found": "Incident introuvable.",
-  "incident created successfully": "Incident créé avec succès !"
+  "incident created successfully": "Incident créé avec succès !",
+  "filter issues by status": "Filtrage des incidents par statut : {{status}}",
+  "incident": "Incident",
+  "reporter": "Demandeur",
+  "assign action": "Action d'assigner déclenchée pour l'incident ID : {{id}}.",
+  "change status action": "Action de changer le statut déclenchée pour l'incident ID : {{id}}.",
+  "add attachment action": "Action d'ajouter une pièce jointe déclenchée pour l'incident ID : {{id}}.",
+  "delete incident action": "Action de supprimer l'incident déclenchée pour l'incident ID : {{id}}."
 }

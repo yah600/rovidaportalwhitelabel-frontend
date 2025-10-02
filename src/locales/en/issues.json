@@ -40,5 +40,12 @@
   "no issues in column": "No issues in this column.",
   "all": "All",
   "incident not found": "Incident not found.",
-  "incident created successfully": "Incident created successfully!"
+  "incident created successfully": "Incident created successfully!",
+  "filter issues by status": "Filtering issues by status: {{status}}",
+  "incident": "Incident",
+  "reporter": "Reporter",
+  "assign action": "Assign action triggered for incident ID: {{id}}.",
+  "change status action": "Change status action triggered for incident ID: {{id}}.",
+  "add attachment action": "Add attachment action triggered for incident ID: {{id}}.",
+  "delete incident action": "Delete incident action triggered for incident ID: {{id}}."
 }

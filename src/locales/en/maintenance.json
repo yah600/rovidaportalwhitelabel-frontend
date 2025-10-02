@@ -86,5 +86,10 @@
   "file imported successfully": "File imported successfully!",
   "ready for mapping": "Ready for mapping",
   "columns mapped successfully": "Columns mapped successfully!",
-  "preview generated tasks": "Preview generated tasks."
+  "preview generated tasks": "Preview generated tasks.",
+  "add new asset action": "Add new asset action triggered.",
+  "manage asset action": "Manage asset action triggered for ID: {{id}}.",
+  "create new task action": "Create new task action triggered.",
+  "view attachment action": "View attachment action triggered for {{name}}.",
+  "create new work order action": "Create new work order action triggered."
 }

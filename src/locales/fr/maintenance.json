@@ -86,5 +86,10 @@
   "file imported successfully": "Fichier importé avec succès !",
   "ready for mapping": "Prêt pour le mappage",
   "columns mapped successfully": "Colonnes mappées avec succès !",
-  "preview generated tasks": "Prévisualiser les tâches générées."
+  "preview generated tasks": "Prévisualiser les tâches générées.",
+  "add new asset action": "Action d'ajout de nouvel actif déclenchée.",
+  "manage asset action": "Action de gérer l'actif déclenchée pour l'ID : {{id}}.",
+  "create new task action": "Action de créer une nouvelle tâche déclenchée.",
+  "view attachment action": "Action de voir la pièce jointe déclenchée pour {{name}}.",
+  "create new work order action": "Action de créer un nouvel ordre de travail déclenchée."
 }

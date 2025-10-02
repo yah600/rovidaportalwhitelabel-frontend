@@ -106,5 +106,7 @@
   "get started action": "Get Started button clicked!",
   "careers link action": "Careers link clicked!",
   "featured projects link action": "Featured Projects link clicked!",
-  "case studies link action": "Case Studies link clicked!"
+  "case studies link action": "Case Studies link clicked!",
+  "oops page not found": "Oops! Page not found.",
+  "return to home": "Return to Home"
 }

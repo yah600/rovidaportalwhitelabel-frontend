@@ -16,5 +16,10 @@
   "generate api key": "Générez une clé API.",
   "enter api key below": "Saisissez la clé API dans les paramètres ci-dessous.",
   "click save activate": "Cliquez sur « Enregistrer et activer ».",
-  "complete setup": "Terminer la configuration"
+  "complete setup": "Terminer la configuration",
+  "add new integration action": "Action d'ajout de nouvelle intégration déclenchée.",
+  "edit integration action": "Action de modifier l'intégration déclenchée pour {{name}}.",
+  "toggle integration status action": "Intégration {{name}} {{status}}.",
+  "remove integration action": "Action de supprimer l'intégration déclenchée pour {{name}}.",
+  "complete setup action": "Action de terminer la configuration déclenchée pour {{name}}."
 }

@@ -16,5 +16,10 @@
   "generate api key": "Generate an API key.",
   "enter api key below": "Enter the API key in the settings below.",
   "click save activate": "Click \"Save and Activate\".",
-  "complete setup": "Complete Setup"
+  "complete setup": "Complete Setup",
+  "add new integration action": "Add new integration action triggered.",
+  "edit integration action": "Edit integration action triggered for {{name}}.",
+  "toggle integration status action": "Integration {{name}} {{status}}.",
+  "remove integration action": "Remove integration action triggered for {{name}}.",
+  "complete setup action": "Complete setup action triggered for {{name}}."
 }

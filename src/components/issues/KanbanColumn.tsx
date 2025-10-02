@@ -14,7 +14,7 @@ interface KanbanColumnProps {
 }
 
 const KanbanColumn = ({ title, issues, statusFilter }: KanbanColumnProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(['issues', 'common']); // Specify namespaces
 
   const filteredIssues = issues.filter(issue => issue.status === statusFilter);
 
@@ -50,7 +50,7 @@ const KanbanColumn = ({ title, issues, statusFilter }: KanbanColumnProps) => {
               </CardHeader>
               <CardContent className="text-sm flex flex-col gap-2">
                 <div className="flex items-center justify-between">
-                  <Badge className={cn("text-xs", getPriorityColor(issue.priority))}>{t(issue.priority.toLowerCase())}</Badge>
+                  <Badge className={cn("text-xs", getPriorityColor(issue.priority))}>{t(issue.priority.toLowerCase(), { ns: 'common' })}</Badge>
                   <span className="text-rovida-slate-green-gray text-xs">{format(issue.createdAt, 'MMM dd')}</span>
                 </div>
                 <p className="text-rovida-slate-green-gray text-xs line-clamp-2">{issue.description}</p>
@@ -58,7 +58,7 @@ const KanbanColumn = ({ title, issues, statusFilter }: KanbanColumnProps) => {
             </Card>
           ))
         ) : (
-          <div className="text-rovida-slate-green-gray text-sm text-center p-4">{t('no issues in column')}</div>
+          <div className="text-rovida-slate-green-gray text-sm text-center p-4">{t('no issues in column', { ns: 'issues' })}</div>
         )}
       </div>
     </div>

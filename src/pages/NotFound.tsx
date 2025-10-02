@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next"; // Import useTranslation
 
 const NotFound = () => {
   const location = useLocation();
-  const { t } = useTranslation(); // Initialize useTranslation
+  const { t } = useTranslation(['common']); // Initialize useTranslation with common namespace
 
   useEffect(() => {
     console.error(
@@ -17,9 +17,9 @@ const NotFound = () => {
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="text-center">
         <h1 className="text-4xl font-bold mb-4">404</h1>
-        <p className="text-xl text-gray-600 mb-4">{t('oops page not found')}</p>
+        <p className="text-xl text-gray-600 mb-4">{t('oops page not found', { ns: 'common' })}</p>
         <a href="/" className="text-blue-500 hover:text-blue-700 underline">
-          {t('return to home')}
+          {t('return to home', { ns: 'common' })}
         </a>
       </div>
     </div>

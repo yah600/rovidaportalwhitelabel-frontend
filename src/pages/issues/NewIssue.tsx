@@ -28,11 +28,11 @@ const newIssueSchema = z.object({
 type NewIssueFormValues = z.infer<typeof newIssueSchema>;
 
 const NewIssue = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(['issues', 'common']); // Specify namespaces
 
   const breadcrumbItems = [
-    { label: t('issues'), href: '/issues' },
-    { label: t('new issue'), href: '/issues/new' },
+    { label: t('issues', { ns: 'issues' }), href: '/issues' },
+    { label: t('new issue', { ns: 'issues' }), href: '/issues/new' },
   ];
 
   const form = useForm<NewIssueFormValues>({
@@ -49,8 +49,8 @@ const NewIssue = () => {
   const onSubmit = (data: NewIssueFormValues) => {
     console.log("Form data submitted:", data);
     // Simulate API call
-    toast.success(t('incident created successfully'), {
-      description: `${t('title')}: ${data.title}, ${t('unit')}: ${data.unit}`,
+    toast.success(t('incident created successfully', { ns: 'issues' }), {
+      description: `${t('title', { ns: 'common' })}: ${data.title}, ${t('unit', { ns: 'common' })}: ${data.unit}`,
     });
     form.reset(); // Reset form after successful submission
   };
@@ -58,22 +58,22 @@ const NewIssue = () => {
   return (
     <div className="flex flex-1 flex-col gap-4">
       <BreadcrumbNav items={breadcrumbItems} />
-      <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('create new incident')}</h1>
+      <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('create new incident', { ns: 'issues' })}</h1>
       <Card className="max-w-2xl mx-auto w-full card-rovida">
         <CardHeader>
-          <CardTitle className="text-rovida-navy">{t('incident information')}</CardTitle>
-          <CardDescription className="text-rovida-slate-green-gray">{t('fill details new incident')}</CardDescription>
+          <CardTitle className="text-rovida-navy">{t('incident information', { ns: 'issues' })}</CardTitle>
+          <CardDescription className="text-rovida-slate-green-gray">{t('fill details new incident', { ns: 'issues' })}</CardDescription>
         </CardHeader>
         <CardContent>
-          <Stepper onFinalStepCompleted={form.handleSubmit(onSubmit)} nextButtonText={t('next')} backButtonText={t('back')}>
+          <Stepper onFinalStepCompleted={form.handleSubmit(onSubmit)} nextButtonText={t('next', { ns: 'common' })} backButtonText={t('back', { ns: 'common' })}>
             <Step>
               <div className="grid gap-4">
                 <div className="grid md:grid-cols-4 items-center gap-4">
                   <Label htmlFor="title" className="md:text-right text-rovida-near-black">
-                    {t('title')}
+                    {t('title', { ns: 'common' })}
                   </Label>
                   <div className="md:col-span-3">
-                    <Input id="title" placeholder={t('short summary incident')} {...form.register("title")} className="border-rovida-soft-gray text-rovida-near-black" />
+                    <Input id="title" placeholder={t('short summary incident', { ns: 'issues' })} {...form.register("title")} className="border-rovida-soft-gray text-rovida-near-black" />
                     {form.formState.errors.title && (
                       <p className="text-rovida-error text-sm mt-1">{form.formState.errors.title.message}</p>
                     )}
@@ -81,10 +81,10 @@ const NewIssue = () => {
                 </div>
                 <div className="grid md:grid-cols-4 items-center gap-4">
                   <Label htmlFor="description" className="md:text-right text-rovida-near-black">
-                    {t('description')}
+                    {t('description', { ns: 'common' })}
                   </Label>
                   <div className="md:col-span-3">
-                    <Textarea id="description" placeholder={t('detailed description incident')} {...form.register("description")} className="border-rovida-soft-gray text-rovida-near-black" />
+                    <Textarea id="description" placeholder={t('detailed description incident', { ns: 'issues' })} {...form.register("description")} className="border-rovida-soft-gray text-rovida-near-black" />
                     {form.formState.errors.description && (
                       <p className="text-rovida-error text-sm mt-1">{form.formState.errors.description.message}</p>
                     )}
@@ -96,12 +96,12 @@ const NewIssue = () => {
               <div className="grid gap-4">
                 <div className="grid md:grid-cols-4 items-center gap-4">
                   <Label htmlFor="unit" className="md:text-right text-rovida-near-black">
-                    {t('unit')}
+                    {t('unit', { ns: 'common' })}
                   </Label>
                   <div className="md:col-span-3">
                     <Select onValueChange={(value) => form.setValue("unit", value)} value={form.watch("unit")}>
                       <SelectTrigger id="unit" className="border-rovida-soft-gray text-rovida-near-black">
-                        <SelectValue placeholder={t('select unit')} />
+                        <SelectValue placeholder={t('select unit', { ns: 'issues' })} />
                       </SelectTrigger>
                       <SelectContent className="bg-white/80 backdrop-blur-xl border-rovida-soft-gray text-rovida-near-black">
                         <SelectItem value="unit101">Unit 101</SelectItem>
@@ -116,12 +116,12 @@ const NewIssue = () => {
                 </div>
                 <div className="grid md:grid-cols-4 items-center gap-4">
                   <Label htmlFor="type" className="md:text-right text-rovida-near-black">
-                    {t('type')}
+                    {t('type', { ns: 'common' })}
                   </Label>
                   <div className="md:col-span-3">
                     <Select onValueChange={(value) => form.setValue("type", value)} value={form.watch("type")}>
                       <SelectTrigger id="type" className="border-rovida-soft-gray text-rovida-near-black">
-                        <SelectValue placeholder={t('select type')} />
+                        <SelectValue placeholder={t('select type', { ns: 'issues' })} />
                       </SelectTrigger>
                       <SelectContent className="bg-white/80 backdrop-blur-xl border-rovida-soft-gray text-rovida-near-black">
                         <SelectItem value="plumbing">Plumbing</SelectItem>
@@ -141,7 +141,7 @@ const NewIssue = () => {
               <div className="grid gap-4">
                 <div className="grid md:grid-cols-4 items-center gap-4">
                   <Label htmlFor="urgent" className="md:text-right text-rovida-near-black">
-                    {t('urgent question')}
+                    {t('urgent question', { ns: 'issues' })}
                   </Label>
                   <div className="md:col-span-3 flex items-center space-x-2">
                     <Checkbox id="urgent" checked={form.watch("urgent")} onCheckedChange={(checked) => form.setValue("urgent", !!checked)} className="border-rovida-slate-green-gray data-[state=checked]:bg-rovida-gold data-[state=checked]:text-white" />
@@ -149,13 +149,13 @@ const NewIssue = () => {
                       htmlFor="urgent"
                       className="text-sm font-medium leading-none text-rovida-near-black peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                     >
-                      {t('mark as urgent')}
+                      {t('mark as urgent', { ns: 'issues' })}
                     </label>
                   </div>
                 </div>
                 <div className="grid md:grid-cols-4 items-center gap-4">
                   <Label htmlFor="photos" className="md:text-right text-rovida-near-black">
-                    {t('photos')}
+                    {t('photos', { ns: 'issues' })}
                   </Label>
                   <Input id="photos" type="file" multiple className="md:col-span-3 border-rovida-soft-gray text-rovida-near-black" {...form.register("photos")} />
                 </div>

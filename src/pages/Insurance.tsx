@@ -6,27 +6,32 @@ import { Shield, PlusCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { mockInsurancePolicies } from '@/data/mock-insurance';
 import PoliciesTable from '@/components/insurance/PoliciesTable';
+import { toast } from 'sonner'; // Import toast for actions
 
 const Insurance = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(['insurance', 'common']); // Ensure 'insurance' and 'common' namespaces are loaded
 
   const breadcrumbItems = [
-    { label: t('home'), href: '/' },
-    { label: t('insurance and claims'), href: '/insurance' },
+    { label: t('home', { ns: 'common' }), href: '/' },
+    { label: t('insurance and claims', { ns: 'insurance' }), href: '/insurance' },
   ];
 
   const hasPolicies = mockInsurancePolicies.length > 0;
+
+  const handleAddPolicy = () => {
+    toast.info(t('add new policy action', { ns: 'insurance' })); // Placeholder action with toast
+  };
 
   return (
     <div className="flex flex-1 flex-col gap-4">
       <BreadcrumbNav items={breadcrumbItems} />
       <header className="flex items-center justify-between">
-        <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('insurance and claims')}</h1>
-        <Button className="btn-primary">
-          <PlusCircle className="mr-2 h-4 w-4" /> {t('add new policy')}
+        <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('insurance and claims', { ns: 'insurance' })}</h1>
+        <Button className="btn-primary" onClick={handleAddPolicy}>
+          <PlusCircle className="mr-2 h-4 w-4" /> {t('add new policy', { ns: 'insurance' })}
         </Button>
       </header>
-      <p className="text-rovida-slate-green-gray">{t('manage insurance policies claims')}</p>
+      <p className="text-rovida-slate-green-gray">{t('manage insurance policies claims', { ns: 'insurance' })}</p>
 
       {hasPolicies ? (
         <PoliciesTable policies={mockInsurancePolicies} />
@@ -34,9 +39,9 @@ const Insurance = () => {
         <Card className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm card-rovida mt-4 p-8">
           <div className="flex flex-col items-center gap-2 text-rovida-slate-green-gray">
             <Shield className="h-12 w-12 text-rovida-gold" />
-            <p>{t('insurance claims managed here')}</p>
-            <Button variant="outline" className="mt-4 btn-secondary">
-              <PlusCircle className="mr-2 h-4 w-4" /> {t('add first policy')}
+            <p>{t('insurance claims managed here', { ns: 'insurance' })}</p>
+            <Button variant="outline" className="mt-4 btn-secondary" onClick={handleAddPolicy}>
+              <PlusCircle className="mr-2 h-4 w-4" /> {t('add first policy', { ns: 'insurance' })}
             </Button>
           </div>
         </Card>

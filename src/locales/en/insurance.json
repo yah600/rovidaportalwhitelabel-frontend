@@ -14,5 +14,7 @@
   "building": "Building",
   "liability": "Liability",
   "property": "Property",
-  "flood": "Flood"
+  "flood": "Flood",
+  "add new policy action": "Add new insurance policy action triggered.",
+  "view edit policy action": "View/Edit policy action triggered for ID: {{id}}."
 }

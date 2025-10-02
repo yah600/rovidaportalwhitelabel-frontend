@@ -14,7 +14,7 @@ interface WorkOrdersTableProps {
 }
 
 const WorkOrdersTable = ({ workOrders }: WorkOrdersTableProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(['maintenance', 'common']); // Specify namespaces
 
   const getStatusVariant = (status: WorkOrder['status']) => {
     switch (status) {
@@ -51,7 +51,7 @@ const WorkOrdersTable = ({ workOrders }: WorkOrdersTableProps) => {
   const columns: ColumnDef<WorkOrder>[] = [
     {
       accessorKey: "id",
-      header: t('id'),
+      header: t('id', { ns: 'common' }),
       cell: ({ row }) => (
         <Link to={`/maintenance/work-orders/${row.original.id}`} className="text-primary hover:underline">
           {row.getValue("id")}
@@ -60,40 +60,40 @@ const WorkOrdersTable = ({ workOrders }: WorkOrdersTableProps) => {
     },
     {
       accessorKey: "title",
-      header: t('title'),
+      header: t('title', { ns: 'common' }),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("title")}</span>,
     },
     {
       accessorKey: "unit",
-      header: t('unit'),
+      header: t('unit', { ns: 'common' }),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("unit")}</span>,
     },
     {
       accessorKey: "assignedTo",
-      header: t('assigned to'),
+      header: t('assigned to', { ns: 'common' }),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("assignedTo")}</span>,
     },
     {
       accessorKey: "status",
-      header: t('status'),
+      header: t('status', { ns: 'common' }),
       cell: ({ row }) => (
         <Badge variant={getStatusVariant(row.getValue("status"))}>
-          {t(row.getValue("status").toLowerCase().replace(/ /g, ''))}
+          {t(row.getValue("status").toLowerCase().replace(/ /g, ''), { ns: 'maintenance' })}
         </Badge>
       ),
     },
     {
       accessorKey: "priority",
-      header: t('priority'),
+      header: t('priority', { ns: 'common' }),
       cell: ({ row }) => (
         <Badge className={getPriorityColor(row.getValue("priority"))}>
-          {t(row.getValue("priority").toLowerCase())}
+          {t(row.getValue("priority").toLowerCase(), { ns: 'common' })}
         </Badge>
       ),
     },
     {
       accessorKey: "dueDate",
-      header: t('due date'),
+      header: t('due date', { ns: 'common' }),
       cell: ({ row }) => (
         <span className="text-rovida-slate-green-gray">
           {format(row.getValue("dueDate"), 'MMM dd, yyyy')}
@@ -102,12 +102,12 @@ const WorkOrdersTable = ({ workOrders }: WorkOrdersTableProps) => {
     },
     {
       id: "actions",
-      header: t('actions'),
+      header: t('actions', { ns: 'common' }),
       enableSorting: false,
       cell: ({ row }) => (
         <div className="text-right">
           <Link to={`/maintenance/work-orders/${row.original.id}`} className="text-sm text-rovida-slate-green-gray hover:underline">
-            {t('view')}
+            {t('view', { ns: 'common' })}
           </Link>
         </div>
       ),

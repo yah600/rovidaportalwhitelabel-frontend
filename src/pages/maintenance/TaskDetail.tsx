@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { CheckCircle, User, Clock, DollarSign, Paperclip } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 import { format } from 'date-fns';
+import { toast } from 'sonner'; // Import toast for actions
 
 // Mock data for a single task
 const mockTask = {
@@ -32,58 +33,62 @@ const mockTask = {
 
 const MaintenanceTaskDetail = () => {
   const { id } = useParams();
-  const { t } = useTranslation();
+  const { t } = useTranslation(['maintenance', 'common']); // Specify namespaces
 
   const task = mockTask; // Using mockTask for now, would fetch by id
 
   if (!task) {
     return (
       <div className="flex flex-1 items-center justify-center">
-        <p className="text-rovida-slate-green-gray">{t('task not found')}</p>
+        <p className="text-rovida-slate-green-gray">{t('task not found', { ns: 'maintenance' })}</p>
       </div>
     );
   }
 
   const breadcrumbItems = [
-    { label: t('maintenance'), href: '/maintenance' },
-    { label: t('tasks'), href: '/maintenance/tasks' },
-    { label: `${t('task')} ${task.id}`, href: `/maintenance/tasks/${task.id}` },
+    { label: t('maintenance', { ns: 'maintenance' }), href: '/maintenance' },
+    { label: t('tasks', { ns: 'maintenance' }), href: '/maintenance/tasks' },
+    { label: `${t('task', { ns: 'maintenance' })} ${task.id}`, href: `/maintenance/tasks/${task.id}` },
   ];
+
+  const handleViewAttachment = (attachmentName: string) => {
+    toast.info(t('view attachment action', { ns: 'maintenance', name: attachmentName })); // Placeholder action with toast
+  };
 
   return (
     <div className="flex flex-1 flex-col gap-4">
       <BreadcrumbNav items={breadcrumbItems} />
       <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{task.title}</h1>
-      <p className="text-rovida-slate-green-gray">{t('details maintenance task')} {id}.</p>
+      <p className="text-rovida-slate-green-gray">{t('details maintenance task', { ns: 'maintenance' })} {id}.</p>
 
       <div className="grid gap-4 lg:grid-cols-2">
         <Card className="card-rovida">
           <CardHeader>
-            <CardTitle className="text-rovida-navy">{t('task information')}</CardTitle>
-            <CardDescription className="text-rovida-slate-green-gray">{t('key details task')}</CardDescription>
+            <CardTitle className="text-rovida-navy">{t('task information', { ns: 'maintenance' })}</CardTitle>
+            <CardDescription className="text-rovida-slate-green-gray">{t('key details task', { ns: 'maintenance' })}</CardDescription>
           </CardHeader>
           <CardContent className="grid gap-4">
             <div className="grid grid-cols-2 gap-2 text-rovida-near-black">
-              <div className="font-medium">{t('id')}:</div>
+              <div className="font-medium">{t('id', { ns: 'common' })}:</div>
               <div>{task.id}</div>
-              <div className="font-medium">{t('status')}:</div>
+              <div className="font-medium">{t('status', { ns: 'common' })}:</div>
               <div>{task.status}</div>
-              <div className="font-medium">{t('priority')}:</div>
+              <div className="font-medium">{t('priority', { ns: 'common' })}:</div>
               <div>{task.priority}</div>
-              <div className="font-medium">{t('assigned to')}:</div>
+              <div className="font-medium">{t('assigned to', { ns: 'common' })}:</div>
               <div>{task.assignedTo}</div>
-              <div className="font-medium">{t('due date')}:</div>
+              <div className="font-medium">{t('due date', { ns: 'common' })}:</div>
               <div>{format(task.dueDate, 'MMM dd, yyyy')}</div>
-              <div className="font-medium">{t('estimated cost')}:</div>
+              <div className="font-medium">{t('estimated cost', { ns: 'maintenance' })}:</div>
               <div className="font-roboto-mono text-rovida-near-black">${task.cost.toFixed(2)}</div>
-              <div className="font-medium">{t('created at')}:</div>
+              <div className="font-medium">{t('created at', { ns: 'common' })}:</div>
               <div>{format(task.createdAt, 'MMM dd, yyyy HH:mm')}</div>
-              <div className="font-medium">{t('last updated')}:</div>
+              <div className="font-medium">{t('last updated', { ns: 'common' })}:</div>
               <div>{format(task.updatedAt, 'MMM dd, yyyy HH:mm')}</div>
             </div>
             <Separator className="bg-rovida-soft-gray" />
             <div>
-              <h4 className="font-medium mb-2 text-rovida-navy">{t('description')}:</h4>
+              <h4 className="font-medium mb-2 text-rovida-navy">{t('description', { ns: 'common' })}:</h4>
               <p className="text-rovida-slate-green-gray">{task.description}</p>
             </div>
           </CardContent>
@@ -92,8 +97,8 @@ const MaintenanceTaskDetail = () => {
         <div className="grid gap-4">
           <Card className="card-rovida">
             <CardHeader>
-              <CardTitle className="text-rovida-navy">{t('checklist')}</CardTitle>
-              <CardDescription className="text-rovida-slate-green-gray">{t('steps to complete task')}</CardDescription>
+              <CardTitle className="text-rovida-navy">{t('checklist', { ns: 'maintenance' })}</CardTitle>
+              <CardDescription className="text-rovida-slate-green-gray">{t('steps to complete task', { ns: 'maintenance' })}</CardDescription>
             </CardHeader>
             <CardContent>
               <ul className="space-y-2">
@@ -104,7 +109,7 @@ const MaintenanceTaskDetail = () => {
                     ) : (
                       <Clock className="h-4 w-4 text-rovida-slate-green-gray" />
                     )}
-                    <span>{t(item.item.toLowerCase().replace(/ /g, ''))}</span>
+                    <span>{t(item.item.toLowerCase().replace(/ /g, ''), { ns: 'maintenance' })}</span>
                   </li>
                 ))}
               </ul>
@@ -113,8 +118,8 @@ const MaintenanceTaskDetail = () => {
 
           <Card className="card-rovida">
             <CardHeader>
-              <CardTitle className="text-rovida-navy">{t('attachments')}</CardTitle>
-              <CardDescription className="text-rovida-slate-green-gray">{t('supporting docs task')}</CardDescription>
+              <CardTitle className="text-rovida-navy">{t('attachments', { ns: 'issues' })}</CardTitle>
+              <CardDescription className="text-rovida-slate-green-gray">{t('supporting docs task', { ns: 'maintenance' })}</CardDescription>
             </CardHeader>
             <CardContent>
               {task.attachments.length > 0 ? (
@@ -123,18 +128,18 @@ const MaintenanceTaskDetail = () => {
                     <div key={attachment.id} className="flex items-center gap-3 p-2 border border-rovida-soft-gray rounded-md bg-white/60">
                       <Paperclip className="h-5 w-5 text-rovida-gold" />
                       <div>
-                        <a href={attachment.url} target="_blank" rel="noopener noreferrer" className="font-medium link-rovida">
+                        <button onClick={() => handleViewAttachment(attachment.name)} className="font-medium link-rovida text-left">
                           {attachment.name}
-                        </a>
+                        </button>
                         <p className="text-xs text-rovida-slate-green-gray">
-                          {t('uploaded by on', { user: attachment.uploadedBy, date: format(attachment.uploadedAt, 'MMM dd, yyyy') })}
+                          {t('uploaded by on', { ns: 'maintenance', user: attachment.uploadedBy, date: format(attachment.uploadedAt, 'MMM dd, yyyy') })}
                         </p>
                       </div>
                     </div>
                   ))}
                 </div>
               ) : (
-                <p className="text-rovida-slate-green-gray">{t('no attachments')}</p>
+                <p className="text-rovida-slate-green-gray">{t('no attachments', { ns: 'issues' })}</p>
               )}
             </CardContent>
           </Card>

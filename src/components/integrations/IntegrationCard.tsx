@@ -13,7 +13,7 @@ interface IntegrationCardProps {
 }
 
 const IntegrationCard = ({ integration }: IntegrationCardProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(['integrations', 'common']); // Ensure 'integrations' and 'common' namespaces are loaded
 
   const getStatusVariant = (status: Integration['status']) => {
     switch (status) {
@@ -35,20 +35,20 @@ const IntegrationCard = ({ integration }: IntegrationCardProps) => {
           <Plug className="h-5 w-5 text-rovida-gold" />
           <CardTitle className="text-lg text-rovida-navy">{integration.name}</CardTitle>
         </div>
-        <Badge variant={getStatusVariant(integration.status)}>{t(integration.status.toLowerCase().replace(/ /g, ''))}</Badge>
+        <Badge variant={getStatusVariant(integration.status)}>{t(integration.status.toLowerCase().replace(/ /g, ''), { ns: 'integrations' })}</Badge>
       </CardHeader>
       <CardContent className="flex-1 flex flex-col justify-between">
         <CardDescription className="mb-4 text-rovida-slate-green-gray">{integration.description}</CardDescription>
         <div className="flex items-center justify-between text-sm text-rovida-slate-green-gray">
-          <span>{t('type')}: {integration.type}</span>
+          <span>{t('type', { ns: 'common' })}: {integration.type}</span>
           {integration.connectedAt && (
-            <span>{t('connected')}: {format(integration.connectedAt, 'MMM dd, yyyy')}</span>
+            <span>{t('connected at', { ns: 'integrations' })}: {format(integration.connectedAt, 'MMM dd, yyyy')}</span>
           )}
         </div>
         <div className="mt-4 flex justify-end">
           <Link to={`/integrations/${integration.slug}`}>
             <Button variant="outline" size="sm" className="btn-secondary">
-              <Settings className="h-4 w-4 mr-2" /> {t('manage')}
+              <Settings className="h-4 w-4 mr-2" /> {t('manage', { ns: 'common' })}
             </Button>
           </Link>
         </div>

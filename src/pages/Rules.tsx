@@ -6,27 +6,32 @@ import { Gavel, PlusCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { mockRules } from '@/data/mock-rules';
 import RulesTable from '@/components/rules/RulesTable';
+import { toast } from 'sonner'; // Import toast for actions
 
 const Rules = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(['rules', 'common']); // Ensure 'rules' and 'common' namespaces are loaded
 
   const breadcrumbItems = [
-    { label: t('home'), href: '/' },
-    { label: t('rules and violations'), href: '/rules' },
+    { label: t('home', { ns: 'common' }), href: '/' },
+    { label: t('rules and violations', { ns: 'rules' }), href: '/rules' },
   ];
 
   const hasRules = mockRules.length > 0;
+
+  const handleAddRule = () => {
+    toast.info(t('add new rule action', { ns: 'rules' })); // Placeholder action with toast
+  };
 
   return (
     <div className="flex flex-1 flex-col gap-4">
       <BreadcrumbNav items={breadcrumbItems} />
       <header className="flex items-center justify-between">
-        <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('rules and violations')}</h1>
-        <Button className="btn-primary">
-          <PlusCircle className="mr-2 h-4 w-4" /> {t('add new rule')}
+        <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('rules and violations', { ns: 'rules' })}</h1>
+        <Button className="btn-primary" onClick={handleAddRule}>
+          <PlusCircle className="mr-2 h-4 w-4" /> {t('add new rule', { ns: 'rules' })}
         </Button>
       </header>
-      <p className="text-rovida-slate-green-gray">{t('manage building rules violations')}</p>
+      <p className="text-rovida-slate-green-gray">{t('manage building rules violations', { ns: 'rules' })}</p>
 
       {hasRules ? (
         <RulesTable rules={mockRules} />
@@ -34,9 +39,9 @@ const Rules = () => {
         <Card className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm card-rovida mt-4 p-8">
           <div className="flex flex-col items-center gap-2 text-rovida-slate-green-gray">
             <Gavel className="h-12 w-12 text-rovida-gold" />
-            <p>{t('rules violations managed here')}</p>
-            <Button variant="outline" className="mt-4 btn-secondary">
-              <PlusCircle className="mr-2 h-4 w-4" /> {t('add first rule')}
+            <p>{t('rules violations managed here', { ns: 'rules' })}</p>
+            <Button variant="outline" className="mt-4 btn-secondary" onClick={handleAddRule}>
+              <PlusCircle className="mr-2 h-4 w-4" /> {t('add first rule', { ns: 'rules' })}
             </Button>
           </div>
         </Card>

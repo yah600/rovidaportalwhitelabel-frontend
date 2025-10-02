@@ -7,13 +7,14 @@ import { Badge } from '@/components/ui/badge';
 import { InsurancePolicy } from '@/data/mock-insurance';
 import { format } from 'date-fns';
 import { DataTable } from '@/components/DataTable';
+import { toast } from 'sonner'; // Import toast for actions
 
 interface PoliciesTableProps {
   policies: InsurancePolicy[];
 }
 
 const PoliciesTable = ({ policies }: PoliciesTableProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(['insurance', 'common']); // Ensure 'insurance' and 'common' namespaces are loaded
 
   const getStatusVariant = (status: InsurancePolicy['status']) => {
     switch (status) {
@@ -28,35 +29,39 @@ const PoliciesTable = ({ policies }: PoliciesTableProps) => {
     }
   };
 
+  const handleViewEditPolicy = (policyId: string) => {
+    toast.info(t('view edit policy action', { ns: 'insurance', id: policyId })); // Placeholder action with toast
+  };
+
   const columns: ColumnDef<InsurancePolicy>[] = [
     {
       accessorKey: "id",
-      header: t('id'),
+      header: t('id', { ns: 'common' }),
       cell: ({ row }) => <span className="font-medium text-rovida-near-black">{row.getValue("id")}</span>,
     },
     {
       accessorKey: "provider",
-      header: t('provider'),
+      header: t('provider', { ns: 'insurance' }),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("provider")}</span>,
     },
     {
       accessorKey: "policyNumber",
-      header: t('policy number'),
+      header: t('policy number', { ns: 'insurance' }),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("policyNumber")}</span>,
     },
     {
       accessorKey: "type",
-      header: t('type'),
-      cell: ({ row }) => <span className="text-rovida-near-black">{t(row.getValue("type").toLowerCase())}</span>,
+      header: t('type', { ns: 'common' }),
+      cell: ({ row }) => <span className="text-rovida-near-black">{t(row.getValue("type").toLowerCase(), { ns: 'insurance' })}</span>,
     },
     {
       accessorKey: "coverageAmount",
-      header: t('coverage amount'),
+      header: t('coverage amount', { ns: 'insurance' }),
       cell: ({ row }) => <span className="text-rovida-near-black">${row.original.coverageAmount.toLocaleString()}</span>,
     },
     {
       accessorKey: "endDate",
-      header: t('end date'),
+      header: t('end date', { ns: 'insurance' }),
       cell: ({ row }) => (
         <span className="text-rovida-slate-green-gray">
           {format(row.getValue("endDate"), 'MMM dd, yyyy')}
@@ -65,20 +70,22 @@ const PoliciesTable = ({ policies }: PoliciesTableProps) => {
     },
     {
       accessorKey: "status",
-      header: t('status'),
+      header: t('status', { ns: 'common' }),
       cell: ({ row }) => (
         <Badge variant={getStatusVariant(row.getValue("status"))}>
-          {t(row.getValue("status").toLowerCase().replace(/ /g, ''))}
+          {t(row.getValue("status").toLowerCase().replace(/ /g, ''), { ns: 'insurance' })}
         </Badge>
       ),
     },
     {
       id: "actions",
-      header: t('actions'),
+      header: t('actions', { ns: 'common' }),
       enableSorting: false,
-      cell: () => (
+      cell: ({ row }) => (
         <div className="text-right">
-          <span className="text-sm text-rovida-slate-green-gray">{t('view')} / {t('edit')}</span>
+          <button onClick={() => handleViewEditPolicy(row.original.id)} className="text-sm text-rovida-slate-green-gray hover:underline">
+            {t('view', { ns: 'common' })} / {t('edit', { ns: 'common' })}
+          </button>
         </div>
       ),
     },
