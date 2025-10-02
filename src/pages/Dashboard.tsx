@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '@/components/ui/card';
 import EmergencyBanner from '@/components/EmergencyBanner';
@@ -26,11 +26,24 @@ const Dashboard = () => {
   const currentDate = format(new Date(), 'PPP');
 
   const [isLoadingKPIs, setIsLoadingKPIs] = React.useState(true);
+  const [showFullWelcome, setShowFullWelcome] = useState(true); // New state for welcome text
 
   React.useEffect(() => {
     const timer = setTimeout(() => setIsLoadingKPIs(false), 1000);
     return () => clearTimeout(timer);
   }, []);
+
+  // New useEffect for the welcome text transition
+  useEffect(() => {
+    const welcomeTimer = setTimeout(() => {
+      setShowFullWelcome(false);
+    }, 12000); // 12 seconds for the transition
+    return () => clearTimeout(welcomeTimer);
+  }, []);
+
+  const dynamicWelcomeText = showFullWelcome
+    ? t('welcome', { ns: 'common' }) // Use the new translation key for "Welcome"
+    : 'Rovida'; // Hardcoded "Rovida" as requested
 
   // Helper to filter data based on user's scope
   const filterByScope = <T extends { unit?: string; buildingId?: string; id?: string; assignee?: string; reporter?: string; vendor?: string }>(
@@ -110,7 +123,7 @@ const Dashboard = () => {
     <div className="flex flex-1 flex-col gap-4">
       <header className="flex items-center justify-between flex-wrap gap-2">
         <SplitText
-          text={t('hello user', { name: userName, ns: 'common' })}
+          text={dynamicWelcomeText} // Use the dynamic text here
           tag="h1"
           className="text-2xl font-semibold md:text-3xl text-page-title"
           delay={50}

@@ -25,8 +25,6 @@ const Topbar = () => {
   const { currentUser, setCurrentUser } = useUser();
   const { canRead } = useAuth();
 
-  const [searchTerm, setSearchTerm] = React.useState('');
-
   const userName = currentUser?.name || t("guest", { ns: 'common' });
   const userEmail = currentUser?.email || "";
   const buildings = [
@@ -68,10 +66,12 @@ const Topbar = () => {
     }
   };
 
+  const [searchTerm, setSearchTerm] = React.useState('');
+
   return (
     <header className="sticky top-0 z-40 w-full border-b border-rovida-soft-gray bg-white/80 backdrop-blur-xl px-4 py-2 flex items-center justify-between shadow-sm">
       <div className="flex items-center space-x-4">
-        <img src="/AVERO.png" alt={t('welcome to gestion rovida', { ns: 'common' })} className="h-8 w-auto" />
+        <img src="/AVERO.png" alt={t('welcome to gestion rovida', { ns: 'common' })} className="h-10 w-auto" />
 
         {currentUser && (
           <Select defaultValue={currentBuildingId}>

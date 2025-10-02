@@ -144,5 +144,6 @@
   "no permission view rules": "Vous n'avez pas la permission de voir les règles.",
   "no permission view insurance": "Vous n'avez pas la permission de voir les assurances.",
   "no permission view amenities": "Vous n'avez pas la permission de voir les commodités.",
-  "no permission view templates": "Vous n'avez pas la permission de voir les modèles."
+  "no permission view templates": "Vous n'avez pas la permission de voir les modèles.",
+  "welcome": "Bienvenue"
 }

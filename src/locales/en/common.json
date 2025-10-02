@@ -144,5 +144,6 @@
   "no permission view rules": "You do not have permission to view rules.",
   "no permission view insurance": "You do not have permission to view insurance.",
   "no permission view amenities": "You do not have permission to view amenities.",
-  "no permission view templates": "You do not have permission to view templates."
+  "no permission view templates": "You do not have permission to view templates.",
+  "welcome": "Welcome"
 }
