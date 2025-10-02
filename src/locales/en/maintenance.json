@@ -109,5 +109,15 @@
   "in progress": "In Progress",
   "completed": "Completed",
   "cancelled": "Cancelled",
-  "pending parts": "Pending Parts"
+  "pending parts": "Pending Parts",
+  "add new event": "Add New Event",
+  "add new event action": "Add new event action triggered.",
+  "add first event": "Add your first event.",
+  "full interactive calendar description": "A full interactive calendar will allow you to schedule, view, and manage all maintenance events, tasks, and work orders with drag-and-drop functionality.",
+  "import maintenance agenda": "Import Maintenance Agenda",
+  "follow steps import generate tasks": "Follow these steps to import your maintenance agenda and generate tasks.",
+  "drag drop column headers to map them to task fields like title, description, due date, and assignee. This ensures your data is correctly interpreted.": "Drag & drop column headers to map them to task fields like title, description, due date, and assignee. This ensures your data is correctly interpreted.",
+  "review the generated tasks below. You can make final adjustments before confirming their creation. Once confirmed, these tasks will appear in your maintenance schedule.": "Review the generated tasks below. You can make final adjustments before confirming their creation. Once confirmed, these tasks will appear in your maintenance schedule.",
+  "track all physical assets, their locations, and maintenance history. Add your first asset to get started.": "Track all physical assets, their locations, and maintenance history. Add your first asset to get started.",
+  "create, assign, and track work orders for repairs and services across the property. Create your first work order to get started.": "Create, assign, and track work orders for repairs and services across the property. Create your first work order to get started."
 }

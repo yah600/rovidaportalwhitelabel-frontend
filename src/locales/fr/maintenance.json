@@ -109,5 +109,15 @@
   "in progress": "En cours",
   "completed": "Terminé",
   "cancelled": "Annulé",
-  "pending parts": "En attente de pièces"
+  "pending parts": "En attente de pièces",
+  "add new event": "Ajouter un nouvel événement",
+  "add new event action": "Action d'ajout de nouvel événement déclenchée.",
+  "add first event": "Ajouter le premier événement.",
+  "full interactive calendar description": "Un calendrier interactif complet vous permettra de planifier, visualiser et gérer tous les événements de maintenance, les tâches et les ordres de travail avec une fonctionnalité de glisser-déposer.",
+  "import maintenance agenda": "Importer l'agenda de maintenance",
+  "follow steps import generate tasks": "Suivez ces étapes pour importer votre agenda de maintenance et générer des tâches.",
+  "drag drop column headers to map them to task fields like title, description, due date, and assignee. This ensures your data is correctly interpreted.": "Faites glisser et déposez les en-têtes de colonne pour les mapper aux champs de tâche tels que le titre, la description, la date d'échéance et le responsable. Cela garantit que vos données sont correctement interprétées.",
+  "review the generated tasks below. You can make final adjustments before confirming their creation. Once confirmed, these tasks will appear in your maintenance schedule.": "Examinez les tâches générées ci-dessous. Vous pouvez effectuer des ajustements finaux avant de confirmer leur création. Une fois confirmées, ces tâches apparaîtront dans votre calendrier de maintenance.",
+  "track all physical assets, their locations, and maintenance history. Add your first asset to get started.": "Suivez tous les actifs physiques, leurs emplacements et l'historique de maintenance. Ajoutez votre premier actif pour commencer.",
+  "create, assign, and track work orders for repairs and services across the property. Create your first work order to get started.": "Créez, attribuez et suivez les ordres de travail pour les réparations et les services dans toute la propriété. Créez votre premier ordre de travail pour commencer."
 }
