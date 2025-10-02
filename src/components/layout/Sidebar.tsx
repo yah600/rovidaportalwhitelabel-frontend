@@ -42,6 +42,7 @@ import {
 } from 'lucide-react';
 import { ShieldCheck } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
+import GlassSurface from '@/components/GlassSurface'; // Import GlassSurface
 
 interface NavItem {
   titleKey: string;
@@ -298,18 +299,25 @@ const Sidebar = ({ className }: { className?: string }) => {
   };
 
   return (
-    <div
+    <GlassSurface
+      width="100%"
+      height="100%"
+      borderRadius={0}
+      blur={20}
+      backgroundOpacity={0.15}
+      saturation={1.8}
+      displace={0.5}
+      distortionScale={-100}
+      redOffset={5}
+      greenOffset={10}
+      blueOffset={15}
       className={cn(
-        "hidden border-r border-rovida-soft-gray bg-white/80 backdrop-blur-xl md:flex flex-col transition-all duration-300 ease-in-out",
+        "hidden border-r border-rovida-soft-gray md:flex flex-col transition-all duration-300 ease-in-out",
         className
       )}
     >
       <div className="flex h-14 items-center border-b border-rovida-soft-gray px-4 lg:h-[60px] lg:px-6 justify-between">
-        {!isCollapsed && (
-          <Link to="/" className="flex items-center gap-2 font-semibold">
-            <span className="text-lg text-rovida-gold">{t('welcome to gestion rovida', { ns: 'common' })}</span>
-          </Link>
-        )}
+        {/* Removed "Welcome to Gestion Rovida" text */}
         <button
           onClick={() => setIsCollapsed(!isCollapsed)}
           className={cn(
@@ -326,7 +334,7 @@ const Sidebar = ({ className }: { className?: string }) => {
           {renderNavItems(navItems)}
         </nav>
       </div>
-    </div>
+    </GlassSurface>
   );
 };
 
