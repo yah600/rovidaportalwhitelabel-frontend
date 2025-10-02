@@ -10,6 +10,7 @@ import {
 } from '@/components/ui/table';
 import { Role } from '@/data/mock-roles';
 import { cn } from '@/lib/utils'; // Import cn for utility classes
+import { ROLE_TRANSLATION_KEYS } from '@/shared/rbac/roles';
 
 interface RolesTableProps {
   roles: Role[];
@@ -35,7 +36,7 @@ const RolesTable = ({ roles, className }: RolesTableProps) => {
           {roles.map((role) => (
             <TableRow key={role.id} className="hover:bg-rovida-soft-gray/50 transition-colors">
               <TableCell className="font-medium text-rovida-near-black">{role.id}</TableCell>
-              <TableCell className="text-rovida-near-black">{t(role.name.toLowerCase())}</TableCell>
+              <TableCell className="text-rovida-near-black">{t(ROLE_TRANSLATION_KEYS[role.roleId], { ns: 'auth' })}</TableCell>
               <TableCell className="text-rovida-slate-green-gray">{role.description}</TableCell>
               <TableCell className="text-rovida-near-black">{role.usersCount}</TableCell>
               <TableCell className="text-right">

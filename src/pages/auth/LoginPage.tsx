@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button';
 import GlassSurface from '@/components/GlassSurface';
 import { useUser, MOCK_USERS } from '@/context/UserContext';
 import { toast } from 'sonner';
+import { ROLE_TRANSLATION_KEYS } from '@/shared/rbac/roles';
 
 const Login = () => {
   const { t } = useTranslation();
@@ -96,9 +97,16 @@ const Login = () => {
             <div className="mt-6 text-center text-xs text-rovida-slate-green-gray">
               <p className="font-semibold mb-2">{t('mock user credentials')}</p>
               <ul className="list-disc list-inside text-left mx-auto max-w-xs">
-                {MOCK_USERS.map((user) => (
-                  <li key={user.email}>{user.email} ({t(user.user.roles[0].name.toLowerCase().replace(/ /g, ''))})</li>
-                ))}
+                {MOCK_USERS.map((user) => {
+                  const primaryRoleId = user.user.roles[0]?.name;
+                  const translationKey = primaryRoleId ? ROLE_TRANSLATION_KEYS[primaryRoleId] : undefined;
+                  return (
+                    <li key={user.email}>
+                      {user.email}
+                      {translationKey ? ` (${t(translationKey, { ns: 'auth' })})` : ''}
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           </CardContent>

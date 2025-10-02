@@ -17,6 +17,7 @@ import GlassSurface from '@/components/GlassSurface';
 import Counter from '@/components/Counter';
 import { useUser } from '@/context/UserContext';
 import { useAuth } from '@/hooks/useAuth';
+import { ROLE_IDS } from '@/shared/rbac/roles';
 
 const Dashboard = () => {
   const { t } = useTranslation(['dashboard', 'common', 'emergency', 'issues', 'finance', 'maintenance', 'board', 'documents']); // Specify namespaces
@@ -54,8 +55,15 @@ const Dashboard = () => {
       return [];
     }
 
-    // Platform Owner, Client Super-Administrator, Condo Administrator see all
-    if (currentUser.roles.some(role => role.scope.isSuper || role.name === 'Client Super-Administrator' || role.name === 'Condo Administrator')) {
+    // Sysadmins, portfolio managers, and building managers see all
+    if (
+      currentUser.roles.some(
+        role =>
+          role.scope.isSuper ||
+          role.name === ROLE_IDS.PORTFOLIO_MANAGER ||
+          role.name === ROLE_IDS.BUILDING_MANAGER
+      )
+    ) {
       return data;
     }
 
@@ -65,32 +73,30 @@ const Dashboard = () => {
 
     return data.filter(item => {
       // Filter for Owners/Tenants by unit
-      if ((currentUser.roles.some(r => r.name === 'Owner' || r.name === 'Tenant')) && item.unit) {
+      if ((currentUser.roles.some(r => r.name === ROLE_IDS.OWNER || r.name === ROLE_IDS.TENANT)) && item.unit) {
         const itemUnitNumber = item.unit.replace('Unit ', 'UNIT');
         if (userUnitIds.includes(itemUnitNumber)) return true;
       }
 
-      // Filter for Property Managers, Board Members, Building Maintenance Technician by building
-      if ((currentUser.roles.some(r => r.name === 'Property Manager' || r.name === 'Board Member' || r.name === 'Building Maintenance Technician' || r.name === 'Emergency Agent' || r.name === 'Concierge / Front Desk / Security')) && item.unit) {
+      // Filter for building-scoped roles (e.g., Building Manager, Board Member, Security)
+      if (
+        currentUser.roles.some(
+          r =>
+            r.name === ROLE_IDS.BUILDING_MANAGER ||
+            r.name === ROLE_IDS.BOARD ||
+            r.name === ROLE_IDS.SECURITY
+        ) &&
+        item.unit
+      ) {
         // This is a simplified mapping. In a real app, units would have explicit building IDs.
         const buildingIdFromUnit = item.unit.startsWith('Unit 1') || item.unit.startsWith('Unit 2') ? 'BLD001' : (item.unit.startsWith('Unit 3') ? 'BLD002' : null);
         if (buildingIdFromUnit && userBuildingIds.includes(buildingIdFromUnit)) return true;
       }
-      
+
       // Filter for Vendors by assignedTo or vendorId (if item has a vendor field)
-      if (currentUser.roles.some(r => r.name === 'Vendor / Service Provider')) {
+      if (currentUser.roles.some(r => r.name === ROLE_IDS.VENDOR)) {
         if (item.assignee === currentUser.name) return true; // For tasks/issues assigned to them
         if (item.vendor === userVendorId) return true; // For bills/POs from their vendor
-      }
-
-      // Accountant sees all financial data
-      if (currentUser.roles.some(r => r.name === 'Accountant') && moduleName.startsWith('Finance')) {
-        return true;
-      }
-
-      // Read-Only Auditor sees all data
-      if (currentUser.roles.some(r => r.name === 'Read-Only Auditor')) {
-        return true;
       }
 
       // If no specific scope matches, and not a super admin, filter out
