@@ -15,12 +15,14 @@ const OnboardingPage = () => {
   const navigate = useNavigate();
   const { currentUser, setCurrentUser } = useUser();
 
+  const initialRole = currentUser?.roles[0]?.name || '';
+
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     fullName: currentUser?.name || '',
     email: currentUser?.email || '',
     phone: '',
-    role: '',
+    role: initialRole, // Pre-fill role if available
     building: '',
     unit: '',
     termsAccepted: false,
@@ -70,6 +72,8 @@ const OnboardingPage = () => {
     navigate('/dashboard');
   };
 
+  const isRolePreFilledAndDisabled = !!initialRole;
+
   return (
     <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-rovida-light-blue to-rovida-light-green p-4">
       <Card className="w-full max-w-lg bg-white/80 backdrop-blur-xl border-rovida-soft-gray shadow-lg">
@@ -104,15 +108,24 @@ const OnboardingPage = () => {
               <h3 className="text-lg font-semibold text-rovida-navy">{t('step 2 building selection', { ns: 'onboarding' })}</h3>
               <div>
                 <Label htmlFor="role">{t('your role', { ns: 'onboarding' })}</Label>
-                <Select onValueChange={(value) => handleSelectChange('role', value)} value={formData.role}>
+                <Select onValueChange={(value) => handleSelectChange('role', value)} value={formData.role} disabled={isRolePreFilledAndDisabled}>
                   <SelectTrigger>
                     <SelectValue placeholder={t('select your role', { ns: 'onboarding' })} />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="owner">{t('owner', { ns: 'common' })}</SelectItem>
-                    <SelectItem value="tenant">{t('tenant', { ns: 'common' })}</SelectItem>
-                    <SelectItem value="board member">{t('board member', { ns: 'auth' })}</SelectItem>
-                    <SelectItem value="property manager">{t('property manager', { ns: 'auth' })}</SelectItem>
+                    <SelectItem value="Platform Owner">{t('platform owner', { ns: 'auth' })}</SelectItem>
+                    <SelectItem value="Client Super-Administrator">{t('client super-administrator', { ns: 'auth' })}</SelectItem>
+                    <SelectItem value="Condo Administrator">{t('condo administrator', { ns: 'auth' })}</SelectItem>
+                    <SelectItem value="Property Manager">{t('property manager', { ns: 'auth' })}</SelectItem>
+                    <SelectItem value="Accountant">{t('accountant', { ns: 'auth' })}</SelectItem>
+                    <SelectItem value="Board Member">{t('board member', { ns: 'auth' })}</SelectItem>
+                    <SelectItem value="Owner">{t('owner', { ns: 'auth' })}</SelectItem>
+                    <SelectItem value="Tenant">{t('tenant', { ns: 'auth' })}</SelectItem>
+                    <SelectItem value="Vendor / Service Provider">{t('vendor / service provider', { ns: 'auth' })}</SelectItem>
+                    <SelectItem value="Emergency Agent">{t('emergency agent', { ns: 'auth' })}</SelectItem>
+                    <SelectItem value="Concierge / Front Desk / Security">{t('concierge / front desk / security', { ns: 'auth' })}</SelectItem>
+                    <SelectItem value="Building Maintenance Technician">{t('building maintenance technician', { ns: 'auth' })}</SelectItem>
+                    <SelectItem value="Read-Only Auditor">{t('read-only auditor', { ns: 'auth' })}</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
