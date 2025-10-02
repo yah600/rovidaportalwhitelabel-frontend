@@ -80,5 +80,7 @@
   "visitor_name": "Nom du visiteur",
   "unit_visited": "Unité visitée",
   "purpose": "Motif",
-  "check_in_time": "Heure d'arrivée"
+  "check_in_time": "Heure d'arrivée",
+  "feedback_submitted_title": "Commentaires soumis !",
+  "feedback_submitted_description": "Merci pour vos précieux commentaires."
 }

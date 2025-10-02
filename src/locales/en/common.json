@@ -95,7 +95,7 @@
   "twitter": "Twitter",
   "linkedin": "LinkedIn",
   "platform_owner": "Platform Owner",
-  "client_super_administrator": "Client Super-Administrator",
+  "client_super_administrator": "Client Super Administrator",
   "condo_administrator": "Condo Administrator",
   "property_manager": "Property Manager",
   "accountant": "Accountant",
@@ -105,7 +105,7 @@
   "emergency_agent": "Emergency Agent",
   "concierge_front_desk_security": "Concierge / Front Desk / Security",
   "building_maintenance_technician": "Building Maintenance Technician",
-  "read_only_auditor": "Read-Only Auditor",
+  "read_only_auditor": "Read Only Auditor",
   "login_to_gestion_rovida": "Login to Gestion Rovida",
   "get_started": "Get Started",
   "close_menu": "Close menu",
@@ -140,7 +140,7 @@
   "terminated": "Terminated",
   "residential": "Residential",
   "commercial": "Commercial",
-  "mixed_use": "Mixed-Use",
+  "mixed_use": "Mixed Use",
   "checked_in": "Checked In",
   "checked_out": "Checked Out",
   "expected": "Expected",
@@ -149,5 +149,7 @@
   "pets": "Pets",
   "parking": "Parking",
   "amenities": "Amenities",
-  "safety": "Safety"
+  "safety": "Safety",
+  "expand_sidebar": "Expand sidebar",
+  "collapse_sidebar": "Collapse sidebar"
 }

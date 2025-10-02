@@ -8,14 +8,14 @@ const About = () => {
 
   const breadcrumbItems = [
     { label: t('home'), href: '/' },
-    { label: t('about_us'), href: '/about' },
+    { label: t('about us'), href: '/about' },
   ];
 
   return (
     <div className="flex flex-1 flex-col gap-4">
       <BreadcrumbNav items={breadcrumbItems} />
-      <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('about_gestion_rovida')}</h1>
-      <p className="text-rovida-slate-green-gray">{t('learn_more_mission_values')}</p>
+      <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('about gestion rovida')}</h1>
+      <p className="text-rovida-slate-green-gray">{t('learn more mission values')}</p>
 
       <div className="flex-1 h-[calc(100vh-200px)] overflow-hidden">
         <ScrollStack
@@ -30,27 +30,27 @@ const About = () => {
           useWindowScroll={false}
         >
           <ScrollStackItem itemClassName="card-rovida">
-            <h2 className="text-rovida-navy">{t('our_mission')}</h2>
+            <h2 className="text-rovida-navy">{t('our mission')}</h2>
             <p className="text-rovida-near-black">
-              {t('mission_description')}
+              {t('mission description')}
             </p>
           </ScrollStackItem>
           <ScrollStackItem itemClassName="card-rovida">
-            <h2 className="text-rovida-navy">{t('our_vision')}</h2>
+            <h2 className="text-rovida-navy">{t('our vision')}</h2>
             <p className="text-rovida-near-black">
-              {t('vision_description')}
+              {t('vision description')}
             </p>
           </ScrollStackItem>
           <ScrollStackItem itemClassName="card-rovida">
-            <h2 className="text-rovida-navy">{t('our_values')}</h2>
+            <h2 className="text-rovida-navy">{t('our values')}</h2>
             <p className="text-rovida-near-black">
-              {t('values_description')}
+              {t('values description')}
             </p>
           </ScrollStackItem>
           <ScrollStackItem itemClassName="card-rovida">
-            <h2 className="text-rovida-navy">{t('our_team')}</h2>
+            <h2 className="text-rovida-navy">{t('our team')}</h2>
             <p className="text-rovida-near-black">
-              {t('team_description')}
+              {t('team description')}
             </p>
           </ScrollStackItem>
         </ScrollStack>

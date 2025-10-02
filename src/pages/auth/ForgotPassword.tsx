@@ -15,8 +15,8 @@ const ForgotPassword = () => {
       <GlassSurface width="100%" height="auto" borderRadius={10} blur={15} backgroundOpacity={0.1} className="max-w-md">
         <Card className="w-full bg-transparent border-none shadow-none relative z-10">
           <CardHeader className="text-center">
-            <CardTitle className="text-3xl font-semibold text-page-title">{t('forgot_password')}</CardTitle>
-            <CardDescription className="text-rovida-slate-green-gray">{t('enter_email_receive_reset_link')}</CardDescription>
+            <CardTitle className="text-3xl font-semibold text-page-title">{t('forgot password')}</CardTitle>
+            <CardDescription className="text-rovida-slate-green-gray">{t('enter email receive reset link')}</CardDescription>
           </CardHeader>
           <CardContent>
             <form className="grid gap-4">
@@ -31,12 +31,12 @@ const ForgotPassword = () => {
                 />
               </div>
               <Button type="submit" className="w-full btn-primary">
-                {t('send_reset_link')}
+                {t('send reset link')}
               </Button>
             </form>
             <div className="mt-4 text-center text-sm text-rovida-slate-green-gray">
               <Link to="/auth/login" className="link-rovida">
-                {t('back_to_login')}
+                {t('back to login')}
               </Link>
             </div>
           </CardContent>

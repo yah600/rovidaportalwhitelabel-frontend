@@ -53,7 +53,7 @@ const mockEmergencyTimeline = [
     id: 'T004',
     timestamp: new Date(Date.now() - 20 * 60 * 1000),
     user: 'Emergency Agent',
-    details: 'On-site assessment for EMG001 initiated. Main water shut-off.',
+    details: 'On-site assessment for EMG001 initiated. Main water shut off.',
     type: 'comment',
   },
 ];
@@ -81,16 +81,16 @@ const Emergency = () => {
   return (
     <div className="flex flex-1 flex-col gap-4">
       <BreadcrumbNav items={breadcrumbItems} />
-      <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('emergency')} {t('management')}</h1>
-      <p className="text-rovida-slate-green-gray">{t('monitor_manage_incidents_realtime')}</p>
+      <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('emergency')} {t('emergency management')}</h1>
+      <p className="text-rovida-slate-green-gray">{t('monitor manage incidents realtime')}</p>
 
       <div className="grid gap-4 lg:grid-cols-2">
         <Card className="card-rovida">
           <CardHeader>
             <CardTitle className="text-rovida-error flex items-center gap-2">
-              <AlertTriangle className="h-6 w-6" /> {t('active_critical_alerts')}
+              <AlertTriangle className="h-6 w-6" /> {t('active critical alerts')}
             </CardTitle>
-            <CardDescription className="text-rovida-slate-green-gray">{t('immediate_action_required')}</CardDescription>
+            <CardDescription className="text-rovida-slate-green-gray">{t('immediate action required')}</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             {mockActiveAlerts.length > 0 ? (
@@ -108,15 +108,15 @@ const Emergency = () => {
                 </div>
               ))
             ) : (
-              <p className="text-rovida-slate-green-gray">{t('no_active_critical_alerts')}</p>
+              <p className="text-rovida-slate-green-gray">{t('no active critical alerts')}</p>
             )}
           </CardContent>
         </Card>
 
         <Card className="card-rovida">
           <CardHeader>
-            <CardTitle className="text-rovida-navy">{t('live_emergency_timeline')}</CardTitle>
-            <CardDescription className="text-rovida-slate-green-gray">{t('realtime_updates_emergency_events')}</CardDescription>
+            <CardTitle className="text-rovida-navy">{t('live emergency timeline')}</CardTitle>
+            <CardDescription className="text-rovida-slate-green-gray">{t('realtime updates emergency events')}</CardDescription>
           </CardHeader>
           <CardContent>
             {mockEmergencyTimeline.length > 0 ? (
@@ -137,7 +137,7 @@ const Emergency = () => {
                 ))}
               </ol>
             ) : (
-              <p className="text-rovida-slate-green-gray">{t('no_emergency_events_timeline')}</p>
+              <p className="text-rovida-slate-green-gray">{t('no emergency events timeline')}</p>
             )}
           </CardContent>
         </Card>

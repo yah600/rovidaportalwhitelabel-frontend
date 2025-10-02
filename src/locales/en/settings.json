@@ -13,7 +13,7 @@
   "no_audit_logs_found": "No audit logs found.",
   "activity_logs_appear_here": "Activity logs will appear here as users interact with the system.",
   "security": "Security",
-  "two_factor_authentication": "Two-Factor Authentication",
+  "two_factor_authentication": "Two Factor Authentication",
   "add_extra_layer_security": "Add an extra layer of security to your account.",
   "enable_2fa": "Enable 2FA",
   "requires_verification_code": "Requires a verification code from your phone.",
@@ -80,5 +80,7 @@
   "visitor_name": "Visitor Name",
   "unit_visited": "Unit Visited",
   "purpose": "Purpose",
-  "check_in_time": "Check-in Time"
+  "check_in_time": "Check in Time",
+  "feedback_submitted_title": "Feedback Submitted!",
+  "feedback_submitted_description": "Thank you for your valuable feedback."
 }

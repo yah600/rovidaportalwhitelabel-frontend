@@ -36,5 +36,10 @@
   "target_audience": "Target Audience",
   "published_at": "Published At",
   "expires_at": "Expires At",
-  "content": "Content"
+  "content": "Content",
+  "manage_templates": "Manage Templates",
+  "create_edit_message_templates": "Create and edit message templates.",
+  "view_templates": "View Templates",
+  "communication_sent_title": "Communication Sent!",
+  "communication_sent_description": "Your message has been sent successfully."
 }

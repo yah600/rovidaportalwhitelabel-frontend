@@ -35,7 +35,7 @@ const UnitsTable = ({ units }: UnitsTableProps) => {
     },
     {
       accessorKey: "unitNumber",
-      header: t('unit_number'),
+      header: t('unit number'),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("unitNumber")}</span>,
     },
     {
@@ -53,7 +53,7 @@ const UnitsTable = ({ units }: UnitsTableProps) => {
       header: t('status'),
       cell: ({ row }) => (
         <Badge variant={getStatusVariant(row.getValue("status"))}>
-          {row.getValue("status")}
+          {t(row.getValue("status").toLowerCase().replace(/ /g, ''))}
         </Badge>
       ),
     },

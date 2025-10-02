@@ -16,8 +16,8 @@ const CardNavDemo = () => {
       bgColor: "#183747", // Rovida Navy
       textColor: "#fff",
       links: [
-        { label: t("company"), ariaLabel: t("about_company"), href: "/about" },
-        { label: t("careers"), ariaLabel: t("about_careers"), href: "#" }
+        { label: t("company"), ariaLabel: t("about company"), href: "/about" },
+        { label: t("careers"), ariaLabel: t("about careers"), href: "#" }
       ]
     },
     {
@@ -25,8 +25,8 @@ const CardNavDemo = () => {
       bgColor: "#2A4959", // Rovida Navy 90
       textColor: "#fff",
       links: [
-        { label: t("featured"), ariaLabel: t("featured_projects"), href: "#" },
-        { label: t("case_studies"), ariaLabel: t("project_case_studies"), href: "#" }
+        { label: t("featured"), ariaLabel: t("featured projects"), href: "#" },
+        { label: t("case studies"), ariaLabel: t("project case studies"), href: "#" }
       ]
     },
     {
@@ -34,7 +34,7 @@ const CardNavDemo = () => {
       bgColor: "#7C8D89", // Rovida Slate Green Gray
       textColor: "#fff",
       links: [
-        { label: t("email"), ariaLabel: t("email_us"), href: "#" },
+        { label: t("email"), ariaLabel: t("email us"), href: "#" },
         { label: t("twitter"), ariaLabel: t("twitter"), href: "#" },
         { label: t("linkedin"), ariaLabel: t("linkedin"), href: "#" }
       ]
@@ -43,19 +43,19 @@ const CardNavDemo = () => {
 
   const breadcrumbItems = [
     { label: t('home'), href: '/' },
-    { label: t('card_navigation_demo'), href: '/cardnav-demo' },
+    { label: t('card navigation demo'), href: '/cardnav-demo' },
   ];
 
   return (
     <div className="flex flex-1 flex-col gap-4">
       <BreadcrumbNav items={breadcrumbItems} />
-      <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('card_navigation_demo')}</h1>
-      <p className="text-rovida-slate-green-gray">{t('explore_interactive_card_menu')}</p>
+      <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('card navigation demo')}</h1>
+      <p className="text-rovida-slate-green-gray">{t('explore interactive card menu')}</p>
 
       <Card className="flex-1 flex flex-col items-center justify-center p-8 card-rovida">
         <CardHeader className="text-center">
-          <CardTitle className="text-rovida-navy">{t('interactive_navigation')}</CardTitle>
-          <CardDescription className="text-rovida-slate-green-gray">{t('click_hamburger_expand_menu')}</CardDescription>
+          <CardTitle className="text-rovida-navy">{t('interactive navigation')}</CardTitle>
+          <CardDescription className="text-rovida-slate-green-gray">{t('click hamburger expand menu')}</CardDescription>
         </CardHeader>
         <CardContent className="w-full h-full flex items-center justify-center">
           <CardNav

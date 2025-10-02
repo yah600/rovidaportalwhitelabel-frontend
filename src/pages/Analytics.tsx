@@ -31,13 +31,13 @@ const Analytics = () => {
       <h1 className="text-2xl font-semibold md:text-3xl text-page-title">
         {t('analytics')}
       </h1>
-      <p className="text-rovida-slate-green-gray">{t('overview_key_operational_metrics')}</p>
+      <p className="text-rovida-slate-green-gray">{t('overview key operational metrics')}</p>
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         <Card className="col-span-full md:col-span-2 card-rovida">
           <CardHeader>
-            <CardTitle className="text-rovida-navy">{t('monthly_issue_trends')}</CardTitle>
-            <CardDescription className="text-rovida-slate-green-gray">{t('open_closed_issues_6_months')}</CardDescription>
+            <CardTitle className="text-rovida-navy">{t('monthly issue trends')}</CardTitle>
+            <CardDescription className="text-rovida-slate-green-gray">{t('open closed issues 6 months')}</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="h-[300px]">
@@ -48,8 +48,8 @@ const Analytics = () => {
                   <YAxis stroke="#7C8D89" />
                   <Tooltip contentStyle={{ backgroundColor: 'rgba(255,255,255,0.8)', border: '1px solid #E9ECEB', borderRadius: '8px' }} itemStyle={{ color: '#111418' }} />
                   <Legend />
-                  <Bar dataKey="open" fill="#C4972E" name={t('open_issues')} />
-                  <Bar dataKey="closed" fill="#183747" name={t('closed_issues')} />
+                  <Bar dataKey="open" fill="#C4972E" name={t('open issues')} />
+                  <Bar dataKey="closed" fill="#183747" name={t('closed issues')} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -58,8 +58,8 @@ const Analytics = () => {
 
         <Card className="card-rovida">
           <CardHeader>
-            <CardTitle className="text-rovida-navy">{t('issue_type_distribution')}</CardTitle>
-            <CardDescription className="text-rovida-slate-green-gray">{t('breakdown_issues_by_type')}</CardDescription>
+            <CardTitle className="text-rovida-navy">{t('issue type distribution')}</CardTitle>
+            <CardDescription className="text-rovida-slate-green-gray">{t('breakdown issues by type')}</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="h-[300px]">
@@ -89,8 +89,8 @@ const Analytics = () => {
 
         <Card className="col-span-full md:col-span-2 card-rovida">
           <CardHeader>
-            <CardTitle className="text-rovida-navy">{t('work_order_completion_rate')}</CardTitle>
-            <CardDescription className="text-rovida-slate-green-gray">{t('monthly_work_order_completion_status')}</CardDescription>
+            <CardTitle className="text-rovida-navy">{t('work order completion rate')}</CardTitle>
+            <CardDescription className="text-rovida-slate-green-gray">{t('monthly work order completion status')}</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="h-[300px]">

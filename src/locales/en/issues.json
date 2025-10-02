@@ -25,7 +25,7 @@
   "check_unit_access": "Check unit access",
   "diagnose_issue": "Diagnose issue",
   "order_parts": "Order parts",
-  "schedule_follow_up": "Schedule follow-up",
+  "schedule_follow_up": "Schedule follow up",
   "ai_suggestions": "AI Suggestions",
   "suggest_similar_incidents": "Suggest similar past incidents.",
   "recommend_kb_articles": "Recommend relevant knowledge base articles.",
@@ -38,5 +38,7 @@
   "kanban_board": "Kanban Board",
   "visualize_manage_incidents": "Visualize and manage incidents with a Kanban board.",
   "no_issues_in_column": "No issues in this column.",
-  "all": "All"
+  "all": "All",
+  "incident_not_found": "Incident not found.",
+  "incident_created_successfully": "Incident created successfully!"
 }

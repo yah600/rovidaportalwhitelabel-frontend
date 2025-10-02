@@ -95,7 +95,7 @@
   "twitter": "Twitter",
   "linkedin": "LinkedIn",
   "platform_owner": "Propriétaire de la plateforme",
-  "client_super_administrator": "Super-administrateur client",
+  "client_super_administrator": "Super administrateur client",
   "condo_administrator": "Administrateur de copropriété",
   "property_manager": "Gestionnaire immobilier",
   "accountant": "Comptable",
@@ -149,5 +149,7 @@
   "pets": "Animaux",
   "parking": "Stationnement",
   "amenities": "Commodités",
-  "safety": "Sécurité"
+  "safety": "Sécurité",
+  "expand_sidebar": "Développer la barre latérale",
+  "collapse_sidebar": "Réduire la barre latérale"
 }

@@ -33,8 +33,8 @@ const PortfolioTable = ({ properties }: PortfolioTableProps) => {
     },
     {
       accessorKey: "propertyType",
-      header: t('property_type'),
-      cell: ({ row }) => <span className="text-rovida-near-black">{t(row.getValue("propertyType").toLowerCase().replace(/-/g, '_'))}</span>,
+      header: t('property type'),
+      cell: ({ row }) => <span className="text-rovida-near-black">{t(row.getValue("propertyType").toLowerCase().replace(/ /g, ''))}</span>,
     },
     {
       accessorKey: "unitsCount",
@@ -43,7 +43,7 @@ const PortfolioTable = ({ properties }: PortfolioTableProps) => {
     },
     {
       accessorKey: "occupancyRate",
-      header: t('occupancy_rate'),
+      header: t('occupancy rate'),
       cell: ({ row }) => <span className="text-rovida-near-black">{(row.getValue("occupancyRate") * 100).toFixed(0)}%</span>,
     },
     {

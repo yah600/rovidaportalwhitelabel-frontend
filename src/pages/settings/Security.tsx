@@ -16,14 +16,14 @@ const SettingsSecurity = () => {
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         <Card className="card-rovida">
           <CardHeader>
-            <CardTitle className="text-rovida-navy">{t('two_factor_authentication')}</CardTitle>
-            <CardDescription className="text-rovida-slate-green-gray">{t('add_extra_layer_security')}</CardDescription>
+            <CardTitle className="text-rovida-navy">{t('two factor authentication')}</CardTitle>
+            <CardDescription className="text-rovida-slate-green-gray">{t('add extra layer security')}</CardDescription>
           </CardHeader>
           <CardContent className="flex items-center justify-between">
             <Label htmlFor="2fa-mode" className="flex flex-col space-y-1 text-rovida-near-black">
-              <span>{t('enable_2fa')}</span>
+              <span>{t('enable 2fa')}</span>
               <span className="font-normal leading-snug text-rovida-slate-green-gray">
-                {t('requires_verification_code')}
+                {t('requires verification code')}
               </span>
             </Label>
             <Switch id="2fa-mode" className="data-[state=checked]:bg-rovida-gold" />
@@ -32,31 +32,31 @@ const SettingsSecurity = () => {
 
         <Card className="card-rovida">
           <CardHeader>
-            <CardTitle className="text-rovida-navy">{t('password_management')}</CardTitle>
-            <CardDescription className="text-rovida-slate-green-gray">{t('update_password_set_new')}</CardDescription>
+            <CardTitle className="text-rovida-navy">{t('password management')}</CardTitle>
+            <CardDescription className="text-rovida-slate-green-gray">{t('update password set new')}</CardDescription>
           </CardHeader>
           <CardContent>
             <Button variant="outline" className="w-full btn-secondary">
-              <Key className="mr-2 h-4 w-4" /> {t('change_password')}
+              <Key className="mr-2 h-4 w-4" /> {t('change password')}
             </Button>
           </CardContent>
         </Card>
 
         <Card className="card-rovida">
           <CardHeader>
-            <CardTitle className="text-rovida-navy">{t('active_sessions')}</CardTitle>
-            <CardDescription className="text-rovida-slate-green-gray">{t('see_where_logged_in')}</CardDescription>
+            <CardTitle className="text-rovida-navy">{t('active sessions')}</CardTitle>
+            <CardDescription className="text-rovida-slate-green-gray">{t('see where logged in')}</CardDescription>
           </CardHeader>
           <CardContent>
             <Button variant="outline" className="w-full btn-secondary">
-              <ShieldCheck className="mr-2 h-4 w-4" /> {t('manage_sessions')}
+              <ShieldCheck className="mr-2 h-4 w-4" /> {t('manage sessions')}
             </Button>
           </CardContent>
         </Card>
       </div>
 
       <div className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm card-rovida mt-4">
-        <p className="text-rovida-slate-green-gray">{t('advanced_security_settings_here')}</p>
+        <p className="text-rovida-slate-green-gray">{t('advanced security settings here')}</p>
       </div>
     </div>
   );

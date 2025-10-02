@@ -12,7 +12,7 @@ const SettingsAudit = () => {
   return (
     <div className="flex flex-1 flex-col gap-4">
       <header className="flex items-center justify-between">
-        <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('audit_log')}</h1>
+        <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('audit log')}</h1>
         {/* Potentially add filters or export button here */}
       </header>
 
@@ -22,10 +22,10 @@ const SettingsAudit = () => {
         <Card className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm card-rovida">
           <div className="flex flex-col items-center gap-1 text-center">
             <h3 className="text-2xl font-bold tracking-tight text-rovida-near-black">
-              {t('no_audit_logs_found')}
+              {t('no audit logs found')}
             </h3>
             <p className="text-sm text-rovida-slate-green-gray">
-              {t('activity_logs_appear_here')}
+              {t('activity logs appear here')}
             </p>
           </div>
         </Card>

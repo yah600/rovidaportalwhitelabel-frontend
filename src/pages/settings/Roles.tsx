@@ -15,7 +15,7 @@ const SettingsRoles = () => {
       <header className="flex items-center justify-between">
         <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('roles')}</h1>
         <Button className="btn-primary">
-          <PlusCircle className="mr-2 h-4 w-4" /> {t('create_new_role')}
+          <PlusCircle className="mr-2 h-4 w-4" /> {t('create new role')}
         </Button>
       </header>
 
@@ -25,13 +25,13 @@ const SettingsRoles = () => {
         <div className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm card-rovida">
           <div className="flex flex-col items-center gap-1 text-center">
             <h3 className="text-2xl font-bold tracking-tight text-rovida-near-black">
-              {t('no_roles_found')}
+              {t('no roles found')}
             </h3>
             <p className="text-sm text-rovida-slate-green-gray">
-              {t('start_by_creating_new_role')}
+              {t('start by creating new role')}
             </p>
             <Button className="mt-4 btn-primary">
-              <PlusCircle className="mr-2 h-4 w-4" /> {t('create_new_role')}
+              <PlusCircle className="mr-2 h-4 w-4" /> {t('create new role')}
             </Button>
           </div>
         </div>

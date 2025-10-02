@@ -19,5 +19,9 @@
   "add_first_lease": "Ajouter le premier bail",
   "tenant_name": "Nom du locataire",
   "start_date": "Date de début",
-  "rent_amount": "Montant du loyer"
+  "rent_amount": "Montant du loyer",
+  "active": "Actif",
+  "expired": "Expiré",
+  "pending_renewal": "Renouvellement en attente",
+  "terminated": "Résilié"
 }

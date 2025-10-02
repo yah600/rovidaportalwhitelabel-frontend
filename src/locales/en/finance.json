@@ -51,5 +51,19 @@
   "create_first_purchase_order": "Create First Purchase Order",
   "item_description": "Item Description",
   "total_amount": "Total Amount",
-  "order_date": "Order Date"
+  "order_date": "Order Date",
+  "paid": "Paid",
+  "due": "Due",
+  "overdue": "Overdue",
+  "pending_approval": "Pending Approval",
+  "completed": "Completed",
+  "failed": "Failed",
+  "refunded": "Refunded",
+  "pending": "Pending",
+  "approved": "Approved",
+  "rejected": "Rejected",
+  "ordered": "Ordered",
+  "received": "Received",
+  "organization_settings_saved_title": "Organization Settings Saved!",
+  "organization_settings_saved_description": "Your organization details have been updated."
 }

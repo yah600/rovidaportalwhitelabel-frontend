@@ -13,9 +13,9 @@ const ForgotPasswordPage = () => {
     <div className="flex min-h-screen items-center justify-center bg-muted p-4">
       <Card className="w-full max-w-md card-rovida">
         <CardHeader className="text-center">
-          <CardTitle className="text-2xl text-page-title">{t('forgot_password')}</CardTitle>
+          <CardTitle className="text-2xl text-page-title">{t('forgot password')}</CardTitle>
           <CardDescription className="text-rovida-slate-green-gray">
-            {t('enter_email_receive_reset_link')}
+            {t('enter email receive reset link')}
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -25,10 +25,10 @@ const ForgotPasswordPage = () => {
               <Input id="email" type="email" placeholder="m@example.com" required className="border-rovida-soft-gray text-rovida-near-black" />
             </div>
             <Button type="submit" className="w-full btn-primary">
-              {t('send_reset_link')}
+              {t('send reset link')}
             </Button>
             <div className="mt-4 text-center text-sm text-rovida-slate-green-gray">
-              {t('remember_password')}{" "}
+              {t('remember password')}{" "}
               <Link to="/auth/login" className="link-rovida">
                 {t('login')}
               </Link>

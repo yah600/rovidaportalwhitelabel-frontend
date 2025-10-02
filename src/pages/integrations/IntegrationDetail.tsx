@@ -27,7 +27,7 @@ const IntegrationDetail = () => {
   if (!integration) {
     return (
       <div className="flex flex-1 items-center justify-center">
-        <p className="text-rovida-slate-green-gray">{t('integration_not_found')}</p>
+        <p className="text-rovida-slate-green-gray">{t('integration not found')}</p>
       </div>
     );
   }
@@ -56,7 +56,7 @@ const IntegrationDetail = () => {
       <header className="flex items-center justify-between flex-wrap gap-2 mb-4">
         <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{integration.name}</h1>
         <div className="flex items-center gap-2">
-          <Badge variant={getStatusBadgeVariant(integration.status)}>{integration.status}</Badge>
+          <Badge variant={getStatusBadgeVariant(integration.status)}>{t(integration.status.toLowerCase().replace(/ /g, ''))}</Badge>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="outline" size="sm">
@@ -68,7 +68,7 @@ const IntegrationDetail = () => {
               <DropdownMenuLabel>{t('actions')}</DropdownMenuLabel>
               <DropdownMenuSeparator className="bg-rovida-soft-gray" />
               <DropdownMenuItem className="hover:bg-rovida-soft-gray">
-                <Edit className="mr-2 h-4 w-4" /> {t('edit_integration')}
+                <Edit className="mr-2 h-4 w-4" /> {t('edit integration')}
               </DropdownMenuItem>
               {integration.status === 'Active' ? (
                 <DropdownMenuItem className="text-destructive hover:bg-rovida-soft-gray">
@@ -80,7 +80,7 @@ const IntegrationDetail = () => {
                 </DropdownMenuItem>
               )}
               <DropdownMenuItem className="text-destructive hover:bg-rovida-soft-gray">
-                <Trash2 className="mr-2 h-4 w-4" /> {t('remove_integration')}
+                <Trash2 className="mr-2 h-4 w-4" /> {t('remove integration')}
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -89,7 +89,7 @@ const IntegrationDetail = () => {
 
       <Card className="card-rovida">
         <CardHeader>
-          <CardTitle className="text-rovida-navy">{t('integration_details')}</CardTitle>
+          <CardTitle className="text-rovida-navy">{t('integration details')}</CardTitle>
         </CardHeader>
         <CardContent className="grid gap-4">
           <div className="grid grid-cols-2 gap-2 text-rovida-near-black">
@@ -101,7 +101,7 @@ const IntegrationDetail = () => {
             <div>{integration.status}</div>
             {integration.connectedAt && (
               <>
-                <div className="font-medium">{t('connected_at')}:</div>
+                <div className="font-medium">{t('connected at')}:</div>
                 <div>{format(integration.connectedAt, 'MMM dd, yyyy HH:mm')}</div>
               </>
             )}
@@ -115,17 +115,17 @@ const IntegrationDetail = () => {
             <>
               <Separator className="bg-rovida-soft-gray" />
               <div>
-                <h4 className="font-medium mb-2 text-rovida-navy">{t('setup_instructions')}:</h4>
+                <h4 className="font-medium mb-2 text-rovida-navy">{t('setup instructions')}:</h4>
                 <p className="text-rovida-slate-green-gray">
-                  {t('to_activate_integration_follow_steps')}
+                  {t('to activate integration follow steps')}
                   <ol className="list-decimal list-inside mt-2">
-                    <li>{t('go_to_dashboard')} {integration.name} {t('dashboard')}.</li>
-                    <li>{t('generate_api_key')}</li>
-                    <li>{t('enter_api_key_below')}</li>
-                    <li>{t('click_save_activate')}</li>
+                    <li>{t('go to dashboard')} {integration.name} {t('dashboard')}.</li>
+                    <li>{t('generate api key')}</li>
+                    <li>{t('enter api key below')}</li>
+                    <li>{t('click save activate')}</li>
                   </ol>
                 </p>
-                <Button className="mt-4 btn-primary">{t('complete_setup')}</Button>
+                <Button className="mt-4 btn-primary">{t('complete setup')}</Button>
               </div>
             </>
           )}

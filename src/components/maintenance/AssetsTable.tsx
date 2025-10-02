@@ -42,7 +42,7 @@ const AssetsTable = ({ assets }: AssetsTableProps) => {
     {
       accessorKey: "type",
       header: t('type'),
-      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("type")}</span>,
+      cell: ({ row }) => <span className="text-rovida-near-black">{t(row.getValue("type").toLowerCase().replace(/ /g, ''))}</span>,
     },
     {
       accessorKey: "location",
@@ -54,13 +54,13 @@ const AssetsTable = ({ assets }: AssetsTableProps) => {
       header: t('status'),
       cell: ({ row }) => (
         <Badge variant={getStatusVariant(row.getValue("status"))}>
-          {t(row.getValue("status").toLowerCase().replace(/ /g, '_'))}
+          {t(row.getValue("status").toLowerCase().replace(/ /g, ''))}
         </Badge>
       ),
     },
     {
       accessorKey: "lastMaintenance",
-      header: t('last_maintenance'),
+      header: t('last maintenance'),
       cell: ({ row }) => (
         <span className="text-rovida-slate-green-gray">
           {format(row.getValue("lastMaintenance"), 'MMM dd, yyyy')}
@@ -69,7 +69,7 @@ const AssetsTable = ({ assets }: AssetsTableProps) => {
     },
     {
       accessorKey: "nextMaintenance",
-      header: t('next_maintenance'),
+      header: t('next maintenance'),
       cell: ({ row }) => (
         <span className="text-rovida-slate-green-gray">
           {format(row.getValue("nextMaintenance"), 'MMM dd, yyyy')}

@@ -111,7 +111,7 @@ export function DataTable<TData, TValue>({
           ) : (
             <TableRow>
               <TableCell colSpan={columns.length} className="h-24 text-center text-rovida-slate-green-gray">
-                {t('no_results')}
+                {t('no results')}
               </TableCell>
             </TableRow>
           )}

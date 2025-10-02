@@ -41,7 +41,7 @@ const PoliciesTable = ({ policies }: PoliciesTableProps) => {
     },
     {
       accessorKey: "policyNumber",
-      header: t('policy_number'),
+      header: t('policy number'),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("policyNumber")}</span>,
     },
     {
@@ -51,12 +51,12 @@ const PoliciesTable = ({ policies }: PoliciesTableProps) => {
     },
     {
       accessorKey: "coverageAmount",
-      header: t('coverage_amount'),
+      header: t('coverage amount'),
       cell: ({ row }) => <span className="text-rovida-near-black">${row.original.coverageAmount.toLocaleString()}</span>,
     },
     {
       accessorKey: "endDate",
-      header: t('end_date'),
+      header: t('end date'),
       cell: ({ row }) => (
         <span className="text-rovida-slate-green-gray">
           {format(row.getValue("endDate"), 'MMM dd, yyyy')}
@@ -68,7 +68,7 @@ const PoliciesTable = ({ policies }: PoliciesTableProps) => {
       header: t('status'),
       cell: ({ row }) => (
         <Badge variant={getStatusVariant(row.getValue("status"))}>
-          {t(row.getValue("status").toLowerCase().replace(/ /g, '_'))}
+          {t(row.getValue("status").toLowerCase().replace(/ /g, ''))}
         </Badge>
       ),
     },

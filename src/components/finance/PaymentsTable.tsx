@@ -37,7 +37,7 @@ const PaymentsTable = ({ payments }: PaymentsTableProps) => {
     },
     {
       accessorKey: "billId",
-      header: t('bill_id'),
+      header: t('bill id'),
       cell: ({ row }) => (
         <Link to={`/finance/bills/${row.original.billId}`} className="text-primary hover:underline">
           {row.getValue("billId")}
@@ -64,13 +64,13 @@ const PaymentsTable = ({ payments }: PaymentsTableProps) => {
       header: t('status'),
       cell: ({ row }) => (
         <Badge variant={getStatusVariant(row.getValue("status"))}>
-          {row.getValue("status")}
+          {t(row.getValue("status").toLowerCase())}
         </Badge>
       ),
     },
     {
       accessorKey: "paymentDate",
-      header: t('payment_date'),
+      header: t('payment date'),
       cell: ({ row }) => (
         <span className="text-rovida-slate-green-gray">
           {format(row.getValue("paymentDate"), 'MMM dd, yyyy')}

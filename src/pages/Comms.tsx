@@ -50,7 +50,7 @@ const Comms = () => {
             <div className="text-2xl font-bold text-rovida-near-black">{publishedAnnouncements} {t('published')}</div>
             <p className="text-xs text-rovida-slate-green-gray">{t('total')}: {totalAnnouncements}</p>
             <Link to="/comms/announcements" className="mt-2 inline-flex items-center text-sm link-rovida">
-              {t('view_all')} <ArrowRight className="ml-1 h-4 w-4" />
+              {t('view all')} <ArrowRight className="ml-1 h-4 w-4" />
             </Link>
           </CardContent>
         </Card>
@@ -58,14 +58,14 @@ const Comms = () => {
         {/* Send Communication Card */}
         <Card className="card-rovida">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-rovida-navy">{t('send_communication')}</CardTitle>
+            <CardTitle className="text-sm font-medium text-rovida-navy">{t('send communication')}</CardTitle>
             <MessageSquare className="h-4 w-4 text-rovida-gold" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-rovida-near-black">{t('compose_new')}</div>
-            <p className="text-xs text-rovida-slate-green-gray">{t('send_messages_residents')}</p>
+            <div className="text-2xl font-bold text-rovida-near-black">{t('compose new')}</div>
+            <p className="text-xs text-rovida-slate-green-gray">{t('send messages residents')}</p>
             <Link to="/comms/send" className="mt-2 inline-flex items-center text-sm link-rovida">
-              {t('go_to_sender')} <ArrowRight className="ml-1 h-4 w-4" />
+              {t('go to sender')} <ArrowRight className="ml-1 h-4 w-4" />
             </Link>
           </CardContent>
         </Card>
@@ -77,10 +77,10 @@ const Comms = () => {
             <FileText className="h-4 w-4 text-rovida-gold" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-rovida-near-black">{t('manage_templates')}</div>
-            <p className="text-xs text-rovida-slate-green-gray">{t('create_edit_message_templates')}</p>
+            <div className="text-2xl font-bold text-rovida-near-black">{t('manage templates')}</div>
+            <p className="text-xs text-rovida-slate-green-gray">{t('create edit message templates')}</p>
             <Link to="/comms/templates" className="mt-2 inline-flex items-center text-sm link-rovida">
-              {t('view_templates')} <ArrowRight className="ml-1 h-4 w-4" />
+              {t('view templates')} <ArrowRight className="ml-1 h-4 w-4" />
             </Link>
           </CardContent>
         </Card>
@@ -88,8 +88,8 @@ const Comms = () => {
 
       <Card className="col-span-full card-rovida">
         <CardHeader>
-          <CardTitle className="text-rovida-navy">{t('recent_announcements')}</CardTitle>
-          <CardDescription className="text-rovida-slate-green-gray">{t('latest_published_announcements')}</CardDescription>
+          <CardTitle className="text-rovida-navy">{t('recent announcements')}</CardTitle>
+          <CardDescription className="text-rovida-slate-green-gray">{t('latest published announcements')}</CardDescription>
         </CardHeader>
         <CardContent className="h-64 overflow-hidden">
           {recentAnnouncements.length > 0 ? (
@@ -108,7 +108,7 @@ const Comms = () => {
             />
           ) : (
             <div className="flex flex-1 items-center justify-center h-full">
-              <p className="text-rovida-slate-green-gray">{t('no_recent_announcements')}</p>
+              <p className="text-rovida-slate-green-gray">{t('no recent announcements')}</p>
             </div>
           )}
         </CardContent>

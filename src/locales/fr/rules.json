@@ -6,5 +6,14 @@
   "add_first_rule": "Ajouter la première règle",
   "effective_date": "Date d'entrée en vigueur",
   "enforcement_level": "Niveau d'application",
-  "category": "Catégorie"
+  "category": "Catégorie",
+  "warning": "Avertissement",
+  "fine": "Amende",
+  "eviction": "Expulsion",
+  "general": "Général",
+  "noise": "Bruit",
+  "pets": "Animaux",
+  "parking": "Stationnement",
+  "amenities": "Commodités",
+  "safety": "Sécurité"
 }

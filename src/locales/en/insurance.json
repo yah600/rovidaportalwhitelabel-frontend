@@ -7,5 +7,12 @@
   "provider": "Provider",
   "policy_number": "Policy Number",
   "coverage_amount": "Coverage Amount",
-  "end_date": "End Date"
+  "end_date": "End Date",
+  "active": "Active",
+  "expired": "Expired",
+  "pending_renewal": "Pending Renewal",
+  "building": "Building",
+  "liability": "Liability",
+  "property": "Property",
+  "flood": "Flood"
 }

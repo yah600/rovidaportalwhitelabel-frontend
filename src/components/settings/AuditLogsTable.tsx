@@ -28,7 +28,7 @@ const AuditLogsTable = ({ logs }: AuditLogsTableProps) => {
             <TableHead>{t('user')}</TableHead>
             <TableHead>{t('action')}</TableHead>
             <TableHead>{t('details')}</TableHead>
-            <TableHead className="text-right">{t('ip_address')}</TableHead>
+            <TableHead className="text-right">{t('ip address')}</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>

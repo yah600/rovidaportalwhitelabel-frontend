@@ -30,14 +30,14 @@ const Finance = () => {
         {/* Outstanding Bills Card */}
         <Card className="card-rovida">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-rovida-navy">{t('outstanding_bills')}</CardTitle>
+            <CardTitle className="text-sm font-medium text-rovida-navy">{t('outstanding bills')}</CardTitle>
             <Receipt className="h-4 w-4 text-rovida-gold" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold text-rovida-near-black">{totalOutstandingAmount.toFixed(2)} CAD</div>
-            <p className="text-xs text-rovida-slate-green-gray">{outstandingBills.length} {t('bills_pending')}</p>
+            <p className="text-xs text-rovida-slate-green-gray">{outstandingBills.length} {t('bills pending')}</p>
             <Link to="/finance/bills" className="mt-2 inline-flex items-center text-sm link-rovida">
-              {t('view_bills_link')} <ArrowRight className="ml-1 h-4 w-4" />
+              {t('view bills link')} <ArrowRight className="ml-1 h-4 w-4" />
             </Link>
           </CardContent>
         </Card>
@@ -45,14 +45,14 @@ const Finance = () => {
         {/* Overdue Bills Card */}
         <Card className="card-rovida">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-rovida-navy">{t('overdue_bills_link')}</CardTitle>
+            <CardTitle className="text-sm font-medium text-rovida-navy">{t('overdue bills link')}</CardTitle>
             <DollarSign className="h-4 w-4 text-rovida-gold" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold text-rovida-near-black">{overdueBillsCount}</div>
-            <p className="text-xs text-rovida-slate-green-gray">{t('action_required')}</p>
+            <p className="text-xs text-rovida-slate-green-gray">{t('action required')}</p>
             <Link to="/finance/bills" className="mt-2 inline-flex items-center text-sm link-rovida">
-              {t('view_overdue')} <ArrowRight className="ml-1 h-4 w-4" />
+              {t('view overdue')} <ArrowRight className="ml-1 h-4 w-4" />
             </Link>
           </CardContent>
         </Card>
@@ -60,14 +60,14 @@ const Finance = () => {
         {/* Total Payments Card */}
         <Card className="card-rovida">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-rovida-navy">{t('total_payments')}</CardTitle>
+            <CardTitle className="text-sm font-medium text-rovida-navy">{t('total payments')}</CardTitle>
             <CreditCard className="h-4 w-4 text-rovida-gold" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold text-rovida-near-black">{totalPaymentsAmount.toFixed(2)} CAD</div>
-            <p className="text-xs text-rovida-slate-green-gray">{totalPayments} {t('payments_recorded')}</p>
+            <p className="text-xs text-rovida-slate-green-gray">{totalPayments} {t('payments recorded')}</p>
             <Link to="/finance/payments" className="mt-2 inline-flex items-center text-sm link-rovida">
-              {t('view_payments')} <ArrowRight className="ml-1 h-4 w-4" />
+              {t('view payments')} <ArrowRight className="ml-1 h-4 w-4" />
             </Link>
           </CardContent>
         </Card>
@@ -75,21 +75,21 @@ const Finance = () => {
         {/* Financial Reports Card */}
         <Card className="card-rovida">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-rovida-navy">{t('financial_reports')}</CardTitle>
+            <CardTitle className="text-sm font-medium text-rovida-navy">{t('financial reports')}</CardTitle>
             <BarChart2 className="h-4 w-4 text-rovida-gold" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-rovida-near-black">{t('generate_reports')}</div>
-            <p className="text-xs text-rovida-slate-green-gray">{t('access_detailed_financial_analytics')}</p>
+            <div className="text-2xl font-bold text-rovida-near-black">{t('generate reports')}</div>
+            <p className="text-xs text-rovida-slate-green-gray">{t('access detailed financial analytics')}</p>
             <Link to="/finance/reports" className="mt-2 inline-flex items-center text-sm link-rovida">
-              {t('go_to_reports')} <ArrowRight className="ml-1 h-4 w-4" />
+              {t('go to reports')} <ArrowRight className="ml-1 h-4 w-4" />
             </Link>
           </CardContent>
         </Card>
       </div>
 
       <Card className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm card-rovida mt-4 p-8">
-        <p className="text-rovida-slate-green-gray">{t('detailed_financial_dashboards_soon')}</p>
+        <p className="text-rovida-slate-green-gray">{t('detailed financial dashboards soon')}</p>
       </Card>
     </div>
   );

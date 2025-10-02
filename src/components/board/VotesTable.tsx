@@ -49,13 +49,13 @@ const VotesTable = ({ votes }: VotesTableProps) => {
       header: t('status'),
       cell: ({ row }) => (
         <Badge variant={getStatusVariant(row.getValue("status"))}>
-          {row.getValue("status")}
+          {t(row.getValue("status").toLowerCase())}
         </Badge>
       ),
     },
     {
       accessorKey: "dueDate",
-      header: t('due_date'),
+      header: t('due date'),
       cell: ({ row }) => (
         <span className="text-rovida-slate-green-gray">
           {format(row.getValue("dueDate"), 'MMM dd, yyyy')}

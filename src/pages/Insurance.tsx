@@ -12,7 +12,7 @@ const Insurance = () => {
 
   const breadcrumbItems = [
     { label: t('home'), href: '/' },
-    { label: t('insurance_and_claims'), href: '/insurance' },
+    { label: t('insurance and claims'), href: '/insurance' },
   ];
 
   const hasPolicies = mockInsurancePolicies.length > 0;
@@ -21,12 +21,12 @@ const Insurance = () => {
     <div className="flex flex-1 flex-col gap-4">
       <BreadcrumbNav items={breadcrumbItems} />
       <header className="flex items-center justify-between">
-        <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('insurance_and_claims')}</h1>
+        <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('insurance and claims')}</h1>
         <Button className="btn-primary">
-          <PlusCircle className="mr-2 h-4 w-4" /> {t('add_new_policy')}
+          <PlusCircle className="mr-2 h-4 w-4" /> {t('add new policy')}
         </Button>
       </header>
-      <p className="text-rovida-slate-green-gray">{t('manage_insurance_policies_claims')}</p>
+      <p className="text-rovida-slate-green-gray">{t('manage insurance policies claims')}</p>
 
       {hasPolicies ? (
         <PoliciesTable policies={mockInsurancePolicies} />
@@ -34,9 +34,9 @@ const Insurance = () => {
         <Card className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm card-rovida mt-4 p-8">
           <div className="flex flex-col items-center gap-2 text-rovida-slate-green-gray">
             <Shield className="h-12 w-12 text-rovida-gold" />
-            <p>{t('insurance_claims_managed_here')}</p>
+            <p>{t('insurance claims managed here')}</p>
             <Button variant="outline" className="mt-4 btn-secondary">
-              <PlusCircle className="mr-2 h-4 w-4" /> {t('add_first_policy')}
+              <PlusCircle className="mr-2 h-4 w-4" /> {t('add first policy')}
             </Button>
           </div>
         </Card>

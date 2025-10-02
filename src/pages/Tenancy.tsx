@@ -24,20 +24,20 @@ const Tenancy = () => {
     <div className="flex flex-1 flex-col gap-4">
       <BreadcrumbNav items={breadcrumbItems} />
       <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('tenancy')} {t('overview')}</h1>
-      <p className="text-rovida-slate-green-gray">{t('manage_tenant_leases_relationships')}</p>
+      <p className="text-rovida-slate-green-gray">{t('manage tenant leases relationships')}</p>
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {/* Active Leases Card */}
         <Card className="card-rovida">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-rovida-navy">{t('active_leases')}</CardTitle>
+            <CardTitle className="text-sm font-medium text-rovida-navy">{t('active leases')}</CardTitle>
             <FileSignature className="h-4 w-4 text-rovida-gold" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold text-rovida-near-black">{activeLeases}</div>
-            <p className="text-xs text-rovida-slate-green-gray">{t('currently_active_agreements')}</p>
+            <p className="text-xs text-rovida-slate-green-gray">{t('currently active agreements')}</p>
             <Link to="/tenancy/leases" className="mt-2 inline-flex items-center text-sm link-rovida">
-              {t('view_leases')} <ArrowRight className="ml-1 h-4 w-4" />
+              {t('view leases')} <ArrowRight className="ml-1 h-4 w-4" />
             </Link>
           </CardContent>
         </Card>
@@ -45,14 +45,14 @@ const Tenancy = () => {
         {/* Pending Renewals Card */}
         <Card className="card-rovida">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-rovida-navy">{t('pending_renewals')}</CardTitle>
+            <CardTitle className="text-sm font-medium text-rovida-navy">{t('pending renewals')}</CardTitle>
             <FileSignature className="h-4 w-4 text-rovida-gold" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold text-rovida-near-black">{pendingRenewals}</div>
-            <p className="text-xs text-rovida-slate-green-gray">{t('leases_due_for_renewal')}</p>
+            <p className="text-xs text-rovida-slate-green-gray">{t('leases due for renewal')}</p>
             <Link to="/tenancy/leases" className="mt-2 inline-flex items-center text-sm link-rovida">
-              {t('review_renewals')} <ArrowRight className="ml-1 h-4 w-4" />
+              {t('review renewals')} <ArrowRight className="ml-1 h-4 w-4" />
             </Link>
           </CardContent>
         </Card>
@@ -60,21 +60,21 @@ const Tenancy = () => {
         {/* Total Tenants Card */}
         <Card className="card-rovida">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-rovida-navy">{t('total_tenants')}</CardTitle>
+            <CardTitle className="text-sm font-medium text-rovida-navy">{t('total tenants')}</CardTitle>
             <Users className="h-4 w-4 text-rovida-gold" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold text-rovida-near-black">{totalTenants}</div>
-            <p className="text-xs text-rovida-slate-green-gray">{t('residents_under_lease')}</p>
+            <p className="text-xs text-rovida-slate-green-gray">{t('residents under lease')}</p>
             <Link to="/settings/users" className="mt-2 inline-flex items-center text-sm link-rovida">
-              {t('manage_tenants')} <ArrowRight className="ml-1 h-4 w-4" />
+              {t('manage tenants')} <ArrowRight className="ml-1 h-4 w-4" />
             </Link>
           </CardContent>
         </Card>
       </div>
 
       <Card className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm card-rovida mt-4 p-8">
-        <p className="text-rovida-slate-green-gray">{t('detailed_tenancy_analytics_soon')}</p>
+        <p className="text-rovida-slate-green-gray">{t('detailed tenancy analytics soon')}</p>
       </Card>
     </div>
   );

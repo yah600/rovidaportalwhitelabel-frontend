@@ -37,7 +37,7 @@ const Dashboard = () => {
     data: T[],
     moduleName: string
   ): T[] => {
-    if (!currentUser || currentUser.roles.some(role => role.scope.isSuper || role.name === 'Client Super-Administrator' || role.name === 'Condo Administrator')) {
+    if (!currentUser || currentUser.roles.some(role => role.scope.isSuper || role.name === 'Client Super Administrator' || role.name === 'Condo Administrator')) {
       return data; // Super admins and condo admins see all
     }
 
@@ -76,10 +76,10 @@ const Dashboard = () => {
   const openVotesCount = filteredVotes.filter(vote => vote.status === 'Open').length;
 
   const kpiCards = [
-    { title: t('open_issues'), value: openIssuesCount, trend: t('trend_issues'), module: 'Issues' },
-    { title: t('overdue_bills'), value: overdueBillsCount, trend: t('trend_bills'), module: 'Finance' },
-    { title: t('due_tasks'), value: dueTasksCount, trend: t('trend_tasks'), module: 'Maintenance' },
-    { title: t('open_votes'), value: openVotesCount, trend: t('trend_votes'), module: 'Board' },
+    { title: t('open issues'), value: openIssuesCount, trend: t('trend issues'), module: 'Issues' },
+    { title: t('overdue bills'), value: overdueBillsCount, trend: t('trend bills'), module: 'Finance' },
+    { title: t('due tasks'), value: dueTasksCount, trend: t('trend tasks'), module: 'Maintenance' },
+    { title: t('open votes'), value: openVotesCount, trend: t('trend votes'), module: 'Board' },
   ];
 
   const hasActiveEmergency = canRead('Emergency Center') && true; // Placeholder for actual emergency status
@@ -88,7 +88,7 @@ const Dashboard = () => {
     <div className="flex flex-1 flex-col gap-4">
       <header className="flex items-center justify-between flex-wrap gap-2">
         <SplitText
-          text={t('hello_user', { name: userName })}
+          text={t('hello user', { name: userName })}
           tag="h1"
           className="text-2xl font-semibold md:text-3xl text-page-title"
           delay={50}
@@ -104,8 +104,8 @@ const Dashboard = () => {
       {hasActiveEmergency && canRead('Emergency Center') && (
         <EmergencyBanner
           isActive={hasActiveEmergency}
-          message={t('critical_alert')}
-          ctaText={t('view_emergency')}
+          message={t('critical alert')}
+          ctaText={t('view emergency')}
           ctaLink="/emergency"
         />
       )}

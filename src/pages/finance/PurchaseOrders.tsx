@@ -12,7 +12,7 @@ const PurchaseOrders = () => {
 
   const breadcrumbItems = [
     { label: t('finance'), href: '/finance' },
-    { label: t('purchase_orders'), href: '/finance/purchase-orders' },
+    { label: t('purchase orders'), href: '/finance/purchase-orders' },
   ];
 
   const hasPurchaseOrders = mockPurchaseOrders.length > 0;
@@ -21,12 +21,12 @@ const PurchaseOrders = () => {
     <div className="flex flex-1 flex-col gap-4">
       <BreadcrumbNav items={breadcrumbItems} />
       <header className="flex items-center justify-between">
-        <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('purchase_orders')}</h1>
+        <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('purchase orders')}</h1>
         <Button className="btn-primary">
-          <PlusCircle className="mr-2 h-4 w-4" /> {t('create_new_purchase_order')}
+          <PlusCircle className="mr-2 h-4 w-4" /> {t('create new purchase order')}
         </Button>
       </header>
-      <p className="text-rovida-slate-green-gray">{t('manage_all_purchase_orders')}</p>
+      <p className="text-rovida-slate-green-gray">{t('manage all purchase orders')}</p>
 
       {hasPurchaseOrders ? (
         <PurchaseOrdersTable purchaseOrders={mockPurchaseOrders} />
@@ -34,9 +34,9 @@ const PurchaseOrders = () => {
         <Card className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm card-rovida mt-4 p-8">
           <div className="flex flex-col items-center gap-2 text-rovida-slate-green-gray">
             <ShoppingCart className="h-12 w-12 text-rovida-gold" />
-            <p>{t('purchase_orders_managed_here')}</p>
+            <p>{t('purchase orders managed here')}</p>
             <Button variant="outline" className="mt-4 btn-secondary">
-              <PlusCircle className="mr-2 h-4 w-4" /> {t('create_first_purchase_order')}
+              <PlusCircle className="mr-2 h-4 w-4" /> {t('create first purchase order')}
             </Button>
           </div>
         </Card>

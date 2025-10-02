@@ -14,12 +14,12 @@ const SettingsPortfolio = () => {
   return (
     <div className="flex flex-1 flex-col gap-4">
       <header className="flex items-center justify-between">
-        <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('portfolio_management')}</h1>
+        <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('portfolio management')}</h1>
         <Button className="btn-primary">
-          <PlusCircle className="mr-2 h-4 w-4" /> {t('add_new_property')}
+          <PlusCircle className="mr-2 h-4 w-4" /> {t('add new property')}
         </Button>
       </header>
-      <p className="text-rovida-slate-green-gray">{t('manage_all_properties_portfolio')}</p>
+      <p className="text-rovida-slate-green-gray">{t('manage all properties portfolio')}</p>
 
       {hasProperties ? (
         <PortfolioTable properties={mockPortfolioProperties} />
@@ -27,9 +27,9 @@ const SettingsPortfolio = () => {
         <Card className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm card-rovida mt-4 p-8">
           <div className="flex flex-col items-center gap-2 text-rovida-slate-green-gray">
             <LayoutGrid className="h-12 w-12 text-rovida-gold" />
-            <p>{t('portfolio_managed_here')}</p>
+            <p>{t('portfolio managed here')}</p>
             <Button variant="outline" className="mt-4 btn-secondary">
-              <PlusCircle className="mr-2 h-4 w-4" /> {t('add_first_property')}
+              <PlusCircle className="mr-2 h-4 w-4" /> {t('add first property')}
             </Button>
           </div>
         </Card>

@@ -55,6 +55,8 @@
   "preview_tasks_shown_here": "Preview of tasks will be shown here.",
   "map_columns_first": "Map columns first.",
   "generate_maintenance_tasks": "Generate Maintenance Tasks",
+  "maintenance_tasks_generated": "Maintenance tasks generated!",
+  "tasks_visible_calendar_list": "Tasks are now visible in the calendar and task list.",
   "maintenance_work_orders": "Maintenance Work Orders",
   "create_new_work_order": "Create New Work Order",
   "manage_all_work_orders": "Manage all work orders for repairs and services.",
@@ -77,5 +79,12 @@
   "asset_management_available_here": "Asset management will be available here.",
   "add_first_asset": "Add First Asset",
   "last_maintenance": "Last Maintenance",
-  "next_maintenance": "Next Maintenance"
+  "next_maintenance": "Next Maintenance",
+  "file_selected": "File selected",
+  "file_dropped": "File dropped",
+  "please_select_file_to_import": "Please select a file to import.",
+  "file_imported_successfully": "File imported successfully!",
+  "ready_for_mapping": "Ready for mapping",
+  "columns_mapped_successfully": "Columns mapped successfully!",
+  "preview_generated_tasks": "Preview generated tasks."
 }

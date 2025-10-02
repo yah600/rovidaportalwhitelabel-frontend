@@ -18,13 +18,13 @@ const Profile = () => {
   ];
 
   const userName = currentUser?.name || t('guest');
-  const userEmail = currentUser?.email || '';
-  const userRole = currentUser?.roles[0]?.name || ''; // Assuming first role is primary
+  const userEmail = currentUser?.email || "";
+  const userRole = currentUser?.roles[0]?.name || ""; // Assuming first role is primary
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     // Placeholder for saving profile changes
-    alert(t('profile_updated_simulated'));
+    alert(t('profile updated simulated'));
   };
 
   return (
@@ -46,7 +46,7 @@ const Profile = () => {
         <CardContent>
           <form onSubmit={handleSubmit} className="grid gap-4">
             <div className="grid md:grid-cols-4 items-center gap-4">
-              <Label htmlFor="name" className="md:text-right text-rovida-near-black">{t('full_name')}</Label>
+              <Label htmlFor="name" className="md:text-right text-rovida-near-black">{t('full name')}</Label>
               <Input id="name" type="text" defaultValue={userName} className="md:col-span-3 border-rovida-soft-gray text-rovida-near-black" />
             </div>
             <div className="grid md:grid-cols-4 items-center gap-4">
@@ -58,7 +58,7 @@ const Profile = () => {
               <Input id="role" type="text" defaultValue={userRole} disabled className="md:col-span-3 border-rovida-soft-gray text-rovida-near-black" />
             </div>
             <Button type="submit" className="w-full btn-primary">
-              <Save className="mr-2 h-4 w-4" /> {t('save_changes')}
+              <Save className="mr-2 h-4 w-4" /> {t('save changes')}
             </Button>
           </form>
         </CardContent>

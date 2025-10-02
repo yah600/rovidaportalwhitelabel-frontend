@@ -55,6 +55,8 @@
   "preview_tasks_shown_here": "L'aperçu des tâches sera affiché ici.",
   "map_columns_first": "Mappez d'abord les colonnes.",
   "generate_maintenance_tasks": "Générer les tâches de maintenance",
+  "maintenance_tasks_generated": "Tâches de maintenance générées !",
+  "tasks_visible_calendar_list": "Les tâches sont maintenant visibles dans le calendrier et la liste des tâches.",
   "maintenance_work_orders": "Ordres de travail de maintenance",
   "create_new_work_order": "Créer un nouvel ordre de travail",
   "manage_all_work_orders": "Gérez tous les ordres de travail pour les réparations et les services.",
@@ -77,5 +79,12 @@
   "asset_management_available_here": "La gestion des actifs sera disponible ici.",
   "add_first_asset": "Ajouter le premier actif",
   "last_maintenance": "Dernière maintenance",
-  "next_maintenance": "Prochaine maintenance"
+  "next_maintenance": "Prochaine maintenance",
+  "file_selected": "Fichier sélectionné",
+  "file_dropped": "Fichier déposé",
+  "please_select_file_to_import": "Veuillez sélectionner un fichier à importer.",
+  "file_imported_successfully": "Fichier importé avec succès !",
+  "ready_for_mapping": "Prêt pour le mappage",
+  "columns_mapped_successfully": "Colonnes mappées avec succès !",
+  "preview_generated_tasks": "Prévisualiser les tâches générées."
 }

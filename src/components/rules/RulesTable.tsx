@@ -46,7 +46,7 @@ const RulesTable = ({ rules }: RulesTableProps) => {
     },
     {
       accessorKey: "effectiveDate",
-      header: t('effective_date'),
+      header: t('effective date'),
       cell: ({ row }) => (
         <span className="text-rovida-slate-green-gray">
           {format(row.getValue("effectiveDate"), 'MMM dd, yyyy')}
@@ -55,7 +55,7 @@ const RulesTable = ({ rules }: RulesTableProps) => {
     },
     {
       accessorKey: "enforcementLevel",
-      header: t('enforcement_level'),
+      header: t('enforcement level'),
       cell: ({ row }) => (
         <Badge variant={getEnforcementLevelVariant(row.getValue("enforcementLevel"))}>
           {t(row.getValue("enforcementLevel").toLowerCase())}

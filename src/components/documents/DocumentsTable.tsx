@@ -63,12 +63,12 @@ const DocumentsTable = ({ documents }: DocumentsTableProps) => {
     },
     {
       accessorKey: "uploadedBy",
-      header: t('uploaded_by'),
+      header: t('uploaded by'),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("uploadedBy")}</span>,
     },
     {
       accessorKey: "uploadedAt",
-      header: t('uploaded_at'),
+      header: t('uploaded at'),
       cell: ({ row }) => (
         <span className="text-rovida-slate-green-gray">
           {format(row.getValue("uploadedAt"), 'MMM dd, yyyy')}

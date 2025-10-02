@@ -7,5 +7,12 @@
   "provider": "Fournisseur",
   "policy_number": "Numéro de police",
   "coverage_amount": "Montant de la couverture",
-  "end_date": "Date de fin"
+  "end_date": "Date de fin",
+  "active": "Actif",
+  "expired": "Expiré",
+  "pending_renewal": "Renouvellement en attente",
+  "building": "Bâtiment",
+  "liability": "Responsabilité",
+  "property": "Propriété",
+  "flood": "Inondation"
 }

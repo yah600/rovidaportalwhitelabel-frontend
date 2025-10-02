@@ -5,5 +5,9 @@
   "architectural_requests_managed_here": "Les demandes de modification architecturale seront gérées ici.",
   "submit_first_request": "Soumettre la première demande",
   "requester": "Demandeur",
-  "submitted_at": "Soumis le"
+  "submitted_at": "Soumis le",
+  "pending_review": "En attente de révision",
+  "approved": "Approuvé",
+  "rejected": "Rejeté",
+  "in_progress": "En cours"
 }

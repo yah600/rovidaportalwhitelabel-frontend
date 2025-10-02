@@ -14,5 +14,6 @@
   "trend_issues": "+10% from last month",
   "trend_bills": "-5% from last month",
   "trend_tasks": "+20% from last month",
-  "trend_votes": "No change"
+  "trend_votes": "No change",
+  "hello_user": "Hello {{name}}"
 }

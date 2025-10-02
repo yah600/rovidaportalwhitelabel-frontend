@@ -19,5 +19,9 @@
   "add_first_lease": "Add First Lease",
   "tenant_name": "Tenant Name",
   "start_date": "Start Date",
-  "rent_amount": "Rent Amount"
+  "rent_amount": "Rent Amount",
+  "active": "Active",
+  "expired": "Expired",
+  "pending_renewal": "Pending Renewal",
+  "terminated": "Terminated"
 }

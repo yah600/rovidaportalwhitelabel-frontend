@@ -126,7 +126,7 @@ const SettingsLayout = () => {
     <div className="flex flex-1 flex-col gap-4">
       <BreadcrumbNav items={generateBreadcrumbItems()} />
       <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('settings')}</h1>
-      <p className="text-muted-foreground">{t('manage_app_settings')}</p>
+      <p className="text-muted-foreground">{t('manage app settings')}</p>
 
       <div className="flex flex-col lg:flex-row gap-6 flex-1">
         <aside className="w-full lg:w-64 flex-shrink-0">

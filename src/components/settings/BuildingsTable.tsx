@@ -36,12 +36,12 @@ const BuildingsTable = ({ buildings }: BuildingsTableProps) => {
     },
     {
       accessorKey: "yearBuilt",
-      header: t('year_built'),
+      header: t('year built'),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("yearBuilt")}</span>,
     },
     {
       accessorKey: "propertyManager",
-      header: t('property_manager'),
+      header: t('property manager'),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("propertyManager")}</span>,
     },
     {

@@ -59,7 +59,7 @@ const AnnouncementsTable = ({ announcements }: AnnouncementsTableProps) => {
     },
     {
       accessorKey: "targetAudience",
-      header: t('target_audience'),
+      header: t('target audience'),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("targetAudience")}</span>,
     },
     {
@@ -67,13 +67,13 @@ const AnnouncementsTable = ({ announcements }: AnnouncementsTableProps) => {
       header: t('status'),
       cell: ({ row }) => (
         <Badge variant={getStatusVariant(row.getValue("status"))}>
-          {row.getValue("status")}
+          {t(row.getValue("status").toLowerCase())}
         </Badge>
       ),
     },
     {
       accessorKey: "publishedAt",
-      header: t('published_at'),
+      header: t('published at'),
       cell: ({ row }) => (
         <span className="text-rovida-slate-green-gray">
           {format(row.getValue("publishedAt"), 'MMM dd, yyyy')}
@@ -82,7 +82,7 @@ const AnnouncementsTable = ({ announcements }: AnnouncementsTableProps) => {
     },
     {
       accessorKey: "expiresAt",
-      header: t('expires_at'),
+      header: t('expires at'),
       cell: ({ row }) => (
         <span className="text-rovida-slate-green-gray">
           {row.original.expiresAt ? format(row.original.expiresAt, 'MMM dd, yyyy') : 'N/A'}

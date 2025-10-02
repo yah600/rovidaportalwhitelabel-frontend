@@ -76,7 +76,7 @@ const IssuesTable = ({ issues }: IssuesTableProps) => {
       header: t('status'),
       cell: ({ row }) => (
         <Badge variant={getStatusVariant(row.getValue("status"))}>
-          {row.getValue("status")}
+          {t(row.getValue("status").toLowerCase().replace(/ /g, ''))}
         </Badge>
       ),
     },
@@ -85,13 +85,13 @@ const IssuesTable = ({ issues }: IssuesTableProps) => {
       header: t('priority'),
       cell: ({ row }) => (
         <Badge className={getPriorityColor(row.getValue("priority"))}>
-          {row.getValue("priority")}
+          {t(row.getValue("priority").toLowerCase())}
         </Badge>
       ),
     },
     {
       accessorKey: "createdAt",
-      header: t('created_at'),
+      header: t('created at'),
       cell: ({ row }) => (
         <span className="text-rovida-slate-green-gray">
           {format(row.getValue("createdAt"), 'MMM dd, yyyy')}

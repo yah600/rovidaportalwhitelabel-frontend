@@ -5,5 +5,13 @@
   "amenities_managed_here": "Les commodités et ressources seront gérées ici.",
   "add_first_amenity": "Ajouter la première commodité",
   "booking_required": "Réservation requise",
-  "book": "Réserver"
+  "book": "Réserver",
+  "available": "Disponible",
+  "under_maintenance": "En maintenance",
+  "closed": "Fermé",
+  "gym": "Salle de sport",
+  "pool": "Piscine",
+  "party_room": "Salle de fête",
+  "meeting_room": "Salle de réunion",
+  "rooftop_terrace": "Terrasse sur le toit"
 }

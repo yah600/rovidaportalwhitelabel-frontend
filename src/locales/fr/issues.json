@@ -38,5 +38,7 @@
   "kanban_board": "Tableau Kanban",
   "visualize_manage_incidents": "Visualisez et gérez les incidents avec un tableau Kanban.",
   "no_issues_in_column": "Aucun incident dans cette colonne.",
-  "all": "Tous"
+  "all": "Tous",
+  "incident_not_found": "Incident introuvable.",
+  "incident_created_successfully": "Incident créé avec succès !"
 }

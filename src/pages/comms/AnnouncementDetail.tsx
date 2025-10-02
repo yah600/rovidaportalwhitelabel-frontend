@@ -27,7 +27,7 @@ const AnnouncementDetail = () => {
   if (!announcement) {
     return (
       <div className="flex flex-1 items-center justify-center">
-        <p className="text-rovida-slate-green-gray">{t('announcement_not_found')}</p>
+        <p className="text-rovida-slate-green-gray">{t('announcement not found')}</p>
       </div>
     );
   }
@@ -57,7 +57,7 @@ const AnnouncementDetail = () => {
       <header className="flex items-center justify-between flex-wrap gap-2 mb-4">
         <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{announcement.title}</h1>
         <div className="flex items-center gap-2">
-          <Badge variant={getStatusBadgeVariant(announcement.status)}>{announcement.status}</Badge>
+          <Badge variant={getStatusBadgeVariant(announcement.status)}>{t(announcement.status.toLowerCase())}</Badge>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="outline" size="sm">
@@ -69,7 +69,7 @@ const AnnouncementDetail = () => {
               <DropdownMenuLabel>{t('actions')}</DropdownMenuLabel>
               <DropdownMenuSeparator className="bg-rovida-soft-gray" />
               <DropdownMenuItem className="hover:bg-rovida-soft-gray">
-                <Edit className="mr-2 h-4 w-4" /> {t('edit_announcement')}
+                <Edit className="mr-2 h-4 w-4" /> {t('edit announcement')}
               </DropdownMenuItem>
               {announcement.status === 'Draft' && (
                 <DropdownMenuItem className="hover:bg-rovida-soft-gray">
@@ -82,7 +82,7 @@ const AnnouncementDetail = () => {
                 </DropdownMenuItem>
               )}
               <DropdownMenuItem className="text-destructive hover:bg-rovida-soft-gray">
-                <Trash2 className="mr-2 h-4 w-4" /> {t('delete_announcement')}
+                <Trash2 className="mr-2 h-4 w-4" /> {t('delete announcement')}
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -91,7 +91,7 @@ const AnnouncementDetail = () => {
 
       <Card className="card-rovida">
         <CardHeader>
-          <CardTitle className="text-rovida-navy">{t('announcement_details')}</CardTitle>
+          <CardTitle className="text-rovida-navy">{t('announcement details')}</CardTitle>
         </CardHeader>
         <CardContent className="grid gap-4">
           <div className="grid grid-cols-2 gap-2 text-rovida-near-black">
@@ -99,13 +99,13 @@ const AnnouncementDetail = () => {
             <div>{announcement.id}</div>
             <div className="font-medium">{t('author')}:</div>
             <div>{announcement.author}</div>
-            <div className="font-medium">{t('target_audience')}:</div>
+            <div className="font-medium">{t('target audience')}:</div>
             <div>{announcement.targetAudience}</div>
-            <div className="font-medium">{t('published_at')}:</div>
+            <div className="font-medium">{t('published at')}:</div>
             <div>{format(announcement.publishedAt, 'MMM dd, yyyy HH:mm')}</div>
             {announcement.expiresAt && (
               <>
-                <div className="font-medium">{t('expires_at')}:</div>
+                <div className="font-medium">{t('expires at')}:</div>
                 <div>{format(announcement.expiresAt, 'MMM dd, yyyy HH:mm')}</div>
               </>
             )}

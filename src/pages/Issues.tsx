@@ -26,7 +26,7 @@ const Issues = () => {
   const navItems = [
     { label: t('all'), href: '#' },
     { label: t('open'), href: '#' },
-    { label: t('in_progress'), href: '#' },
+    { label: t('in progress'), href: '#' },
     { label: t('pending'), href: '#' },
     { label: t('closed'), href: '#' },
   ];
@@ -42,7 +42,7 @@ const Issues = () => {
         <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('issues')}</h1>
         <Link to="/issues/new">
           <Button className="btn-primary">
-            <PlusCircle className="mr-2 h-4 w-4" /> {t('create_first_ticket')}
+            <PlusCircle className="mr-2 h-4 w-4" /> {t('create first ticket')}
           </Button>
         </Link>
       </header>
@@ -57,14 +57,14 @@ const Issues = () => {
         <Card className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm card-rovida">
           <div className="flex flex-col items-center gap-1 text-center">
             <h3 className="text-2xl font-bold tracking-tight text-rovida-near-black">
-              {t('no_tickets')}
+              {t('no tickets')}
             </h3>
             <p className="text-sm text-rovida-slate-green-gray">
-              {t('you_can_start_by_creating_new_incident')}
+              {t('you can start by creating new incident')}
             </p>
             <Link to="/issues/new">
               <Button className="mt-4 btn-primary">
-                <PlusCircle className="mr-2 h-4 w-4" /> {t('create_first_ticket')}
+                <PlusCircle className="mr-2 h-4 w-4" /> {t('create first ticket')}
               </Button>
             </Link>
           </div>

@@ -45,17 +45,17 @@ const PurchaseOrdersTable = ({ purchaseOrders }: PurchaseOrdersTableProps) => {
     },
     {
       accessorKey: "itemDescription",
-      header: t('item_description'),
+      header: t('item description'),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("itemDescription")}</span>,
     },
     {
       accessorKey: "totalAmount",
-      header: t('total_amount'),
+      header: t('total amount'),
       cell: ({ row }) => <span className="text-rovida-near-black">${row.original.totalAmount.toFixed(2)}</span>,
     },
     {
       accessorKey: "orderDate",
-      header: t('order_date'),
+      header: t('order date'),
       cell: ({ row }) => (
         <span className="text-rovida-slate-green-gray">
           {format(row.getValue("orderDate"), 'MMM dd, yyyy')}

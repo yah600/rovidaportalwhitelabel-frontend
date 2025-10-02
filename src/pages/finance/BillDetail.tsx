@@ -27,7 +27,7 @@ const FinanceBillDetail = () => {
   if (!bill) {
     return (
       <div className="flex flex-1 items-center justify-center">
-        <p className="text-rovida-slate-green-gray">{t('bill_not_found')}</p>
+        <p className="text-rovida-slate-green-gray">{t('bill not found')}</p>
       </div>
     );
   }
@@ -59,7 +59,7 @@ const FinanceBillDetail = () => {
       <header className="flex items-center justify-between flex-wrap gap-2 mb-4">
         <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{bill.description}</h1>
         <div className="flex items-center gap-2">
-          <Badge variant={getStatusBadgeVariant(bill.status)}>{bill.status}</Badge>
+          <Badge variant={getStatusBadgeVariant(bill.status)}>{t(bill.status.toLowerCase().replace(/ /g, ''))}</Badge>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="outline" size="sm">
@@ -71,15 +71,15 @@ const FinanceBillDetail = () => {
               <DropdownMenuLabel>{t('actions')}</DropdownMenuLabel>
               <DropdownMenuSeparator className="bg-rovida-soft-gray" />
               <DropdownMenuItem className="hover:bg-rovida-soft-gray">
-                <Edit className="mr-2 h-4 w-4" /> {t('edit_bill')}
+                <Edit className="mr-2 h-4 w-4" /> {t('edit bill')}
               </DropdownMenuItem>
               {bill.status !== 'Paid' && (
                 <DropdownMenuItem className="hover:bg-rovida-soft-gray">
-                  <DollarSign className="mr-2 h-4 w-4" /> {t('mark_as_paid')}
+                  <DollarSign className="mr-2 h-4 w-4" /> {t('mark as paid')}
                 </DropdownMenuItem>
               )}
               <DropdownMenuItem className="text-destructive hover:bg-rovida-soft-gray">
-                <Trash2 className="mr-2 h-4 w-4" /> {t('delete_bill')}
+                <Trash2 className="mr-2 h-4 w-4" /> {t('delete bill')}
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -88,7 +88,7 @@ const FinanceBillDetail = () => {
 
       <Card className="card-rovida">
         <CardHeader>
-          <CardTitle className="text-rovida-navy">{t('bill_details')}</CardTitle>
+          <CardTitle className="text-rovida-navy">{t('bill details')}</CardTitle>
         </CardHeader>
         <CardContent className="grid gap-4">
           <div className="grid grid-cols-2 gap-2 text-rovida-near-black">
@@ -100,13 +100,13 @@ const FinanceBillDetail = () => {
             <div>{bill.category}</div>
             <div className="font-medium">{t('amount')}:</div>
             <div>{bill.amount.toFixed(2)} {bill.currency}</div>
-            <div className="font-medium">{t('issue_date')}:</div>
+            <div className="font-medium">{t('issue date')}:</div>
             <div>{format(bill.issueDate, 'MMM dd, yyyy')}</div>
-            <div className="font-medium">{t('due_date')}:</div>
+            <div className="font-medium">{t('due date')}:</div>
             <div>{format(bill.dueDate, 'MMM dd, yyyy')}</div>
             {bill.paidDate && (
               <>
-                <div className="font-medium">{t('paid_date')}:</div>
+                <div className="font-medium">{t('paid date')}:</div>
                 <div>{format(bill.paidDate, 'MMM dd, yyyy')}</div>
               </>
             )}

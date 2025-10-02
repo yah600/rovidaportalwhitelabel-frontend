@@ -21,7 +21,7 @@ const DocumentsInbox = () => {
       <header className="flex items-center justify-between">
         <h1 className="text-2xl font-semibold md:text-3xl">{t('documents')} {t('inbox')}</h1>
         <Button>
-          <PlusCircle className="mr-2 h-4 w-4" /> {t('upload_to_inbox')}
+          <PlusCircle className="mr-2 h-4 w-4" /> {t('upload to inbox')}
         </Button>
       </header>
 
@@ -31,13 +31,13 @@ const DocumentsInbox = () => {
         <div className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm">
           <div className="flex flex-col items-center gap-1 text-center">
             <h3 className="text-2xl font-bold tracking-tight">
-              {t('no_new_documents_in_inbox')}
+              {t('no new documents in inbox')}
             </h3>
             <p className="text-sm text-muted-foreground">
-              {t('incoming_documents_appear_here')}
+              {t('incoming documents appear here')}
             </p>
             <Button className="mt-4">
-              <PlusCircle className="mr-2 h-4 w-4" /> {t('upload_to_inbox')}
+              <PlusCircle className="mr-2 h-4 w-4" /> {t('upload to inbox')}
             </Button>
           </div>
         </div>

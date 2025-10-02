@@ -31,7 +31,7 @@ const IssueDetail = () => {
   if (!issue) {
     return (
       <div className="flex flex-1 items-center justify-center">
-        <p className="text-rovida-slate-green-gray">{t('bill_not_found')}</p>
+        <p className="text-rovida-slate-green-gray">{t('incident not found')}</p>
       </div>
     );
   }
@@ -98,8 +98,8 @@ const IssueDetail = () => {
         <header className="flex items-center justify-between flex-wrap gap-2 mb-4">
           <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{issue.title}</h1>
           <div className="flex items-center gap-2">
-            <Badge variant={getStatusBadgeVariant(issue.status)}>{issue.status}</Badge>
-            <Badge className={getPriorityBadgeColor(issue.priority)}>{issue.priority}</Badge>
+            <Badge variant={getStatusBadgeVariant(issue.status)}>{t(issue.status.toLowerCase().replace(/ /g, ''))}</Badge>
+            <Badge className={getPriorityBadgeColor(issue.priority)}>{t(issue.priority.toLowerCase())}</Badge>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="outline" size="sm">
@@ -111,10 +111,10 @@ const IssueDetail = () => {
                 <DropdownMenuLabel>{t('actions')}</DropdownMenuLabel>
                 <DropdownMenuSeparator className="bg-rovida-soft-gray" />
                 <DropdownMenuItem className="hover:bg-rovida-soft-gray">{t('assign')}</DropdownMenuItem>
-                <DropdownMenuItem className="hover:bg-rovida-soft-gray">{t('change_status')}</DropdownMenuItem>
-                <DropdownMenuItem className="hover:bg-rovida-soft-gray">{t('add_attachment')}</DropdownMenuItem>
+                <DropdownMenuItem className="hover:bg-rovida-soft-gray">{t('change status')}</DropdownMenuItem>
+                <DropdownMenuItem className="hover:bg-rovida-soft-gray">{t('add attachment')}</DropdownMenuItem>
                 <DropdownMenuSeparator className="bg-rovida-soft-gray" />
-                <DropdownMenuItem className="text-rovida-error hover:bg-rovida-soft-gray">{t('delete_incident')}</DropdownMenuItem>
+                <DropdownMenuItem className="text-rovida-error hover:bg-rovida-soft-gray">{t('delete incident')}</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
@@ -123,14 +123,14 @@ const IssueDetail = () => {
         <Tabs defaultValue="overview" className="flex-1">
           <TabsList className="grid w-full grid-cols-4 bg-rovida-soft-gray/50 backdrop-blur-xl border-rovida-soft-gray">
             <TabsTrigger value="overview" className="data-[state=active]:bg-rovida-navy data-[state=active]:text-white data-[state=active]:shadow-subtle text-rovida-near-black">{t('overview')}</TabsTrigger>
-            <TabsTrigger value="timeline" className="data-[state=active]:bg-rovida-navy data-[state=active]:text-white data-[state=active]:shadow-subtle text-rovida-near-black">{t('incident_timeline')}</TabsTrigger>
+            <TabsTrigger value="timeline" className="data-[state=active]:bg-rovida-navy data-[state=active]:text-white data-[state=active]:shadow-subtle text-rovida-near-black">{t('incident timeline')}</TabsTrigger>
             <TabsTrigger value="attachments" className="data-[state=active]:bg-rovida-navy data-[state=active]:text-white data-[state=active]:shadow-subtle text-rovida-near-black">{t('attachments')}</TabsTrigger>
             <TabsTrigger value="participants" className="data-[state=active]:bg-rovida-navy data-[state=active]:text-white data-[state=active]:shadow-subtle text-rovida-near-black">{t('participants')}</TabsTrigger>
           </TabsList>
           <TabsContent value="overview" className="mt-4">
             <Card className="card-rovida">
               <CardHeader>
-                <CardTitle className="text-rovida-navy">{t('incident_details')}</CardTitle>
+                <CardTitle className="text-rovida-navy">{t('incident details')}</CardTitle>
               </CardHeader>
               <CardContent className="grid gap-4">
                 <div className="grid grid-cols-2 gap-2 text-rovida-near-black">
@@ -144,13 +144,13 @@ const IssueDetail = () => {
                   <div>{issue.reporter}</div>
                   <div className="font-medium">{t('assignee')}:</div>
                   <div>{issue.assignee || t('unassigned')}</div>
-                  <div className="font-medium">{t('created_at')}:</div>
+                  <div className="font-medium">{t('created at')}:</div>
                   <div>{format(issue.createdAt, 'MMM dd, yyyy HH:mm')}</div>
-                  <div className="font-medium">{t('last_updated')}:</div>
+                  <div className="font-medium">{t('last updated')}:</div>
                   <div>{format(issue.updatedAt, 'MMM dd, yyyy HH:mm')}</div>
                   {issue.resolvedAt && (
                     <>
-                      <div className="font-medium">{t('resolved_at')}:</div>
+                      <div className="font-medium">{t('resolved at')}:</div>
                       <div>{format(issue.resolvedAt, 'MMM dd, yyyy HH:mm')}</div>
                     </>
                   )}
@@ -166,7 +166,7 @@ const IssueDetail = () => {
           <TabsContent value="timeline" className="mt-4">
             <Card className="card-rovida">
               <CardHeader>
-                <CardTitle className="text-rovida-navy">{t('incident_timeline')}</CardTitle>
+                <CardTitle className="text-rovida-navy">{t('incident timeline')}</CardTitle>
               </CardHeader>
               <CardContent>
                 {issue.timeline.length > 0 ? (
@@ -187,7 +187,7 @@ const IssueDetail = () => {
                     ))}
                   </ol>
                 ) : (
-                  <p className="text-rovida-slate-green-gray">{t('no_timeline_events')}</p>
+                  <p className="text-rovida-slate-green-gray">{t('no timeline events')}</p>
                 )}
               </CardContent>
             </Card>
@@ -197,7 +197,7 @@ const IssueDetail = () => {
               <CardHeader className="flex flex-row items-center justify-between">
                 <CardTitle className="text-rovida-navy">{t('attachments')}</CardTitle>
                 <Button variant="outline" size="sm" className="btn-secondary">
-                  <PlusCircle className="h-4 w-4 mr-2" /> {t('add_attachment')}
+                  <PlusCircle className="h-4 w-4 mr-2" /> {t('add attachment')}
                 </Button>
               </CardHeader>
               <CardContent>
@@ -206,7 +206,7 @@ const IssueDetail = () => {
                     <CircularGallery items={galleryItems} bend={3} textColor="#183747" borderRadius={0.05} scrollEase={0.02} />
                   </div>
                 ) : (
-                  <p className="text-rovida-slate-green-gray">{t('no_attachments')}</p>
+                  <p className="text-rovida-slate-green-gray">{t('no attachments')}</p>
                 )}
               </CardContent>
             </Card>
@@ -233,7 +233,7 @@ const IssueDetail = () => {
                     ))}
                   </div>
                 ) : (
-                  <p className="text-rovida-slate-green-gray">{t('no_participants')}</p>
+                  <p className="text-rovida-slate-green-gray">{t('no participants')}</p>
                 )}
               </CardContent>
             </Card>
@@ -242,37 +242,37 @@ const IssueDetail = () => {
       </div>
 
       <RightPanel className="w-[300px] xl:w-[350px]">
-        <h3 className="text-lg font-semibold mb-4 text-rovida-navy">{t('contextual_information')}</h3>
+        <h3 className="text-lg font-semibold mb-4 text-rovida-navy">{t('contextual information')}</h3>
         <Card className="mb-4 card-rovida">
           <CardHeader>
-            <CardTitle className="text-md text-rovida-navy">{t('maintenance_checklist')}</CardTitle>
+            <CardTitle className="text-md text-rovida-navy">{t('maintenance checklist')}</CardTitle>
           </CardHeader>
           <CardContent>
             <ul className="space-y-2 text-sm text-rovida-slate-green-gray">
               <li className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-rovida-success" /> {t('check_unit_access')}
+                <CheckCircle className="h-4 w-4 text-rovida-success" /> {t('check unit access')}
               </li>
               <li className="flex items-center gap-2">
-                <XCircle className="h-4 w-4 text-rovida-error" /> {t('diagnose_issue')}
+                <XCircle className="h-4 w-4 text-rovida-error" /> {t('diagnose issue')}
               </li>
               <li className="flex items-center gap-2">
-                <Loader className="h-4 w-4 text-rovida-gold" /> {t('order_parts')}
+                <Loader className="h-4 w-4 text-rovida-gold" /> {t('order parts')}
               </li>
               <li className="flex items-center gap-2">
-                <AlertCircle className="h-4 w-4 text-rovida-warning" /> {t('schedule_follow_up')}
+                <AlertCircle className="h-4 w-4 text-rovida-warning" /> {t('schedule follow up')}
               </li>
             </ul>
           </CardContent>
         </Card>
         <Card className="card-rovida">
           <CardHeader>
-            <CardTitle className="text-md text-rovida-navy">{t('ai_suggestions')}</CardTitle>
+            <CardTitle className="text-md text-rovida-navy">{t('ai suggestions')}</CardTitle>
           </CardHeader>
           <CardContent>
             <ul className="space-y-2 text-sm text-rovida-slate-green-gray">
-              <li>- {t('suggest_similar_incidents')}</li>
-              <li>- {t('recommend_kb_articles')}</li>
-              <li>- {t('propose_optimal_assignee')}</li>
+              <li>- {t('suggest similar incidents')}</li>
+              <li>- {t('recommend kb articles')}</li>
+              <li>- {t('propose optimal assignee')}</li>
             </ul>
           </CardContent>
         </Card>

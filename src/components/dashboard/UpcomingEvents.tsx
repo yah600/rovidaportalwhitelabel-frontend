@@ -50,8 +50,8 @@ const UpcomingEvents = () => {
   return (
     <Card className="col-span-2 lg:col-span-1 card-rovida">
       <CardHeader>
-        <CardTitle className="text-rovida-navy">{t('upcoming_events')}</CardTitle>
-        <CardDescription className="text-rovida-slate-green-gray">{t('events_scheduled_near_future')}</CardDescription>
+        <CardTitle className="text-rovida-navy">{t('upcoming events')}</CardTitle>
+        <CardDescription className="text-rovida-slate-green-gray">{t('events scheduled near future')}</CardDescription>
       </CardHeader>
       <CardContent>
         {upcomingMeetings.length > 0 ? (
@@ -69,7 +69,7 @@ const UpcomingEvents = () => {
             ))}
           </div>
         ) : (
-          <p className="text-rovida-slate-green-gray">{t('no_upcoming_events')}</p>
+          <p className="text-rovida-slate-green-gray">{t('no upcoming events')}</p>
         )}
       </CardContent>
     </Card>

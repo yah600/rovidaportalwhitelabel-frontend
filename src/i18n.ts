@@ -21,9 +21,13 @@ const loadTranslations = async () => {
     Object.assign(resources.fr, frModules[path].default);
   }
 
+  console.log('Loaded English resources:', resources.en);
+  console.log('Loaded French resources:', resources.fr);
+
   return resources;
 };
 
+// Initialize i18n after translations are loaded
 loadTranslations().then(resources => {
   i18n
     .use(initReactI18next)
@@ -34,6 +38,7 @@ loadTranslations().then(resources => {
       interpolation: {
         escapeValue: false, // react already safes from xss
       },
+      debug: false, // Set to true for debugging translation issues
     });
 });
 

@@ -36,12 +36,12 @@ const VisitorLogsTable = ({ logs }: VisitorLogsTableProps) => {
     },
     {
       accessorKey: "visitorName",
-      header: t('visitor_name'),
+      header: t('visitor name'),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("visitorName")}</span>,
     },
     {
       accessorKey: "unitVisited",
-      header: t('unit_visited'),
+      header: t('unit visited'),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("unitVisited")}</span>,
     },
     {
@@ -51,7 +51,7 @@ const VisitorLogsTable = ({ logs }: VisitorLogsTableProps) => {
     },
     {
       accessorKey: "checkInTime",
-      header: t('check_in_time'),
+      header: t('check in time'),
       cell: ({ row }) => (
         <span className="text-rovida-slate-green-gray">
           {format(row.getValue("checkInTime"), 'MMM dd, yyyy HH:mm')}
@@ -63,7 +63,7 @@ const VisitorLogsTable = ({ logs }: VisitorLogsTableProps) => {
       header: t('status'),
       cell: ({ row }) => (
         <Badge variant={getStatusVariant(row.getValue("status"))}>
-          {t(row.getValue("status").toLowerCase().replace(/ /g, '_'))}
+          {t(row.getValue("status").toLowerCase().replace(/ /g, ''))}
         </Badge>
       ),
     },

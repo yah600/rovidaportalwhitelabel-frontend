@@ -27,7 +27,7 @@ const DocumentDetail = () => {
   if (!document) {
     return (
       <div className="flex flex-1 items-center justify-center">
-        <p className="text-rovida-slate-green-gray">{t('document_not_found')}</p>
+        <p className="text-rovida-slate-green-gray">{t('document not found')}</p>
       </div>
     );
   }
@@ -73,7 +73,7 @@ const DocumentDetail = () => {
               <DropdownMenuLabel>{t('actions')}</DropdownMenuLabel>
               <DropdownMenuSeparator className="bg-rovida-soft-gray" />
               <DropdownMenuItem className="hover:bg-rovida-soft-gray">
-                <Edit className="mr-2 h-4 w-4" /> {t('edit_document')}
+                <Edit className="mr-2 h-4 w-4" /> {t('edit document')}
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
                 <a href={document.url} target="_blank" rel="noopener noreferrer" className="flex items-center hover:bg-rovida-soft-gray">
@@ -87,7 +87,7 @@ const DocumentDetail = () => {
 
       <Card className="card-rovida">
         <CardHeader>
-          <CardTitle className="text-rovida-navy">{t('document_details')}</CardTitle>
+          <CardTitle className="text-rovida-navy">{t('document details')}</CardTitle>
         </CardHeader>
         <CardContent className="grid gap-4">
           <div className="grid grid-cols-2 gap-2 text-rovida-near-black">
@@ -95,9 +95,9 @@ const DocumentDetail = () => {
             <div>{document.id}</div>
             <div className="font-medium">{t('category')}:</div>
             <div>{document.category}</div>
-            <div className="font-medium">{t('uploaded_by')}:</div>
+            <div className="font-medium">{t('uploaded by')}:</div>
             <div>{document.uploadedBy}</div>
-            <div className="font-medium">{t('uploaded_at')}:</div>
+            <div className="font-medium">{t('uploaded at')}:</div>
             <div>{format(document.uploadedAt, 'MMM dd, yyyy HH:mm')}</div>
           </div>
           <Separator className="bg-rovida-soft-gray" />
@@ -112,7 +112,7 @@ const DocumentDetail = () => {
               )}
             </div>
             <p className="text-sm text-rovida-slate-green-gray mt-2">
-              {t('placeholder_preview_text')}
+              {t('placeholder preview text')}
             </p>
           </div>
         </CardContent>

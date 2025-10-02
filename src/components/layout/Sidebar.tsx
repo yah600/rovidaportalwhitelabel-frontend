@@ -44,7 +44,7 @@ import { ShieldCheck } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
 
 interface NavItem {
-  titleKey: string; // Changed from 'title' to 'titleKey'
+  titleKey: string;
   href: string;
   icon: React.ElementType;
   moduleName: string;
@@ -257,7 +257,7 @@ const Sidebar = ({ className }: { className?: string }) => {
       <div className="flex h-14 items-center border-b border-rovida-soft-gray px-4 lg:h-[60px] lg:px-6 justify-between">
         {!isCollapsed && (
           <Link to="/" className="flex items-center gap-2 font-semibold">
-            <span className="text-lg text-rovida-gold">{t('welcome_to_gestion_rovida')}</span>
+            <span className="text-lg text-rovida-gold">{t('welcome to gestion rovida')}</span>
           </Link>
         )}
         <button
@@ -266,7 +266,7 @@ const Sidebar = ({ className }: { className?: string }) => {
             "p-2 rounded-md hover:bg-rovida-soft-gray text-rovida-near-black",
             isCollapsed ? "mx-auto" : ""
           )}
-          aria-label={isCollapsed ? t('expand_sidebar') : t('collapse_sidebar')}
+          aria-label={isCollapsed ? t('expand sidebar') : t('collapse sidebar')}
         >
           <Menu className="h-5 w-5" />
         </button>

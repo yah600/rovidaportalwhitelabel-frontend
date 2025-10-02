@@ -21,7 +21,7 @@ const FinancePayments = () => {
       <header className="flex items-center justify-between">
         <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('finance')} {t('payments')}</h1>
         <Button>
-          <PlusCircle className="mr-2 h-4 w-4" /> {t('record_payment')}
+          <PlusCircle className="mr-2 h-4 w-4" /> {t('record payment')}
         </Button>
       </header>
 
@@ -31,13 +31,13 @@ const FinancePayments = () => {
         <div className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm">
           <div className="flex flex-col items-center gap-1 text-center">
             <h3 className="text-2xl font-bold tracking-tight">
-              {t('no_payments_found')}
+              {t('no payments found')}
             </h3>
             <p className="text-sm text-muted-foreground">
-              {t('start_by_recording_new_payment')}
+              {t('start by recording new payment')}
             </p>
             <Button className="mt-4">
-              <PlusCircle className="mr-2 h-4 w-4" /> {t('record_payment')}
+              <PlusCircle className="mr-2 h-4 w-4" /> {t('record payment')}
             </Button>
           </div>
         </div>

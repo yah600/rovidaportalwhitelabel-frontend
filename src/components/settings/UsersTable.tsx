@@ -54,13 +54,13 @@ const UsersTable = ({ users }: UsersTableProps) => {
       header: t('status'),
       cell: ({ row }) => (
         <Badge variant={getStatusVariant(row.getValue("status"))}>
-          {row.getValue("status")}
+          {t(row.getValue("status").toLowerCase())}
         </Badge>
       ),
     },
     {
       accessorKey: "lastLogin",
-      header: t('last_login'),
+      header: t('last login'),
       cell: ({ row }) => (
         <span className="text-rovida-slate-green-gray">
           {format(row.getValue("lastLogin"), 'MMM dd, yyyy HH:mm')}

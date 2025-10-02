@@ -27,7 +27,7 @@ const BoardMeetingDetail = () => {
   if (!meeting) {
     return (
       <div className="flex flex-1 items-center justify-center">
-        <p className="text-rovida-slate-green-gray">{t('meeting_not_found')}</p>
+        <p className="text-rovida-slate-green-gray">{t('meeting not found')}</p>
       </div>
     );
   }
@@ -57,7 +57,7 @@ const BoardMeetingDetail = () => {
       <header className="flex items-center justify-between flex-wrap gap-2 mb-4">
         <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{meeting.title}</h1>
         <div className="flex items-center gap-2">
-          <Badge variant={getStatusBadgeVariant(meeting.status)}>{meeting.status}</Badge>
+          <Badge variant={getStatusBadgeVariant(meeting.status)}>{t(meeting.status.toLowerCase())}</Badge>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="outline" size="sm">
@@ -69,7 +69,7 @@ const BoardMeetingDetail = () => {
               <DropdownMenuLabel>{t('actions')}</DropdownMenuLabel>
               <DropdownMenuSeparator className="bg-rovida-soft-gray" />
               <DropdownMenuItem className="hover:bg-rovida-soft-gray">
-                <Edit className="mr-2 h-4 w-4" /> {t('edit_meeting')}
+                <Edit className="mr-2 h-4 w-4" /> {t('edit meeting')}
               </DropdownMenuItem>
               {meeting.status === 'Scheduled' && (
                 <DropdownMenuItem className="hover:bg-rovida-soft-gray">
@@ -78,11 +78,11 @@ const BoardMeetingDetail = () => {
               )}
               {meeting.status !== 'Completed' && (
                 <DropdownMenuItem className="hover:bg-rovida-soft-gray">
-                  <ListChecks className="mr-2 h-4 w-4" /> {t('mark_as_completed')}
+                  <ListChecks className="mr-2 h-4 w-4" /> {t('mark as completed')}
                 </DropdownMenuItem>
               )}
               <DropdownMenuItem className="text-destructive hover:bg-rovida-soft-gray">
-                <Trash2 className="mr-2 h-4 w-4" /> {t('cancel_meeting')}
+                <Trash2 className="mr-2 h-4 w-4" /> {t('cancel meeting')}
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -91,7 +91,7 @@ const BoardMeetingDetail = () => {
 
       <Card className="card-rovida">
         <CardHeader>
-          <CardTitle className="text-rovida-navy">{t('meeting_details')}</CardTitle>
+          <CardTitle className="text-rovida-navy">{t('meeting details')}</CardTitle>
         </CardHeader>
         <CardContent className="grid gap-4">
           <div className="grid grid-cols-2 gap-2 text-rovida-near-black">

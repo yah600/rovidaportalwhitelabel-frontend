@@ -14,12 +14,12 @@ const SettingsVisitorLogs = () => {
   return (
     <div className="flex flex-1 flex-col gap-4">
       <header className="flex items-center justify-between">
-        <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('visitor_logs')}</h1>
+        <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('visitor logs')}</h1>
         <Button className="btn-primary">
-          <PlusCircle className="mr-2 h-4 w-4" /> {t('add_new_visitor')}
+          <PlusCircle className="mr-2 h-4 w-4" /> {t('add new visitor')}
         </Button>
       </header>
-      <p className="text-rovida-slate-green-gray">{t('track_manage_visitor_access')}</p>
+      <p className="text-rovida-slate-green-gray">{t('track manage visitor access')}</p>
 
       {hasLogs ? (
         <VisitorLogsTable logs={mockVisitorLogs} />
@@ -27,9 +27,9 @@ const SettingsVisitorLogs = () => {
         <Card className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm card-rovida mt-4 p-8">
           <div className="flex flex-col items-center gap-2 text-rovida-slate-green-gray">
             <UserCheck className="h-12 w-12 text-rovida-gold" />
-            <p>{t('visitor_logs_managed_here')}</p>
+            <p>{t('visitor logs managed here')}</p>
             <Button variant="outline" className="mt-4 btn-secondary">
-              <PlusCircle className="mr-2 h-4 w-4" /> {t('add_first_visitor')}
+              <PlusCircle className="mr-2 h-4 w-4" /> {t('add first visitor')}
             </Button>
           </div>
         </Card>

@@ -78,11 +78,11 @@ const RecentIssues = () => {
     <Card className="col-span-2 lg:col-span-1 card-rovida">
       <CardHeader className="flex flex-row items-center justify-between">
         <div>
-          <CardTitle className="text-rovida-navy">{t('open_issues')}</CardTitle>
-          <CardDescription className="text-rovida-slate-green-gray">{t('your_most_recent_incidents')}</CardDescription>
+          <CardTitle className="text-rovida-navy">{t('open issues')}</CardTitle>
+          <CardDescription className="text-rovida-slate-green-gray">{t('your most recent incidents')}</CardDescription>
         </div>
         <Link to="/issues" className="text-sm link-rovida flex items-center gap-1">
-          {t('view_all')} <ArrowRight className="h-4 w-4" />
+          {t('view all')} <ArrowRight className="h-4 w-4" />
         </Link>
       </CardHeader>
       <CardContent>
@@ -98,12 +98,12 @@ const RecentIssues = () => {
                     {issue.unit} - {format(issue.createdAt, 'MMM dd')}
                   </p>
                 </div>
-                <Badge variant={getStatusBadgeVariant(issue.status)}>{issue.status}</Badge>
+                <Badge variant={getStatusBadgeVariant(issue.status)}>{t(issue.status.toLowerCase().replace(/ /g, ''))}</Badge>
               </div>
             ))}
           </div>
         ) : (
-          <p className="text-rovida-slate-green-gray">{t('no_tickets')}</p>
+          <p className="text-rovida-slate-green-gray">{t('no tickets')}</p>
         )}
       </CardContent>
     </Card>

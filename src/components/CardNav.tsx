@@ -163,7 +163,7 @@ const CardNav = ({
             className={`hamburger-menu ${isHamburgerOpen ? 'open' : ''}`}
             onClick={toggleMenu}
             role="button"
-            aria-label={isExpanded ? t('close_menu') : t('open_menu')}
+            aria-label={isExpanded ? t('close menu') : t('open menu')}
             tabIndex={0}
             style={{ color: menuColor || '#000' }}
           >
@@ -180,7 +180,7 @@ const CardNav = ({
             className="card-nav-cta-button"
             style={{ backgroundColor: buttonBgColor, color: buttonTextColor }}
           >
-            {t('get_started')}
+            {t('get started')}
           </button>
         </div>
 

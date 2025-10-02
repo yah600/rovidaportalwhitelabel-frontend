@@ -74,13 +74,13 @@ const InboxTable = ({ documents }: InboxTableProps) => {
       header: t('status'),
       cell: ({ row }) => (
         <Badge variant={getStatusVariant(row.getValue("status"))}>
-          {row.getValue("status")}
+          {t(row.getValue("status").toLowerCase().replace(/ /g, ''))}
         </Badge>
       ),
     },
     {
       accessorKey: "receivedAt",
-      header: t('received_at'),
+      header: t('received at'),
       cell: ({ row }) => (
         <span className="text-rovida-slate-green-gray">
           {format(row.getValue("receivedAt"), 'MMM dd, yyyy')}

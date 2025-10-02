@@ -36,5 +36,10 @@
   "target_audience": "Public cible",
   "published_at": "Publié le",
   "expires_at": "Expire le",
-  "content": "Contenu"
+  "content": "Contenu",
+  "manage_templates": "Gérer les modèles",
+  "create_edit_message_templates": "Créer et modifier des modèles de message.",
+  "view_templates": "Voir les modèles",
+  "communication_sent_title": "Communication envoyée !",
+  "communication_sent_description": "Votre message a été envoyé avec succès."
 }

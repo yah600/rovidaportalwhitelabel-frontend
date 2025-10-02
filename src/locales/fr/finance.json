@@ -51,5 +51,19 @@
   "create_first_purchase_order": "Créer le premier bon de commande",
   "item_description": "Description de l'article",
   "total_amount": "Montant total",
-  "order_date": "Date de commande"
+  "order_date": "Date de commande",
+  "paid": "Payé",
+  "due": "Dû",
+  "overdue": "En retard",
+  "pending_approval": "En attente d'approbation",
+  "completed": "Terminé",
+  "failed": "Échoué",
+  "refunded": "Remboursé",
+  "pending": "En attente",
+  "approved": "Approuvé",
+  "rejected": "Rejeté",
+  "ordered": "Commandé",
+  "received": "Reçu",
+  "organization_settings_saved_title": "Paramètres de l'organisation enregistrés !",
+  "organization_settings_saved_description": "Les détails de votre organisation ont été mis à jour."
 }

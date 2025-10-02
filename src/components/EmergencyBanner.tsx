@@ -27,7 +27,7 @@ const EmergencyBanner = ({
     <div className="bg-rovida-error text-white p-4 rounded-lg text-center font-bold flex items-center justify-between flex-wrap gap-2 shadow-subtle border border-rovida-error">
       <div className="flex items-center gap-2">
         <AlertTriangle className="h-5 w-5" />
-        <span>{message || t('critical_alert')}</span>
+        <span>{message || t('critical alert')}</span>
       </div>
       {ctaText && (
         <Link to={ctaLink}>

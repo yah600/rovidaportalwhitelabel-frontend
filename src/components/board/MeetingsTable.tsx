@@ -68,7 +68,7 @@ const MeetingsTable = ({ meetings }: MeetingsTableProps) => {
       header: t('status'),
       cell: ({ row }) => (
         <Badge variant={getStatusVariant(row.getValue("status"))}>
-          {row.getValue("status")}
+          {t(row.getValue("status").toLowerCase())}
         </Badge>
       ),
     },

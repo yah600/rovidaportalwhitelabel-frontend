@@ -70,7 +70,7 @@ const WorkOrdersTable = ({ workOrders }: WorkOrdersTableProps) => {
     },
     {
       accessorKey: "assignedTo",
-      header: t('assigned_to'),
+      header: t('assigned to'),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("assignedTo")}</span>,
     },
     {
@@ -78,7 +78,7 @@ const WorkOrdersTable = ({ workOrders }: WorkOrdersTableProps) => {
       header: t('status'),
       cell: ({ row }) => (
         <Badge variant={getStatusVariant(row.getValue("status"))}>
-          {row.getValue("status")}
+          {t(row.getValue("status").toLowerCase().replace(/ /g, ''))}
         </Badge>
       ),
     },
@@ -87,13 +87,13 @@ const WorkOrdersTable = ({ workOrders }: WorkOrdersTableProps) => {
       header: t('priority'),
       cell: ({ row }) => (
         <Badge className={getPriorityColor(row.getValue("priority"))}>
-          {row.getValue("priority")}
+          {t(row.getValue("priority").toLowerCase())}
         </Badge>
       ),
     },
     {
       accessorKey: "dueDate",
-      header: t('due_date'),
+      header: t('due date'),
       cell: ({ row }) => (
         <span className="text-rovida-slate-green-gray">
           {format(row.getValue("dueDate"), 'MMM dd, yyyy')}

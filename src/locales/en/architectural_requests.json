@@ -5,5 +5,9 @@
   "architectural_requests_managed_here": "Architectural change requests will be managed here.",
   "submit_first_request": "Submit First Request",
   "requester": "Requester",
-  "submitted_at": "Submitted At"
+  "submitted_at": "Submitted At",
+  "pending_review": "Pending Review",
+  "approved": "Approved",
+  "rejected": "Rejected",
+  "in_progress": "In Progress"
 }

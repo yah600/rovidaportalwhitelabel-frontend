@@ -1,5 +1,6 @@
 {
   "profile": "Profil",
   "full_name": "Nom complet",
-  "role": "Rôle"
+  "role": "Rôle",
+  "profile_updated_simulated": "Profil mis à jour ! (Simulé)"
 }

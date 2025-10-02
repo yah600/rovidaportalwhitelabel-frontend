@@ -15,7 +15,7 @@ const SettingsUnits = () => {
       <header className="flex items-center justify-between">
         <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('units')}</h1>
         <Button className="btn-primary">
-          <PlusCircle className="mr-2 h-4 w-4" /> {t('add_new_unit')}
+          <PlusCircle className="mr-2 h-4 w-4" /> {t('add new unit')}
         </Button>
       </header>
 
@@ -25,16 +25,16 @@ const SettingsUnits = () => {
         <div className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm card-rovida">
           <div className="flex flex-col items-center gap-1 text-center">
             <h3 className="text-2xl font-bold tracking-tight text-rovida-near-black">
-              {t('no_units_found')}
+              {t('no units found')}
             </h3>
             <p className="text-sm text-rovida-slate-green-gray">
-              {t('start_by_adding_new_unit')}
+              {t('start by adding new unit')}
             </p>
             <Button className="mt-4 btn-primary">
-              <PlusCircle className="mr-2 h-4 w-4" /> {t('add_new_unit')}
+              <PlusCircle className="mr-2 h-4 w-4" /> {t('add new unit')}
             </Button>
           </div>
-        </div>
+        </Card>
       )}
     </div>
   );

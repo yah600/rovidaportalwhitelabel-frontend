@@ -16,17 +16,17 @@ const MaintenanceCalendar = () => {
     <div className="flex flex-1 flex-col gap-4">
       <BreadcrumbNav items={breadcrumbItems} />
       <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('maintenance')} {t('calendar')}</h1>
-      <p className="text-rovida-slate-green-gray">{t('visualize_manage_schedule')}</p>
+      <p className="text-rovida-slate-green-gray">{t('visualize manage schedule')}</p>
 
       <Card className="flex-1 card-rovida">
         <CardHeader>
-          <CardTitle className="text-rovida-navy">{t('monthly_view')}</CardTitle>
-          <CardDescription className="text-rovida-slate-green-gray">{t('upcoming_completed_tasks')}</CardDescription>
+          <CardTitle className="text-rovida-navy">{t('monthly view')}</CardTitle>
+          <CardDescription className="text-rovida-slate-green-gray">{t('upcoming completed tasks')}</CardDescription>
         </CardHeader>
         <CardContent className="flex flex-1 items-center justify-center">
           <div className="flex flex-col items-center gap-2 text-rovida-slate-green-gray">
             <CalendarDays className="h-12 w-12 text-rovida-gold" />
-            <p>{t('calendar_view_coming_soon')}</p>
+            <p>{t('calendar view coming soon')}</p>
           </div>
         </CardContent>
       </Card>

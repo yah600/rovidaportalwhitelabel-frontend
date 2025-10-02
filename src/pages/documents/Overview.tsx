@@ -33,14 +33,14 @@ const DocumentsOverview = () => {
         {/* Total Documents Card */}
         <Card className="card-rovida">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-rovida-navy">{t('total_documents')}</CardTitle>
+            <CardTitle className="text-sm font-medium text-rovida-navy">{t('total documents')}</CardTitle>
             <FileText className="h-4 w-4 text-rovida-gold" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold text-rovida-near-black">{totalDocuments}</div>
-            <p className="text-xs text-rovida-slate-green-gray">{t('all_files_in_registry')}</p>
+            <p className="text-xs text-rovida-slate-green-gray">{t('all files in registry')}</p>
             <Link to="/documents/registry" className="mt-2 inline-flex items-center text-sm link-rovida">
-              {t('view_registry')} <ArrowRight className="ml-1 h-4 w-4" />
+              {t('view registry')} <ArrowRight className="ml-1 h-4 w-4" />
             </Link>
           </CardContent>
         </Card>
@@ -48,7 +48,7 @@ const DocumentsOverview = () => {
         {/* Recent Uploads Card */}
         <Card className="card-rovida">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-rovida-navy">{t('recent_uploads')}</CardTitle>
+            <CardTitle className="text-sm font-medium text-rovida-navy">{t('recent uploads')}</CardTitle>
             <UploadCloud className="h-4 w-4 text-rovida-gold" />
           </CardHeader>
           <CardContent>
@@ -57,9 +57,9 @@ const DocumentsOverview = () => {
             ) : (
               <div className="text-2xl font-bold text-rovida-near-black">N/A</div>
             )}
-            <p className="text-xs text-rovida-slate-green-gray">{recentUploads.length} {t('documents_recently_added')}</p>
+            <p className="text-xs text-rovida-slate-green-gray">{recentUploads.length} {t('documents recently added')}</p>
             <Link to="/documents/registry" className="mt-2 inline-flex items-center text-sm link-rovida">
-              {t('view_recent')} <ArrowRight className="ml-1 h-4 w-4" />
+              {t('view recent')} <ArrowRight className="ml-1 h-4 w-4" />
             </Link>
           </CardContent>
         </Card>
@@ -67,21 +67,21 @@ const DocumentsOverview = () => {
         {/* Documents Needing Review Card */}
         <Card className="card-rovida">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-rovida-navy">{t('documents_inbox')}</CardTitle>
+            <CardTitle className="text-sm font-medium text-rovida-navy">{t('documents inbox')}</CardTitle>
             <Mail className="h-4 w-4 text-rovida-gold" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold text-rovida-near-black">{documentsNeedingReview} {t('new')}</div>
-            <p className="text-xs text-rovida-slate-green-gray">{t('files_awaiting_attention')}</p>
+            <p className="text-xs text-rovida-slate-green-gray">{t('files awaiting attention')}</p>
             <Link to="/documents/inbox" className="mt-2 inline-flex items-center text-sm link-rovida">
-              {t('go_to_inbox')} <ArrowRight className="ml-1 h-4 w-4" />
+              {t('go to inbox')} <ArrowRight className="ml-1 h-4 w-4" />
             </Link>
           </CardContent>
         </Card>
       </div>
 
       <Card className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm card-rovida mt-4 p-8">
-        <p className="text-rovida-slate-green-gray">{t('more_detailed_document_analytics_soon')}</p>
+        <p className="text-rovida-slate-green-gray">{t('more detailed document analytics soon')}</p>
       </Card>
     </div>
   );

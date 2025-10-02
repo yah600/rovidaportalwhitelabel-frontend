@@ -30,8 +30,8 @@ const Topbar = () => {
   const userName = currentUser?.name || t("guest");
   const userEmail = currentUser?.email || "";
   const buildings = [
-    { id: '1', name: t('building_a') },
-    { id: '2', name: t('building_b') },
+    { id: '1', name: t('building a') },
+    { id: '2', name: t('building b') },
   ];
   const currentBuildingId = '1';
 
@@ -42,8 +42,8 @@ const Topbar = () => {
 
   const handleLogout = () => {
     setCurrentUser(null);
-    toast.info(t('logged_out_title'), {
-      description: t('logged_out_description'),
+    toast.info(t('logged out title'), {
+      description: t('logged out description'),
     });
     navigate('/auth/login');
   };
@@ -52,8 +52,8 @@ const Topbar = () => {
     if (canRead('Settings')) {
       navigate('/settings/notifications');
     } else {
-      toast.error(t('permission_denied'), {
-        description: t('no_permission_view_notifications'),
+      toast.error(t('permission denied'), {
+        description: t('no permission view notifications'),
       });
     }
   };
@@ -62,8 +62,8 @@ const Topbar = () => {
     if (canRead('Settings')) { // Feedback is part of Settings module
       navigate('/settings/feedback');
     } else {
-      toast.error(t('permission_denied'), {
-        description: t('no_permission_send_feedback'),
+      toast.error(t('permission denied'), {
+        description: t('no permission send feedback'),
       });
     }
   };
@@ -71,12 +71,12 @@ const Topbar = () => {
   return (
     <header className="sticky top-0 z-40 w-full border-b border-rovida-soft-gray bg-white/80 backdrop-blur-xl px-4 py-2 flex items-center justify-between shadow-sm">
       <div className="flex items-center space-x-4">
-        <img src="/AVERO.png" alt={t('gestion_rovida_logo')} className="h-8 w-auto" />
+        <img src="/AVERO.png" alt={t('gestion rovida logo')} className="h-8 w-auto" />
 
         {currentUser && (
           <Select defaultValue={currentBuildingId}>
             <SelectTrigger className="w-[180px] border-rovida-soft-gray text-rovida-near-black bg-white/60 backdrop-blur-sm">
-              <SelectValue placeholder={t('select_building')} />
+              <SelectValue placeholder={t('select building')} />
             </SelectTrigger>
             <SelectContent className="bg-white/80 backdrop-blur-xl border-rovida-soft-gray">
               {buildings.map((building) => (
@@ -96,7 +96,7 @@ const Topbar = () => {
               <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-4 w-4 text-rovida-slate-green-gray" />
               <Input
                 type="text"
-                placeholder={t('search_placeholder')}
+                placeholder={t('search placeholder')}
                 className="pl-8 w-[200px] lg:w-[300px] border-rovida-soft-gray text-rovida-near-black bg-white/60 backdrop-blur-sm"
                 value={searchTerm}
                 onChange={handleSearchChange}

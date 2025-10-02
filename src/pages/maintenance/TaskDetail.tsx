@@ -39,7 +39,7 @@ const MaintenanceTaskDetail = () => {
   if (!task) {
     return (
       <div className="flex flex-1 items-center justify-center">
-        <p className="text-rovida-slate-green-gray">{t('task_not_found')}</p>
+        <p className="text-rovida-slate-green-gray">{t('task not found')}</p>
       </div>
     );
   }
@@ -54,13 +54,13 @@ const MaintenanceTaskDetail = () => {
     <div className="flex flex-1 flex-col gap-4">
       <BreadcrumbNav items={breadcrumbItems} />
       <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{task.title}</h1>
-      <p className="text-rovida-slate-green-gray">{t('details_maintenance_task')} {id}.</p>
+      <p className="text-rovida-slate-green-gray">{t('details maintenance task')} {id}.</p>
 
       <div className="grid gap-4 lg:grid-cols-2">
         <Card className="card-rovida">
           <CardHeader>
-            <CardTitle className="text-rovida-navy">{t('task_information')}</CardTitle>
-            <CardDescription className="text-rovida-slate-green-gray">{t('key_details_task')}</CardDescription>
+            <CardTitle className="text-rovida-navy">{t('task information')}</CardTitle>
+            <CardDescription className="text-rovida-slate-green-gray">{t('key details task')}</CardDescription>
           </CardHeader>
           <CardContent className="grid gap-4">
             <div className="grid grid-cols-2 gap-2 text-rovida-near-black">
@@ -70,15 +70,15 @@ const MaintenanceTaskDetail = () => {
               <div>{task.status}</div>
               <div className="font-medium">{t('priority')}:</div>
               <div>{task.priority}</div>
-              <div className="font-medium">{t('assigned_to')}:</div>
+              <div className="font-medium">{t('assigned to')}:</div>
               <div>{task.assignedTo}</div>
-              <div className="font-medium">{t('due_date')}:</div>
+              <div className="font-medium">{t('due date')}:</div>
               <div>{format(task.dueDate, 'MMM dd, yyyy')}</div>
-              <div className="font-medium">{t('estimated_cost')}:</div>
+              <div className="font-medium">{t('estimated cost')}:</div>
               <div className="font-roboto-mono text-rovida-near-black">${task.cost.toFixed(2)}</div>
-              <div className="font-medium">{t('created_at')}:</div>
+              <div className="font-medium">{t('created at')}:</div>
               <div>{format(task.createdAt, 'MMM dd, yyyy HH:mm')}</div>
-              <div className="font-medium">{t('last_updated')}:</div>
+              <div className="font-medium">{t('last updated')}:</div>
               <div>{format(task.updatedAt, 'MMM dd, yyyy HH:mm')}</div>
             </div>
             <Separator className="bg-rovida-soft-gray" />
@@ -93,7 +93,7 @@ const MaintenanceTaskDetail = () => {
           <Card className="card-rovida">
             <CardHeader>
               <CardTitle className="text-rovida-navy">{t('checklist')}</CardTitle>
-              <CardDescription className="text-rovida-slate-green-gray">{t('steps_to_complete_task')}</CardDescription>
+              <CardDescription className="text-rovida-slate-green-gray">{t('steps to complete task')}</CardDescription>
             </CardHeader>
             <CardContent>
               <ul className="space-y-2">
@@ -104,7 +104,7 @@ const MaintenanceTaskDetail = () => {
                     ) : (
                       <Clock className="h-4 w-4 text-rovida-slate-green-gray" />
                     )}
-                    <span>{item.item}</span>
+                    <span>{t(item.item.toLowerCase().replace(/ /g, ''))}</span>
                   </li>
                 ))}
               </ul>
@@ -114,7 +114,7 @@ const MaintenanceTaskDetail = () => {
           <Card className="card-rovida">
             <CardHeader>
               <CardTitle className="text-rovida-navy">{t('attachments')}</CardTitle>
-              <CardDescription className="text-rovida-slate-green-gray">{t('supporting_docs_task')}</CardDescription>
+              <CardDescription className="text-rovida-slate-green-gray">{t('supporting docs task')}</CardDescription>
             </CardHeader>
             <CardContent>
               {task.attachments.length > 0 ? (
@@ -127,14 +127,14 @@ const MaintenanceTaskDetail = () => {
                           {attachment.name}
                         </a>
                         <p className="text-xs text-rovida-slate-green-gray">
-                          {t('uploaded_by_on', { user: attachment.uploadedBy, date: format(attachment.uploadedAt, 'MMM dd, yyyy') })}
+                          {t('uploaded by on', { user: attachment.uploadedBy, date: format(attachment.uploadedAt, 'MMM dd, yyyy') })}
                         </p>
                       </div>
                     </div>
                   ))}
                 </div>
               ) : (
-                <p className="text-rovida-slate-green-gray">{t('no_attachments')}</p>
+                <p className="text-rovida-slate-green-gray">{t('no attachments')}</p>
               )}
             </CardContent>
           </Card>

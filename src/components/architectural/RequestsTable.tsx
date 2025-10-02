@@ -53,7 +53,7 @@ const RequestsTable = ({ requests }: RequestsTableProps) => {
     },
     {
       accessorKey: "submittedAt",
-      header: t('submitted_at'),
+      header: t('submitted at'),
       cell: ({ row }) => (
         <span className="text-rovida-slate-green-gray">
           {format(row.getValue("submittedAt"), 'MMM dd, yyyy')}
@@ -65,7 +65,7 @@ const RequestsTable = ({ requests }: RequestsTableProps) => {
       header: t('status'),
       cell: ({ row }) => (
         <Badge variant={getStatusVariant(row.getValue("status"))}>
-          {t(row.getValue("status").toLowerCase().replace(/ /g, '_'))}
+          {t(row.getValue("status").toLowerCase().replace(/ /g, ''))}
         </Badge>
       ),
     },

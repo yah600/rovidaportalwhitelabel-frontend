@@ -5,5 +5,13 @@
   "amenities_managed_here": "Amenities and resources will be managed here.",
   "add_first_amenity": "Add First Amenity",
   "booking_required": "Booking Required",
-  "book": "Book"
+  "book": "Book",
+  "available": "Available",
+  "under_maintenance": "Under Maintenance",
+  "closed": "Closed",
+  "gym": "Gym",
+  "pool": "Pool",
+  "party_room": "Party Room",
+  "meeting_room": "Meeting Room",
+  "rooftop_terrace": "Rooftop Terrace"
 }

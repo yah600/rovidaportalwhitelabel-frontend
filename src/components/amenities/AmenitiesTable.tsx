@@ -41,7 +41,7 @@ const AmenitiesTable = ({ amenities }: AmenitiesTableProps) => {
     {
       accessorKey: "type",
       header: t('type'),
-      cell: ({ row }) => <span className="text-rovida-near-black">{t(row.getValue("type").toLowerCase().replace(/ /g, '_'))}</span>,
+      cell: ({ row }) => <span className="text-rovida-near-black">{t(row.getValue("type").toLowerCase().replace(/ /g, ''))}</span>,
     },
     {
       accessorKey: "location",
@@ -50,7 +50,7 @@ const AmenitiesTable = ({ amenities }: AmenitiesTableProps) => {
     },
     {
       accessorKey: "bookingRequired",
-      header: t('booking_required'),
+      header: t('booking required'),
       cell: ({ row }) => (
         <Badge variant={row.getValue("bookingRequired") ? 'default' : 'outline'}>
           {row.getValue("bookingRequired") ? t('yes') : t('no')}
@@ -62,7 +62,7 @@ const AmenitiesTable = ({ amenities }: AmenitiesTableProps) => {
       header: t('status'),
       cell: ({ row }) => (
         <Badge variant={getStatusVariant(row.getValue("status"))}>
-          {t(row.getValue("status").toLowerCase().replace(/ /g, '_'))}
+          {t(row.getValue("status").toLowerCase().replace(/ /g, ''))}
         </Badge>
       ),
     },

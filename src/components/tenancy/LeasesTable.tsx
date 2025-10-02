@@ -38,17 +38,17 @@ const LeasesTable = ({ leases }: LeasesTableProps) => {
     },
     {
       accessorKey: "unitNumber",
-      header: t('unit_number'),
+      header: t('unit number'),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("unitNumber")}</span>,
     },
     {
       accessorKey: "tenantName",
-      header: t('tenant_name'),
+      header: t('tenant name'),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("tenantName")}</span>,
     },
     {
       accessorKey: "startDate",
-      header: t('start_date'),
+      header: t('start date'),
       cell: ({ row }) => (
         <span className="text-rovida-slate-green-gray">
           {format(row.getValue("startDate"), 'MMM dd, yyyy')}
@@ -57,7 +57,7 @@ const LeasesTable = ({ leases }: LeasesTableProps) => {
     },
     {
       accessorKey: "endDate",
-      header: t('end_date'),
+      header: t('end date'),
       cell: ({ row }) => (
         <span className="text-rovida-slate-green-gray">
           {format(row.getValue("endDate"), 'MMM dd, yyyy')}
@@ -66,7 +66,7 @@ const LeasesTable = ({ leases }: LeasesTableProps) => {
     },
     {
       accessorKey: "rentAmount",
-      header: t('rent_amount'),
+      header: t('rent amount'),
       cell: ({ row }) => <span className="text-rovida-near-black">${row.original.rentAmount.toFixed(2)}</span>,
     },
     {
@@ -74,7 +74,7 @@ const LeasesTable = ({ leases }: LeasesTableProps) => {
       header: t('status'),
       cell: ({ row }) => (
         <Badge variant={getStatusVariant(row.getValue("status"))}>
-          {t(row.getValue("status").toLowerCase().replace(/ /g, '_'))}
+          {t(row.getValue("status").toLowerCase().replace(/ /g, ''))}
         </Badge>
       ),
     },

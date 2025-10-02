@@ -12,7 +12,7 @@ const ArchitecturalRequests = () => {
 
   const breadcrumbItems = [
     { label: t('home'), href: '/' },
-    { label: t('architectural_requests'), href: '/architectural-requests' },
+    { label: t('architectural requests'), href: '/architectural-requests' },
   ];
 
   const hasRequests = mockArchitecturalRequests.length > 0;
@@ -21,12 +21,12 @@ const ArchitecturalRequests = () => {
     <div className="flex flex-1 flex-col gap-4">
       <BreadcrumbNav items={breadcrumbItems} />
       <header className="flex items-center justify-between">
-        <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('architectural_requests')}</h1>
+        <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('architectural requests')}</h1>
         <Button className="btn-primary">
-          <PlusCircle className="mr-2 h-4 w-4" /> {t('submit_new_request')}
+          <PlusCircle className="mr-2 h-4 w-4" /> {t('submit new request')}
         </Button>
       </header>
-      <p className="text-rovida-slate-green-gray">{t('manage_architectural_change_requests')}</p>
+      <p className="text-rovida-slate-green-gray">{t('manage architectural change requests')}</p>
 
       {hasRequests ? (
         <RequestsTable requests={mockArchitecturalRequests} />
@@ -34,9 +34,9 @@ const ArchitecturalRequests = () => {
         <Card className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm card-rovida mt-4 p-8">
           <div className="flex flex-col items-center gap-2 text-rovida-slate-green-gray">
             <LayoutTemplate className="h-12 w-12 text-rovida-gold" />
-            <p>{t('architectural_requests_managed_here')}</p>
+            <p>{t('architectural requests managed here')}</p>
             <Button variant="outline" className="mt-4 btn-secondary">
-              <PlusCircle className="mr-2 h-4 w-4" /> {t('submit_first_request')}
+              <PlusCircle className="mr-2 h-4 w-4" /> {t('submit first request')}
             </Button>
           </div>
         </Card>
