@@ -1,17 +1,17 @@
 {
-  "amenity_management": "Amenity Management",
-  "add_new_amenity": "Add New Amenity",
-  "manage_book_amenities": "Manage and book common area amenities and resources.",
-  "amenities_managed_here": "Amenities and resources will be managed here.",
-  "add_first_amenity": "Add First Amenity",
-  "booking_required": "Booking Required",
+  "amenity management": "Amenity Management",
+  "add new amenity": "Add New Amenity",
+  "manage book amenities": "Manage and book common area amenities and resources.",
+  "amenities managed here": "Amenities and resources will be managed here.",
+  "add first amenity": "Add First Amenity",
+  "booking required": "Booking Required",
   "book": "Book",
   "available": "Available",
-  "under_maintenance": "Under Maintenance",
+  "under maintenance": "Under Maintenance",
   "closed": "Closed",
   "gym": "Gym",
   "pool": "Pool",
-  "party_room": "Party Room",
-  "meeting_room": "Meeting Room",
-  "rooftop_terrace": "Rooftop Terrace"
+  "party room": "Party Room",
+  "meeting room": "Meeting Room",
+  "rooftop terrace": "Rooftop Terrace"
 }

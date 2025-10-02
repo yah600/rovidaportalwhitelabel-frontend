@@ -1,17 +1,17 @@
 {
-  "amenity_management": "Gestion des Commodités",
-  "add_new_amenity": "Ajouter une nouvelle commodité",
-  "manage_book_amenities": "Gérer et réserver les commodités et ressources des espaces communs.",
-  "amenities_managed_here": "Les commodités et ressources seront gérées ici.",
-  "add_first_amenity": "Ajouter la première commodité",
-  "booking_required": "Réservation requise",
+  "amenity management": "Gestion des Commodités",
+  "add new amenity": "Ajouter une nouvelle commodité",
+  "manage book amenities": "Gérer et réserver les commodités et ressources des espaces communs.",
+  "amenities managed here": "Les commodités et ressources seront gérées ici.",
+  "add first amenity": "Ajouter la première commodité",
+  "booking required": "Réservation requise",
   "book": "Réserver",
   "available": "Disponible",
-  "under_maintenance": "En maintenance",
+  "under maintenance": "En maintenance",
   "closed": "Fermé",
   "gym": "Salle de sport",
   "pool": "Piscine",
-  "party_room": "Salle de fête",
-  "meeting_room": "Salle de réunion",
-  "rooftop_terrace": "Terrasse sur le toit"
+  "party room": "Salle de fête",
+  "meeting room": "Salle de réunion",
+  "rooftop terrace": "Terrasse sur le toit"
 }

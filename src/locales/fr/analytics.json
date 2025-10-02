@@ -1,13 +1,13 @@
 {
   "analytics": "Analytiques",
-  "overview_key_operational_metrics": "Aperçu des indicateurs opérationnels clés.",
-  "monthly_issue_trends": "Tendances mensuelles des incidents",
-  "open_closed_issues_6_months": "Incidents ouverts vs. fermés sur les 6 derniers mois.",
-  "issue_type_distribution": "Répartition par type d'incident",
-  "breakdown_issues_by_type": "Répartition des incidents par type.",
-  "work_order_completion_rate": "Taux d'achèvement des ordres de travail",
-  "monthly_work_order_completion_status": "Statut d'achèvement mensuel des ordres de travail.",
-  "closed_issues": "Incidents fermés",
+  "overview key operational metrics": "Aperçu des indicateurs opérationnels clés.",
+  "monthly issue trends": "Tendances mensuelles des incidents",
+  "open closed issues 6 months": "Incidents ouverts vs. fermés sur les 6 derniers mois.",
+  "issue type distribution": "Répartition par type d'incident",
+  "breakdown issues by type": "Répartition des incidents par type.",
+  "work order completion rate": "Taux d'achèvement des ordres de travail",
+  "monthly work order completion status": "Statut d'achèvement mensuel des ordres de travail.",
+  "closed issues": "Incidents fermés",
   "completed": "Terminé",
   "pending": "En attente"
 }
