@@ -6,11 +6,13 @@ import { Button } from '@/components/ui/button';
 import { Globe } from 'lucide-react';
 
 const LanguageToggle = () => {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation(); // Ensure t is also available for potential button text
 
   const toggleLanguage = () => {
     const newLang = i18n.language === 'fr' ? 'en' : 'fr';
-    i18n.changeLanguage(newLang);
+    i18n.changeLanguage(newLang).catch(err => {
+      console.error('Failed to change language:', err);
+    });
   };
 
   return (

@@ -42,7 +42,7 @@ const RulesTable = ({ rules }: RulesTableProps) => {
     {
       accessorKey: "category",
       header: t('category'),
-      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("category")}</span>,
+      cell: ({ row }) => <span className="text-rovida-near-black">{t(row.getValue("category").toLowerCase())}</span>,
     },
     {
       accessorKey: "effectiveDate",
@@ -58,7 +58,7 @@ const RulesTable = ({ rules }: RulesTableProps) => {
       header: t('enforcement_level'),
       cell: ({ row }) => (
         <Badge variant={getEnforcementLevelVariant(row.getValue("enforcementLevel"))}>
-          {row.getValue("enforcementLevel")}
+          {t(row.getValue("enforcementLevel").toLowerCase())}
         </Badge>
       ),
     },

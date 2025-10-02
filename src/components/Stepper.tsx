@@ -1,5 +1,6 @@
 import React, { useState, Children, useRef, useLayoutEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { useTranslation } from 'react-i18next'; // Import useTranslation
 
 import './Stepper.css';
 
@@ -43,6 +44,7 @@ export default function Stepper({
   const totalSteps = stepsArray.length;
   const isCompleted = currentStep > totalSteps;
   const isLastStep = currentStep === totalSteps;
+  const { t } = useTranslation(); // Initialize useTranslation
 
   const updateStep = (newStep: number) => {
     setCurrentStep(newStep);
@@ -125,11 +127,11 @@ export default function Stepper({
                   className={`back-button ${currentStep === 1 ? 'inactive' : ''}`}
                   {...backButtonProps}
                 >
-                  {backButtonText}
+                  {t(backButtonText.toLowerCase())}
                 </button>
               )}
               <button onClick={isLastStep ? handleComplete : handleNext} className="next-button" {...nextButtonProps}>
-                {isLastStep ? 'Complete' : nextButtonText}
+                {isLastStep ? t('complete') : t(nextButtonText.toLowerCase())}
               </button>
             </div>
           </div>

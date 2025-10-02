@@ -35,20 +35,20 @@ const IntegrationCard = ({ integration }: IntegrationCardProps) => {
           <Plug className="h-5 w-5 text-rovida-gold" />
           <CardTitle className="text-lg text-rovida-navy">{integration.name}</CardTitle>
         </div>
-        <Badge variant={getStatusVariant(integration.status)}>{integration.status}</Badge>
+        <Badge variant={getStatusVariant(integration.status)}>{t(integration.status.toLowerCase().replace(/ /g, '_'))}</Badge>
       </CardHeader>
       <CardContent className="flex-1 flex flex-col justify-between">
         <CardDescription className="mb-4 text-rovida-slate-green-gray">{integration.description}</CardDescription>
         <div className="flex items-center justify-between text-sm text-rovida-slate-green-gray">
-          <span>Type: {integration.type}</span>
+          <span>{t('type')}: {integration.type}</span>
           {integration.connectedAt && (
-            <span>Connected: {format(integration.connectedAt, 'MMM dd, yyyy')}</span>
+            <span>{t('connected')}: {format(integration.connectedAt, 'MMM dd, yyyy')}</span>
           )}
         </div>
         <div className="mt-4 flex justify-end">
           <Link to={`/integrations/${integration.slug}`}>
             <Button variant="outline" size="sm" className="btn-secondary">
-              <Settings className="h-4 w-4 mr-2" /> Manage
+              <Settings className="h-4 w-4 mr-2" /> {t('manage')}
             </Button>
           </Link>
         </div>

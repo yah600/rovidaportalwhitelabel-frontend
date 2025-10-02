@@ -34,7 +34,7 @@ const PortfolioTable = ({ properties }: PortfolioTableProps) => {
     {
       accessorKey: "propertyType",
       header: t('property_type'),
-      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("propertyType")}</span>,
+      cell: ({ row }) => <span className="text-rovida-near-black">{t(row.getValue("propertyType").toLowerCase().replace(/-/g, '_'))}</span>,
     },
     {
       accessorKey: "unitsCount",

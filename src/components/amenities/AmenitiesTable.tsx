@@ -41,7 +41,7 @@ const AmenitiesTable = ({ amenities }: AmenitiesTableProps) => {
     {
       accessorKey: "type",
       header: t('type'),
-      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("type")}</span>,
+      cell: ({ row }) => <span className="text-rovida-near-black">{t(row.getValue("type").toLowerCase().replace(/ /g, '_'))}</span>,
     },
     {
       accessorKey: "location",
@@ -62,7 +62,7 @@ const AmenitiesTable = ({ amenities }: AmenitiesTableProps) => {
       header: t('status'),
       cell: ({ row }) => (
         <Badge variant={getStatusVariant(row.getValue("status"))}>
-          {row.getValue("status")}
+          {t(row.getValue("status").toLowerCase().replace(/ /g, '_'))}
         </Badge>
       ),
     },

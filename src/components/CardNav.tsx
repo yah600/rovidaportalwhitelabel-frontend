@@ -4,6 +4,7 @@ import React from 'react';
 // use your own icon import if react-icons is not available
 import { GoArrowUpRight } from 'react-icons/go';
 import './CardNav.css';
+import { useTranslation } from 'react-i18next'; // Import useTranslation
 
 interface NavItem {
   label: string;
@@ -40,6 +41,7 @@ const CardNav = ({
   const navRef = useRef<HTMLElement>(null);
   const cardsRef = useRef<HTMLDivElement[]>([]);
   const tlRef = useRef<gsap.core.Timeline | null>(null);
+  const { t } = useTranslation(); // Initialize useTranslation
 
   const calculateHeight = () => {
     const navEl = navRef.current;
@@ -161,7 +163,7 @@ const CardNav = ({
             className={`hamburger-menu ${isHamburgerOpen ? 'open' : ''}`}
             onClick={toggleMenu}
             role="button"
-            aria-label={isExpanded ? 'Close menu' : 'Open menu'}
+            aria-label={isExpanded ? t('close_menu') : t('open_menu')}
             tabIndex={0}
             style={{ color: menuColor || '#000' }}
           >
@@ -178,7 +180,7 @@ const CardNav = ({
             className="card-nav-cta-button"
             style={{ backgroundColor: buttonBgColor, color: buttonTextColor }}
           >
-            Get Started
+            {t('get_started')}
           </button>
         </div>
 
