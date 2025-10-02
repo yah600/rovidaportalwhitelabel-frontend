@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { PlusCircle } from 'lucide-react';
 import { mockUnits } from '@/data/mock-units';
 import UnitsTable from '@/components/settings/UnitsTable';
+import { Card } from '@/components/ui/card'; // Import Card for the empty state
 
 const SettingsUnits = () => {
   const { t } = useTranslation();
@@ -22,7 +23,7 @@ const SettingsUnits = () => {
       {hasUnits ? (
         <UnitsTable units={mockUnits} />
       ) : (
-        <div className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm card-rovida">
+        <Card className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm card-rovida">
           <div className="flex flex-col items-center gap-1 text-center">
             <h3 className="text-2xl font-bold tracking-tight text-rovida-near-black">
               {t('no units found')}
