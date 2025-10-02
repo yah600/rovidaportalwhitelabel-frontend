@@ -6,6 +6,7 @@ import { PlusCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { mockVotes } from '@/data/mock-votes';
 import VotesTable from '@/components/board/VotesTable';
+import { Card } from '@/components/ui/card'; // Import Card for the empty state
 
 const BoardVotes = () => {
   const { t } = useTranslation();
@@ -27,9 +28,11 @@ const BoardVotes = () => {
       </header>
 
       {hasVotes ? (
-        <VotesTable votes={mockVotes} />
+        <div className="card-rovida p-4"> {/* Wrapped content in card-rovida */}
+          <VotesTable votes={mockVotes} />
+        </div>
       ) : (
-        <div className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm">
+        <Card className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm">
           <div className="flex flex-col items-center gap-1 text-center">
             <h3 className="text-2xl font-bold tracking-tight">
               {t('no votes found')}
@@ -41,7 +44,7 @@ const BoardVotes = () => {
               <PlusCircle className="mr-2 h-4 w-4" /> {t('create new vote')}
             </Button>
           </div>
-        </div>
+        </Card>
       )}
     </div>
   );

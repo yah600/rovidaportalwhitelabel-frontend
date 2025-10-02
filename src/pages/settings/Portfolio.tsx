@@ -22,7 +22,9 @@ const SettingsPortfolio = () => {
       <p className="text-rovida-slate-green-gray">{t('manage all properties portfolio', { ns: 'settings' })}</p>
 
       {hasProperties ? (
-        <PortfolioTable properties={mockPortfolioProperties} />
+        <div className="card-rovida p-4"> {/* Wrapped content in card-rovida */}
+          <PortfolioTable properties={mockPortfolioProperties} />
+        </div>
       ) : (
         <Card className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm card-rovida mt-4 p-8">
           <div className="flex flex-col items-center gap-2 text-rovida-slate-green-gray">

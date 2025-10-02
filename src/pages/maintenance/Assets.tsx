@@ -35,7 +35,9 @@ const MaintenanceAssets = () => {
       <p className="text-rovida-slate-green-gray">{t('manage physical assets', { ns: 'maintenance' })}</p>
 
       {hasAssets ? (
-        <AssetsTable assets={mockAssets} />
+        <div className="card-rovida p-4"> {/* Wrapped content in card-rovida */}
+          <AssetsTable assets={mockAssets} />
+        </div>
       ) : (
         <Card className="flex-1 card-rovida">
           <CardHeader>

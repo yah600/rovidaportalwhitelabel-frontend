@@ -7,32 +7,34 @@ import BuildingsTable from '@/components/settings/BuildingsTable';
 import { Card } from '@/components/ui/card'; // Import Card for the empty state
 
 const SettingsBuildings = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(['settings', 'common']); // Ensure 'settings' and 'common' namespaces are loaded
 
   const hasBuildings = mockBuildings.length > 0;
 
   return (
     <div className="flex flex-1 flex-col gap-4">
       <header className="flex items-center justify-between">
-        <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('buildings')}</h1>
+        <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('buildings', { ns: 'settings' })}</h1>
         <Button className="btn-primary">
-          <PlusCircle className="mr-2 h-4 w-4" /> {t('add new building')}
+          <PlusCircle className="mr-2 h-4 w-4" /> {t('add new building', { ns: 'settings' })}
         </Button>
       </header>
 
       {hasBuildings ? (
-        <BuildingsTable buildings={mockBuildings} />
+        <div className="card-rovida p-4"> {/* Wrapped content in card-rovida */}
+          <BuildingsTable buildings={mockBuildings} />
+        </div>
       ) : (
         <Card className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm card-rovida">
           <div className="flex flex-col items-center gap-1 text-center">
             <h3 className="text-2xl font-bold tracking-tight text-rovida-near-black">
-              {t('no buildings found')}
+              {t('no buildings found', { ns: 'settings' })}
             </h3>
             <p className="text-sm text-rovida-slate-green-gray">
-              {t('start by adding new building')}
+              {t('start by adding new building', { ns: 'settings' })}
             </p>
             <Button className="mt-4 btn-primary">
-              <PlusCircle className="mr-2 h-4 w-4" /> {t('add new building')}
+              <PlusCircle className="mr-2 h-4 w-4" /> {t('add new building', { ns: 'settings' })}
             </Button>
           </div>
         </Card>

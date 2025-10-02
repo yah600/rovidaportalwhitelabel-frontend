@@ -32,10 +32,12 @@ const Integrations = () => {
       </header>
 
       {hasIntegrations ? (
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {mockIntegrations.map((integration) => (
-            <IntegrationCard key={integration.id} integration={integration} />
-          ))}
+        <div className="card-rovida p-4"> {/* Wrapped content in card-rovida */}
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {mockIntegrations.map((integration) => (
+              <IntegrationCard key={integration.id} integration={integration} />
+            ))}
+          </div>
         </div>
       ) : (
         <Card className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm card-rovida">

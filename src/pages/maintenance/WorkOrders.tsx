@@ -35,7 +35,9 @@ const MaintenanceWorkOrders = () => {
       <p className="text-rovida-slate-green-gray">{t('manage all work orders', { ns: 'maintenance' })}</p>
 
       {hasWorkOrders ? (
-        <WorkOrdersTable workOrders={mockWorkOrders} />
+        <div className="card-rovida p-4"> {/* Wrapped content in card-rovida */}
+          <WorkOrdersTable workOrders={mockWorkOrders} />
+        </div>
       ) : (
         <Card className="flex-1 card-rovida">
           <CardHeader>

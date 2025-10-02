@@ -34,7 +34,9 @@ const ArchitecturalRequests = () => {
       <p className="text-rovida-slate-green-gray">{t('manage architectural change requests', { ns: 'architectural_requests' })}</p>
 
       {hasRequests ? (
-        <RequestsTable requests={mockArchitecturalRequests} />
+        <div className="card-rovida p-4"> {/* Wrapped content in card-rovida */}
+          <RequestsTable requests={mockArchitecturalRequests} />
+        </div>
       ) : (
         <Card className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm card-rovida mt-4 p-8">
           <div className="flex flex-col items-center gap-2 text-rovida-slate-green-gray">

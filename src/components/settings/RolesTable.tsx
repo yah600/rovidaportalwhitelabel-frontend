@@ -9,36 +9,38 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { Role } from '@/data/mock-roles';
+import { cn } from '@/lib/utils'; // Import cn for utility classes
 
 interface RolesTableProps {
   roles: Role[];
+  className?: string; // Add className prop
 }
 
-const RolesTable = ({ roles }: RolesTableProps) => {
+const RolesTable = ({ roles, className }: RolesTableProps) => {
   const { t } = useTranslation();
 
   return (
-    <div className="rounded-md border">
+    <div className={cn("rounded-md border border-rovida-soft-gray bg-white/80 backdrop-blur-xl shadow-subtle", className)}>
       <Table>
         <TableHeader>
-          <TableRow>
-            <TableHead className="w-[100px]">{t('id')}</TableHead>
-            <TableHead>{t('name')}</TableHead>
-            <TableHead>{t('description')}</TableHead>
-            <TableHead>{t('users')}</TableHead>
-            <TableHead className="text-right">{t('actions')}</TableHead>
+          <TableRow className="hover:bg-transparent">
+            <TableHead className="w-[100px] text-rovida-navy">{t('id')}</TableHead>
+            <TableHead className="text-rovida-navy">{t('name')}</TableHead>
+            <TableHead className="text-rovida-navy">{t('description')}</TableHead>
+            <TableHead className="text-rovida-navy">{t('users')}</TableHead>
+            <TableHead className="text-right text-rovida-navy">{t('actions')}</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           {roles.map((role) => (
-            <TableRow key={role.id}>
-              <TableCell className="font-medium">{role.id}</TableCell>
-              <TableCell>{t(role.name.toLowerCase())}</TableCell>
-              <TableCell>{role.description}</TableCell>
-              <TableCell>{role.usersCount}</TableCell>
+            <TableRow key={role.id} className="hover:bg-rovida-soft-gray/50 transition-colors">
+              <TableCell className="font-medium text-rovida-near-black">{role.id}</TableCell>
+              <TableCell className="text-rovida-near-black">{t(role.name.toLowerCase())}</TableCell>
+              <TableCell className="text-rovida-slate-green-gray">{role.description}</TableCell>
+              <TableCell className="text-rovida-near-black">{role.usersCount}</TableCell>
               <TableCell className="text-right">
                 {/* Add action buttons here, e.g., Edit Permissions */}
-                <span className="text-sm text-muted-foreground">{t('manage')}</span>
+                <span className="text-sm text-rovida-slate-green-gray">{t('manage')}</span>
               </TableCell>
             </TableRow>
           ))}

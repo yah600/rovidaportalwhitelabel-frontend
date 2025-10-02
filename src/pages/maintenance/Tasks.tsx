@@ -35,7 +35,9 @@ const MaintenanceTasks = () => {
       <p className="text-rovida-slate-green-gray">{t('manage individual maintenance tasks', { ns: 'maintenance' })}</p>
 
       {hasTasks ? (
-        <TasksTable tasks={mockTasks} />
+        <div className="card-rovida p-4"> {/* Wrapped content in card-rovida */}
+          <TasksTable tasks={mockTasks} />
+        </div>
       ) : (
         <Card className="flex-1 card-rovida">
           <CardHeader>

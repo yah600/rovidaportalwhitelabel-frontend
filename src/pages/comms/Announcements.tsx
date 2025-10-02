@@ -33,7 +33,9 @@ const CommsAnnouncements = () => {
       </header>
 
       {hasAnnouncements ? (
-        <AnnouncementsTable announcements={mockAnnouncements} />
+        <div className="card-rovida p-4"> {/* Wrapped content in card-rovida */}
+          <AnnouncementsTable announcements={mockAnnouncements} />
+        </div>
       ) : (
         <Card className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm card-rovida">
           <div className="flex flex-col items-center gap-1 text-center">

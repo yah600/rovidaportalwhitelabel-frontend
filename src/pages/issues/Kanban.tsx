@@ -26,15 +26,17 @@ const Kanban = () => {
       <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('issues', { ns: 'issues' })} {t('kanban board', { ns: 'issues' })}</h1>
       <p className="text-rovida-slate-green-gray">{t('visualize manage incidents', { ns: 'issues' })}</p>
 
-      <div className="flex flex-1 overflow-x-auto gap-4 pb-4">
-        {columns.map((column) => (
-          <KanbanColumn
-            key={column.status}
-            title={column.title}
-            issues={mockIssues}
-            statusFilter={column.status}
-          />
-        ))}
+      <div className="card-rovida p-4 flex-1"> {/* Wrapped content in card-rovida */}
+        <div className="flex flex-1 overflow-x-auto gap-4 pb-4">
+          {columns.map((column) => (
+            <KanbanColumn
+              key={column.status}
+              title={column.title}
+              issues={mockIssues}
+              statusFilter={column.status}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

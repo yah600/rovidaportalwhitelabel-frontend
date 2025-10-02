@@ -1,6 +1,7 @@
 import React, { useState, Children, useRef, useLayoutEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useTranslation } from 'react-i18next'; // Import useTranslation
+import { cn } from '@/lib/utils'; // Import cn for utility classes
 
 import './Stepper.css';
 
@@ -76,7 +77,7 @@ export default function Stepper({
 
   return (
     <div className="outer-container" {...rest}>
-      <div className={`step-circle-container ${stepCircleContainerClassName}`} style={{ border: '1px solid #222' }}>
+      <div className={cn("card-rovida", stepCircleContainerClassName)}>
         <div className={`step-indicator-row ${stepContainerClassName}`}>
           {stepsArray.map((_, index) => {
             const stepNumber = index + 1;
@@ -240,9 +241,9 @@ function StepIndicator({ step, currentStep, onClickStep, disableStepIndicators }
     <motion.div onClick={handleClick} className="step-indicator" animate={status} initial={false}>
       <motion.div
         variants={{
-          inactive: { scale: 1, backgroundColor: '#222', color: '#a3a3a3' },
-          active: { scale: 1, backgroundColor: '#5227FF', color: '#5227FF' },
-          complete: { scale: 1, backgroundColor: '#5227FF', color: '#3b82f6' }
+          inactive: { scale: 1, backgroundColor: 'var(--rovida-soft-gray)', color: 'var(--rovida-slate-green-gray)' },
+          active: { scale: 1, backgroundColor: 'var(--rovida-gold)', color: 'white' },
+          complete: { scale: 1, backgroundColor: 'var(--rovida-navy)', color: 'white' }
         }}
         transition={{ duration: 0.3 }}
         className="step-indicator-inner"
@@ -266,7 +267,7 @@ interface StepConnectorProps {
 function StepConnector({ isComplete }: StepConnectorProps) {
   const lineVariants = {
     incomplete: { width: 0, backgroundColor: 'transparent' },
-    complete: { width: '100%', backgroundColor: '#5227FF' }
+    complete: { width: '100%', backgroundColor: 'var(--rovida-navy)' }
   };
 
   return (

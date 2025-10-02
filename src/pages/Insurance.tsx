@@ -34,7 +34,9 @@ const Insurance = () => {
       <p className="text-rovida-slate-green-gray">{t('manage insurance policies claims', { ns: 'insurance' })}</p>
 
       {hasPolicies ? (
-        <PoliciesTable policies={mockInsurancePolicies} />
+        <div className="card-rovida p-4"> {/* Wrapped content in card-rovida */}
+          <PoliciesTable policies={mockInsurancePolicies} />
+        </div>
       ) : (
         <Card className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm card-rovida mt-4 p-8">
           <div className="flex flex-col items-center gap-2 text-rovida-slate-green-gray">

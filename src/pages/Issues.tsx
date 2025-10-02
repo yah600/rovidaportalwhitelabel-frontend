@@ -49,29 +49,31 @@ const Issues = () => {
         </Link>
       </header>
 
-      <div className="flex justify-center mb-4">
-        <GooeyNav items={navItems} onItemClick={handleFilterChange} />
-      </div>
+      <div className="card-rovida p-4"> {/* Wrapped content in card-rovida */}
+        <div className="flex justify-center mb-4">
+          <GooeyNav items={navItems} onItemClick={handleFilterChange} />
+        </div>
 
-      {hasIssues ? (
-        <IssuesTable issues={filteredIssues} />
-      ) : (
-        <Card className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm card-rovida">
-          <div className="flex flex-col items-center gap-1 text-center">
-            <h3 className="text-2xl font-bold tracking-tight text-rovida-near-black">
-              {t('no tickets', { ns: 'issues' })}
-            </h3>
-            <p className="text-sm text-rovida-slate-green-gray">
-              {t('you can start by creating new incident', { ns: 'issues' })}
-            </p>
-            <Link to="/issues/new">
-              <Button className="mt-4 btn-primary">
-                <PlusCircle className="mr-2 h-4 w-4" /> {t('create first ticket', { ns: 'issues' })}
-              </Button>
-            </Link>
-          </div>
-        </Card>
-      )}
+        {hasIssues ? (
+          <IssuesTable issues={filteredIssues} />
+        ) : (
+          <Card className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm card-rovida">
+            <div className="flex flex-col items-center gap-1 text-center">
+              <h3 className="text-2xl font-bold tracking-tight text-rovida-near-black">
+                {t('no tickets', { ns: 'issues' })}
+              </h3>
+              <p className="text-sm text-rovida-slate-green-gray">
+                {t('you can start by creating new incident', { ns: 'issues' })}
+              </p>
+              <Link to="/issues/new">
+                <Button className="mt-4 btn-primary">
+                  <PlusCircle className="mr-2 h-4 w-4" /> {t('create first ticket', { ns: 'issues' })}
+                </Button>
+              </Link>
+            </div>
+          </Card>
+        )}
+      </div>
     </div>
   );
 };
