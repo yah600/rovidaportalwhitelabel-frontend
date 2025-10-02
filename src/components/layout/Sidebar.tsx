@@ -43,7 +43,7 @@ import {
   Wallet,
   Percent,
   Banknote,
-  Ticket, // Import Ticket icon
+  Ticket,
 } from 'lucide-react';
 import { ShieldCheck } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
@@ -125,7 +125,7 @@ const Sidebar = ({ className }: { className?: string }) => {
       moduleName: 'Rules',
       subItems: [
         { titleKey: 'rule catalog', href: '/rules/catalog', icon: Gavel, moduleName: 'Rules' },
-        { titleKey: 'violation tickets', href: '/rules/violations', icon: Ticket, moduleName: 'Rules - Violations' }, // New sub-item
+        { titleKey: 'violation tickets', href: '/rules/violations', icon: Ticket, moduleName: 'Rules - Violations' },
       ],
     },
     { titleKey: 'insurance and claims', href: '/insurance', icon: Shield, moduleName: 'Insurance' },
@@ -137,7 +137,7 @@ const Sidebar = ({ className }: { className?: string }) => {
       moduleName: 'Tenancy',
       subItems: [
         { titleKey: 'leases', href: '/tenancy/leases', icon: FileSignature, moduleName: 'Tenancy - Leases' },
-        { titleKey: 'unit statements', href: '/tenancy/statements', icon: Wallet, moduleName: 'Tenancy - Unit Statements' },
+        { titleKey: 'unit statements', href: '/tenancy/statements', icon: Wallet, moduleName: 'Tenancy - Unit Statements' }, // New sub-item
       ],
     },
     {
@@ -281,9 +281,9 @@ const Sidebar = ({ className }: { className?: string }) => {
                 else if (subItem.href.startsWith('/board/votes')) subNamespace = 'board';
                 else if (subItem.href.startsWith('/board/architectural-requests')) subNamespace = 'architectural_requests';
                 else if (subItem.href.startsWith('/rules/catalog')) subNamespace = 'rules';
-                else if (subItem.href.startsWith('/rules/violations')) subNamespace = 'rules'; // New sub-item namespace
+                else if (subItem.href.startsWith('/rules/violations')) subNamespace = 'rules';
                 else if (subItem.href.startsWith('/tenancy/leases')) subNamespace = 'tenancy';
-                else if (subItem.href.startsWith('/tenancy/statements')) subNamespace = 'tenancy';
+                else if (subItem.href.startsWith('/tenancy/statements')) subNamespace = 'tenancy'; // New sub-item namespace
                 else if (subItem.href.startsWith('/documents/inbox')) subNamespace = 'documents';
                 else if (subItem.href.startsWith('/documents/registry')) subNamespace = 'documents';
                 else if (subItem.href.startsWith('/comms/announcements')) subNamespace = 'communications';

@@ -37,5 +37,10 @@
   "transaction history": "Transaction History",
   "charges": "Charges",
   "payments": "Payments",
-  "view my statement": "View My Statement"
+  "view my statement": "View My Statement",
+  "manage unit statements": "Manage and view financial statements for individual units.",
+  "no unit statements found": "No unit statements found. Generate your first statement to track unit finances.",
+  "generate new statement": "Generate New Statement",
+  "generate first statement": "Generate your first statement.",
+  "generate new statement action": "Generate new unit statement action triggered."
 }

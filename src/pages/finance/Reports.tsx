@@ -9,7 +9,7 @@ import { useAuth } from '@/hooks/useAuth';
 import {
   ResponsiveContainer,
   BarChart,
-  Bar, // Added Bar import
+  Bar,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -34,6 +34,11 @@ const FinanceReports = () => {
 
   const handleGenerateReport = (reportType: string) => {
     toast.info(t('generate report action', { ns: 'finance', type: reportType }));
+  };
+
+  const handleExportReport = (reportName: string) => {
+    toast.success(t('export report action', { ns: 'finance', name: reportName }));
+    // Simulate PDF generation/download
   };
 
   if (!canRead('Finance - Reports')) {
@@ -153,15 +158,43 @@ const FinanceReports = () => {
             </TabsList>
             <TabsContent value="profit-loss" className="mt-4">
               <ProfitLossReport />
+              {canExport('Finance - Reports') && (
+                <div className="mt-4 text-right">
+                  <Button variant="outline" size="sm" className="btn-secondary" onClick={() => handleExportReport(t('profit loss', { ns: 'finance' }))}>
+                    <Download className="mr-2 h-4 w-4" /> {t('export to pdf', { ns: 'common' })}
+                  </Button>
+                </div>
+              )}
             </TabsContent>
             <TabsContent value="balance-sheet" className="mt-4">
               <BalanceSheetReport />
+              {canExport('Finance - Reports') && (
+                <div className="mt-4 text-right">
+                  <Button variant="outline" size="sm" className="btn-secondary" onClick={() => handleExportReport(t('balance sheet', { ns: 'finance' }))}>
+                    <Download className="mr-2 h-4 w-4" /> {t('export to pdf', { ns: 'common' })}
+                  </Button>
+                </div>
+              )}
             </TabsContent>
             <TabsContent value="ledger" className="mt-4">
               <LedgerReport />
+              {canExport('Finance - Reports') && (
+                <div className="mt-4 text-right">
+                  <Button variant="outline" size="sm" className="btn-secondary" onClick={() => handleExportReport(t('general ledger', { ns: 'finance' }))}>
+                    <Download className="mr-2 h-4 w-4" /> {t('export to pdf', { ns: 'common' })}
+                  </Button>
+                </div>
+              )}
             </TabsContent>
             <TabsContent value="trial-balance" className="mt-4">
               <TrialBalanceReport />
+              {canExport('Finance - Reports') && (
+                <div className="mt-4 text-right">
+                  <Button variant="outline" size="sm" className="btn-secondary" onClick={() => handleExportReport(t('trial balance', { ns: 'finance' }))}>
+                    <Download className="mr-2 h-4 w-4" /> {t('export to pdf', { ns: 'common' })}
+                  </Button>
+                </div>
+              )}
             </TabsContent>
           </Tabs>
         </CardContent>

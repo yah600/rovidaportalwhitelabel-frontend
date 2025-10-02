@@ -37,5 +37,10 @@
   "transaction history": "Historique des transactions",
   "charges": "Frais",
   "payments": "Paiements",
-  "view my statement": "Voir mon relevé"
+  "view my statement": "Voir mon relevé",
+  "manage unit statements": "Gérer et consulter les relevés financiers des unités individuelles.",
+  "no unit statements found": "Aucun relevé d'unité trouvé. Générez votre premier relevé pour suivre les finances de l'unité.",
+  "generate new statement": "Générer un nouveau relevé",
+  "generate first statement": "Générez votre premier relevé.",
+  "generate new statement action": "Action de générer un nouveau relevé d'unité déclenchée."
 }

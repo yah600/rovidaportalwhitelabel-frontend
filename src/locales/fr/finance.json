@@ -142,5 +142,7 @@
   "unmatched": "Non correspondant",
   "total transactions": "Total des Transactions",
   "review unmatched": "Examiner les non-correspondances",
-  "reconciling": "Rapprochement"
+  "reconciling": "Rapprochement",
+  "export to pdf": "Exporter en PDF",
+  "export report action": "Exportation du rapport '{{name}}' en PDF déclenchée."
 }

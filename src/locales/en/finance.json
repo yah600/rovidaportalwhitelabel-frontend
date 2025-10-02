@@ -142,5 +142,6 @@
   "unmatched": "Unmatched",
   "total transactions": "Total Transactions",
   "review unmatched": "Review Unmatched",
-  "reconciling": "Reconciling"
+  "reconciling": "Reconciling",
+  "export report action": "Export '{{name}}' report to PDF triggered."
 }

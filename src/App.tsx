@@ -12,7 +12,7 @@ import Emergency from './pages/Emergency';
 import Maintenance from './pages/Maintenance';
 import MaintenanceCalendar from './pages/maintenance/Calendar';
 import MaintenanceAssets from './pages/maintenance/Assets';
-import NewAsset from './pages/maintenance/NewAsset'; // New import
+import NewAsset from './pages/maintenance/NewAsset';
 import MaintenanceWorkOrders from './pages/maintenance/WorkOrders';
 import MaintenanceWorkOrderDetail from './pages/maintenance/WorkOrderDetail';
 import MaintenanceTasks from './pages/maintenance/Tasks';
@@ -43,6 +43,7 @@ import InsurancePolicyDetail from './pages/insurance/PolicyDetail';
 import Amenities from './pages/Amenities';
 import Tenancy from './pages/Tenancy';
 import Leases from './pages/tenancy/Leases';
+import UnitStatements from './pages/tenancy/UnitStatements'; // New import
 import UnitStatementDetail from './pages/tenancy/UnitStatementDetail';
 import DocumentsOverview from './pages/documents/Overview';
 import DocumentsInbox from './pages/documents/Inbox';
@@ -111,7 +112,7 @@ const App = () => {
             <Route path="/maintenance" element={<Maintenance />} />
             <Route path="/maintenance/calendar" element={<MaintenanceCalendar />} />
             <Route path="/maintenance/assets" element={<MaintenanceAssets />} />
-            <Route path="/maintenance/assets/new" element={<NewAsset />} /> {/* New route */}
+            <Route path="/maintenance/assets/new" element={<NewAsset />} />
             <Route path="/maintenance/work-orders" element={<MaintenanceWorkOrders />} />
             <Route path="/maintenance/work-orders/:id" element={<MaintenanceWorkOrderDetail />} />
             <Route path="/maintenance/tasks" element={<MaintenanceTasks />} />
@@ -143,6 +144,7 @@ const App = () => {
             <Route path="/amenities" element={<Amenities />} />
             <Route path="/tenancy" element={<Tenancy />} />
             <Route path="/tenancy/leases" element={<Leases />} />
+            <Route path="/tenancy/statements" element={<UnitStatements />} /> {/* New route */}
             <Route path="/tenancy/statements/:id" element={<UnitStatementDetail />} />
             <Route path="/documents" element={<DocumentsOverview />} />
             <Route path="/documents/inbox" element={<DocumentsInbox />} />
