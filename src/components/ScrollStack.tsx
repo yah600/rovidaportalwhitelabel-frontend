@@ -62,7 +62,7 @@ const ScrollStack = ({
       return (parseFloat(value) / 100) * containerHeight;
     }
     return parseFloat(value);
-  }, []);
+  }, [parseFloat]);
 
   const getScrollData = useCallback(() => {
     if (useWindowScroll) {
@@ -240,8 +240,7 @@ const ScrollStack = ({
         easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         smoothWheel: true,
         touchMultiplier: 2,
-        infinite: false,
-        gestureOrientationHandler: true,
+        gestureOrientation: 'both', // Corrected property name
         normalizeWheel: true,
         wheelMultiplier: 1,
         touchInertiaMultiplier: 35,

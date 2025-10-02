@@ -8,6 +8,7 @@ import { InsurancePolicy } from '@/data/mock-insurance';
 import { format } from 'date-fns';
 import { DataTable } from '@/components/DataTable';
 import { toast } from 'sonner'; // Import toast for actions
+import { useAuth } from '@/hooks/useAuth'; // Import useAuth
 
 interface PoliciesTableProps {
   policies: InsurancePolicy[];
@@ -37,34 +38,34 @@ const PoliciesTable = ({ policies }: PoliciesTableProps) => {
     {
       accessorKey: "id",
       header: t('id', { ns: 'common' }),
-      cell: ({ row }) => <span className="font-medium text-rovida-near-black">{row.getValue("id")}</span>,
+      cell: ({ row }) => <span className="font-medium text-rovida-near-black">{row.getValue("id") as string}</span>,
     },
     {
       accessorKey: "provider",
       header: t('provider', { ns: 'insurance' }),
-      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("provider")}</span>,
+      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("provider") as string}</span>,
     },
     {
       accessorKey: "policyNumber",
       header: t('policy number', { ns: 'insurance' }),
-      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("policyNumber")}</span>,
+      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("policyNumber") as string}</span>,
     },
     {
       accessorKey: "type",
       header: t('type', { ns: 'common' }),
-      cell: ({ row }) => <span className="text-rovida-near-black">{t(row.getValue("type").toLowerCase(), { ns: 'insurance' })}</span>,
+      cell: ({ row }) => <span className="text-rovida-near-black">{t((row.getValue("type") as string).toLowerCase(), { ns: 'insurance' })}</span>,
     },
     {
       accessorKey: "coverageAmount",
       header: t('coverage amount', { ns: 'insurance' }),
-      cell: ({ row }) => <span className="text-rovida-near-black">${row.original.coverageAmount.toLocaleString()}</span>,
+      cell: ({ row }) => <span className="text-rovida-near-black">${(row.original.coverageAmount as number).toLocaleString()}</span>,
     },
     {
       accessorKey: "endDate",
       header: t('end date', { ns: 'insurance' }),
       cell: ({ row }) => (
         <span className="text-rovida-slate-green-gray">
-          {format(row.getValue("endDate"), 'MMM dd, yyyy')}
+          {format(row.getValue("endDate") as Date, 'MMM dd, yyyy')}
         </span>
       ),
     },
@@ -72,8 +73,8 @@ const PoliciesTable = ({ policies }: PoliciesTableProps) => {
       accessorKey: "status",
       header: t('status', { ns: 'common' }),
       cell: ({ row }) => (
-        <Badge variant={getStatusVariant(row.getValue("status"))}>
-          {t(row.getValue("status").toLowerCase(), { ns: 'insurance' })}
+        <Badge variant={getStatusVariant(row.getValue("status") as InsurancePolicy['status'])}>
+          {t((row.getValue("status") as string).toLowerCase(), { ns: 'insurance' })}
         </Badge>
       ),
     },

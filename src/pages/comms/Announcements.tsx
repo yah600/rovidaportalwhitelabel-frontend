@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import BreadcrumbNav from '@/components/BreadcrumbNav';
 import { Button } from '@/components/ui/button';
-import { PlusCircle } from 'lucide-react';
+import { PlusCircle, Megaphone } from 'lucide-react'; // Imported Megaphone
 import { Link } from 'react-router-dom';
 import { mockAnnouncements } from '@/data/mock-announcements';
 import AnnouncementsTable from '@/components/comms/AnnouncementsTable';

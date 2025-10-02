@@ -50,26 +50,26 @@ const TasksTable = ({ tasks }: TasksTableProps) => {
       header: t('id', { ns: 'common' }),
       cell: ({ row }) => (
         <Link to={`/maintenance/tasks/${row.original.id}`} className="text-primary hover:underline">
-          {row.getValue("id")}
+          {row.getValue("id") as string}
         </Link>
       ),
     },
     {
       accessorKey: "title",
       header: t('title', { ns: 'common' }),
-      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("title")}</span>,
+      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("title") as string}</span>,
     },
     {
       accessorKey: "assignedTo",
       header: t('assigned to', { ns: 'common' }),
-      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("assignedTo")}</span>,
+      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("assignedTo") as string}</span>,
     },
     {
       accessorKey: "status",
       header: t('status', { ns: 'common' }),
       cell: ({ row }) => (
-        <Badge variant={getStatusVariant(row.getValue("status"))}>
-          {t(row.getValue("status").toLowerCase(), { ns: 'maintenance' })}
+        <Badge variant={getStatusVariant(row.getValue("status") as Task['status'])}>
+          {t((row.getValue("status") as string).toLowerCase(), { ns: 'maintenance' })}
         </Badge>
       ),
     },
@@ -77,8 +77,8 @@ const TasksTable = ({ tasks }: TasksTableProps) => {
       accessorKey: "priority",
       header: t('priority', { ns: 'common' }),
       cell: ({ row }) => (
-        <Badge className={getPriorityColor(row.getValue("priority"))}>
-          {t(row.getValue("priority").toLowerCase(), { ns: 'common' })}
+        <Badge className={getPriorityColor(row.getValue("priority") as Task['priority'])}>
+          {t((row.getValue("priority") as string).toLowerCase(), { ns: 'common' })}
         </Badge>
       ),
     },
@@ -87,7 +87,7 @@ const TasksTable = ({ tasks }: TasksTableProps) => {
       header: t('due date', { ns: 'common' }),
       cell: ({ row }) => (
         <span className="text-rovida-slate-green-gray">
-          {format(row.getValue("dueDate"), 'MMM dd, yyyy')}
+          {format(row.getValue("dueDate") as Date, 'MMM dd, yyyy')}
         </span>
       ),
     },

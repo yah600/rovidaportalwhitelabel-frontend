@@ -53,7 +53,7 @@ const GlassSurface = ({
   const blueGradId = `blue-grad-${uniqueId}`;
 
   const containerRef = useRef<HTMLDivElement>(null);
-  const feImageRef = useRef<SVGImageElement>(null);
+  const feImageRef = useRef<SVGFEImageElement>(null); // Corrected type to SVGFEImageElement
   const redChannelRef = useRef<SVGFEDisplacementMapElement>(null);
   const greenChannelRef = useRef<SVGFEDisplacementMapElement>(null);
   const blueChannelRef = useRef<SVGFEDisplacementMapElement>(null);

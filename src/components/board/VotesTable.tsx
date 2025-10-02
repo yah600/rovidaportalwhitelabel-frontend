@@ -35,21 +35,21 @@ const VotesTable = ({ votes }: VotesTableProps) => {
       header: t('id'),
       cell: ({ row }) => (
         <Link to={`/board/votes/${row.original.id}`} className="text-primary hover:underline">
-          {row.getValue("id")}
+          {row.getValue("id") as string}
         </Link>
       ),
     },
     {
       accessorKey: "title",
       header: t('title'),
-      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("title")}</span>,
+      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("title") as string}</span>,
     },
     {
       accessorKey: "status",
       header: t('status'),
       cell: ({ row }) => (
-        <Badge variant={getStatusVariant(row.getValue("status"))}>
-          {t(row.getValue("status").toLowerCase())}
+        <Badge variant={getStatusVariant(row.getValue("status") as Vote['status'])}>
+          {t((row.getValue("status") as string).toLowerCase())}
         </Badge>
       ),
     },
@@ -58,7 +58,7 @@ const VotesTable = ({ votes }: VotesTableProps) => {
       header: t('due date'),
       cell: ({ row }) => (
         <span className="text-rovida-slate-green-gray">
-          {format(row.getValue("dueDate"), 'MMM dd, yyyy')}
+          {format(row.getValue("dueDate") as Date, 'MMM dd, yyyy')}
         </span>
       ),
     },

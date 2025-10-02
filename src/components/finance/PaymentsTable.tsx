@@ -40,7 +40,7 @@ const PaymentsTable = ({ payments }: PaymentsTableProps) => {
     {
       accessorKey: "id",
       header: t('id', { ns: 'common' }),
-      cell: ({ row }) => <span className="font-medium text-rovida-near-black">{row.getValue("id")}</span>,
+      cell: ({ row }) => <span className="font-medium text-rovida-near-black">{row.getValue("id") as string}</span>,
     },
     {
       accessorKey: "billId",
@@ -48,34 +48,34 @@ const PaymentsTable = ({ payments }: PaymentsTableProps) => {
       cell: ({ row }) => (
         canRead('Finance - Bills/Recurring/Deposits') ? (
           <button onClick={() => handleViewBill(row.original.billId)} className="text-primary hover:underline">
-            {row.getValue("billId")}
+            {row.getValue("billId") as string}
           </button>
         ) : (
-          <span className="text-rovida-near-black">{row.getValue("billId")}</span>
+          <span className="text-rovida-near-black">{row.getValue("billId") as string}</span>
         )
       ),
     },
     {
       accessorKey: "vendor",
       header: t('vendor', { ns: 'finance' }),
-      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("vendor")}</span>,
+      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("vendor") as string}</span>,
     },
     {
       accessorKey: "amount",
       header: t('amount', { ns: 'finance' }),
-      cell: ({ row }) => <span className="text-rovida-near-black">{row.original.amount.toFixed(2)} {row.original.currency}</span>,
+      cell: ({ row }) => <span className="text-rovida-near-black">{(row.original.amount as number).toFixed(2)} {row.original.currency}</span>,
     },
     {
       accessorKey: "method",
       header: t('method', { ns: 'finance' }),
-      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("method")}</span>,
+      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("method") as string}</span>,
     },
     {
       accessorKey: "status",
       header: t('status', { ns: 'common' }),
       cell: ({ row }) => (
-        <Badge variant={getStatusVariant(row.getValue("status"))}>
-          {t(row.getValue("status").toLowerCase(), { ns: 'finance' })}
+        <Badge variant={getStatusVariant(row.getValue("status") as Payment['status'])}>
+          {t((row.getValue("status") as string).toLowerCase(), { ns: 'finance' })}
         </Badge>
       ),
     },
@@ -84,7 +84,7 @@ const PaymentsTable = ({ payments }: PaymentsTableProps) => {
       header: t('payment date', { ns: 'finance' }),
       cell: ({ row }) => (
         <span className="text-rovida-slate-green-gray">
-          {format(row.getValue("paymentDate"), 'MMM dd, yyyy')}
+          {format(row.getValue("paymentDate") as Date, 'MMM dd, yyyy')}
         </span>
       ),
     },

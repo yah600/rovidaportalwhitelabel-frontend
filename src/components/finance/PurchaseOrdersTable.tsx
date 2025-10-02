@@ -43,29 +43,29 @@ const PurchaseOrdersTable = ({ purchaseOrders }: PurchaseOrdersTableProps) => {
     {
       accessorKey: "id",
       header: t('id', { ns: 'common' }),
-      cell: ({ row }) => <span className="font-medium text-rovida-near-black">{row.getValue("id")}</span>,
+      cell: ({ row }) => <span className="font-medium text-rovida-near-black">{row.getValue("id") as string}</span>,
     },
     {
       accessorKey: "vendor",
       header: t('vendor', { ns: 'finance' }),
-      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("vendor")}</span>,
+      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("vendor") as string}</span>,
     },
     {
       accessorKey: "itemDescription",
       header: t('item description', { ns: 'finance' }),
-      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("itemDescription")}</span>,
+      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("itemDescription") as string}</span>,
     },
     {
       accessorKey: "totalAmount",
       header: t('total amount', { ns: 'finance' }),
-      cell: ({ row }) => <span className="text-rovida-near-black">${row.original.totalAmount.toFixed(2)}</span>,
+      cell: ({ row }) => <span className="text-rovida-near-black">{(row.original.totalAmount as number).toFixed(2)}</span>,
     },
     {
       accessorKey: "orderDate",
       header: t('order date', { ns: 'finance' }),
       cell: ({ row }) => (
         <span className="text-rovida-slate-green-gray">
-          {format(row.getValue("orderDate"), 'MMM dd, yyyy')}
+          {format(row.getValue("orderDate") as Date, 'MMM dd, yyyy')}
         </span>
       ),
     },
@@ -73,8 +73,8 @@ const PurchaseOrdersTable = ({ purchaseOrders }: PurchaseOrdersTableProps) => {
       accessorKey: "status",
       header: t('status', { ns: 'common' }),
       cell: ({ row }) => (
-        <Badge variant={getStatusVariant(row.getValue("status"))}>
-          {t(row.getValue("status").toLowerCase(), { ns: 'finance' })}
+        <Badge variant={getStatusVariant(row.getValue("status") as PurchaseOrder['status'])}>
+          {t((row.getValue("status") as string).toLowerCase(), { ns: 'finance' })}
         </Badge>
       ),
     },

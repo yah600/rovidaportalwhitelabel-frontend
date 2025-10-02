@@ -4,6 +4,12 @@ import React from 'react';
 
 import './CircularGallery.css';
 
+// Define OGLRenderingContext to match ogl's internal expectations
+interface OGLRenderingContext extends WebGL2RenderingContext {
+  renderer: Renderer;
+  canvas: HTMLCanvasElement;
+}
+
 function debounce(func: Function, wait: number) {
   let timeout: ReturnType<typeof setTimeout>;
   return function (this: any, ...args: any[]) {
@@ -25,7 +31,7 @@ function autoBind(instance: any) {
   });
 }
 
-function createTextTexture(gl: WebGLRenderingContext, text: string, font = 'bold 30px monospace', color = 'black') {
+function createTextTexture(gl: OGLRenderingContext, text: string, font = 'bold 30px monospace', color = 'black') {
   const canvas = document.createElement('canvas');
   const context = canvas.getContext('2d');
   if (!context) throw new Error('Could not get 2D context');
@@ -47,7 +53,7 @@ function createTextTexture(gl: WebGLRenderingContext, text: string, font = 'bold
 }
 
 class Title {
-  gl: WebGLRenderingContext;
+  gl: OGLRenderingContext;
   plane: Mesh;
   renderer: Renderer;
   text: string;
@@ -56,7 +62,7 @@ class Title {
   mesh: Mesh;
 
   constructor({ gl, plane, renderer, text, textColor = '#545050', font = '30px sans-serif' }: {
-    gl: WebGLRenderingContext;
+    gl: OGLRenderingContext;
     plane: Mesh;
     renderer: Renderer;
     text: string;
@@ -81,6 +87,8 @@ class Title {
         attribute vec2 uv;
         uniform mat4 modelViewMatrix;
         uniform mat4 projectionMatrix;
+        uniform float uTime;
+        uniform float uSpeed;
         varying vec2 vUv;
         void main() {
           vUv = uv;
@@ -113,7 +121,7 @@ class Title {
 class Media {
   extra: number;
   geometry: Plane;
-  gl: WebGLRenderingContext;
+  gl: OGLRenderingContext;
   image: string;
   index: number;
   length: number;
@@ -136,6 +144,7 @@ class Media {
   padding: number;
   isBefore: boolean;
   isAfter: boolean;
+  scale: number; // Added missing scale property
 
   constructor({
     geometry,
@@ -154,7 +163,7 @@ class Media {
     font
   }: {
     geometry: Plane;
-    gl: WebGLRenderingContext;
+    gl: OGLRenderingContext;
     image: string;
     index: number;
     length: number;
@@ -183,6 +192,7 @@ class Media {
     this.textColor = textColor;
     this.borderRadius = borderRadius;
     this.font = font;
+    this.scale = 1; // Initialize scale
     this.createShader();
     this.createMesh();
     this.createTitle();
@@ -320,10 +330,10 @@ class Media {
       this.isBefore = this.isAfter = false;
     }
   }
-  onResize({ screen, viewport } = {}) {
-    if (screen) this.screen = screen;
-    if (viewport) {
-      this.viewport = viewport;
+  onResize(options: { screen?: { width: number; height: number }; viewport?: { width: number; height: number } } = {}) {
+    if (options.screen) this.screen = options.screen;
+    if (options.viewport) {
+      this.viewport = options.viewport;
       if (this.plane.program.uniforms.uViewportSizes) {
         this.plane.program.uniforms.uViewportSizes.value = [this.viewport.width, this.viewport.height];
       }
@@ -345,7 +355,7 @@ class App {
   scroll: { ease: number; current: number; target: number; last: number; position?: number };
   onCheckDebounce: Function;
   renderer: Renderer;
-  gl: WebGLRenderingContext;
+  gl: OGLRenderingContext; // Changed to OGLRenderingContext
   camera: Camera;
   scene: Transform;
   screen: { width: number; height: number };
@@ -360,12 +370,13 @@ class App {
   boundOnTouchDown: (this: Window, ev: MouseEvent | TouchEvent) => any;
   boundOnTouchMove: (this: Window, ev: MouseEvent | TouchEvent) => any;
   boundOnTouchUp: (this: Window, ev: MouseEvent | TouchEvent) => any;
+  viewport: { width: number; height: number }; // Added missing viewport property
 
   constructor(
     container: HTMLElement,
     {
       items,
-      bend,
+      bend = 1,
       textColor = '#ffffff',
       borderRadius = 0,
       font = 'bold 30px Figtree',
@@ -389,7 +400,7 @@ class App {
     this.createRenderer();
     this.createCamera();
     this.createScene();
-    this.onResize();
+    this.onResize(); // Call onResize to initialize screen and viewport
     this.createGeometry();
     this.createMedias(items, bend, textColor, borderRadius, font);
     this.update();
@@ -401,7 +412,7 @@ class App {
       antialias: true,
       dpr: Math.min(window.devicePixelRatio || 1, 2)
     });
-    this.gl = this.renderer.gl;
+    this.gl = this.renderer.gl as OGLRenderingContext; // Cast to OGLRenderingContext
     this.gl.clearColor(0, 0, 0, 0);
     this.container.appendChild(this.gl.canvas);
   }
@@ -419,7 +430,7 @@ class App {
       widthSegments: 100
     });
   }
-  createMedias(items?: { image: string; text: string }[], bend = 1, textColor: string, borderRadius: number, font: string) {
+  createMedias(items: { image: string; text: string }[] | undefined, bend: number, textColor: string, borderRadius: number, font: string) {
     const defaultItems = [
       { image: `https://picsum.photos/seed/1/800/600?grayscale`, text: 'Bridge' },
       { image: `https://picsum.photos/seed/2/800/600?grayscale`, text: 'Desk Setup' },

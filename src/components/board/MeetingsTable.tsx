@@ -35,40 +35,40 @@ const MeetingsTable = ({ meetings }: MeetingsTableProps) => {
       header: t('id'),
       cell: ({ row }) => (
         <Link to={`/board/meetings/${row.original.id}`} className="text-primary hover:underline">
-          {row.getValue("id")}
+          {row.getValue("id") as string}
         </Link>
       ),
     },
     {
       accessorKey: "title",
       header: t('title'),
-      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("title")}</span>,
+      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("title") as string}</span>,
     },
     {
       accessorKey: "date",
       header: t('date'),
       cell: ({ row }) => (
         <span className="text-rovida-slate-green-gray">
-          {format(row.getValue("date"), 'MMM dd, yyyy')}
+          {format(row.getValue("date") as Date, 'MMM dd, yyyy')}
         </span>
       ),
     },
     {
       accessorKey: "time",
       header: t('time'),
-      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("time")}</span>,
+      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("time") as string}</span>,
     },
     {
       accessorKey: "location",
       header: t('location'),
-      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("location")}</span>,
+      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("location") as string}</span>,
     },
     {
       accessorKey: "status",
       header: t('status'),
       cell: ({ row }) => (
-        <Badge variant={getStatusVariant(row.getValue("status"))}>
-          {t(row.getValue("status").toLowerCase())}
+        <Badge variant={getStatusVariant(row.getValue("status") as Meeting['status'])}>
+          {t((row.getValue("status") as string).toLowerCase())}
         </Badge>
       ),
     },

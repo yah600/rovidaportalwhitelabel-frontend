@@ -53,24 +53,24 @@ const InboxTable = ({ documents }: InboxTableProps) => {
     {
       accessorKey: "id",
       header: t('id', { ns: 'common' }),
-      cell: ({ row }) => <span className="font-medium text-rovida-near-black">{row.getValue("id")}</span>,
+      cell: ({ row }) => <span className="font-medium text-rovida-near-black">{row.getValue("id") as string}</span>,
     },
     {
       accessorKey: "title",
       header: t('title', { ns: 'common' }),
-      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("title")}</span>,
+      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("title") as string}</span>,
     },
     {
       accessorKey: "sender",
       header: t('sender', { ns: 'documents' }),
-      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("sender")}</span>,
+      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("sender") as string}</span>,
     },
     {
       accessorKey: "type",
       header: t('type', { ns: 'common' }),
       cell: ({ row }) => (
         <div className="flex items-center gap-2 text-rovida-near-black">
-          {getFileTypeIcon(row.getValue("type"))} {row.getValue("type")}
+          {getFileTypeIcon(row.getValue("type") as InboxDocument['type'])} {row.getValue("type") as string}
         </div>
       ),
     },
@@ -78,8 +78,8 @@ const InboxTable = ({ documents }: InboxTableProps) => {
       accessorKey: "status",
       header: t('status', { ns: 'common' }),
       cell: ({ row }) => (
-        <Badge variant={getStatusVariant(row.getValue("status"))}>
-          {t(row.getValue("status").toLowerCase(), { ns: 'documents' })}
+        <Badge variant={getStatusVariant(row.getValue("status") as InboxDocument['status'])}>
+          {t((row.getValue("status") as string).toLowerCase(), { ns: 'documents' })}
         </Badge>
       ),
     },
@@ -88,7 +88,7 @@ const InboxTable = ({ documents }: InboxTableProps) => {
       header: t('received at', { ns: 'documents' }),
       cell: ({ row }) => (
         <span className="text-rovida-slate-green-gray">
-          {format(row.getValue("receivedAt"), 'MMM dd, yyyy')}
+          {format(row.getValue("receivedAt") as Date, 'MMM dd, yyyy')}
         </span>
       ),
     },

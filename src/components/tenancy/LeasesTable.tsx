@@ -34,24 +34,24 @@ const LeasesTable = ({ leases }: LeasesTableProps) => {
     {
       accessorKey: "id",
       header: t('id'),
-      cell: ({ row }) => <span className="font-medium text-rovida-near-black">{row.getValue("id")}</span>,
+      cell: ({ row }) => <span className="font-medium text-rovida-near-black">{row.getValue("id") as string}</span>,
     },
     {
       accessorKey: "unitNumber",
       header: t('unit number'),
-      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("unitNumber")}</span>,
+      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("unitNumber") as string}</span>,
     },
     {
       accessorKey: "tenantName",
       header: t('tenant name'),
-      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("tenantName")}</span>,
+      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("tenantName") as string}</span>,
     },
     {
       accessorKey: "startDate",
       header: t('start date'),
       cell: ({ row }) => (
         <span className="text-rovida-slate-green-gray">
-          {format(row.getValue("startDate"), 'MMM dd, yyyy')}
+          {format(row.getValue("startDate") as Date, 'MMM dd, yyyy')}
         </span>
       ),
     },
@@ -60,21 +60,21 @@ const LeasesTable = ({ leases }: LeasesTableProps) => {
       header: t('end date'),
       cell: ({ row }) => (
         <span className="text-rovida-slate-green-gray">
-          {format(row.getValue("endDate"), 'MMM dd, yyyy')}
+          {format(row.getValue("endDate") as Date, 'MMM dd, yyyy')}
         </span>
       ),
     },
     {
       accessorKey: "rentAmount",
       header: t('rent amount'),
-      cell: ({ row }) => <span className="text-rovida-near-black">${row.original.rentAmount.toFixed(2)}</span>,
+      cell: ({ row }) => <span className="text-rovida-near-black">${(row.original.rentAmount as number).toFixed(2)}</span>,
     },
     {
       accessorKey: "status",
       header: t('status'),
       cell: ({ row }) => (
-        <Badge variant={getStatusVariant(row.getValue("status"))}>
-          {t(row.getValue("status").toLowerCase())}
+        <Badge variant={getStatusVariant(row.getValue("status") as Lease['status'])}>
+          {t((row.getValue("status") as string).toLowerCase())}
         </Badge>
       ),
     },

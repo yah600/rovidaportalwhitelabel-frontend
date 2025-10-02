@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
-import { PlusCircle } from 'lucide-react';
+import { PlusCircle, Scale } from 'lucide-react'; // Imported Scale
 import { mockUnits } from '@/data/mock-units';
 import UnitsTable from '@/components/settings/UnitsTable';
 import { Card } from '@/components/ui/card'; // Import Card for the empty state

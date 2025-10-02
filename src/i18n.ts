@@ -13,13 +13,13 @@ const loadTranslations = async () => {
 
   for (const path in enModules) {
     const namespace = path.replace('./locales/en/', '').replace('.json', '');
-    resources.en[namespace] = enModules[path].default;
+    resources.en[namespace] = enModules[path]; // Removed .default
     console.log(`i18n: Loaded English namespace: ${namespace}`);
   }
 
   for (const path in frModules) {
     const namespace = path.replace('./locales/fr/', '').replace('.json', '');
-    resources.fr[namespace] = frModules[path].default;
+    resources.fr[namespace] = frModules[path]; // Removed .default
     console.log(`i18n: Loaded French namespace: ${namespace}`);
   }
 

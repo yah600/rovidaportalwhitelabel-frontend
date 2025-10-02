@@ -32,24 +32,24 @@ const RulesTable = ({ rules }: RulesTableProps) => {
     {
       accessorKey: "id",
       header: t('id', { ns: 'common' }),
-      cell: ({ row }) => <span className="font-medium text-rovida-near-black">{row.getValue("id")}</span>,
+      cell: ({ row }) => <span className="font-medium text-rovida-near-black">{row.getValue("id") as string}</span>,
     },
     {
       accessorKey: "title",
       header: t('title', { ns: 'common' }),
-      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("title")}</span>,
+      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("title") as string}</span>,
     },
     {
       accessorKey: "category",
       header: t('category', { ns: 'rules' }),
-      cell: ({ row }) => <span className="text-rovida-near-black">{t(row.getValue("category").toLowerCase(), { ns: 'rules' })}</span>,
+      cell: ({ row }) => <span className="text-rovida-near-black">{t((row.getValue("category") as string).toLowerCase(), { ns: 'rules' })}</span>,
     },
     {
       accessorKey: "effectiveDate",
       header: t('effective date', { ns: 'rules' }),
       cell: ({ row }) => (
         <span className="text-rovida-slate-green-gray">
-          {format(row.getValue("effectiveDate"), 'MMM dd, yyyy')}
+          {format(row.getValue("effectiveDate") as Date, 'MMM dd, yyyy')}
         </span>
       ),
     },
@@ -57,8 +57,8 @@ const RulesTable = ({ rules }: RulesTableProps) => {
       accessorKey: "enforcementLevel",
       header: t('enforcement level', { ns: 'rules' }),
       cell: ({ row }) => (
-        <Badge variant={getEnforcementLevelVariant(row.getValue("enforcementLevel"))}>
-          {t(row.getValue("enforcementLevel").toLowerCase(), { ns: 'rules' })}
+        <Badge variant={getEnforcementLevelVariant(row.getValue("enforcementLevel") as Rule['enforcementLevel'])}>
+          {t((row.getValue("enforcementLevel") as string).toLowerCase(), { ns: 'rules' })}
         </Badge>
       ),
     },

@@ -39,29 +39,29 @@ const RequestsTable = ({ requests }: RequestsTableProps) => {
     {
       accessorKey: "id",
       header: t('id', { ns: 'common' }),
-      cell: ({ row }) => <span className="font-medium text-rovida-near-black">{row.getValue("id")}</span>,
+      cell: ({ row }) => <span className="font-medium text-rovida-near-black">{row.getValue("id") as string}</span>,
     },
     {
       accessorKey: "title",
       header: t('title', { ns: 'common' }),
-      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("title")}</span>,
+      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("title") as string}</span>,
     },
     {
       accessorKey: "unit",
       header: t('unit', { ns: 'common' }),
-      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("unit")}</span>,
+      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("unit") as string}</span>,
     },
     {
       accessorKey: "requester",
       header: t('requester', { ns: 'architectural_requests' }),
-      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("requester")}</span>,
+      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("requester") as string}</span>,
     },
     {
       accessorKey: "submittedAt",
       header: t('submitted at', { ns: 'architectural_requests' }),
       cell: ({ row }) => (
         <span className="text-rovida-slate-green-gray">
-          {format(row.getValue("submittedAt"), 'MMM dd, yyyy')}
+          {format(row.getValue("submittedAt") as Date, 'MMM dd, yyyy')}
         </span>
       ),
     },
@@ -69,8 +69,8 @@ const RequestsTable = ({ requests }: RequestsTableProps) => {
       accessorKey: "status",
       header: t('status', { ns: 'common' }),
       cell: ({ row }) => (
-        <Badge variant={getStatusVariant(row.getValue("status"))}>
-          {t(row.getValue("status").toLowerCase(), { ns: 'architectural_requests' })}
+        <Badge variant={getStatusVariant(row.getValue("status") as ArchitecturalRequest['status'])}>
+          {t((row.getValue("status") as string).toLowerCase(), { ns: 'architectural_requests' })}
         </Badge>
       ),
     },

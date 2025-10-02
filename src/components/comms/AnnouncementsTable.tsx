@@ -43,31 +43,31 @@ const AnnouncementsTable = ({ announcements }: AnnouncementsTableProps) => {
       header: t('id', { ns: 'common' }),
       cell: ({ row }) => (
         <Link to={`/comms/announcements/${row.original.id}`} className="text-primary hover:underline">
-          {row.getValue("id")}
+          {row.getValue("id") as string}
         </Link>
       ),
     },
     {
       accessorKey: "title",
       header: t('title', { ns: 'common' }),
-      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("title")}</span>,
+      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("title") as string}</span>,
     },
     {
       accessorKey: "author",
       header: t('author', { ns: 'communications' }),
-      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("author")}</span>,
+      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("author") as string}</span>,
     },
     {
       accessorKey: "targetAudience",
       header: t('target audience', { ns: 'communications' }),
-      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("targetAudience")}</span>,
+      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("targetAudience") as string}</span>,
     },
     {
       accessorKey: "status",
       header: t('status', { ns: 'common' }),
       cell: ({ row }) => (
-        <Badge variant={getStatusVariant(row.getValue("status"))}>
-          {t(row.getValue("status").toLowerCase(), { ns: 'communications' })}
+        <Badge variant={getStatusVariant(row.getValue("status") as Announcement['status'])}>
+          {t((row.getValue("status") as string).toLowerCase(), { ns: 'communications' })}
         </Badge>
       ),
     },
@@ -76,7 +76,7 @@ const AnnouncementsTable = ({ announcements }: AnnouncementsTableProps) => {
       header: t('published at', { ns: 'communications' }),
       cell: ({ row }) => (
         <span className="text-rovida-slate-green-gray">
-          {format(row.getValue("publishedAt"), 'MMM dd, yyyy')}
+          {format(row.getValue("publishedAt") as Date, 'MMM dd, yyyy')}
         </span>
       ),
     },

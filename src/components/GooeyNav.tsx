@@ -142,9 +142,9 @@ const GooeyNav = ({
   const handleKeyDown = (e: React.KeyboardEvent<HTMLAnchorElement>, index: number) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
-      const liEl = e.currentTarget.parentElement as HTMLLIElement;
-      if (liEl) {
-        handleClick({ currentTarget: liEl } as React.MouseEvent<HTMLAnchorElement>, index);
+      const anchorEl = e.currentTarget as HTMLAnchorElement; // e.currentTarget is the anchor element
+      if (anchorEl) {
+        handleClick({ currentTarget: anchorEl } as React.MouseEvent<HTMLAnchorElement>, index); // Pass the anchor element
       }
     }
   };

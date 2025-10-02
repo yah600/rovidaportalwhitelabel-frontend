@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import BreadcrumbNav from '@/components/BreadcrumbNav';
 import { Button } from '@/components/ui/button';
-import { PlusCircle } from 'lucide-react';
+import { PlusCircle, Users } from 'lucide-react'; // Imported Users
 import { Link } from 'react-router-dom';
 import { mockMeetings } from '@/data/mock-meetings';
 import MeetingsTable from '@/components/board/MeetingsTable';

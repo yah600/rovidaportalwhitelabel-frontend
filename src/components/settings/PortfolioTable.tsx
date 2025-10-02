@@ -19,37 +19,37 @@ const PortfolioTable = ({ properties }: PortfolioTableProps) => {
     {
       accessorKey: "id",
       header: t('id'),
-      cell: ({ row }) => <span className="font-medium text-rovida-near-black">{row.getValue("id")}</span>,
+      cell: ({ row }) => <span className="font-medium text-rovida-near-black">{row.getValue("id") as string}</span>,
     },
     {
       accessorKey: "name",
       header: t('name'),
-      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("name")}</span>,
+      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("name") as string}</span>,
     },
     {
       accessorKey: "address",
       header: t('address'),
-      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("address")}</span>,
+      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("address") as string}</span>,
     },
     {
       accessorKey: "propertyType",
       header: t('property type'),
-      cell: ({ row }) => <span className="text-rovida-near-black">{t(row.getValue("propertyType").toLowerCase())}</span>,
+      cell: ({ row }) => <span className="text-rovida-near-black">{t((row.getValue("propertyType") as string).toLowerCase())}</span>,
     },
     {
       accessorKey: "unitsCount",
       header: t('units'),
-      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("unitsCount")}</span>,
+      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("unitsCount") as number}</span>,
     },
     {
       accessorKey: "occupancyRate",
       header: t('occupancy rate'),
-      cell: ({ row }) => <span className="text-rovida-near-black">{(row.getValue("occupancyRate") * 100).toFixed(0)}%</span>,
+      cell: ({ row }) => <span className="text-rovida-near-black">{((row.getValue("occupancyRate") as number) * 100).toFixed(0)}%</span>,
     },
     {
       accessorKey: "value",
       header: t('value'),
-      cell: ({ row }) => <span className="text-rovida-near-black">${row.original.value.toLocaleString()}</span>,
+      cell: ({ row }) => <span className="text-rovida-near-black">${(row.original.value as number).toLocaleString()}</span>,
     },
     {
       id: "actions",

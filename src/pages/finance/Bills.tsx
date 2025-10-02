@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import BreadcrumbNav from '@/components/BreadcrumbNav';
 import { Button } from '@/components/ui/button';
-import { PlusCircle } from 'lucide-react';
+import { PlusCircle, Receipt } from 'lucide-react'; // Imported Receipt
 import { Link } from 'react-router-dom';
 import { mockBills } from '@/data/mock-bills';
 import BillsTable from '@/components/finance/BillsTable';

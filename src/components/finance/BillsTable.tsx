@@ -39,31 +39,31 @@ const BillsTable = ({ bills }: BillsTableProps) => {
       header: t('id', { ns: 'common' }),
       cell: ({ row }) => (
         <Link to={`/finance/bills/${row.original.id}`} className="text-primary hover:underline">
-          {row.getValue("id")}
+          {row.getValue("id") as string}
         </Link>
       ),
     },
     {
       accessorKey: "vendor",
       header: t('vendor', { ns: 'finance' }),
-      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("vendor")}</span>,
+      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("vendor") as string}</span>,
     },
     {
       accessorKey: "description",
       header: t('description', { ns: 'common' }),
-      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("description")}</span>,
+      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("description") as string}</span>,
     },
     {
       accessorKey: "amount",
       header: t('amount', { ns: 'finance' }),
-      cell: ({ row }) => <span className="text-rovida-near-black">{row.original.amount.toFixed(2)} {row.original.currency}</span>,
+      cell: ({ row }) => <span className="text-rovida-near-black">{(row.original.amount as number).toFixed(2)} {row.original.currency}</span>,
     },
     {
       accessorKey: "status",
       header: t('status', { ns: 'common' }),
       cell: ({ row }) => (
-        <Badge variant={getStatusVariant(row.getValue("status"))}>
-          {t(row.getValue("status").toLowerCase(), { ns: 'finance' })}
+        <Badge variant={getStatusVariant(row.getValue("status") as Bill['status'])}>
+          {t((row.getValue("status") as string).toLowerCase(), { ns: 'finance' })}
         </Badge>
       ),
     },
@@ -72,7 +72,7 @@ const BillsTable = ({ bills }: BillsTableProps) => {
       header: t('due date', { ns: 'finance' }),
       cell: ({ row }) => (
         <span className="text-rovida-slate-green-gray">
-          {format(row.getValue("dueDate"), 'MMM dd, yyyy')}
+          {format(row.getValue("dueDate") as Date, 'MMM dd, yyyy')}
         </span>
       ),
     },

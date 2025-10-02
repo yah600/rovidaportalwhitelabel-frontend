@@ -8,6 +8,7 @@ import { Asset } from '@/data/mock-assets';
 import { format } from 'date-fns';
 import { DataTable } from '@/components/DataTable'; // Import the generic DataTable
 import { toast } from 'sonner'; // Import toast for actions
+import { useAuth } from '@/hooks/useAuth'; // Import useAuth
 
 interface AssetsTableProps {
   assets: Asset[];
@@ -37,29 +38,29 @@ const AssetsTable = ({ assets }: AssetsTableProps) => {
     {
       accessorKey: "id",
       header: t('id', { ns: 'common' }),
-      cell: ({ row }) => <span className="font-medium text-rovida-near-black">{row.getValue("id")}</span>,
+      cell: ({ row }) => <span className="font-medium text-rovida-near-black">{row.getValue("id") as string}</span>,
     },
     {
       accessorKey: "name",
       header: t('name', { ns: 'common' }),
-      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("name")}</span>,
+      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("name") as string}</span>,
     },
     {
       accessorKey: "type",
       header: t('type', { ns: 'common' }),
-      cell: ({ row }) => <span className="text-rovida-near-black">{t(row.getValue("type").toLowerCase(), { ns: 'maintenance' })}</span>,
+      cell: ({ row }) => <span className="text-rovida-near-black">{t((row.getValue("type") as string).toLowerCase(), { ns: 'maintenance' })}</span>,
     },
     {
       accessorKey: "location",
       header: t('location', { ns: 'common' }),
-      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("location")}</span>,
+      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("location") as string}</span>,
     },
     {
       accessorKey: "status",
       header: t('status', { ns: 'common' }),
       cell: ({ row }) => (
-        <Badge variant={getStatusVariant(row.getValue("status"))}>
-          {t(row.getValue("status").toLowerCase(), { ns: 'maintenance' })}
+        <Badge variant={getStatusVariant(row.getValue("status") as Asset['status'])}>
+          {t((row.getValue("status") as string).toLowerCase(), { ns: 'maintenance' })}
         </Badge>
       ),
     },
@@ -68,7 +69,7 @@ const AssetsTable = ({ assets }: AssetsTableProps) => {
       header: t('last maintenance', { ns: 'maintenance' }),
       cell: ({ row }) => (
         <span className="text-rovida-slate-green-gray">
-          {format(row.getValue("lastMaintenance"), 'MMM dd, yyyy')}
+          {format(row.getValue("lastMaintenance") as Date, 'MMM dd, yyyy')}
         </span>
       ),
     },
@@ -77,7 +78,7 @@ const AssetsTable = ({ assets }: AssetsTableProps) => {
       header: t('next maintenance', { ns: 'maintenance' }),
       cell: ({ row }) => (
         <span className="text-rovida-slate-green-gray">
-          {format(row.getValue("nextMaintenance"), 'MMM dd, yyyy')}
+          {format(row.getValue("nextMaintenance") as Date, 'MMM dd, yyyy')}
         </span>
       ),
     },

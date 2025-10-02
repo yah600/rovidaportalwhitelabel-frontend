@@ -36,22 +36,22 @@ const AmenitiesTable = ({ amenities }: AmenitiesTableProps) => {
     {
       accessorKey: "id",
       header: t('id', { ns: 'common' }),
-      cell: ({ row }) => <span className="font-medium text-rovida-near-black">{row.getValue("id")}</span>,
+      cell: ({ row }) => <span className="font-medium text-rovida-near-black">{row.getValue("id") as string}</span>,
     },
     {
       accessorKey: "name",
       header: t('name', { ns: 'common' }),
-      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("name")}</span>,
+      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("name") as string}</span>,
     },
     {
       accessorKey: "type",
       header: t('type', { ns: 'common' }),
-      cell: ({ row }) => <span className="text-rovida-near-black">{t(row.getValue("type").toLowerCase(), { ns: 'amenities' })}</span>,
+      cell: ({ row }) => <span className="text-rovida-near-black">{t((row.getValue("type") as string).toLowerCase(), { ns: 'amenities' })}</span>,
     },
     {
       accessorKey: "location",
       header: t('location', { ns: 'common' }),
-      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("location")}</span>,
+      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("location") as string}</span>,
     },
     {
       accessorKey: "bookingRequired",
@@ -66,8 +66,8 @@ const AmenitiesTable = ({ amenities }: AmenitiesTableProps) => {
       accessorKey: "status",
       header: t('status', { ns: 'common' }),
       cell: ({ row }) => (
-        <Badge variant={getStatusVariant(row.getValue("status"))}>
-          {t(row.getValue("status").toLowerCase(), { ns: 'amenities' })}
+        <Badge variant={getStatusVariant(row.getValue("status") as Amenity['status'])}>
+          {t((row.getValue("status") as string).toLowerCase(), { ns: 'amenities' })}
         </Badge>
       ),
     },

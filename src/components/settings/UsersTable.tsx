@@ -32,29 +32,29 @@ const UsersTable = ({ users }: UsersTableProps) => {
     {
       accessorKey: "id",
       header: t('id'),
-      cell: ({ row }) => <span className="font-medium text-rovida-near-black">{row.getValue("id")}</span>,
+      cell: ({ row }) => <span className="font-medium text-rovida-near-black">{row.getValue("id") as string}</span>,
     },
     {
       accessorKey: "name",
       header: t('name'),
-      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("name")}</span>,
+      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("name") as string}</span>,
     },
     {
       accessorKey: "email",
       header: t('email'),
-      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("email")}</span>,
+      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("email") as string}</span>,
     },
     {
       accessorKey: "role",
       header: t('role'),
-      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("role")}</span>,
+      cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("role") as string}</span>,
     },
     {
       accessorKey: "status",
       header: t('status'),
       cell: ({ row }) => (
-        <Badge variant={getStatusVariant(row.getValue("status"))}>
-          {t(row.getValue("status").toLowerCase())}
+        <Badge variant={getStatusVariant(row.getValue("status") as User['status'])}>
+          {t((row.getValue("status") as string).toLowerCase())}
         </Badge>
       ),
     },
@@ -63,7 +63,7 @@ const UsersTable = ({ users }: UsersTableProps) => {
       header: t('last login'),
       cell: ({ row }) => (
         <span className="text-rovida-slate-green-gray">
-          {format(row.getValue("lastLogin"), 'MMM dd, yyyy HH:mm')}
+          {format(row.getValue("lastLogin") as Date, 'MMM dd, yyyy HH:mm')}
         </span>
       ),
     },

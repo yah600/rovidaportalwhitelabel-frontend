@@ -11,7 +11,7 @@ interface NumberProps {
 }
 
 function Number({ mv, number, height }: NumberProps) {
-  let y = useTransform(mv, latest => {
+  let y = useTransform(mv, (latest: number) => { // Explicitly type latest as number
     let placeValue = latest % 10;
     let offset = (10 + number - placeValue) % 10;
     let memo = offset * height;
