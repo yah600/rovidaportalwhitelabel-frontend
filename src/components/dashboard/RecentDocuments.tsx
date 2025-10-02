@@ -6,6 +6,7 @@ import { FileText, ArrowRight } from 'lucide-react';
 import { format } from 'date-fns';
 import { mockDocuments, Document } from '@/data/mock-documents';
 import { useUser } from '@/context/UserContext'; // Import useUser
+import { ROLE_IDS } from '@/shared/rbac/roles';
 
 const RecentDocuments = () => {
   const { t } = useTranslation(['dashboard', 'common', 'documents']); // Specify namespaces
@@ -15,8 +16,15 @@ const RecentDocuments = () => {
   const filterDocumentsByScope = (documents: Document[]): Document[] => {
     if (!currentUser) return [];
 
-    // Platform Owner, Client Super-Administrator, Condo Administrator see all documents
-    if (currentUser.roles.some(role => role.scope.isSuper || role.name === 'Client Super-Administrator' || role.name === 'Condo Administrator')) {
+    // Sysadmins, portfolio managers, and building managers see all documents
+    if (
+      currentUser.roles.some(
+        role =>
+          role.scope.isSuper ||
+          role.name === ROLE_IDS.PORTFOLIO_MANAGER ||
+          role.name === ROLE_IDS.BUILDING_MANAGER
+      )
+    ) {
       return documents;
     }
 
@@ -25,10 +33,8 @@ const RecentDocuments = () => {
     const userRoleNames = currentUser.roles.map(r => r.name);
 
     return documents.filter(doc => {
-      // Accountant sees financial documents
-      if (userRoleNames.includes('Accountant') && doc.category === 'Financial') return true;
       // Vendor sees maintenance documents
-      if (userRoleNames.includes('Vendor / Service Provider') && doc.category === 'Maintenance') return true;
+      if (userRoleNames.includes(ROLE_IDS.VENDOR) && doc.category === 'Maintenance') return true;
 
       // If user has building scope, show general documents and documents related to their buildings
       if (userBuildingIds.length > 0) {
@@ -44,8 +50,14 @@ const RecentDocuments = () => {
         return true;
       }
 
-      // Default for roles with broader read access (e.g., Board Member, Auditor, Owner, Tenant, Concierge, Emergency Agent, Building Maintenance Technician)
-      const generalReadRoles = ['Board Member', 'Read-Only Auditor', 'Owner', 'Tenant', 'Emergency Agent', 'Concierge / Front Desk / Security', 'Building Maintenance Technician', 'Property Manager'];
+      // Default for roles with broader read access (e.g., Board Member, Owner, Tenant, Security, Guest)
+      const generalReadRoles = [
+        ROLE_IDS.BOARD,
+        ROLE_IDS.OWNER,
+        ROLE_IDS.TENANT,
+        ROLE_IDS.SECURITY,
+        ROLE_IDS.GUEST,
+      ];
       if (generalReadRoles.some(roleName => userRoleNames.includes(roleName))) {
         return true;
       }

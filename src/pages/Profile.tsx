@@ -10,6 +10,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { useUser } from '@/context/UserContext'; // Import useUser
 import { toast } from 'sonner'; // Import toast for actions
 import { Link } from 'react-router-dom'; // Import Link
+import { ROLE_IDS, ROLE_LABELS } from '@/shared/rbac/roles';
 
 const Profile = () => {
   const { t } = useTranslation(['profile', 'common', 'tenancy']); // Get current user from context
@@ -21,9 +22,10 @@ const Profile = () => {
 
   const userName = currentUser?.name || t('guest', { ns: 'common' });
   const userEmail = currentUser?.email || "";
-  const userRole = currentUser?.roles[0]?.name || ""; // Assuming first role is primary
+  const primaryRoleId = currentUser?.roles[0]?.name;
+  const userRole = primaryRoleId ? ROLE_LABELS[primaryRoleId] : "";
 
-  const isOwnerOrTenant = currentUser?.roles.some(role => role.name === 'Owner' || role.name === 'Tenant');
+  const isOwnerOrTenant = currentUser?.roles.some(role => role.name === ROLE_IDS.OWNER || role.name === ROLE_IDS.TENANT);
   const userUnitId = currentUser?.roles.find(role => role.scope.unitIds)?.scope.unitIds?.[0]; // Assuming one unit for simplicity
   const mockUnitStatementId = userUnitId === 'UNIT001' ? 'US001' : (userUnitId === 'UNIT002' ? 'US002' : null);
 

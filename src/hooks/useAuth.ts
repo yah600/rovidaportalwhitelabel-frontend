@@ -1,6 +1,7 @@
 "use client";
 
-import { useUser, CurrentUser } from '@/context/UserContext';
+import { useUser } from '@/context/UserContext';
+import { ROLE_IDS, RoleId } from '@/shared/rbac/roles';
 
 // Define the permission structure
 interface ModulePermissions {
@@ -21,7 +22,7 @@ interface PermissionsMatrix {
 
 // PERMISSIONS_MATRIX: Frontend representation of role-based access control.
 // Backend should always enforce actual RLS.
-const PERMISSIONS_MATRIX: PermissionsMatrix = {
+const LEGACY_PERMISSIONS_MATRIX: PermissionsMatrix = {
   'Platform Owner': {
     'Dashboard': { read: true, create: true, update: true, delete: true, approve: true, export: true, special: true },
     'Issues': { read: true, create: true, update: true, delete: true, approve: true, export: true, special: true },
@@ -452,6 +453,25 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Feedback': { read: true, create: true },
   },
 };
+
+const ROLE_PERMISSIONS_MAP: Record<RoleId, keyof typeof LEGACY_PERMISSIONS_MATRIX> = {
+  [ROLE_IDS.SYSADMIN]: 'Platform Owner',
+  [ROLE_IDS.PORTFOLIO_MANAGER]: 'Client Super-Administrator',
+  [ROLE_IDS.BUILDING_MANAGER]: 'Condo Administrator',
+  [ROLE_IDS.BOARD]: 'Board Member',
+  [ROLE_IDS.OWNER]: 'Owner',
+  [ROLE_IDS.TENANT]: 'Tenant',
+  [ROLE_IDS.VENDOR]: 'Vendor / Service Provider',
+  [ROLE_IDS.SECURITY]: 'Concierge / Front Desk / Security',
+  [ROLE_IDS.GUEST]: 'Read-Only Auditor',
+};
+
+const PERMISSIONS_MATRIX: PermissionsMatrix = {};
+
+(Object.keys(ROLE_PERMISSIONS_MAP) as RoleId[]).forEach(roleId => {
+  const legacyKey = ROLE_PERMISSIONS_MAP[roleId];
+  PERMISSIONS_MATRIX[roleId] = LEGACY_PERMISSIONS_MATRIX[legacyKey];
+});
 
 export const useAuth = () => {
   const { currentUser } = useUser();

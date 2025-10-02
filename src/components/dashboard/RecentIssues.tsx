@@ -7,6 +7,7 @@ import { mockIssues, Issue } from '@/data/mock-issues';
 import { format } from 'date-fns';
 import { ArrowRight } from 'lucide-react';
 import { useUser } from '@/context/UserContext'; // Import useUser
+import { ROLE_IDS } from '@/shared/rbac/roles';
 
 const RecentIssues = () => {
   const { t } = useTranslation(['dashboard', 'common', 'issues']); // Specify namespaces
@@ -16,14 +17,22 @@ const RecentIssues = () => {
   const filterIssuesByScope = (issues: Issue[]): Issue[] => {
     if (!currentUser) return [];
 
-    // Super admins and condo admins see all issues
-    if (currentUser.roles.some(role => role.scope.isSuper || role.name === 'Client Super-Administrator' || role.name === 'Condo Administrator')) {
+    // Sysadmins, portfolio managers, and building managers see all issues
+    if (
+      currentUser.roles.some(
+        role =>
+          role.scope.isSuper ||
+          role.name === ROLE_IDS.PORTFOLIO_MANAGER ||
+          role.name === ROLE_IDS.BUILDING_MANAGER
+      )
+    ) {
       return issues;
     }
 
     const userBuildingIds = currentUser.roles.flatMap(role => role.scope.buildingIds || []);
     const userUnitIds = currentUser.roles.flatMap(role => role.scope.unitIds || []);
     const userVendorId = currentUser.roles.find(role => role.scope.vendorId)?.scope.vendorId;
+    const userRoleNames = currentUser.roles.map(r => r.name);
 
     return issues.filter(issue => {
       // Filter by unit if user is an owner/tenant
@@ -45,9 +54,9 @@ const RecentIssues = () => {
       if (userVendorId && issue.assignee === currentUser.name) return true; // Assuming assignee name matches vendor user name
 
       // If no specific scope matches, and the role is not a general 'read all' role, exclude.
-      // Roles like Accountant, Vendor, Owner, Tenant should not see all issues unless assigned.
-      const nonGeneralRoles = ['Accountant', 'Vendor / Service Provider', 'Owner', 'Tenant'];
-      if (nonGeneralRoles.some(roleName => currentUser.roles.map(r => r.name).includes(roleName))) {
+      // Roles like Vendor, Owner, Tenant, or Guest should not see all issues unless assigned.
+      const nonGeneralRoles = [ROLE_IDS.VENDOR, ROLE_IDS.OWNER, ROLE_IDS.TENANT, ROLE_IDS.GUEST];
+      if (nonGeneralRoles.some(roleName => userRoleNames.includes(roleName))) {
         return false;
       }
 

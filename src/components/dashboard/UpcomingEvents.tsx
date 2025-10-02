@@ -5,6 +5,7 @@ import { CalendarDays } from 'lucide-react';
 import { format, addDays } from 'date-fns';
 import { mockMeetings, Meeting } from '@/data/mock-meetings';
 import { useUser } from '@/context/UserContext'; // Import useUser
+import { ROLE_IDS } from '@/shared/rbac/roles';
 
 const UpcomingEvents = () => {
   const { t } = useTranslation(['dashboard', 'common']); // Specify namespaces
@@ -14,8 +15,15 @@ const UpcomingEvents = () => {
   const filterMeetingsByScope = (meetings: Meeting[]): Meeting[] => {
     if (!currentUser) return [];
 
-    // Platform Owner, Client Super-Administrator, Condo Administrator see all meetings
-    if (currentUser.roles.some(role => role.scope.isSuper || role.name === 'Client Super-Administrator' || role.name === 'Condo Administrator')) {
+    // Sysadmins, portfolio managers, and building managers see all meetings
+    if (
+      currentUser.roles.some(
+        role =>
+          role.scope.isSuper ||
+          role.name === ROLE_IDS.PORTFOLIO_MANAGER ||
+          role.name === ROLE_IDS.BUILDING_MANAGER
+      )
+    ) {
       return meetings;
     }
 
@@ -24,28 +32,29 @@ const UpcomingEvents = () => {
 
     return meetings.filter(meeting => {
       // Board Members see meetings relevant to their buildings
-      if (userRoleNames.includes('Board Member') && userBuildingIds.length > 0) {
+      if (userRoleNames.includes(ROLE_IDS.BOARD) && userBuildingIds.length > 0) {
         // Assuming meetings are generally relevant to the building(s) a board member oversees.
         // In a real app, meetings would have a 'buildingId' field.
         return true;
       }
 
       // Property Managers see meetings relevant to their buildings
-      if (userRoleNames.includes('Property Manager') && userBuildingIds.length > 0) {
+      if (userRoleNames.includes(ROLE_IDS.BUILDING_MANAGER) && userBuildingIds.length > 0) {
         return true;
       }
 
       // Other roles like Owner, Tenant, Vendor, Technician, Concierge, Emergency Agent
       // might only see specific meetings they are invited to or general announcements.
       // For simplicity, if no specific role-based access is defined, they don't see all meetings.
-      const rolesWithLimitedMeetingAccess = ['Owner', 'Tenant', 'Vendor / Service Provider', 'Emergency Agent', 'Building Maintenance Technician', 'Concierge / Front Desk / Security'];
+      const rolesWithLimitedMeetingAccess = [
+        ROLE_IDS.OWNER,
+        ROLE_IDS.TENANT,
+        ROLE_IDS.VENDOR,
+        ROLE_IDS.SECURITY,
+        ROLE_IDS.GUEST,
+      ];
       if (rolesWithLimitedMeetingAccess.some(roleName => userRoleNames.includes(roleName))) {
         return false;
-      }
-
-      // Read-Only Auditor sees all meetings
-      if (userRoleNames.includes('Read-Only Auditor')) {
-        return true;
       }
 
       return false; // Default to no access if not explicitly granted

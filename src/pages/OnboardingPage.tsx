@@ -9,6 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Checkbox } from '@/components/ui/checkbox';
 import { toast } from 'sonner';
 import { useUser } from '@/context/UserContext';
+import { ROLE_ID_LIST, ROLE_IDS, ROLE_TRANSLATION_KEYS } from '@/shared/rbac/roles';
 
 const OnboardingPage = () => {
   const { t } = useTranslation(['onboarding', 'common', 'auth']); // Specify namespaces for OnboardingPage
@@ -41,7 +42,7 @@ const OnboardingPage = () => {
     setFormData((prev) => ({ ...prev, termsAccepted: checked }));
   };
 
-  const rolesRequiringUnit = ['Owner', 'Tenant'];
+  const rolesRequiringUnit = [ROLE_IDS.OWNER, ROLE_IDS.TENANT];
   const shouldShowUnitField = rolesRequiringUnit.includes(formData.role);
 
   const nextStep = () => {
@@ -122,19 +123,11 @@ const OnboardingPage = () => {
                     <SelectValue placeholder={t('select your role', { ns: 'onboarding' })} />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="Platform Owner">{t('platform owner', { ns: 'auth' })}</SelectItem>
-                    <SelectItem value="Client Super-Administrator">{t('client super-administrator', { ns: 'auth' })}</SelectItem>
-                    <SelectItem value="Condo Administrator">{t('condo administrator', { ns: 'auth' })}</SelectItem>
-                    <SelectItem value="Property Manager">{t('property manager', { ns: 'auth' })}</SelectItem>
-                    <SelectItem value="Accountant">{t('accountant', { ns: 'auth' })}</SelectItem>
-                    <SelectItem value="Board Member">{t('board member', { ns: 'auth' })}</SelectItem>
-                    <SelectItem value="Owner">{t('owner', { ns: 'auth' })}</SelectItem>
-                    <SelectItem value="Tenant">{t('tenant', { ns: 'auth' })}</SelectItem>
-                    <SelectItem value="Vendor / Service Provider">{t('vendor / service provider', { ns: 'auth' })}</SelectItem>
-                    <SelectItem value="Emergency Agent">{t('emergency agent', { ns: 'auth' })}</SelectItem>
-                    <SelectItem value="Concierge / Front Desk / Security">{t('concierge / front desk / security', { ns: 'auth' })}</SelectItem>
-                    <SelectItem value="Building Maintenance Technician">{t('building maintenance technician', { ns: 'auth' })}</SelectItem>
-                    <SelectItem value="Read-Only Auditor">{t('read-only auditor', { ns: 'auth' })}</SelectItem>
+                    {ROLE_ID_LIST.map(roleId => (
+                      <SelectItem key={roleId} value={roleId}>
+                        {t(ROLE_TRANSLATION_KEYS[roleId], { ns: 'auth' })}
+                      </SelectItem>
+                    ))}
                   </SelectContent>
                 </Select>
               </div>
