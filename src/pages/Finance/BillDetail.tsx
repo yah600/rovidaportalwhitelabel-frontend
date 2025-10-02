@@ -18,10 +18,12 @@ import {
 import { mockBills, Bill } from '@/data/mock-bills';
 import { format } from 'date-fns';
 import { toast } from 'sonner'; // Import toast for actions
+import { useAuth } from '@/hooks/useAuth'; // Import useAuth
 
 const FinanceBillDetail = () => {
   const { id } = useParams();
   const { t } = useTranslation(['finance', 'common']); // Ensure 'finance' and 'common' namespaces are loaded
+  const { canUpdate, canDelete } = useAuth();
 
   const bill: Bill | undefined = mockBills.find((bill) => bill.id === id);
 
@@ -72,7 +74,7 @@ const FinanceBillDetail = () => {
       <header className="flex items-center justify-between flex-wrap gap-2 mb-4">
         <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{bill.description}</h1>
         <div className="flex items-center gap-2">
-          <Badge variant={getStatusBadgeVariant(bill.status)}>{t(bill.status.toLowerCase().replace(/ /g, ''), { ns: 'finance' })}</Badge>
+          <Badge variant={getStatusBadgeVariant(bill.status)}>{t(bill.status.toLowerCase(), { ns: 'finance' })}</Badge>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="outline" size="sm">
@@ -83,17 +85,21 @@ const FinanceBillDetail = () => {
             <DropdownMenuContent align="end" className="bg-white/80 backdrop-blur-xl border-rovida-soft-gray text-rovida-near-black">
               <DropdownMenuLabel>{t('actions', { ns: 'common' })}</DropdownMenuLabel>
               <DropdownMenuSeparator className="bg-rovida-soft-gray" />
-              <DropdownMenuItem className="hover:bg-rovida-soft-gray" onClick={handleEditBill}>
-                <Edit className="mr-2 h-4 w-4" /> {t('edit bill', { ns: 'finance' })}
-              </DropdownMenuItem>
-              {bill.status !== 'Paid' && (
+              {canUpdate('Finance - Bills/Recurring/Deposits') && (
+                <DropdownMenuItem className="hover:bg-rovida-soft-gray" onClick={handleEditBill}>
+                  <Edit className="mr-2 h-4 w-4" /> {t('edit bill', { ns: 'finance' })}
+                </DropdownMenuItem>
+              )}
+              {canUpdate('Finance - Bills/Recurring/Deposits') && bill.status !== 'Paid' && (
                 <DropdownMenuItem className="hover:bg-rovida-soft-gray" onClick={handleMarkAsPaid}>
                   <DollarSign className="mr-2 h-4 w-4" /> {t('mark as paid', { ns: 'finance' })}
                 </DropdownMenuItem>
               )}
-              <DropdownMenuItem className="text-destructive hover:bg-rovida-soft-gray" onClick={handleDeleteBill}>
-                <Trash2 className="mr-2 h-4 w-4" /> {t('delete bill', { ns: 'finance' })}
-              </DropdownMenuItem>
+              {canDelete('Finance - Bills/Recurring/Deposits') && (
+                <DropdownMenuItem className="text-destructive hover:bg-rovida-soft-gray" onClick={handleDeleteBill}>
+                  <Trash2 className="mr-2 h-4 w-4" /> {t('delete bill', { ns: 'finance' })}
+                </DropdownMenuItem>
+              )}
             </DropdownMenuContent>
           </DropdownMenu>
         </div>

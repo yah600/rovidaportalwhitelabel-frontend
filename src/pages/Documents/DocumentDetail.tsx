@@ -18,10 +18,12 @@ import {
 import { mockDocuments, Document } from '@/data/mock-documents';
 import { format } from 'date-fns';
 import { toast } from 'sonner'; // Import toast for actions
+import { useAuth } from '@/hooks/useAuth'; // Import useAuth
 
 const DocumentDetail = () => {
   const { id } = useParams();
   const { t } = useTranslation(['documents', 'common']); // Ensure 'documents' and 'common' namespaces are loaded
+  const { canUpdate, canExport } = useAuth();
 
   const document: Document | undefined = mockDocuments.find((doc) => doc.id === id);
 
@@ -82,14 +84,18 @@ const DocumentDetail = () => {
             <DropdownMenuContent align="end" className="bg-white/80 backdrop-blur-xl border-rovida-soft-gray text-rovida-near-black">
               <DropdownMenuLabel>{t('actions', { ns: 'common' })}</DropdownMenuLabel>
               <DropdownMenuSeparator className="bg-rovida-soft-gray" />
-              <DropdownMenuItem className="hover:bg-rovida-soft-gray" onClick={handleEditDocument}>
-                <Edit className="mr-2 h-4 w-4" /> {t('edit document', { ns: 'documents' })}
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <button onClick={handleDownloadDocument} className="flex items-center w-full text-left hover:bg-rovida-soft-gray">
-                  <Download className="mr-2 h-4 w-4" /> {t('download', { ns: 'documents' })}
-                </button>
-              </DropdownMenuItem>
+              {canUpdate('Documents') && (
+                <DropdownMenuItem className="hover:bg-rovida-soft-gray" onClick={handleEditDocument}>
+                  <Edit className="mr-2 h-4 w-4" /> {t('edit document', { ns: 'documents' })}
+                </DropdownMenuItem>
+              )}
+              {canExport('Documents') && (
+                <DropdownMenuItem asChild>
+                  <button onClick={handleDownloadDocument} className="flex items-center w-full text-left hover:bg-rovida-soft-gray">
+                    <Download className="mr-2 h-4 w-4" /> {t('download', { ns: 'documents' })}
+                  </button>
+                </DropdownMenuItem>
+              )}
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
