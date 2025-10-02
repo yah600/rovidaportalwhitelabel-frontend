@@ -75,7 +75,7 @@ const IssuesTable = ({ issues }: IssuesTableProps) => {
       accessorKey: "status",
       header: t('status', { ns: 'common' }),
       cell: ({ row }) => (
-        <Badge variant={getStatusBadgeVariant(row.getValue("status") as Issue['status'])}>
+        <Badge variant={getStatusVariant(row.getValue("status") as Issue['status'])}>
           {t((row.getValue("status") as string).toLowerCase(), { ns: 'issues' })}
         </Badge>
       ),

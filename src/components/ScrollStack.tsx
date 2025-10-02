@@ -241,7 +241,7 @@ const ScrollStack = ({
         smoothWheel: true,
         touchMultiplier: 2,
         gestureOrientation: 'both', // Corrected property name
-        normalizeWheel: true,
+        // normalizeWheel: true, // Removed as it's not a valid option
         wheelMultiplier: 1,
         touchInertiaMultiplier: 35,
         lerp: 0.1,
