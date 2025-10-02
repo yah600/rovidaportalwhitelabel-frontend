@@ -10,7 +10,7 @@ interface NavItem {
   label: string;
   bgColor: string;
   textColor: string;
-  links?: { label: string; ariaLabel: string; href?: string }[];
+  links?: { label: string; ariaLabel: string; href?: string; target?: string; onClick?: () => void }[]; // Added onClick and target
 }
 
 interface CardNavProps {
@@ -23,6 +23,7 @@ interface CardNavProps {
   menuColor?: string;
   buttonBgColor?: string;
   buttonTextColor?: string;
+  onCtaClick?: () => void; // Added onCtaClick prop
 }
 
 const CardNav = ({
@@ -34,7 +35,8 @@ const CardNav = ({
   baseColor = '#fff',
   menuColor,
   buttonBgColor,
-  buttonTextColor
+  buttonTextColor,
+  onCtaClick // Destructure onCtaClick
 }: CardNavProps) => {
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
@@ -163,7 +165,7 @@ const CardNav = ({
             className={`hamburger-menu ${isHamburgerOpen ? 'open' : ''}`}
             onClick={toggleMenu}
             role="button"
-            aria-label={isExpanded ? t('close menu') : t('open menu')}
+            aria-label={isExpanded ? t('close menu', { ns: 'common' }) : t('open menu', { ns: 'common' })}
             tabIndex={0}
             style={{ color: menuColor || '#000' }}
           >
@@ -179,8 +181,9 @@ const CardNav = ({
             type="button"
             className="card-nav-cta-button"
             style={{ backgroundColor: buttonBgColor, color: buttonTextColor }}
+            onClick={onCtaClick} // Wired CTA button
           >
-            {t('get started')}
+            {t('get started', { ns: 'common' })}
           </button>
         </div>
 
@@ -195,7 +198,14 @@ const CardNav = ({
               <div className="nav-card-label">{item.label}</div>
               <div className="nav-card-links">
                 {item.links?.map((lnk, i) => (
-                  <a key={`${lnk.label}-${i}`} className="nav-card-link" href={lnk.href} aria-label={lnk.ariaLabel}>
+                  <a
+                    key={`${lnk.label}-${i}`}
+                    className="nav-card-link"
+                    href={lnk.href}
+                    aria-label={lnk.ariaLabel}
+                    target={lnk.target} // Pass target prop
+                    onClick={lnk.onClick} // Pass onClick prop
+                  >
                     <GoArrowUpRight className="nav-card-link-icon" aria-hidden="true" />
                     {lnk.label}
                   </a>

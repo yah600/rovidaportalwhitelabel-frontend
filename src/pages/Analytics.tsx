@@ -20,24 +20,24 @@ import BreadcrumbNav from '@/components/BreadcrumbNav'; // Import BreadcrumbNav
 const COLORS = ['#C4972E', '#183747', '#7C8D89', '#E2A33B', '#3A7D44']; // Using Rovida palette
 
 const Analytics = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(['analytics', 'common']); // Ensure 'analytics' and 'common' namespaces are loaded
   const breadcrumbItems = [
-    { label: t('analytics'), href: '/analytics' },
+    { label: t('analytics', { ns: 'analytics' }), href: '/analytics' },
   ];
 
   return (
     <div className="flex flex-1 flex-col gap-4">
       <BreadcrumbNav items={breadcrumbItems} />
       <h1 className="text-2xl font-semibold md:text-3xl text-page-title">
-        {t('analytics')}
+        {t('analytics', { ns: 'analytics' })}
       </h1>
-      <p className="text-rovida-slate-green-gray">{t('overview key operational metrics')}</p>
+      <p className="text-rovida-slate-green-gray">{t('overview key operational metrics', { ns: 'analytics' })}</p>
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         <Card className="col-span-full md:col-span-2 card-rovida">
           <CardHeader>
-            <CardTitle className="text-rovida-navy">{t('monthly issue trends')}</CardTitle>
-            <CardDescription className="text-rovida-slate-green-gray">{t('open closed issues 6 months')}</CardDescription>
+            <CardTitle className="text-rovida-navy">{t('monthly issue trends', { ns: 'analytics' })}</CardTitle>
+            <CardDescription className="text-rovida-slate-green-gray">{t('open closed issues 6 months', { ns: 'analytics' })}</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="h-[300px]">
@@ -48,8 +48,8 @@ const Analytics = () => {
                   <YAxis stroke="#7C8D89" />
                   <Tooltip contentStyle={{ backgroundColor: 'rgba(255,255,255,0.8)', border: '1px solid #E9ECEB', borderRadius: '8px' }} itemStyle={{ color: '#111418' }} />
                   <Legend />
-                  <Bar dataKey="open" fill="#C4972E" name={t('open issues')} />
-                  <Bar dataKey="closed" fill="#183747" name={t('closed issues')} />
+                  <Bar dataKey="open" fill="#C4972E" name={t('open issues', { ns: 'common' })} />
+                  <Bar dataKey="closed" fill="#183747" name={t('closed issues', { ns: 'analytics' })} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -58,8 +58,8 @@ const Analytics = () => {
 
         <Card className="card-rovida">
           <CardHeader>
-            <CardTitle className="text-rovida-navy">{t('issue type distribution')}</CardTitle>
-            <CardDescription className="text-rovida-slate-green-gray">{t('breakdown issues by type')}</CardDescription>
+            <CardTitle className="text-rovida-navy">{t('issue type distribution', { ns: 'analytics' })}</CardTitle>
+            <CardDescription className="text-rovida-slate-green-gray">{t('breakdown issues by type', { ns: 'analytics' })}</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="h-[300px]">
@@ -89,8 +89,8 @@ const Analytics = () => {
 
         <Card className="col-span-full md:col-span-2 card-rovida">
           <CardHeader>
-            <CardTitle className="text-rovida-navy">{t('work order completion rate')}</CardTitle>
-            <CardDescription className="text-rovida-slate-green-gray">{t('monthly work order completion status')}</CardDescription>
+            <CardTitle className="text-rovida-navy">{t('work order completion rate', { ns: 'analytics' })}</CardTitle>
+            <CardDescription className="text-rovida-slate-green-gray">{t('monthly work order completion status', { ns: 'analytics' })}</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="h-[300px]">
@@ -101,8 +101,8 @@ const Analytics = () => {
                   <YAxis stroke="#7C8D89" />
                   <Tooltip contentStyle={{ backgroundColor: 'rgba(255,255,255,0.8)', border: '1px solid #E9ECEB', borderRadius: '8px' }} itemStyle={{ color: '#111418' }} />
                   <Legend />
-                  <Bar dataKey="completed" fill="#3A7D44" name={t('completed')} />
-                  <Bar dataKey="pending" fill="#E2A33B" name={t('pending')} />
+                  <Bar dataKey="completed" fill="#3A7D44" name={t('completed', { ns: 'analytics' })} />
+                  <Bar dataKey="pending" fill="#E2A33B" name={t('pending', { ns: 'analytics' })} />
                 </BarChart>
               </ResponsiveContainer>
             </div>

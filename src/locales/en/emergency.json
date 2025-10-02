@@ -16,5 +16,7 @@
   "alert acknowledged services dispatched": "Alert EMG002 acknowledged. Emergency services dispatched.",
   "water leak detected unit": "Water leak detected in Unit 203. Alert EMG001 created.",
   "onsite assessment initiated": "On site assessment for EMG001 initiated. Main water shut off.",
-  "no emergency events timeline": "No emergency events in the timeline."
+  "no emergency events timeline": "No emergency events in the timeline.",
+  "acknowledge alert action": "Alert {{id}} acknowledged.",
+  "escalate alert action": "Alert {{id}} escalated."
 }

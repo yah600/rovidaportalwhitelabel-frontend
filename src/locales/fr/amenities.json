@@ -13,5 +13,7 @@
   "pool": "Piscine",
   "party room": "Salle de fête",
   "meeting room": "Salle de réunion",
-  "rooftop terrace": "Terrasse sur le toit"
+  "rooftop terrace": "Terrasse sur le toit",
+  "add new amenity action": "Action d'ajout de nouvelle commodité déclenchée.",
+  "view book amenity action": "Action de voir/réserver la commodité déclenchée pour {{amenity}}."
 }

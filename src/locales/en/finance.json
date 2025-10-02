@@ -65,5 +65,11 @@
   "ordered": "Ordered",
   "received": "Received",
   "organization settings saved title": "Organization Settings Saved!",
-  "organization settings saved description": "Your organization details have been updated."
+  "organization settings saved description": "Your organization details have been updated.",
+  "bill": "Bill",
+  "edit bill action": "Edit bill action triggered for ID: {{id}}.",
+  "mark as paid action": "Bill {{id}} marked as paid.",
+  "delete bill action": "Delete bill action triggered for ID: {{id}}.",
+  "create new bill action": "Create new bill action triggered.",
+  "record payment action": "Record payment action triggered."
 }

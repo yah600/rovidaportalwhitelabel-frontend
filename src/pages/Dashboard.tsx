@@ -37,7 +37,7 @@ const Dashboard = () => {
     data: T[],
     moduleName: string
   ): T[] => {
-    if (!currentUser || currentUser.roles.some(role => role.scope.isSuper || role.name === 'Client Super Administrator' || role.name === 'Condo Administrator')) {
+    if (!currentUser || currentUser.roles.some(role => role.scope.isSuper || role.name === 'Client Super-Administrator' || role.name === 'Condo Administrator')) {
       return data; // Super admins and condo admins see all
     }
 

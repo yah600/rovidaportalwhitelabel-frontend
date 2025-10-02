@@ -9,13 +9,14 @@ import { Document } from '@/data/mock-documents';
 import { format } from 'date-fns';
 import { FileText, FileSpreadsheet, FileImage, FileQuestion } from 'lucide-react';
 import { DataTable } from '@/components/DataTable'; // Import the generic DataTable
+import { toast } from 'sonner'; // Import toast for actions
 
 interface DocumentsTableProps {
   documents: Document[];
 }
 
 const DocumentsTable = ({ documents }: DocumentsTableProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(['documents', 'common', 'finance']); // Ensure 'documents', 'common', 'finance' namespaces are loaded
 
   const getFileTypeIcon = (type: Document['type']) => {
     switch (type) {
@@ -32,10 +33,14 @@ const DocumentsTable = ({ documents }: DocumentsTableProps) => {
     }
   };
 
+  const handleViewDocument = (documentTitle: string) => {
+    toast.info(t('view document action', { ns: 'documents', title: documentTitle })); // Placeholder action with toast
+  };
+
   const columns: ColumnDef<Document>[] = [
     {
       accessorKey: "id",
-      header: t('id'),
+      header: t('id', { ns: 'common' }),
       cell: ({ row }) => (
         <Link to={`/documents/${row.original.id}`} className="text-primary hover:underline">
           {row.getValue("id")}
@@ -44,17 +49,17 @@ const DocumentsTable = ({ documents }: DocumentsTableProps) => {
     },
     {
       accessorKey: "title",
-      header: t('title'),
+      header: t('title', { ns: 'common' }),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("title")}</span>,
     },
     {
       accessorKey: "category",
-      header: t('category'),
+      header: t('category', { ns: 'finance' }),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("category")}</span>,
     },
     {
       accessorKey: "type",
-      header: t('type'),
+      header: t('type', { ns: 'common' }),
       cell: ({ row }) => (
         <div className="flex items-center gap-2 text-rovida-near-black">
           {getFileTypeIcon(row.getValue("type"))} {row.getValue("type")}
@@ -63,12 +68,12 @@ const DocumentsTable = ({ documents }: DocumentsTableProps) => {
     },
     {
       accessorKey: "uploadedBy",
-      header: t('uploaded by'),
+      header: t('uploaded by', { ns: 'documents' }),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("uploadedBy")}</span>,
     },
     {
       accessorKey: "uploadedAt",
-      header: t('uploaded at'),
+      header: t('uploaded at', { ns: 'documents' }),
       cell: ({ row }) => (
         <span className="text-rovida-slate-green-gray">
           {format(row.getValue("uploadedAt"), 'MMM dd, yyyy')}
@@ -77,13 +82,13 @@ const DocumentsTable = ({ documents }: DocumentsTableProps) => {
     },
     {
       id: "actions",
-      header: t('actions'),
+      header: t('actions', { ns: 'common' }),
       enableSorting: false,
       cell: ({ row }) => (
         <div className="text-right">
-          <a href={row.original.url} target="_blank" rel="noopener noreferrer" className="text-sm text-rovida-slate-green-gray hover:underline">
-            {t('view')}
-          </a>
+          <button onClick={() => handleViewDocument(row.original.title)} className="text-sm text-rovida-slate-green-gray hover:underline">
+            {t('view', { ns: 'common' })}
+          </button>
         </div>
       ),
     },

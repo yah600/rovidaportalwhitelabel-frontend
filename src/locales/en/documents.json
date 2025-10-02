@@ -26,5 +26,16 @@
   "uploaded by": "Uploaded By",
   "uploaded at": "Uploaded At",
   "preview": "Preview",
-  "placeholder preview text": "This is a placeholder preview. In a real application, this would display the actual document content."
+  "placeholder preview text": "This is a placeholder preview. In a real application, this would display the actual document content.",
+  "document": "Document",
+  "edit document action": "Edit document action triggered for ID: {{id}}.",
+  "download document action": "Download document action triggered for {{title}}.",
+  "upload to inbox action": "Upload to inbox action triggered.",
+  "sender": "Sender",
+  "received at": "Received At",
+  "action required": "Action Required",
+  "reviewed": "Reviewed",
+  "archived": "Archived",
+  "view document action": "View document action triggered for {{title}}.",
+  "upload document action": "Upload document action triggered."
 }

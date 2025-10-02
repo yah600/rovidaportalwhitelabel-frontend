@@ -18,7 +18,7 @@
   "registry": "Registre",
   "upload document": "Télécharger un document",
   "no documents found": "Aucun document trouvé.",
-  "start by uploading new document": "Vous pouvez commencer par télécharger un nouveau document.",
+  "start by télécharger un nouveau document": "Vous pouvez commencer par télécharger un nouveau document.",
   "document not found": "Document introuvable.",
   "edit document": "Modifier le document",
   "download": "Télécharger",
@@ -26,5 +26,16 @@
   "uploaded by": "Téléchargé par",
   "uploaded at": "Téléchargé le",
   "preview": "Aperçu",
-  "placeholder preview text": "Ceci est un aperçu. Dans une application réelle, cela afficherait le contenu réel du document."
+  "placeholder preview text": "Ceci est un aperçu. Dans une application réelle, cela afficherait le contenu réel du document.",
+  "document": "Document",
+  "edit document action": "Action de modifier le document déclenchée pour l'ID : {{id}}.",
+  "download document action": "Action de télécharger le document déclenchée pour {{title}}.",
+  "upload to inbox action": "Action de télécharger dans la boîte de réception déclenchée.",
+  "sender": "Expéditeur",
+  "received at": "Reçu le",
+  "action required": "Action requise",
+  "reviewed": "Examiné",
+  "archived": "Archivé",
+  "view document action": "Action de voir le document déclenchée pour {{title}}.",
+  "upload document action": "Action de télécharger un document déclenchée."
 }

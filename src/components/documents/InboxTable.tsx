@@ -8,13 +8,14 @@ import { InboxDocument } from '@/data/mock-inbox-documents';
 import { format } from 'date-fns';
 import { Mail, FileText, FileQuestion, Scan } from 'lucide-react';
 import { DataTable } from '@/components/DataTable'; // Import the generic DataTable
+import { toast } from 'sonner'; // Import toast for actions
 
 interface InboxTableProps {
   documents: InboxDocument[];
 }
 
 const InboxTable = ({ documents }: InboxTableProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(['documents', 'common']); // Ensure 'documents' and 'common' namespaces are loaded
 
   const getStatusVariant = (status: InboxDocument['status']) => {
     switch (status) {
@@ -44,25 +45,29 @@ const InboxTable = ({ documents }: InboxTableProps) => {
     }
   };
 
+  const handleViewDocument = (documentTitle: string) => {
+    toast.info(t('view document action', { ns: 'documents', title: documentTitle })); // Placeholder action with toast
+  };
+
   const columns: ColumnDef<InboxDocument>[] = [
     {
       accessorKey: "id",
-      header: t('id'),
+      header: t('id', { ns: 'common' }),
       cell: ({ row }) => <span className="font-medium text-rovida-near-black">{row.getValue("id")}</span>,
     },
     {
       accessorKey: "title",
-      header: t('title'),
+      header: t('title', { ns: 'common' }),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("title")}</span>,
     },
     {
       accessorKey: "sender",
-      header: t('sender'),
+      header: t('sender', { ns: 'documents' }),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("sender")}</span>,
     },
     {
       accessorKey: "type",
-      header: t('type'),
+      header: t('type', { ns: 'common' }),
       cell: ({ row }) => (
         <div className="flex items-center gap-2 text-rovida-near-black">
           {getFileTypeIcon(row.getValue("type"))} {row.getValue("type")}
@@ -71,16 +76,16 @@ const InboxTable = ({ documents }: InboxTableProps) => {
     },
     {
       accessorKey: "status",
-      header: t('status'),
+      header: t('status', { ns: 'common' }),
       cell: ({ row }) => (
         <Badge variant={getStatusVariant(row.getValue("status"))}>
-          {t(row.getValue("status").toLowerCase().replace(/ /g, ''))}
+          {t(row.getValue("status").toLowerCase().replace(/ /g, ''), { ns: 'documents' })}
         </Badge>
       ),
     },
     {
       accessorKey: "receivedAt",
-      header: t('received at'),
+      header: t('received at', { ns: 'documents' }),
       cell: ({ row }) => (
         <span className="text-rovida-slate-green-gray">
           {format(row.getValue("receivedAt"), 'MMM dd, yyyy')}
@@ -89,13 +94,13 @@ const InboxTable = ({ documents }: InboxTableProps) => {
     },
     {
       id: "actions",
-      header: t('actions'),
+      header: t('actions', { ns: 'common' }),
       enableSorting: false,
       cell: ({ row }) => (
         <div className="text-right">
-          <a href={row.original.previewUrl} target="_blank" rel="noopener noreferrer" className="text-sm text-rovida-slate-green-gray hover:underline">
-            {t('view')}
-          </a>
+          <button onClick={() => handleViewDocument(row.original.title)} className="text-sm text-rovida-slate-green-gray hover:underline">
+            {t('view', { ns: 'common' })}
+          </button>
         </div>
       ),
     },

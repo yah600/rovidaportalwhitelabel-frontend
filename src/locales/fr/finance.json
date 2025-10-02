@@ -65,5 +65,11 @@
   "ordered": "Commandé",
   "received": "Reçu",
   "organization settings saved title": "Paramètres de l'organisation enregistrés !",
-  "organization settings saved description": "Les détails de votre organisation ont été mis à jour."
+  "organization settings saved description": "Les détails de votre organisation ont été mis à jour.",
+  "bill": "Facture",
+  "edit bill action": "Action de modifier la facture déclenchée pour l'ID : {{id}}.",
+  "mark as paid action": "Facture {{id}} marquée comme payée.",
+  "delete bill action": "Action de supprimer la facture déclenchée pour l'ID : {{id}}.",
+  "create new bill action": "Action de créer une nouvelle facture déclenchée.",
+  "record payment action": "Action d'enregistrer un paiement déclenchée."
 }

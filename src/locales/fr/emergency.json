@@ -16,5 +16,7 @@
   "alert acknowledged services dispatched": "Alerte EMG002 reconnue. Services d'urgence dépêchés.",
   "water leak detected unit": "Fuite d'eau détectée dans l'unité 203. Alerte EMG001 créée.",
   "onsite assessment initiated": "Évaluation sur site pour EMG001 initiée. Coupure d'eau principale.",
-  "no emergency events timeline": "Aucun événement d'urgence dans la chronologie."
+  "no emergency events timeline": "Aucun événement d'urgence dans la chronologie.",
+  "acknowledge alert action": "Alerte {{id}} accusée de réception.",
+  "escalate alert action": "Alerte {{id}} escaladée."
 }

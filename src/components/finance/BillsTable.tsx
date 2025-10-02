@@ -14,7 +14,7 @@ interface BillsTableProps {
 }
 
 const BillsTable = ({ bills }: BillsTableProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(['finance', 'common']); // Ensure 'finance' and 'common' namespaces are loaded
 
   const getStatusVariant = (status: Bill['status']) => {
     switch (status) {
@@ -34,7 +34,7 @@ const BillsTable = ({ bills }: BillsTableProps) => {
   const columns: ColumnDef<Bill>[] = [
     {
       accessorKey: "id",
-      header: t('id'),
+      header: t('id', { ns: 'common' }),
       cell: ({ row }) => (
         <Link to={`/finance/bills/${row.original.id}`} className="text-primary hover:underline">
           {row.getValue("id")}
@@ -43,31 +43,31 @@ const BillsTable = ({ bills }: BillsTableProps) => {
     },
     {
       accessorKey: "vendor",
-      header: t('vendor'),
+      header: t('vendor', { ns: 'finance' }),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("vendor")}</span>,
     },
     {
       accessorKey: "description",
-      header: t('description'),
+      header: t('description', { ns: 'common' }),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("description")}</span>,
     },
     {
       accessorKey: "amount",
-      header: t('amount'),
+      header: t('amount', { ns: 'finance' }),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.original.amount.toFixed(2)} {row.original.currency}</span>,
     },
     {
       accessorKey: "status",
-      header: t('status'),
+      header: t('status', { ns: 'common' }),
       cell: ({ row }) => (
         <Badge variant={getStatusVariant(row.getValue("status"))}>
-          {t(row.getValue("status").toLowerCase().replace(/ /g, ''))}
+          {t(row.getValue("status").toLowerCase().replace(/ /g, ''), { ns: 'finance' })}
         </Badge>
       ),
     },
     {
       accessorKey: "dueDate",
-      header: t('due date'),
+      header: t('due date', { ns: 'finance' }),
       cell: ({ row }) => (
         <span className="text-rovida-slate-green-gray">
           {format(row.getValue("dueDate"), 'MMM dd, yyyy')}
@@ -76,12 +76,12 @@ const BillsTable = ({ bills }: BillsTableProps) => {
     },
     {
       id: "actions",
-      header: t('actions'),
+      header: t('actions', { ns: 'common' }),
       enableSorting: false,
       cell: ({ row }) => (
         <div className="text-right">
           <Link to={`/finance/bills/${row.original.id}`} className="text-sm text-rovida-slate-green-gray hover:underline">
-            {t('view')}
+            {t('view', { ns: 'common' })}
           </Link>
         </div>
       ),

@@ -41,5 +41,15 @@
   "create edit message templates": "Create and edit message templates.",
   "view templates": "View Templates",
   "communication sent title": "Communication Sent!",
-  "communication sent description": "Your message has been sent successfully."
+  "communication sent description": "Your message has been sent successfully.",
+  "selected announcement": "Selected announcement: {{title}}",
+  "announcement": "Announcement",
+  "edit announcement action": "Edit announcement action triggered for ID: {{id}}.",
+  "publish announcement action": "Publish announcement action triggered for ID: {{id}}.",
+  "archive announcement action": "Archive announcement action triggered for ID: {{id}}.",
+  "delete announcement action": "Delete announcement action triggered for ID: {{id}}.",
+  "create new announcement action": "Create new announcement action triggered.",
+  "create new template action": "Create new template action triggered.",
+  "edit template action": "Edit template action triggered for ID: {{id}}.",
+  "delete template action": "Delete template action triggered for ID: {{id}}."
 }

@@ -13,5 +13,7 @@
   "pool": "Pool",
   "party room": "Party Room",
   "meeting room": "Meeting Room",
-  "rooftop terrace": "Rooftop Terrace"
+  "rooftop terrace": "Rooftop Terrace",
+  "add new amenity action": "Add new amenity action triggered.",
+  "view book amenity action": "View/Book amenity action triggered for {{amenity}}."
 }

@@ -9,5 +9,7 @@
   "pending review": "En attente de révision",
   "approved": "Approuvé",
   "rejected": "Rejeté",
-  "in progress": "En cours"
+  "in progress": "En cours",
+  "submit new request action": "Action de soumettre une nouvelle demande architecturale déclenchée.",
+  "view manage request action": "Action de voir/gérer la demande déclenchée pour l'ID : {{id}}."
 }

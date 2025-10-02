@@ -27,7 +27,6 @@ const UpcomingEvents = () => {
       // For simplicity, assume meetings are relevant if user has any building scope.
       if (userBuildingIds.length > 0) {
         // This is a simplified check. A real app would link meetings to specific buildings.
-        // For now, if a user has building access, they see all meetings.
         return true;
       }
 

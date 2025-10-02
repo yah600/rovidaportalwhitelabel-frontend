@@ -22,7 +22,7 @@ interface AnnouncementsTableProps {
 }
 
 const AnnouncementsTable = ({ announcements }: AnnouncementsTableProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(['communications', 'common']); // Ensure 'communications' and 'common' namespaces are loaded
 
   const getStatusVariant = (status: Announcement['status']) => {
     switch (status) {
@@ -40,7 +40,7 @@ const AnnouncementsTable = ({ announcements }: AnnouncementsTableProps) => {
   const columns: ColumnDef<Announcement>[] = [
     {
       accessorKey: "id",
-      header: t('id'),
+      header: t('id', { ns: 'common' }),
       cell: ({ row }) => (
         <Link to={`/comms/announcements/${row.original.id}`} className="text-primary hover:underline">
           {row.getValue("id")}
@@ -49,31 +49,31 @@ const AnnouncementsTable = ({ announcements }: AnnouncementsTableProps) => {
     },
     {
       accessorKey: "title",
-      header: t('title'),
+      header: t('title', { ns: 'common' }),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("title")}</span>,
     },
     {
       accessorKey: "author",
-      header: t('author'),
+      header: t('author', { ns: 'communications' }),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("author")}</span>,
     },
     {
       accessorKey: "targetAudience",
-      header: t('target audience'),
+      header: t('target audience', { ns: 'communications' }),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("targetAudience")}</span>,
     },
     {
       accessorKey: "status",
-      header: t('status'),
+      header: t('status', { ns: 'common' }),
       cell: ({ row }) => (
         <Badge variant={getStatusVariant(row.getValue("status"))}>
-          {t(row.getValue("status").toLowerCase())}
+          {t(row.getValue("status").toLowerCase(), { ns: 'communications' })}
         </Badge>
       ),
     },
     {
       accessorKey: "publishedAt",
-      header: t('published at'),
+      header: t('published at', { ns: 'communications' }),
       cell: ({ row }) => (
         <span className="text-rovida-slate-green-gray">
           {format(row.getValue("publishedAt"), 'MMM dd, yyyy')}
@@ -82,7 +82,7 @@ const AnnouncementsTable = ({ announcements }: AnnouncementsTableProps) => {
     },
     {
       accessorKey: "expiresAt",
-      header: t('expires at'),
+      header: t('expires at', { ns: 'communications' }),
       cell: ({ row }) => (
         <span className="text-rovida-slate-green-gray">
           {row.original.expiresAt ? format(row.original.expiresAt, 'MMM dd, yyyy') : 'N/A'}
@@ -91,12 +91,12 @@ const AnnouncementsTable = ({ announcements }: AnnouncementsTableProps) => {
     },
     {
       id: "actions",
-      header: t('actions'),
+      header: t('actions', { ns: 'common' }),
       enableSorting: false,
       cell: ({ row }) => (
         <div className="text-right">
           <Link to={`/comms/announcements/${row.original.id}`} className="text-sm text-rovida-slate-green-gray hover:underline">
-            {t('view')}
+            {t('view', { ns: 'common' })}
           </Link>
         </div>
       ),

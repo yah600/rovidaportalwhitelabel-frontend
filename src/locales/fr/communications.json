@@ -41,5 +41,14 @@
   "create edit message templates": "Créer et modifier des modèles de message.",
   "view templates": "Voir les modèles",
   "communication sent title": "Communication envoyée !",
-  "communication sent description": "Votre message a été envoyé avec succès."
+  "communication sent description": "Votre message a été envoyé avec succès.",
+  "selected announcement": "Annonce sélectionnée : {{title}}",
+  "announcement": "Annonce",
+  "edit announcement action": "Action de modifier l'annonce déclenchée pour l'ID : {{id}}.",
+  "publish announcement action": "Action de publier l'annonce déclenchée pour l'ID : {{id}}.",
+  "archive announcement action": "Action d'archiver l'annonce déclenchée pour l'ID : {{id}}.",
+  "delete announcement action": "Action de supprimer l'annonce déclenchée pour l'ID : {{id}}.",
+  "create new template action": "Action de créer un nouveau modèle déclenchée.",
+  "edit template action": "Action de modifier le modèle déclenchée pour l'ID : {{id}}.",
+  "delete template action": "Action de supprimer le modèle déclenchée pour l'ID : {{id}}."
 }
