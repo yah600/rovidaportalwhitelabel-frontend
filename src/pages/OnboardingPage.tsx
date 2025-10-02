@@ -41,15 +41,24 @@ const OnboardingPage = () => {
     setFormData((prev) => ({ ...prev, termsAccepted: checked }));
   };
 
+  const rolesRequiringUnit = ['Owner', 'Tenant'];
+  const shouldShowUnitField = rolesRequiringUnit.includes(formData.role);
+
   const nextStep = () => {
     // Basic validation for current step before moving on
     if (step === 1 && (!formData.fullName || !formData.email || !formData.phone)) {
       toast.error(t('validation error', { ns: 'common' }), { description: t('fill all fields', { ns: 'onboarding' }) });
       return;
     }
-    if (step === 2 && (!formData.role || !formData.building || !formData.unit)) {
-      toast.error(t('validation error', { ns: 'common' }), { description: t('select all options', { ns: 'onboarding' }) });
-      return;
+    if (step === 2) {
+      if (!formData.role || !formData.building) {
+        toast.error(t('validation error', { ns: 'common' }), { description: t('select all options', { ns: 'onboarding' }) });
+        return;
+      }
+      if (shouldShowUnitField && !formData.unit) {
+        toast.error(t('validation error', { ns: 'common' }), { description: t('enter unit number', { ns: 'onboarding' }) });
+        return;
+      }
     }
     setStep((prev) => prev + 1);
   };
@@ -141,10 +150,12 @@ const OnboardingPage = () => {
                   </SelectContent>
                 </Select>
               </div>
-              <div>
-                <Label htmlFor="unit">{t('unit number', { ns: 'common' })}</Label>
-                <Input id="unit" value={formData.unit} onChange={handleInputChange} placeholder={t('enter unit number', { ns: 'onboarding' })} />
-              </div>
+              {shouldShowUnitField && (
+                <div>
+                  <Label htmlFor="unit">{t('unit number', { ns: 'common' })}</Label>
+                  <Input id="unit" value={formData.unit} onChange={handleInputChange} placeholder={t('enter unit number', { ns: 'onboarding' })} />
+                </div>
+              )}
             </div>
           )}
 
