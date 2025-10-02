@@ -5,7 +5,7 @@ import { LayoutGrid, PlusCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { mockPortfolioProperties } from '@/data/mock-portfolio';
 import PortfolioTable from '@/components/settings/PortfolioTable';
-import { useAuth } from '@/hooks/useAuth'; // Import useAuth
+import { useAuth } from '@/shared/rbac/useAuth'; // Import useAuth
 
 const SettingsPortfolio = () => {
   const { t } = useTranslation(['finance', 'common', 'settings']); // Ensure 'finance', 'common', 'settings' namespaces are loaded

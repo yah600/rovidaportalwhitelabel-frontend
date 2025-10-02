@@ -7,7 +7,7 @@ import { AlertTriangle, CheckCircle, XCircle, Clock, MessageSquareText } from 'l
 import { Separator } from '@/components/ui/separator';
 import { format } from 'date-fns';
 import { toast } from 'sonner'; // Import toast for actions
-import { useAuth } from '@/hooks/useAuth'; // Import useAuth
+import { useAuth } from '@/shared/rbac/useAuth'; // Import useAuth
 
 // Mock data for active alerts and timeline
 const mockActiveAlerts = [

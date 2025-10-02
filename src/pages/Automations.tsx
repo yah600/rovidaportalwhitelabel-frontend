@@ -9,7 +9,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { PlusCircle, Zap, LayoutTemplate, MessageSquareText, PlayCircle } from 'lucide-react';
 import { toast } from 'sonner';
-import { useAuth } from '@/hooks/useAuth';
+import { useAuth } from '@/shared/rbac/useAuth';
 import { mockAutomationTemplates, AutomationTemplate } from '@/data/mock-automations';
 
 const Automations = () => {

@@ -7,14 +7,14 @@ import GlassIcons from '@/components/GlassIcons';
 import { PlusCircle, Receipt, Wrench, MessageSquare, FileSignature } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useUser } from '@/context/UserContext';
-import { useAuth } from '@/hooks/useAuth';
+import { useAuth } from '@/shared/rbac/useAuth';
 
 const AppShell = () => {
   const { t } = useTranslation(['common', 'issues', 'finance', 'communications', 'tenancy']); // Specify namespaces
   const navigate = useNavigate();
   const location = useLocation();
   const { currentUser } = useUser();
-  const { canRead, canCreate } = useAuth();
+  const { can } = useAuth();
 
   useEffect(() => {
     if (!currentUser) {
@@ -40,27 +40,27 @@ const AppShell = () => {
   }
 
   const quickActions = [
-    canCreate('Issues') && {
+    can('Issues', 'create') && {
       icon: <PlusCircle className="h-5 w-5" />,
       label: t('new issue', { ns: 'common' }),
       onClick: () => navigate('/issues/new'),
     },
-    canRead('Finance - Bills/Recurring/Deposits') && {
+    can('Finance - Bills/Recurring/Deposits') && {
       icon: <Receipt className="h-5 w-5" />,
       label: t('view bills', { ns: 'common' }),
       onClick: () => navigate('/finance/bills'),
     },
-    canRead('Maintenance') && {
+    can('Maintenance') && {
       icon: <Wrench className="h-5 w-5" />,
       label: t('work orders', { ns: 'common' }),
       onClick: () => navigate('/maintenance/work-orders'),
     },
-    canCreate('Communications') && {
+    can('Communications', 'create') && {
       icon: <MessageSquare className="h-5 w-5" />,
       label: t('announce', { ns: 'common' }),
       onClick: () => navigate('/comms/send'),
     },
-    canRead('Tenancy - Leases') && {
+    can('Tenancy - Leases') && {
       icon: <FileSignature className="h-5 w-5" />,
       label: t('view leases', { ns: 'common' }),
       onClick: () => navigate('/tenancy/leases'),

@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { mockUnitStatements } from '@/data/mock-unit-statements';
 import UnitStatementsTable from '@/components/tenancy/UnitStatementsTable';
 import { toast } from 'sonner';
-import { useAuth } from '@/hooks/useAuth';
+import { useAuth } from '@/shared/rbac/useAuth';
 
 const UnitStatements = () => {
   const { t } = useTranslation(['tenancy', 'common']);

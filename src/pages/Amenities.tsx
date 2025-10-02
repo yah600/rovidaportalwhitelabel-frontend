@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { mockAmenities } from '@/data/mock-amenities';
 import AmenitiesTable from '@/components/amenities/AmenitiesTable';
 import { toast } from 'sonner'; // Import toast for actions
-import { useAuth } from '@/hooks/useAuth'; // Import useAuth
+import { useAuth } from '@/shared/rbac/useAuth'; // Import useAuth
 
 const Amenities = () => {
   const { t } = useTranslation(['amenities', 'common']); // Ensure 'amenities' and 'common' namespaces are loaded

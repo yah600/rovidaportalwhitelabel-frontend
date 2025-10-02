@@ -18,7 +18,7 @@ import {
 import { mockArchitecturalRequests, ArchitecturalRequest } from '@/data/mock-architectural-requests';
 import { format } from 'date-fns';
 import { toast } from 'sonner';
-import { useAuth } from '@/hooks/useAuth';
+import { useAuth } from '@/shared/rbac/useAuth';
 
 const ArchitecturalRequestDetail = () => {
   const { id } = useParams();

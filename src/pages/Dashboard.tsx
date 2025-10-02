@@ -16,7 +16,7 @@ import AnimatedContent from '@/components/AnimatedContent';
 import GlassSurface from '@/components/GlassSurface';
 import Counter from '@/components/Counter';
 import { useUser } from '@/context/UserContext';
-import { useAuth } from '@/hooks/useAuth';
+import { useAuth } from '@/shared/rbac/useAuth';
 
 const Dashboard = () => {
   const { t } = useTranslation(['dashboard', 'common', 'emergency', 'issues', 'finance', 'maintenance', 'board', 'documents']); // Specify namespaces

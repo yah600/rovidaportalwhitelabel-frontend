@@ -46,7 +46,7 @@ import {
   Ticket,
 } from 'lucide-react';
 import { ShieldCheck } from 'lucide-react';
-import { useAuth } from '@/hooks/useAuth';
+import { useAuth } from '@/shared/rbac/useAuth';
 import GlassSurface from '@/components/GlassSurface';
 
 interface NavItem {
@@ -60,7 +60,7 @@ interface NavItem {
 const Sidebar = ({ className }: { className?: string }) => {
   const { t } = useTranslation(['common', 'dashboard', 'issues', 'emergency', 'maintenance', 'finance', 'board', 'rules', 'insurance', 'amenities', 'tenancy', 'documents', 'communications', 'integrations', 'analytics', 'settings', 'profile', 'architectural_requests', 'automations']); // Specify all relevant namespaces
   const location = useLocation();
-  const { canRead } = useAuth();
+  const { canAccess } = useAuth();
   const sidebarContentRef = React.useRef<HTMLDivElement>(null);
 
   const [openSubMenus, setOpenSubMenus] = React.useState<Record<string, boolean>>({});
@@ -210,7 +210,7 @@ const Sidebar = ({ className }: { className?: string }) => {
 
   const renderNavItems = (items: NavItem[]) => {
     return items.map((item) => {
-      if (!canRead(item.moduleName)) {
+      if (!canAccess(item.moduleName)) {
         return null;
       }
 
@@ -264,7 +264,7 @@ const Sidebar = ({ className }: { className?: string }) => {
           {item.subItems && isSubMenuOpen && !isCollapsed && (
             <div className="ml-6 mt-1 space-y-1">
               {item.subItems.map(subItem => {
-                if (!canRead(subItem.moduleName)) {
+                if (!canAccess(subItem.moduleName)) {
                   return null;
                 }
                 // Determine the namespace for the subItem's titleKey

@@ -7,7 +7,7 @@ import { PlusCircle, Mail } from 'lucide-react'; // Imported Mail
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card'; // Import Card for the empty state
 import { toast } from 'sonner'; // Import toast for actions
-import { useAuth } from '@/hooks/useAuth'; // Import useAuth
+import { useAuth } from '@/shared/rbac/useAuth'; // Import useAuth
 
 const DocumentsInbox = () => {
   const { t } = useTranslation(['documents', 'common']); // Ensure 'documents' and 'common' namespaces are loaded

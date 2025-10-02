@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { PlusCircle, Gavel } from 'lucide-react';
 import { mockViolationTickets } from '@/data/mock-violations';
 import ViolationTicketsTable from '@/components/rules/ViolationTicketsTable';
-import { useAuth } from '@/hooks/useAuth';
+import { useAuth } from '@/shared/rbac/useAuth';
 import { toast } from 'sonner';
 
 const ViolationTickets = () => {

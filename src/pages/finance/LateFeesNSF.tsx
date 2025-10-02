@@ -10,7 +10,7 @@ import { Separator } from '@/components/ui/separator';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'; // Imported Select components
 import { Percent, DollarSign, Clock, Save } from 'lucide-react'; // Imported Save
 import { toast } from 'sonner';
-import { useAuth } from '@/hooks/useAuth';
+import { useAuth } from '@/shared/rbac/useAuth';
 
 const FinanceLateFeesNSF = () => {
   const { t } = useTranslation(['finance', 'common']);

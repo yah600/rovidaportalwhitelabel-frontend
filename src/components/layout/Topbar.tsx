@@ -17,13 +17,13 @@ import { useUser } from '@/context/UserContext';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
 import LanguageToggle from './LanguageToggle';
-import { useAuth } from '@/hooks/useAuth';
+import { useAuth } from '@/shared/rbac/useAuth';
 
 const Topbar = () => {
   const { t } = useTranslation(['common', 'dashboard', 'settings', 'auth']); // Specify namespaces
   const navigate = useNavigate();
   const { currentUser, setCurrentUser } = useUser();
-  const { canRead } = useAuth();
+  const { canAccess } = useAuth();
 
   const userName = currentUser?.name || t("guest", { ns: 'common' });
   const userEmail = currentUser?.email || "";
@@ -47,7 +47,7 @@ const Topbar = () => {
   };
 
   const handleNotificationsClick = () => {
-    if (canRead('Settings')) {
+    if (canAccess('Settings')) {
       navigate('/settings/notifications');
     } else {
       toast.error(t('permission denied', { ns: 'common' }), {
@@ -57,7 +57,7 @@ const Topbar = () => {
   };
 
   const handleFeedbackClick = () => {
-    if (canRead('Settings')) { // Feedback is part of Settings module
+    if (canAccess('Settings')) { // Feedback is part of Settings module
       navigate('/settings/feedback');
     } else {
       toast.error(t('permission denied', { ns: 'common' }), {

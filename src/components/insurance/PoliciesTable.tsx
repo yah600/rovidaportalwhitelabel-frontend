@@ -8,7 +8,7 @@ import { InsurancePolicy } from '@/data/mock-insurance';
 import { format } from 'date-fns';
 import { DataTable } from '@/components/DataTable';
 import { toast } from 'sonner'; // Import toast for actions
-import { useAuth } from '@/hooks/useAuth'; // Import useAuth
+import { useAuth } from '@/shared/rbac/useAuth'; // Import useAuth
 import { Link } from 'react-router-dom'; // Import Link
 
 interface PoliciesTableProps {

@@ -18,7 +18,7 @@ import {
 import { mockRules, Rule } from '@/data/mock-rules';
 import { format } from 'date-fns';
 import { toast } from 'sonner';
-import { useAuth } from '@/hooks/useAuth';
+import { useAuth } from '@/shared/rbac/useAuth';
 
 const RuleDetail = () => {
   const { id } = useParams();

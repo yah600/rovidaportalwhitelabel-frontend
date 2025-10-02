@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { CalendarDays, PlusCircle, Wrench, ClipboardList } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
-import { useAuth } from '@/hooks/useAuth';
+import { useAuth } from '@/shared/rbac/useAuth';
 import { DayPicker, DateFormatter } from 'react-day-picker';
 import { format, isSameDay } from 'date-fns';
 import { mockCalendarEvents, CalendarEvent } from '@/data/mock-calendar-events';

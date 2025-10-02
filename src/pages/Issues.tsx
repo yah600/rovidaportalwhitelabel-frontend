@@ -9,7 +9,7 @@ import GooeyNav from '@/components/GooeyNav';
 import BreadcrumbNav from '@/components/BreadcrumbNav';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'; // Import Card components for empty state
 import { toast } from 'sonner'; // Import toast for actions
-import { useAuth } from '@/hooks/useAuth'; // Import useAuth
+import { useAuth } from '@/shared/rbac/useAuth'; // Import useAuth
 
 const Issues = () => {
   const { t } = useTranslation(['issues', 'common']); // Specify namespaces

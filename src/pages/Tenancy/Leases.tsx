@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { mockLeases } from '@/data/mock-leases';
 import LeasesTable from '@/components/tenancy/LeasesTable';
 import BreadcrumbNav from '@/components/BreadcrumbNav';
-import { useAuth } from '@/hooks/useAuth'; // Import useAuth
+import { useAuth } from '@/shared/rbac/useAuth'; // Import useAuth
 
 const Leases = () => {
   const { t } = useTranslation(['tenancy', 'common']); // Ensure 'tenancy' and 'common' namespaces are loaded

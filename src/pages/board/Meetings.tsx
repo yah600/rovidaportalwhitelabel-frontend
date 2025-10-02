@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { mockMeetings } from '@/data/mock-meetings';
 import MeetingsTable from '@/components/board/MeetingsTable';
 import { Card } from '@/components/ui/card'; // Import Card for the empty state
-import { useAuth } from '@/hooks/useAuth'; // Import useAuth
+import { useAuth } from '@/shared/rbac/useAuth'; // Import useAuth
 
 const BoardMeetings = () => {
   const { t } = useTranslation();

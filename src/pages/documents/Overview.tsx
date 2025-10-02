@@ -7,7 +7,7 @@ import { FileText, UploadCloud, Mail, ArrowRight } from 'lucide-react';
 import { mockDocuments } from '@/data/mock-documents';
 import { mockInboxDocuments } from '@/data/mock-inbox-documents';
 import { format } from 'date-fns';
-import { useAuth } from '@/hooks/useAuth'; // Import useAuth
+import { useAuth } from '@/shared/rbac/useAuth'; // Import useAuth
 
 const DocumentsOverview = () => {
   const { t } = useTranslation(['documents', 'common']); // Ensure 'documents' and 'common' namespaces are loaded

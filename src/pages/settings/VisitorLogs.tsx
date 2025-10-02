@@ -5,7 +5,7 @@ import { UserCheck, PlusCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { mockVisitorLogs } from '@/data/mock-visitor-logs';
 import VisitorLogsTable from '@/components/settings/VisitorLogsTable';
-import { useAuth } from '@/hooks/useAuth'; // Import useAuth
+import { useAuth } from '@/shared/rbac/useAuth'; // Import useAuth
 
 const SettingsVisitorLogs = () => {
   const { t } = useTranslation();

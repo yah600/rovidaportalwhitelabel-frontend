@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { mockRules } from '@/data/mock-rules';
 import RulesTable from '@/components/rules/RulesTable';
 import { toast } from 'sonner'; // Import toast for actions
-import { useAuth } from '@/hooks/useAuth'; // Import useAuth
+import { useAuth } from '@/shared/rbac/useAuth'; // Import useAuth
 import { Link } from 'react-router-dom'; // Import Link
 
 const Rules = () => {

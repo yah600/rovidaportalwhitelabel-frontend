@@ -5,7 +5,7 @@ import KanbanColumn from '@/components/issues/KanbanColumn';
 import { mockIssues, Issue } from '@/data/mock-issues';
 import { Card } from '@/components/ui/card'; // Import Card for permission denied state
 import { ClipboardList } from 'lucide-react'; // Import icon for permission denied state
-import { useAuth } from '@/hooks/useAuth'; // Import useAuth
+import { useAuth } from '@/shared/rbac/useAuth'; // Import useAuth
 
 const Kanban = () => {
   const { t } = useTranslation(['issues', 'common']); // Specify namespaces

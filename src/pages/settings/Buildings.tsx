@@ -5,7 +5,7 @@ import { PlusCircle, Building } from 'lucide-react'; // Imported Building
 import { mockBuildings } from '@/data/mock-buildings';
 import BuildingsTable from '@/components/settings/BuildingsTable';
 import { Card } from '@/components/ui/card'; // Import Card for the empty state
-import { useAuth } from '@/hooks/useAuth'; // Import useAuth
+import { useAuth } from '@/shared/rbac/useAuth'; // Import useAuth
 
 const SettingsBuildings = () => {
   const { t } = useTranslation(['settings', 'common']); // Ensure 'settings' and 'common' namespaces are loaded
