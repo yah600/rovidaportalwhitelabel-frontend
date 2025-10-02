@@ -3,7 +3,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { ColumnDef } from "@tanstack/react-table";
-import { Building } from '@/data/mock-buildings';
+import { Building } from '@/mocks';
 import { DataTable } from '@/components/DataTable';
 
 interface BuildingsTableProps {

@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import BreadcrumbNav from '@/components/BreadcrumbNav';
 import InboxTable from '@/components/documents/InboxTable';
-import { mockInboxDocuments } from '@/data/mock-inbox-documents';
+import { mockInboxDocuments } from '@/mocks';
 import { PlusCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card'; // Import Card for the empty state

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ColumnDef } from "@tanstack/react-table";
 import { Badge } from '@/components/ui/badge';
-import { Issue } from '@/data/mock-issues';
+import { Issue } from '@/mocks';
 import { format } from 'date-fns';
 import { DataTable } from '@/components/DataTable'; // Import the generic DataTable
 

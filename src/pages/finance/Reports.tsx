@@ -16,7 +16,7 @@ import {
   Tooltip,
   Legend,
 } from 'recharts';
-import { mockMonthlyFinancialSummary } from '@/data/mock-financial-reports';
+import { mockMonthlyFinancialSummary } from '@/mocks';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import LedgerReport from '@/components/finance/reports/LedgerReport';
 import TrialBalanceReport from '@/components/finance/reports/TrialBalanceReport';

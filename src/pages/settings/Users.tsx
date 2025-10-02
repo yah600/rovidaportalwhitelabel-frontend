@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { PlusCircle, Users } from 'lucide-react'; // Imported Users
-import { mockUsers } from '@/data/mock-users';
+import { mockUsers } from '@/mocks';
 import UsersTable from '@/components/settings/UsersTable';
 import { Card } from '@/components/ui/card'; // Import Card for the empty state
 import { useAuth } from '@/hooks/useAuth'; // Import useAuth

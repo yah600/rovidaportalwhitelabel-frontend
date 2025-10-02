@@ -8,7 +8,7 @@ import { toast } from 'sonner';
 import { useAuth } from '@/hooks/useAuth';
 import { DayPicker, DateFormatter } from 'react-day-picker';
 import { format, isSameDay } from 'date-fns';
-import { mockCalendarEvents, CalendarEvent } from '@/data/mock-calendar-events';
+import { mockCalendarEvents, CalendarEvent } from '@/mocks';
 import { Link } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 

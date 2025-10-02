@@ -10,7 +10,7 @@ import { Label } from '@/components/ui/label';
 import { PlusCircle, Zap, LayoutTemplate, MessageSquareText, PlayCircle } from 'lucide-react';
 import { toast } from 'sonner';
 import { useAuth } from '@/hooks/useAuth';
-import { mockAutomationTemplates, AutomationTemplate } from '@/data/mock-automations';
+import { mockAutomationTemplates, AutomationTemplate } from '@/mocks';
 
 const Automations = () => {
   const { t } = useTranslation(['automations', 'common']);

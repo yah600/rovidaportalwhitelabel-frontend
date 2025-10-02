@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate
 import BreadcrumbNav from '@/components/BreadcrumbNav';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Megaphone, MessageSquare, FileText, ArrowRight } from 'lucide-react';
-import { mockAnnouncements } from '@/data/mock-announcements';
+import { mockAnnouncements } from '@/mocks';
 import AnimatedList from '@/components/AnimatedList';
 import { format } from 'date-fns';
 import { toast } from 'sonner'; // Import toast for actions

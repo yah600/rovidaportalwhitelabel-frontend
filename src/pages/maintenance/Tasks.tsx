@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { ClipboardList, PlusCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { mockTasks } from '@/data/mock-tasks'; // Import mockTasks
+import { mockTasks } from '@/mocks'; // Import mockTasks
 import TasksTable from '@/components/maintenance/TasksTable'; // Import TasksTable
 import { toast } from 'sonner'; // Import toast for actions
 import { useAuth } from '@/hooks/useAuth'; // Import useAuth

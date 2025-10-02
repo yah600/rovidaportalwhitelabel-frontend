@@ -4,7 +4,7 @@ import BreadcrumbNav from '@/components/BreadcrumbNav';
 import { Button } from '@/components/ui/button';
 import { PlusCircle, Users } from 'lucide-react'; // Imported Users
 import { Link } from 'react-router-dom';
-import { mockMeetings } from '@/data/mock-meetings';
+import { mockMeetings } from '@/mocks';
 import MeetingsTable from '@/components/board/MeetingsTable';
 import { Card } from '@/components/ui/card'; // Import Card for the empty state
 import { useAuth } from '@/hooks/useAuth'; // Import useAuth

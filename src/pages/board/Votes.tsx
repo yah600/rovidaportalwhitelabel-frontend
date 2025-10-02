@@ -4,7 +4,7 @@ import BreadcrumbNav from '@/components/BreadcrumbNav';
 import { Button } from '@/components/ui/button';
 import { PlusCircle, Vote } from 'lucide-react'; // Imported Vote
 import { Link } from 'react-router-dom';
-import { mockVotes } from '@/data/mock-votes';
+import { mockVotes } from '@/mocks';
 import VotesTable from '@/components/board/VotesTable';
 import { Card } from '@/components/ui/card'; // Import Card for the empty state
 import { useAuth } from '@/hooks/useAuth'; // Import useAuth

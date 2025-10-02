@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { BalanceSheetEntry, mockBalanceSheet } from '@/data/mock-financial-reports-details';
+import { BalanceSheetEntry, mockBalanceSheet } from '@/mocks';
 import { cn } from '@/lib/utils';
 
 const BalanceSheetReport = () => {

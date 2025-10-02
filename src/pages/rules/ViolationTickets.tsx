@@ -4,7 +4,7 @@ import BreadcrumbNav from '@/components/BreadcrumbNav';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { PlusCircle, Gavel } from 'lucide-react';
-import { mockViolationTickets } from '@/data/mock-violations';
+import { mockViolationTickets } from '@/mocks';
 import ViolationTicketsTable from '@/components/rules/ViolationTicketsTable';
 import { useAuth } from '@/hooks/useAuth';
 import { toast } from 'sonner';

@@ -17,7 +17,7 @@ import {
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { mockIssues, Issue, IssueTimelineEvent, IssueAttachment, IssueParticipant } from '@/data/mock-issues';
+import { mockIssues, Issue, IssueTimelineEvent, IssueAttachment, IssueParticipant } from '@/mocks';
 import { format } from 'date-fns';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import CircularGallery from '@/components/CircularGallery'; // Import CircularGallery

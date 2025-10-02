@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { CalendarDays } from 'lucide-react';
 import { format, addDays } from 'date-fns';
-import { mockMeetings, Meeting } from '@/data/mock-meetings';
+import { mockMeetings, Meeting } from '@/mocks';
 import { useUser } from '@/context/UserContext'; // Import useUser
 
 const UpcomingEvents = () => {

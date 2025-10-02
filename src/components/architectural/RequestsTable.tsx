@@ -4,7 +4,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { ColumnDef } from "@tanstack/react-table";
 import { Badge } from '@/components/ui/badge';
-import { ArchitecturalRequest } from '@/data/mock-architectural-requests';
+import { ArchitecturalRequest } from '@/mocks';
 import { format } from 'date-fns';
 import { DataTable } from '@/components/DataTable';
 import { toast } from 'sonner'; // Import toast for actions

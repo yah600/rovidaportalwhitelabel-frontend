@@ -4,7 +4,7 @@ import BreadcrumbNav from '@/components/BreadcrumbNav';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Gavel, PlusCircle, Ticket } from 'lucide-react'; // Imported Ticket icon
 import { Button } from '@/components/ui/button';
-import { mockRules } from '@/data/mock-rules';
+import { mockRules } from '@/mocks';
 import RulesTable from '@/components/rules/RulesTable';
 import { toast } from 'sonner'; // Import toast for actions
 import { useAuth } from '@/hooks/useAuth'; // Import useAuth

@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { PlusCircle, Scale } from 'lucide-react'; // Imported Scale
-import { mockUnits } from '@/data/mock-units';
+import { mockUnits } from '@/mocks';
 import UnitsTable from '@/components/settings/UnitsTable';
 import { Card } from '@/components/ui/card'; // Import Card for the empty state
 import { useAuth } from '@/hooks/useAuth'; // Import useAuth

@@ -3,7 +3,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { ColumnDef } from "@tanstack/react-table";
-import { UnitStatement } from '@/data/mock-unit-statements';
+import { UnitStatement } from '@/mocks';
 import { DataTable } from '@/components/DataTable';
 import { Link } from 'react-router-dom';
 

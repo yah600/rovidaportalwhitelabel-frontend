@@ -4,7 +4,7 @@ import BreadcrumbNav from '@/components/BreadcrumbNav';
 import { Button } from '@/components/ui/button';
 import { PlusCircle, Receipt } from 'lucide-react'; // Imported Receipt
 import { Link } from 'react-router-dom';
-import { mockBills, Bill } from '@/data/mock-bills';
+import { mockBills, Bill } from '@/mocks';
 import BillsTable from '@/components/finance/BillsTable';
 import { Card } from '@/components/ui/card'; // Import Card for the empty state
 import { toast } from 'sonner'; // Import toast for actions

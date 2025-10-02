@@ -8,7 +8,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { Role } from '@/data/mock-roles';
+import { Role } from '@/mocks';
 import { cn } from '@/lib/utils'; // Import cn for utility classes
 
 interface RolesTableProps {

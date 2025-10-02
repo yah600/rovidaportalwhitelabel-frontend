@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import BreadcrumbNav from '@/components/BreadcrumbNav';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { FileSignature, Users, ArrowRight } from 'lucide-react';
-import { mockLeases } from '@/data/mock-leases';
-import { mockUsers } from '@/data/mock-users';
+import { mockLeases } from '@/mocks';
+import { mockUsers } from '@/mocks';
 import { useAuth } from '@/hooks/useAuth'; // Import useAuth
 
 const Tenancy = () => {

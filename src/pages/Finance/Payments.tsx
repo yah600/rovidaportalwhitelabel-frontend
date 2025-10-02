@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import BreadcrumbNav from '@/components/BreadcrumbNav';
 import { Button } from '@/components/ui/button';
 import { PlusCircle } from 'lucide-react';
-import { mockPayments } from '@/data/mock-payments';
+import { mockPayments } from '@/mocks';
 import PaymentsTable from '@/components/finance/PaymentsTable';
 import { Card } from '@/components/ui/card'; // Import Card for the empty state
 import { toast } from 'sonner'; // Import toast for actions

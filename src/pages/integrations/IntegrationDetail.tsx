@@ -15,7 +15,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { mockIntegrations, Integration } from '@/data/mock-integrations';
+import { mockIntegrations, Integration } from '@/mocks';
 import { format } from 'date-fns';
 import { toast } from 'sonner'; // Import toast for actions
 

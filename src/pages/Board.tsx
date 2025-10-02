@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import BreadcrumbNav from '@/components/BreadcrumbNav';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Handshake, Vote, ArrowRight } from 'lucide-react';
-import { mockMeetings } from '@/data/mock-meetings';
-import { mockVotes } from '@/data/mock-votes';
+import { mockMeetings } from '@/mocks';
+import { mockVotes } from '@/mocks';
 import { format } from 'date-fns';
 
 const Board = () => {

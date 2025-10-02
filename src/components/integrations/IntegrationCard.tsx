@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Plug, Settings, ArrowRight } from 'lucide-react';
-import { Integration } from '@/data/mock-integrations';
+import { Integration } from '@/mocks';
 import { format } from 'date-fns';
 
 interface IntegrationCardProps {

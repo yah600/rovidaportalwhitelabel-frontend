@@ -15,7 +15,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { mockViolationTickets, ViolationTicket } from '@/data/mock-violations';
+import { mockViolationTickets, ViolationTicket } from '@/mocks';
 import { format } from 'date-fns';
 import { toast } from 'sonner';
 import { useAuth } from '@/hooks/useAuth';

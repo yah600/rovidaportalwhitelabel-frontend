@@ -15,7 +15,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { mockInsurancePolicies, InsurancePolicy } from '@/data/mock-insurance';
+import { mockInsurancePolicies, InsurancePolicy } from '@/mocks';
 import { format } from 'date-fns';
 import { toast } from 'sonner';
 import { useAuth } from '@/hooks/useAuth';

@@ -13,7 +13,7 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
-import { Announcement } from '@/data/mock-announcements';
+import { Announcement } from '@/mocks';
 import { format } from 'date-fns';
 import { DataTable } from '@/components/DataTable'; // Import the generic DataTable
 

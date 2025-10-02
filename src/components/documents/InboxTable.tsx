@@ -4,7 +4,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { ColumnDef } from "@tanstack/react-table";
 import { Badge } from '@/components/ui/badge';
-import { InboxDocument } from '@/data/mock-inbox-documents';
+import { InboxDocument } from '@/mocks';
 import { format } from 'date-fns';
 import { Mail, FileText, FileQuestion, Scan } from 'lucide-react';
 import { DataTable } from '@/components/DataTable'; // Import the generic DataTable

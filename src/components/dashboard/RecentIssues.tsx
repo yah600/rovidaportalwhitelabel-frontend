@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { mockIssues, Issue } from '@/data/mock-issues';
+import { mockIssues, Issue } from '@/mocks';
 import { format } from 'date-fns';
 import { ArrowRight } from 'lucide-react';
 import { useUser } from '@/context/UserContext'; // Import useUser

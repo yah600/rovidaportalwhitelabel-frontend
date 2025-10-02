@@ -10,7 +10,7 @@ import { PlusCircle, UploadCloud } from 'lucide-react';
 import { toast } from 'sonner';
 import { useAuth } from '@/hooks/useAuth';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { mockUnits } from '@/data/mock-units'; // Import mock units
+import { mockUnits } from '@/mocks'; // Import mock units
 
 const NewArchitecturalRequest = () => {
   const { t } = useTranslation(['architectural_requests', 'common']);

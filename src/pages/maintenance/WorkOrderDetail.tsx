@@ -15,7 +15,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { mockWorkOrders, WorkOrder } from '@/data/mock-work-orders';
+import { mockWorkOrders, WorkOrder } from '@/mocks';
 import { format } from 'date-fns';
 import { toast } from 'sonner';
 import { useAuth } from '@/hooks/useAuth';

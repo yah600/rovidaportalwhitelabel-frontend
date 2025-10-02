@@ -15,7 +15,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { mockBills, Bill } from '@/data/mock-bills';
+import { mockBills, Bill } from '@/mocks';
 import { format } from 'date-fns';
 import { toast } from 'sonner'; // Import toast for actions
 

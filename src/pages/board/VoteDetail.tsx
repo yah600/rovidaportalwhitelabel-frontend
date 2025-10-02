@@ -15,7 +15,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { mockVotes, Vote } from '@/data/mock-votes';
+import { mockVotes, Vote } from '@/mocks';
 import { format } from 'date-fns';
 
 const BoardVoteDetail = () => {

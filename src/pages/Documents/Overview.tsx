@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import BreadcrumbNav from '@/components/BreadcrumbNav';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { FileText, UploadCloud, Mail, ArrowRight } from 'lucide-react';
-import { mockDocuments } from '@/data/mock-documents';
-import { mockInboxDocuments } from '@/data/mock-inbox-documents';
+import { mockDocuments } from '@/mocks';
+import { mockInboxDocuments } from '@/mocks';
 import { format } from 'date-fns';
 
 const DocumentsOverview = () => {

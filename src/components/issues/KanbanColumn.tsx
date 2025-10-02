@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Issue } from '@/data/mock-issues';
+import { Issue } from '@/mocks';
 import { format } from 'date-fns';
 import { Link } from 'react-router-dom';
 import { cn } from '@/lib/utils';

@@ -4,7 +4,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { ColumnDef } from "@tanstack/react-table";
 import { Badge } from '@/components/ui/badge';
-import { Asset } from '@/data/mock-assets';
+import { Asset } from '@/mocks';
 import { format } from 'date-fns';
 import { DataTable } from '@/components/DataTable'; // Import the generic DataTable
 import { toast } from 'sonner'; // Import toast for actions

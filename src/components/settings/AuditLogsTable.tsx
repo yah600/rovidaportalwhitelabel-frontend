@@ -8,7 +8,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { AuditLog } from '@/data/mock-audit-logs';
+import { AuditLog } from '@/mocks';
 import { format } from 'date-fns';
 import { cn } from '@/lib/utils'; // Import cn for utility classes
 

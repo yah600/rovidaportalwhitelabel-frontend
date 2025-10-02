@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { PlusCircle, Building } from 'lucide-react'; // Imported Building
-import { mockBuildings } from '@/data/mock-buildings';
+import { mockBuildings } from '@/mocks';
 import BuildingsTable from '@/components/settings/BuildingsTable';
 import { Card } from '@/components/ui/card'; // Import Card for the empty state
 import { useAuth } from '@/hooks/useAuth'; // Import useAuth

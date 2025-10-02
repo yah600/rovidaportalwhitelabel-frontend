@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import BreadcrumbNav from '@/components/BreadcrumbNav';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { DollarSign, Receipt, CreditCard, BarChart2, ArrowRight } from 'lucide-react';
-import { mockBills } from '@/data/mock-bills';
-import { mockPayments } from '@/data/mock-payments';
+import { mockBills } from '@/mocks';
+import { mockPayments } from '@/mocks';
 
 const Finance = () => {
   const { t } = useTranslation(['finance', 'common']); // Ensure 'finance' and 'common' namespaces are loaded

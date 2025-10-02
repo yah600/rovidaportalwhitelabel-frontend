@@ -4,7 +4,7 @@ import BreadcrumbNav from '@/components/BreadcrumbNav';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { FileText, PlusCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { mockUnitStatements } from '@/data/mock-unit-statements';
+import { mockUnitStatements } from '@/mocks';
 import UnitStatementsTable from '@/components/tenancy/UnitStatementsTable';
 import { toast } from 'sonner';
 import { useAuth } from '@/hooks/useAuth';

@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Building, PlusCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { mockAssets } from '@/data/mock-assets'; // Import mockAssets
+import { mockAssets } from '@/mocks'; // Import mockAssets
 import AssetsTable from '@/components/maintenance/AssetsTable'; // Import AssetsTable
 import { toast } from 'sonner'; // Import toast for actions
 import { useAuth } from '@/hooks/useAuth'; // Import useAuth

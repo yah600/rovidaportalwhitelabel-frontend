@@ -4,7 +4,7 @@ import BreadcrumbNav from '@/components/BreadcrumbNav';
 import { Button } from '@/components/ui/button';
 import { PlusCircle, Plug } from 'lucide-react'; // Imported Plug
 import { Link } from 'react-router-dom';
-import { mockIntegrations } from '@/data/mock-integrations';
+import { mockIntegrations } from '@/mocks';
 import IntegrationCard from '@/components/integrations/IntegrationCard';
 import { Card } from '@/components/ui/card'; // Import Card for the empty state
 import { toast } from 'sonner'; // Import toast for actions

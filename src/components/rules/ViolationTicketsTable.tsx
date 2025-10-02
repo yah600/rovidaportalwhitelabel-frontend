@@ -4,7 +4,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { ColumnDef } from "@tanstack/react-table";
 import { Badge } from '@/components/ui/badge';
-import { ViolationTicket } from '@/data/mock-violations';
+import { ViolationTicket } from '@/mocks';
 import { format } from 'date-fns';
 import { DataTable } from '@/components/DataTable';
 import { Link } from 'react-router-dom';

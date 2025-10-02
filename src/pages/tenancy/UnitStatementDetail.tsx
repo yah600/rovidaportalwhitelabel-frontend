@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Button } from '@/components/ui/button';
 import { Download, Printer, FileText } from 'lucide-react'; // Imported FileText
-import { mockUnitStatements, UnitStatement } from '@/data/mock-unit-statements';
+import { mockUnitStatements, UnitStatement } from '@/mocks';
 import { format } from 'date-fns';
 import { toast } from 'sonner';
 import { useAuth } from '@/hooks/useAuth';

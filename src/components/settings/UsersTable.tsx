@@ -4,7 +4,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { ColumnDef } from "@tanstack/react-table";
 import { Badge } from '@/components/ui/badge';
-import { User } from '@/data/mock-users';
+import { User } from '@/mocks';
 import { format } from 'date-fns';
 import { DataTable } from '@/components/DataTable';
 

@@ -15,7 +15,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { mockMeetings, Meeting } from '@/data/mock-meetings';
+import { mockMeetings, Meeting } from '@/mocks';
 import { format } from 'date-fns';
 
 const BoardMeetingDetail = () => {

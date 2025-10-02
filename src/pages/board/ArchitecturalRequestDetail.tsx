@@ -15,7 +15,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { mockArchitecturalRequests, ArchitecturalRequest } from '@/data/mock-architectural-requests';
+import { mockArchitecturalRequests, ArchitecturalRequest } from '@/mocks';
 import { format } from 'date-fns';
 import { toast } from 'sonner';
 import { useAuth } from '@/hooks/useAuth';

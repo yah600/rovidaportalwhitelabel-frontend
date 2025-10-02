@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { mockAuditLogs } from '@/data/mock-audit-logs';
+import { mockAuditLogs } from '@/mocks';
 import AuditLogsTable from '@/components/settings/AuditLogsTable';
 import { Card } from '@/components/ui/card'; // Import Card for the empty state
 

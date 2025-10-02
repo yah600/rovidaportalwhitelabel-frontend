@@ -4,7 +4,7 @@ import BreadcrumbNav from '@/components/BreadcrumbNav';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { ShoppingCart, PlusCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { mockPurchaseOrders } from '@/data/mock-purchase-orders';
+import { mockPurchaseOrders } from '@/mocks';
 import PurchaseOrdersTable from '@/components/finance/PurchaseOrdersTable';
 import { toast } from 'sonner'; // Import toast for actions
 import { useAuth } from '@/hooks/useAuth'; // Import useAuth

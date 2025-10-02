@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Wrench, PlusCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { mockWorkOrders } from '@/data/mock-work-orders'; // Import mockWorkOrders
+import { mockWorkOrders } from '@/mocks'; // Import mockWorkOrders
 import WorkOrdersTable from '@/components/maintenance/WorkOrdersTable'; // Import WorkOrdersTable
 import { toast } from 'sonner'; // Import toast for actions
 import { useAuth } from '@/hooks/useAuth'; // Import useAuth

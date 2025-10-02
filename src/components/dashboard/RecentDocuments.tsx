@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { FileText, ArrowRight } from 'lucide-react';
 import { format } from 'date-fns';
-import { mockDocuments, Document } from '@/data/mock-documents';
+import { mockDocuments, Document } from '@/mocks';
 import { useUser } from '@/context/UserContext'; // Import useUser
 
 const RecentDocuments = () => {

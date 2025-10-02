@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { PlusCircle, ClipboardList } from 'lucide-react'; // Imported ClipboardList
 import { Link } from 'react-router-dom';
-import { mockIssues, Issue } from '@/data/mock-issues';
+import { mockIssues, Issue } from '@/mocks';
 import IssuesTable from '@/components/issues/IssuesTable';
 import GooeyNav from '@/components/GooeyNav';
 import BreadcrumbNav from '@/components/BreadcrumbNav';

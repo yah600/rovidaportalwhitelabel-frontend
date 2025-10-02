@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { LedgerEntry, mockLedger } from '@/data/mock-financial-reports-details';
+import { LedgerEntry, mockLedger } from '@/mocks';
 import { format } from 'date-fns';
 import { cn } from '@/lib/utils';
 

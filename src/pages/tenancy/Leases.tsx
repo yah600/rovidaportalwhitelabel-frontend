@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { FileSignature, PlusCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { mockLeases } from '@/data/mock-leases';
+import { mockLeases } from '@/mocks';
 import LeasesTable from '@/components/tenancy/LeasesTable';
 import BreadcrumbNav from '@/components/BreadcrumbNav';
 import { useAuth } from '@/hooks/useAuth'; // Import useAuth

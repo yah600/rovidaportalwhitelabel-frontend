@@ -14,7 +14,7 @@ import {
   Pie,
   Cell,
 } from 'recharts';
-import { mockMonthlyIssues, mockIssueTypeDistribution, mockWorkOrderCompletion } from '@/data/mock-analytics';
+import { mockMonthlyIssues, mockIssueTypeDistribution, mockWorkOrderCompletion } from '@/mocks';
 import BreadcrumbNav from '@/components/BreadcrumbNav'; // Import BreadcrumbNav
 
 const COLORS = ['#C4972E', '#183747', '#7C8D89', '#E2A33B', '#3A7D44']; // Using Rovida palette

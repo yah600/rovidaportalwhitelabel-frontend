@@ -4,7 +4,7 @@ import BreadcrumbNav from '@/components/BreadcrumbNav';
 import { Button } from '@/components/ui/button';
 import { PlusCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { mockDocuments } from '@/data/mock-documents';
+import { mockDocuments } from '@/mocks';
 import DocumentsTable from '@/components/documents/DocumentsTable';
 import { Card } from '@/components/ui/card'; // Import Card for the empty state
 import { toast } from 'sonner'; // Import toast for actions

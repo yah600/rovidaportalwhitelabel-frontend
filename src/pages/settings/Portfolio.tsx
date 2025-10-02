@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { LayoutGrid, PlusCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { mockPortfolioProperties } from '@/data/mock-portfolio';
+import { mockPortfolioProperties } from '@/mocks';
 import PortfolioTable from '@/components/settings/PortfolioTable';
 import { useAuth } from '@/hooks/useAuth'; // Import useAuth
 

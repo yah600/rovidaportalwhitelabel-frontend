@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import BreadcrumbNav from '@/components/BreadcrumbNav';
 import KanbanColumn from '@/components/issues/KanbanColumn';
-import { mockIssues, Issue } from '@/data/mock-issues';
+import { mockIssues, Issue } from '@/mocks';
 import { Card } from '@/components/ui/card'; // Import Card for permission denied state
 import { ClipboardList } from 'lucide-react'; // Import icon for permission denied state
 import { useAuth } from '@/hooks/useAuth'; // Import useAuth
