@@ -9,6 +9,7 @@ import { Payment } from '@/data/mock-payments';
 import { format } from 'date-fns';
 import { DataTable } from '@/components/DataTable'; // Import the generic DataTable
 import { toast } from 'sonner'; // Import toast for actions
+import { useAuth } from '@/hooks/useAuth'; // Import useAuth
 
 interface PaymentsTableProps {
   payments: Payment[];
@@ -16,6 +17,7 @@ interface PaymentsTableProps {
 
 const PaymentsTable = ({ payments }: PaymentsTableProps) => {
   const { t } = useTranslation(['finance', 'common']); // Ensure 'finance' and 'common' namespaces are loaded
+  const { canRead } = useAuth();
 
   const getStatusVariant = (status: Payment['status']) => {
     switch (status) {
@@ -44,9 +46,13 @@ const PaymentsTable = ({ payments }: PaymentsTableProps) => {
       accessorKey: "billId",
       header: t('bill id', { ns: 'finance' }),
       cell: ({ row }) => (
-        <button onClick={() => handleViewBill(row.original.billId)} className="text-primary hover:underline">
-          {row.getValue("billId")}
-        </button>
+        canRead('Finance - Bills/Recurring/Deposits') ? (
+          <button onClick={() => handleViewBill(row.original.billId)} className="text-primary hover:underline">
+            {row.getValue("billId")}
+          </button>
+        ) : (
+          <span className="text-rovida-near-black">{row.getValue("billId")}</span>
+        )
       ),
     },
     {

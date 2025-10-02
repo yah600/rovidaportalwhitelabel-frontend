@@ -14,30 +14,41 @@ const UpcomingEvents = () => {
   const filterMeetingsByScope = (meetings: Meeting[]): Meeting[] => {
     if (!currentUser) return [];
 
-    // Super admins and condo admins see all meetings
+    // Platform Owner, Client Super-Administrator, Condo Administrator see all meetings
     if (currentUser.roles.some(role => role.scope.isSuper || role.name === 'Client Super-Administrator' || role.name === 'Condo Administrator')) {
       return meetings;
     }
 
     const userBuildingIds = currentUser.roles.flatMap(role => role.scope.buildingIds || []);
-    const userUnitIds = currentUser.roles.flatMap(role => role.scope.unitIds || []);
+    const userRoleNames = currentUser.roles.map(r => r.name);
 
     return meetings.filter(meeting => {
-      // For Board Members, filter by building if applicable (mock data doesn't have buildingId on meetings directly)
-      // For simplicity, assume meetings are relevant if user has any building scope.
-      if (userBuildingIds.length > 0) {
-        // This is a simplified check. A real app would link meetings to specific buildings.
+      // Board Members see meetings relevant to their buildings
+      if (userRoleNames.includes('Board Member') && userBuildingIds.length > 0) {
+        // Assuming meetings are generally relevant to the building(s) a board member oversees.
+        // In a real app, meetings would have a 'buildingId' field.
         return true;
       }
 
-      // Owners/Tenants might only see general announcements or meetings they are invited to.
-      // For now, if no specific building scope, filter out.
-      const nonGeneralRoles = ['Owner', 'Tenant', 'Accountant', 'Vendor / Service Provider', 'Emergency Agent', 'Building Maintenance Technician', 'Concierge / Front Desk / Security'];
-      if (nonGeneralRoles.some(roleName => currentUser.roles.map(r => r.name).includes(roleName))) {
+      // Property Managers see meetings relevant to their buildings
+      if (userRoleNames.includes('Property Manager') && userBuildingIds.length > 0) {
+        return true;
+      }
+
+      // Other roles like Owner, Tenant, Vendor, Technician, Concierge, Emergency Agent
+      // might only see specific meetings they are invited to or general announcements.
+      // For simplicity, if no specific role-based access is defined, they don't see all meetings.
+      const rolesWithLimitedMeetingAccess = ['Owner', 'Tenant', 'Vendor / Service Provider', 'Emergency Agent', 'Building Maintenance Technician', 'Concierge / Front Desk / Security'];
+      if (rolesWithLimitedMeetingAccess.some(roleName => userRoleNames.includes(roleName))) {
         return false;
       }
 
-      return true; // Default for roles with broader read access (e.g., Auditor)
+      // Read-Only Auditor sees all meetings
+      if (userRoleNames.includes('Read-Only Auditor')) {
+        return true;
+      }
+
+      return false; // Default to no access if not explicitly granted
     });
   };
 

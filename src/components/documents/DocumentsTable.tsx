@@ -10,6 +10,7 @@ import { format } from 'date-fns';
 import { FileText, FileSpreadsheet, FileImage, FileQuestion } from 'lucide-react';
 import { DataTable } from '@/components/DataTable'; // Import the generic DataTable
 import { toast } from 'sonner'; // Import toast for actions
+import { useAuth } from '@/hooks/useAuth'; // Import useAuth
 
 interface DocumentsTableProps {
   documents: Document[];
@@ -17,6 +18,7 @@ interface DocumentsTableProps {
 
 const DocumentsTable = ({ documents }: DocumentsTableProps) => {
   const { t } = useTranslation(['documents', 'common', 'finance']); // Ensure 'documents', 'common', 'finance' namespaces are loaded
+  const { canRead } = useAuth();
 
   const getFileTypeIcon = (type: Document['type']) => {
     switch (type) {
@@ -86,9 +88,11 @@ const DocumentsTable = ({ documents }: DocumentsTableProps) => {
       enableSorting: false,
       cell: ({ row }) => (
         <div className="text-right">
-          <button onClick={() => handleViewDocument(row.original.title)} className="text-sm text-rovida-slate-green-gray hover:underline">
-            {t('view', { ns: 'common' })}
-          </button>
+          {canRead('Documents') && (
+            <Link to={`/documents/${row.original.id}`} className="text-sm text-rovida-slate-green-gray hover:underline">
+              {t('view', { ns: 'common' })}
+            </Link>
+          )}
         </div>
       ),
     },

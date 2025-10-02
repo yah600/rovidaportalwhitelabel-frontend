@@ -15,40 +15,37 @@ const RecentDocuments = () => {
   const filterDocumentsByScope = (documents: Document[]): Document[] => {
     if (!currentUser) return [];
 
-    // Super admins and condo admins see all documents
+    // Platform Owner, Client Super-Administrator, Condo Administrator see all documents
     if (currentUser.roles.some(role => role.scope.isSuper || role.name === 'Client Super-Administrator' || role.name === 'Condo Administrator')) {
       return documents;
     }
 
     const userBuildingIds = currentUser.roles.flatMap(role => role.scope.buildingIds || []);
     const userUnitIds = currentUser.roles.flatMap(role => role.scope.unitIds || []);
+    const userRoleNames = currentUser.roles.map(r => r.name);
 
     return documents.filter(doc => {
-      // Documents are generally accessible, but some might be restricted by category or specific building/unit.
-      // For simplicity, if a user has a building scope, they see documents relevant to that building.
-      // If a user has a unit scope, they see documents relevant to their unit.
-      // Accountant sees financial documents.
-      // Vendor sees maintenance documents.
-
-      const userRoleNames = currentUser.roles.map(r => r.name);
-
+      // Accountant sees financial documents
       if (userRoleNames.includes('Accountant') && doc.category === 'Financial') return true;
+      // Vendor sees maintenance documents
       if (userRoleNames.includes('Vendor / Service Provider') && doc.category === 'Maintenance') return true;
 
       // If user has building scope, show general documents and documents related to their buildings
       if (userBuildingIds.length > 0) {
         // This is a simplified check. A real app would link documents to specific buildings.
+        // For now, assume general documents are visible to those with building scope.
         return true;
       }
 
       // If user has unit scope, show general documents and documents related to their units
       if (userUnitIds.length > 0) {
         // This is a simplified check. A real app would link documents to specific units.
+        // For now, assume general documents are visible to those with unit scope.
         return true;
       }
 
-      // Default for roles with broader read access (e.g., Board Member, Auditor)
-      const generalReadRoles = ['Board Member', 'Read-Only Auditor', 'Owner', 'Tenant', 'Emergency Agent', 'Concierge / Front Desk / Security', 'Building Maintenance Technician'];
+      // Default for roles with broader read access (e.g., Board Member, Auditor, Owner, Tenant, Concierge, Emergency Agent, Building Maintenance Technician)
+      const generalReadRoles = ['Board Member', 'Read-Only Auditor', 'Owner', 'Tenant', 'Emergency Agent', 'Concierge / Front Desk / Security', 'Building Maintenance Technician', 'Property Manager'];
       if (generalReadRoles.some(roleName => userRoleNames.includes(roleName))) {
         return true;
       }

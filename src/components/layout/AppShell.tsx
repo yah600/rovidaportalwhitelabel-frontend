@@ -33,7 +33,7 @@ const AppShell = () => {
     canRead('Finance - Bills/Recurring/Deposits') && { icon: <Receipt />, label: t('view bills', { ns: 'common' }), onClick: () => navigate('/finance/bills') },
     canRead('Maintenance') && { icon: <Wrench />, label: t('work orders', { ns: 'common' }), onClick: () => navigate('/maintenance/work-orders') },
     canCreate('Communications') && { icon: <MessageSquare />, label: t('announce', { ns: 'common' }), onClick: () => navigate('/comms/send') },
-    canRead('Tenancy') && { icon: <FileSignature />, label: t('view leases', { ns: 'common' }), onClick: () => navigate('/tenancy/leases') },
+    canRead('Tenancy - Leases') && { icon: <FileSignature />, label: t('view leases', { ns: 'common' }), onClick: () => navigate('/tenancy/leases') },
   ].filter(Boolean);
 
   if (!currentUser && !location.pathname.startsWith('/auth') && location.pathname !== '/onboarding') {
@@ -52,7 +52,6 @@ const AppShell = () => {
         <main className="flex flex-1 flex-col gap-6 p-6 pb-20">
           <Outlet />
         </main>
-        <MadeWithDyad />
       </div>
       {currentUser && quickActions.length > 0 && (
         <div className="fixed bottom-0 left-1/2 -translate-x-1/2 z-50 w-full max-w-md py-4">

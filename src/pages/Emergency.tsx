@@ -7,6 +7,7 @@ import { AlertTriangle, CheckCircle, XCircle, Clock, MessageSquareText } from 'l
 import { Separator } from '@/components/ui/separator';
 import { format } from 'date-fns';
 import { toast } from 'sonner'; // Import toast for actions
+import { useAuth } from '@/hooks/useAuth'; // Import useAuth
 
 // Mock data for active alerts and timeline
 const mockActiveAlerts = [
@@ -61,6 +62,7 @@ const mockEmergencyTimeline = [
 
 const Emergency = () => {
   const { t } = useTranslation(['emergency', 'common']); // Ensure 'emergency' and 'common' namespaces are loaded
+  const { canApprove, canPerformSpecial } = useAuth();
 
   const breadcrumbItems = [
     { label: t('emergency', { ns: 'emergency' }), href: '/emergency' },
@@ -111,8 +113,12 @@ const Emergency = () => {
                     {t('detected', { ns: 'emergency' })}: {format(alert.timestamp, 'MMM dd, yyyy HH:mm')}
                   </p>
                   <div className="mt-3 flex gap-2">
-                    <Button variant="destructive" className="btn-primary bg-rovida-error border border-white" onClick={() => handleAcknowledge(alert.id)}>{t('acknowledge', { ns: 'emergency' })}</Button>
-                    <Button variant="outline" className="btn-secondary border-rovida-error text-rovida-error hover:bg-rovida-error/10" onClick={() => handleEscalate(alert.id)}>{t('escalate', { ns: 'emergency' })}</Button>
+                    {canApprove('Emergency Center') && (
+                      <Button variant="destructive" className="btn-primary bg-rovida-error border border-white" onClick={() => handleAcknowledge(alert.id)}>{t('acknowledge', { ns: 'emergency' })}</Button>
+                    )}
+                    {canPerformSpecial('Emergency Center') && ( // Assuming escalate is a 'special' action
+                      <Button variant="outline" className="btn-secondary border-rovida-error text-rovida-error hover:bg-rovida-error/10" onClick={() => handleEscalate(alert.id)}>{t('escalate', { ns: 'emergency' })}</Button>
+                    )}
                   </div>
                 </div>
               ))

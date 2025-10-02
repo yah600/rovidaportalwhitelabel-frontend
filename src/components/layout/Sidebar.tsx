@@ -52,7 +52,7 @@ interface NavItem {
 }
 
 const Sidebar = ({ className }: { className?: string }) => {
-  const { t } = useTranslation(['common', 'dashboard', 'issues', 'emergency', 'maintenance', 'finance', 'board', 'rules', 'insurance', 'amenities', 'tenancy', 'documents', 'communications', 'integrations', 'analytics', 'settings', 'profile']); // Specify all relevant namespaces
+  const { t } = useTranslation(['common', 'dashboard', 'issues', 'emergency', 'maintenance', 'finance', 'board', 'rules', 'insurance', 'amenities', 'tenancy', 'documents', 'communications', 'integrations', 'analytics', 'settings', 'profile', 'architectural_requests']); // Specify all relevant namespaces
   const location = useLocation();
   const { canRead } = useAuth();
   const sidebarContentRef = React.useRef<HTMLDivElement>(null);
@@ -119,7 +119,7 @@ const Sidebar = ({ className }: { className?: string }) => {
       icon: FileSignature,
       moduleName: 'Tenancy',
       subItems: [
-        { titleKey: 'leases', href: '/tenancy/leases', icon: FileSignature, moduleName: 'Tenancy' },
+        { titleKey: 'leases', href: '/tenancy/leases', icon: FileSignature, moduleName: 'Tenancy - Leases' },
       ],
     },
     {
@@ -162,7 +162,7 @@ const Sidebar = ({ className }: { className?: string }) => {
         { titleKey: 'visitor logs', href: '/settings/visitor-logs', icon: UserCheck, moduleName: 'Visitor Logs' },
         { titleKey: 'notifications', href: '/settings/notifications', icon: Bell, moduleName: 'Settings' },
         { titleKey: 'audit log', href: '/settings/audit', icon: FileText, moduleName: 'Settings' },
-        { titleKey: 'feedback', href: '/settings/feedback', icon: MessageSquareText, moduleName: 'Settings' },
+        { titleKey: 'feedback', href: '/settings/feedback', icon: MessageSquareText, moduleName: 'Feedback' },
       ],
     },
     { titleKey: 'profile', href: '/profile', icon: User, moduleName: 'Profile' },
@@ -274,7 +274,7 @@ const Sidebar = ({ className }: { className?: string }) => {
                 else if (subItem.href.startsWith('/settings/visitor-logs')) subNamespace = 'settings';
                 else if (subItem.href.startsWith('/settings/notifications')) subNamespace = 'settings';
                 else if (subItem.href.startsWith('/settings/audit')) subNamespace = 'settings';
-                else if (subItem.href.startsWith('/settings/feedback')) subNamespace = 'settings';
+                else if (subItem.href.startsWith('/settings/feedback')) subNamespace = 'feedback';
 
 
                 return (

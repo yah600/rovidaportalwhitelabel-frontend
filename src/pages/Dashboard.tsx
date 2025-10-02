@@ -33,12 +33,17 @@ const Dashboard = () => {
   }, []);
 
   // Helper to filter data based on user's scope
-  const filterByScope = <T extends { unit?: string; buildingId?: string; id?: string }>(
+  const filterByScope = <T extends { unit?: string; buildingId?: string; id?: string; assignee?: string; reporter?: string; vendor?: string }>(
     data: T[],
     moduleName: string
   ): T[] => {
-    if (!currentUser || currentUser.roles.some(role => role.scope.isSuper || role.name === 'Client Super-Administrator' || role.name === 'Condo Administrator')) {
-      return data; // Super admins and condo admins see all
+    if (!currentUser || currentUser.roles.length === 0) {
+      return [];
+    }
+
+    // Platform Owner, Client Super-Administrator, Condo Administrator see all
+    if (currentUser.roles.some(role => role.scope.isSuper || role.name === 'Client Super-Administrator' || role.name === 'Condo Administrator')) {
+      return data;
     }
 
     const userBuildingIds = currentUser.roles.flatMap(role => role.scope.buildingIds || []);
@@ -46,28 +51,45 @@ const Dashboard = () => {
     const userVendorId = currentUser.roles.find(role => role.scope.vendorId)?.scope.vendorId;
 
     return data.filter(item => {
-      if (item.unit) {
-        const unit = item.unit.replace('Unit ', 'UNIT'); // Convert 'Unit 101' to 'UNIT101' for comparison
-        if (userUnitIds.includes(unit)) return true;
+      // Filter for Owners/Tenants by unit
+      if ((currentUser.roles.some(r => r.name === 'Owner' || r.name === 'Tenant')) && item.unit) {
+        const itemUnitNumber = item.unit.replace('Unit ', 'UNIT');
+        if (userUnitIds.includes(itemUnitNumber)) return true;
       }
-      if (item.buildingId && userBuildingIds.includes(item.buildingId)) return true;
-      // For vendors, filter by assigned work orders/issues (mock data doesn't have vendorId on issues/work orders directly, so this is a placeholder)
-      if (moduleName === 'Maintenance' && userVendorId && (item as any).assignedTo === currentUser.name) return true; // Assuming assignedTo matches user name for mock
-      if (moduleName === 'Issues' && userVendorId && (item as any).assignee === currentUser.name) return true; // Assuming assignee matches user name for mock
 
-      // If no specific scope, and not a super admin, filter out
-      // For roles like Accountant, Board Member, Auditor, they might see org-wide data
-      // This logic needs to be more specific per module if needed.
-      // For now, if no specific scope, they see all if they have read permission for the module.
-      return canRead(moduleName);
+      // Filter for Property Managers, Board Members, Building Maintenance Technician by building
+      if ((currentUser.roles.some(r => r.name === 'Property Manager' || r.name === 'Board Member' || r.name === 'Building Maintenance Technician' || r.name === 'Emergency Agent' || r.name === 'Concierge / Front Desk / Security')) && item.unit) {
+        // This is a simplified mapping. In a real app, units would have explicit building IDs.
+        const buildingIdFromUnit = item.unit.startsWith('Unit 1') || item.unit.startsWith('Unit 2') ? 'BLD001' : (item.unit.startsWith('Unit 3') ? 'BLD002' : null);
+        if (buildingIdFromUnit && userBuildingIds.includes(buildingIdFromUnit)) return true;
+      }
+      
+      // Filter for Vendors by assignedTo or vendorId (if item has a vendor field)
+      if (currentUser.roles.some(r => r.name === 'Vendor / Service Provider')) {
+        if (item.assignee === currentUser.name) return true; // For tasks/issues assigned to them
+        if (item.vendor === userVendorId) return true; // For bills/POs from their vendor
+      }
+
+      // Accountant sees all financial data
+      if (currentUser.roles.some(r => r.name === 'Accountant') && moduleName.startsWith('Finance')) {
+        return true;
+      }
+
+      // Read-Only Auditor sees all data
+      if (currentUser.roles.some(r => r.name === 'Read-Only Auditor')) {
+        return true;
+      }
+
+      // If no specific scope matches, and not a super admin, filter out
+      return false;
     });
   };
 
   // Filter mock data based on user's role and scope
-  const filteredIssues = filterByScope(mockIssues, 'Issues');
-  const filteredBills = filterByScope(mockBills, 'Finance');
-  const filteredTasks = filterByScope(mockTasks, 'Maintenance');
-  const filteredVotes = filterByScope(mockVotes, 'Board');
+  const filteredIssues = canRead('Issues') ? filterByScope(mockIssues, 'Issues') : [];
+  const filteredBills = canRead('Finance - Bills/Recurring/Deposits') ? filterByScope(mockBills, 'Finance - Bills/Recurring/Deposits') : [];
+  const filteredTasks = canRead('Maintenance') ? filterByScope(mockTasks, 'Maintenance') : [];
+  const filteredVotes = canRead('Board - Meetings/Votes') ? filterByScope(mockVotes, 'Board - Meetings/Votes') : [];
 
   // Calculate dynamic KPI values based on filtered data
   const openIssuesCount = filteredIssues.filter(issue => issue.status === 'Open' || issue.status === 'In Progress' || issue.status === 'Pending').length;
@@ -77,12 +99,12 @@ const Dashboard = () => {
 
   const kpiCards = [
     { title: t('open issues', { ns: 'dashboard' }), value: openIssuesCount, trend: t('trend issues', { ns: 'dashboard' }), module: 'Issues' },
-    { title: t('overdue bills', { ns: 'dashboard' }), value: overdueBillsCount, trend: t('trend bills', { ns: 'dashboard' }), module: 'Finance' },
+    { title: t('overdue bills', { ns: 'dashboard' }), value: overdueBillsCount, trend: t('trend bills', { ns: 'dashboard' }), module: 'Finance - Bills/Recurring/Deposits' },
     { title: t('due tasks', { ns: 'dashboard' }), value: dueTasksCount, trend: t('trend tasks', { ns: 'dashboard' }), module: 'Maintenance' },
-    { title: t('open votes', { ns: 'dashboard' }), value: openVotesCount, trend: t('trend votes', { ns: 'dashboard' }), module: 'Board' },
+    { title: t('open votes', { ns: 'dashboard' }), value: openVotesCount, trend: t('trend votes', { ns: 'dashboard' }), module: 'Board - Meetings/Votes' },
   ];
 
-  const hasActiveEmergency = canRead('Emergency Center') && true; // Placeholder for actual emergency status
+  const hasActiveEmergency = canRead('Emergency Center') && mockIssues.some(issue => issue.priority === 'Critical' && issue.status !== 'Closed'); // Check for critical open issues as emergency
 
   return (
     <div className="flex flex-1 flex-col gap-4">
@@ -145,7 +167,7 @@ const Dashboard = () => {
             <RecentIssues />
           </AnimatedContent>
         )}
-        {canRead('Board') && (
+        {canRead('Board - Meetings/Votes') && (
           <AnimatedContent delay={0.6}>
             <UpcomingEvents />
           </AnimatedContent>

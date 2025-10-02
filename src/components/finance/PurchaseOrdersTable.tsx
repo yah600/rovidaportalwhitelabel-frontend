@@ -8,6 +8,7 @@ import { PurchaseOrder } from '@/data/mock-purchase-orders';
 import { format } from 'date-fns';
 import { DataTable } from '@/components/DataTable';
 import { toast } from 'sonner'; // Import toast for actions
+import { useAuth } from '@/hooks/useAuth'; // Import useAuth
 
 interface PurchaseOrdersTableProps {
   purchaseOrders: PurchaseOrder[];
@@ -15,6 +16,7 @@ interface PurchaseOrdersTableProps {
 
 const PurchaseOrdersTable = ({ purchaseOrders }: PurchaseOrdersTableProps) => {
   const { t } = useTranslation(['finance', 'common']); // Ensure 'finance' and 'common' namespaces are loaded
+  const { canRead } = useAuth();
 
   const getStatusVariant = (status: PurchaseOrder['status']) => {
     switch (status) {
@@ -82,9 +84,11 @@ const PurchaseOrdersTable = ({ purchaseOrders }: PurchaseOrdersTableProps) => {
       enableSorting: false,
       cell: ({ row }) => (
         <div className="text-right">
-          <button onClick={() => handleViewManagePurchaseOrder(row.original.id)} className="text-sm text-rovida-slate-green-gray hover:underline">
-            {t('view', { ns: 'common' })} / {t('manage', { ns: 'common' })}
-          </button>
+          {canRead('Finance') && (
+            <button onClick={() => handleViewManagePurchaseOrder(row.original.id)} className="text-sm text-rovida-slate-green-gray hover:underline">
+              {t('view', { ns: 'common' })} / {t('manage', { ns: 'common' })}
+            </button>
+          )}
         </div>
       ),
     },

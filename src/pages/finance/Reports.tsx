@@ -5,9 +5,12 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { BarChart2, FileText, Download, AlertTriangle } from 'lucide-react'; // Added AlertTriangle
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner'; // Import toast for actions
+import { useAuth } from '@/hooks/useAuth'; // Import useAuth
 
 const FinanceReports = () => {
   const { t } = useTranslation(['finance', 'common']); // Ensure 'finance' and 'common' namespaces are loaded
+  const { canExport } = useAuth();
+
   const breadcrumbItems = [
     { label: t('finance', { ns: 'finance' }), href: '/finance' },
     { label: t('reports', { ns: 'finance' }), href: '/finance/reports' },
@@ -32,9 +35,11 @@ const FinanceReports = () => {
             <p className="text-sm text-rovida-slate-green-gray mb-4">
               {t('generate detailed expense report', { ns: 'finance' })}
             </p>
-            <Button variant="outline" size="sm" className="btn-secondary" onClick={() => handleGenerateReport('Monthly Expense')}>
-              <Download className="mr-2 h-4 w-4" /> {t('generate report', { ns: 'finance' })}
-            </Button>
+            {canExport('Finance - Reports') && (
+              <Button variant="outline" size="sm" className="btn-secondary" onClick={() => handleGenerateReport('Monthly Expense')}>
+                <Download className="mr-2 h-4 w-4" /> {t('generate report', { ns: 'finance' })}
+              </Button>
+            )}
           </CardContent>
         </Card>
 
@@ -47,9 +52,11 @@ const FinanceReports = () => {
             <p className="text-sm text-rovida-slate-green-gray mb-4">
               {t('view summary income expenses', { ns: 'finance' })}
             </p>
-            <Button variant="outline" size="sm" className="btn-secondary" onClick={() => handleGenerateReport('Income Statement')}>
-              <Download className="mr-2 h-4 w-4" /> {t('generate report', { ns: 'finance' })}
-            </Button>
+            {canExport('Finance - Reports') && (
+              <Button variant="outline" size="sm" className="btn-secondary" onClick={() => handleGenerateReport('Income Statement')}>
+                <Download className="mr-2 h-4 w-4" /> {t('generate report', { ns: 'finance' })}
+              </Button>
+            )}
           </CardContent>
         </Card>
 
@@ -62,9 +69,11 @@ const FinanceReports = () => {
             <p className="text-sm text-rovida-slate-green-gray mb-4">
               {t('list all overdue bills', { ns: 'finance' })}
             </p>
-            <Button variant="outline" size="sm" className="btn-secondary" onClick={() => handleGenerateReport('Overdue Bills')}>
-              <Download className="mr-2 h-4 w-4" /> {t('generate report', { ns: 'finance' })}
-            </Button>
+            {canExport('Finance - Reports') && (
+              <Button variant="outline" size="sm" className="btn-secondary" onClick={() => handleGenerateReport('Overdue Bills')}>
+                <Download className="mr-2 h-4 w-4" /> {t('generate report', { ns: 'finance' })}
+              </Button>
+            )}
           </CardContent>
         </Card>
       </div>

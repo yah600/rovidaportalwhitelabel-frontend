@@ -90,7 +90,7 @@ const settingsNavItems: SettingsNavItem[] = [
     titleKey: 'feedback',
     href: '/settings/feedback',
     icon: MessageSquareText,
-    moduleName: 'Settings',
+    moduleName: 'Feedback',
   },
 ];
 

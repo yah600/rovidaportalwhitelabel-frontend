@@ -8,6 +8,7 @@ import { Badge } from '@/components/ui/badge';
 import { Bill } from '@/data/mock-bills';
 import { format } from 'date-fns';
 import { DataTable } from '@/components/DataTable'; // Import the generic DataTable
+import { useAuth } from '@/hooks/useAuth'; // Import useAuth
 
 interface BillsTableProps {
   bills: Bill[];
@@ -15,6 +16,7 @@ interface BillsTableProps {
 
 const BillsTable = ({ bills }: BillsTableProps) => {
   const { t } = useTranslation(['finance', 'common']); // Ensure 'finance' and 'common' namespaces are loaded
+  const { canRead } = useAuth();
 
   const getStatusVariant = (status: Bill['status']) => {
     switch (status) {
@@ -80,9 +82,11 @@ const BillsTable = ({ bills }: BillsTableProps) => {
       enableSorting: false,
       cell: ({ row }) => (
         <div className="text-right">
-          <Link to={`/finance/bills/${row.original.id}`} className="text-sm text-rovida-slate-green-gray hover:underline">
-            {t('view', { ns: 'common' })}
-          </Link>
+          {canRead('Finance - Bills/Recurring/Deposits') && (
+            <Link to={`/finance/bills/${row.original.id}`} className="text-sm text-rovida-slate-green-gray hover:underline">
+              {t('view', { ns: 'common' })}
+            </Link>
+          )}
         </div>
       ),
     },
