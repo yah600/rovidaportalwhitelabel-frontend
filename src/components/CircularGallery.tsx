@@ -10,9 +10,9 @@ interface OGLRenderingContext extends WebGL2RenderingContext {
   canvas: HTMLCanvasElement;
 }
 
-function debounce(func: Function, wait: number) {
+function debounce<T extends (...args: unknown[]) => unknown>(func: T, wait: number) {
   let timeout: ReturnType<typeof setTimeout>;
-  return function (this: any, ...args: any[]) {
+  return function (this: ThisParameterType<T>, ...args: Parameters<T>) {
     clearTimeout(timeout);
     timeout = setTimeout(() => func.apply(this, args), wait);
   };
@@ -22,11 +22,11 @@ function lerp(p1: number, p2: number, t: number) {
   return p1 + (p2 - p1) * t;
 }
 
-function autoBind(instance: any) {
+function autoBind<T extends object>(instance: T) {
   const proto = Object.getPrototypeOf(instance);
   Object.getOwnPropertyNames(proto).forEach(key => {
     if (key !== 'constructor' && typeof instance[key] === 'function') {
-      instance[key] = instance[key].bind(instance);
+      (instance[key] as Function) = (instance[key] as Function).bind(instance);
     }
   });
 }
@@ -69,7 +69,7 @@ class Title {
     textColor?: string;
     font?: string;
   }) {
-    autoBind(this);
+    autoBind(this as Title);
     this.gl = gl;
     this.plane = plane;
     this.renderer = renderer;
@@ -353,7 +353,7 @@ class App {
   container: HTMLElement;
   scrollSpeed: number;
   scroll: { ease: number; current: number; target: number; last: number; position?: number };
-  onCheckDebounce: Function;
+  onCheckDebounce: (this: App) => void;
   renderer: Renderer;
   gl: OGLRenderingContext; // Changed to OGLRenderingContext
   camera: Camera;
@@ -365,11 +365,11 @@ class App {
   isDown: boolean;
   start: number;
   raf: number;
-  boundOnResize: (this: Window, ev: UIEvent) => any;
-  boundOnWheel: (this: Window, ev: WheelEvent) => any;
-  boundOnTouchDown: (this: Window, ev: MouseEvent | TouchEvent) => any;
-  boundOnTouchMove: (this: Window, ev: MouseEvent | TouchEvent) => any;
-  boundOnTouchUp: (this: Window, ev: MouseEvent | TouchEvent) => any;
+  boundOnResize: (this: Window, ev: UIEvent) => void;
+  boundOnWheel: (this: Window, ev: WheelEvent) => void;
+  boundOnTouchDown: (this: Window, ev: MouseEvent | TouchEvent) => void;
+  boundOnTouchMove: (this: Window, ev: MouseEvent | TouchEvent) => void;
+  boundOnTouchUp: (this: Window, ev: MouseEvent | TouchEvent) => void;
   viewport: { width: number; height: number }; // Added missing viewport property
 
   constructor(
@@ -482,11 +482,11 @@ class App {
     this.onCheck();
   }
   onWheel(e: WheelEvent) {
-    const delta = e.deltaY || (e as any).wheelDelta || (e as any).detail;
+    const delta = e.deltaY || e.wheelDelta || e.detail;
     this.scroll.target += (delta > 0 ? this.scrollSpeed : -this.scrollSpeed) * 0.2;
     this.onCheckDebounce();
   }
-  onCheck() {
+  onCheck(this: App) {
     if (!this.medias || !this.medias[0]) return;
     const width = this.medias[0].width;
     const itemIndex = Math.round(Math.abs(this.scroll.target) / width);

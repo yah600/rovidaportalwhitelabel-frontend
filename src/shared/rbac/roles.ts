@@ -1,0 +1,13 @@
+export const ROLES = {
+  SYSADMIN: 'SYSADMIN',
+  PORTFOLIO_MANAGER: 'PORTFOLIO_MANAGER',
+  BUILDING_MANAGER: 'BUILDING_MANAGER',
+  BOARD: 'BOARD',
+  OWNER: 'OWNER',
+  TENANT: 'TENANT',
+  VENDOR: 'VENDOR',
+  SECURITY: 'SECURITY',
+  GUEST: 'GUEST',
+} as const;
+
+export type Role = keyof typeof ROLES;

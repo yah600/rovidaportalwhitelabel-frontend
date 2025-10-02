@@ -279,11 +279,11 @@ const ScrollStack = ({
       }
       card.style.willChange = 'transform, filter';
       card.style.transformOrigin = 'top center';
-      (card.style as any).backfaceVisibility = 'hidden';
+      card.style.backfaceVisibility = 'hidden';
       card.style.transform = 'translateZ(0)';
-      (card.style as any).webkitTransform = 'translateZ(0)';
+      card.style.webkitTransform = 'translateZ(0)';
       card.style.perspective = '1000px';
-      (card.style as any).webkitPerspective = '1000px';
+      card.style.webkitPerspective = '1000px';
     });
 
     setupLenis();

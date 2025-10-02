@@ -1,0 +1,1 @@
+// This file will export data adapters for the mock data.

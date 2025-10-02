@@ -1,19 +1,19 @@
-import { motion, useSpring, useTransform } from 'motion/react';
+import { motion, useSpring, useTransform, MotionValue } from 'motion/react';
 import { useEffect } from 'react';
 import React from 'react';
 
 import './Counter.css';
 
 interface NumberProps {
-  mv: any; // MotionValue
+  mv: MotionValue<number>; // MotionValue
   number: number;
   height: number;
 }
 
 function Number({ mv, number, height }: NumberProps) {
-  let y = useTransform(mv, (latest: number) => { // Explicitly type latest as number
-    let placeValue = latest % 10;
-    let offset = (10 + number - placeValue) % 10;
+  const y = useTransform(mv, (latest: number) => { // Explicitly type latest as number
+    const placeValue = latest % 10;
+    const offset = (10 + number - placeValue) % 10;
     let memo = offset * height;
     if (offset > 5) {
       memo -= 10 * height;
@@ -35,8 +35,8 @@ interface DigitProps {
 }
 
 function Digit({ place, value, height, digitStyle }: DigitProps) {
-  let valueRoundedToPlace = Math.floor(value / place);
-  let animatedValue = useSpring(valueRoundedToPlace);
+  const valueRoundedToPlace = Math.floor(value / place);
+  const animatedValue = useSpring(valueRoundedToPlace);
   useEffect(() => {
     animatedValue.set(valueRoundedToPlace);
   }, [animatedValue, valueRoundedToPlace]);

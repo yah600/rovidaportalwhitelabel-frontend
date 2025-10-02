@@ -1,0 +1,1 @@
+export const MOCKS_ENABLED = import.meta.env.VITE_MOCKS_ENABLED === 'true';

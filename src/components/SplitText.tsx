@@ -56,9 +56,9 @@ const SplitText = ({
       if (!ref.current || !text || !fontsLoaded) return;
       const el = ref.current;
 
-      if ((el as any)._rbsplitInstance) {
+      if (el._rbsplitInstance) {
         try {
-          (el as any)._rbsplitInstance.revert();
+          el._rbsplitInstance.revert();
         } catch (_) {
           /* noop */
         }

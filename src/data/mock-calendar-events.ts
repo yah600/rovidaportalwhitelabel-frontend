@@ -16,7 +16,7 @@ export const mockCalendarEvents: CalendarEvent[] = [
     id: wo.id,
     title: wo.title,
     date: wo.dueDate,
-    type: 'work-order' as 'work-order',
+    type: 'work-order',
     status: wo.status,
     link: `/maintenance/work-orders/${wo.id}`
   })),
@@ -24,7 +24,7 @@ export const mockCalendarEvents: CalendarEvent[] = [
     id: task.id,
     title: task.title,
     date: task.dueDate,
-    type: 'task' as 'task',
+    type: 'task',
     status: task.status,
     link: `/maintenance/tasks/${task.id}`
   })),

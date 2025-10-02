@@ -63,7 +63,7 @@ const CardNav = ({
         contentEl.style.position = 'static';
         contentEl.style.height = 'auto';
 
-        contentEl.offsetHeight;
+        const _ = contentEl.offsetHeight;
 
         const topBar = 60;
         const padding = 16;

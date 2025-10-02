@@ -33,71 +33,50 @@ export interface CurrentUser {
 
 // Mock user data for demonstration purposes
 // Each user has a unique email and password for testing different roles
+// Roles aligned with RBAC system: SYSADMIN, PORTFOLIO_MANAGER, BUILDING_MANAGER, BOARD, OWNER, TENANT, VENDOR, SECURITY, GUEST
 export const MOCK_USERS: { email: string; password: string; user: CurrentUser }[] = [
   {
-    email: 'platform.owner@example.com',
+    email: 'sysadmin@example.com',
     password: 'password',
     user: {
-      id: 'usr-po-001',
-      name: 'Platform Owner',
-      email: 'platform.owner@example.com',
-      roles: [{ name: 'Platform Owner', scope: { isSuper: true } }],
-      onboarded: false,
+      id: 'usr-sa-001',
+      name: 'System Administrator',
+      email: 'sysadmin@example.com',
+      roles: [{ name: 'SYSADMIN', scope: { isSuper: true } }],
+      onboarded: true,
     },
   },
   {
-    email: 'client.super@example.com',
-    password: 'password',
-    user: {
-      id: 'usr-csa-001',
-      name: 'Client Super-Admin',
-      email: 'client.super@example.com',
-      roles: [{ name: 'Client Super-Administrator', scope: { orgId: 'org-rovida-001' } }],
-      onboarded: false,
-    },
-  },
-  {
-    email: 'condo.admin@example.com',
-    password: 'password',
-    user: {
-      id: 'usr-ca-001',
-      name: 'Condo Admin',
-      email: 'condo.admin@example.com',
-      roles: [{ name: 'Condo Administrator', scope: { orgId: 'org-rovida-001', buildingIds: ['BLD001', 'BLD002', 'BLD003'] } }],
-      onboarded: false,
-    },
-  },
-  {
-    email: 'property.manager@example.com',
+    email: 'portfolio.manager@example.com',
     password: 'password',
     user: {
       id: 'usr-pm-001',
-      name: 'Property Manager',
-      email: 'property.manager@example.com',
-      roles: [{ name: 'Property Manager', scope: { orgId: 'org-rovida-001', buildingIds: ['BLD001'] } }],
-      onboarded: false,
+      name: 'Portfolio Manager',
+      email: 'portfolio.manager@example.com',
+      roles: [{ name: 'PORTFOLIO_MANAGER', scope: { orgId: 'org-rovida-001' } }],
+      onboarded: true,
     },
   },
   {
-    email: 'accountant@example.com',
-    password: 'password',
-    user: {
-      id: 'usr-acc-001',
-      name: 'Accountant',
-      email: 'accountant@example.com',
-      roles: [{ name: 'Accountant', scope: { orgId: 'org-rovida-001' } }], // No building scope for accountant
-      onboarded: false,
-    },
-  },
-  {
-    email: 'board.member@example.com',
+    email: 'building.manager@example.com',
     password: 'password',
     user: {
       id: 'usr-bm-001',
+      name: 'Building Manager',
+      email: 'building.manager@example.com',
+      roles: [{ name: 'BUILDING_MANAGER', scope: { orgId: 'org-rovida-001', buildingIds: ['BLD001', 'BLD002'] } }],
+      onboarded: true,
+    },
+  },
+  {
+    email: 'board@example.com',
+    password: 'password',
+    user: {
+      id: 'usr-bd-001',
       name: 'Board Member',
-      email: 'board.member@example.com',
-      roles: [{ name: 'Board Member', scope: { orgId: 'org-rovida-001', buildingIds: ['BLD001'] } }], // Board members typically tied to specific buildings
-      onboarded: false,
+      email: 'board@example.com',
+      roles: [{ name: 'BOARD', scope: { orgId: 'org-rovida-001', buildingIds: ['BLD001'] } }],
+      onboarded: true,
     },
   },
   {
@@ -105,10 +84,10 @@ export const MOCK_USERS: { email: string; password: string; user: CurrentUser }[
     password: 'password',
     user: {
       id: 'usr-own-001',
-      name: 'Owner',
+      name: 'Unit Owner',
       email: 'owner@example.com',
-      roles: [{ name: 'Owner', scope: { orgId: 'org-rovida-001', buildingIds: ['BLD001'], unitIds: ['UNIT001'] } }],
-      onboarded: false,
+      roles: [{ name: 'OWNER', scope: { orgId: 'org-rovida-001', buildingIds: ['BLD001'], unitIds: ['UNIT001'] } }],
+      onboarded: true,
     },
   },
   {
@@ -118,8 +97,8 @@ export const MOCK_USERS: { email: string; password: string; user: CurrentUser }[
       id: 'usr-ten-001',
       name: 'Tenant',
       email: 'tenant@example.com',
-      roles: [{ name: 'Tenant', scope: { orgId: 'org-rovida-001', buildingIds: ['BLD001'], unitIds: ['UNIT002'] } }],
-      onboarded: false,
+      roles: [{ name: 'TENANT', scope: { orgId: 'org-rovida-001', buildingIds: ['BLD001'], unitIds: ['UNIT002'] } }],
+      onboarded: true,
     },
   },
   {
@@ -129,52 +108,30 @@ export const MOCK_USERS: { email: string; password: string; user: CurrentUser }[
       id: 'usr-ven-001',
       name: 'Vendor',
       email: 'vendor@example.com',
-      roles: [{ name: 'Vendor / Service Provider', scope: { orgId: 'org-rovida-001', vendorId: 'VND001' } }], // Vendor scope is by vendorId, not building/unit
-      onboarded: false,
+      roles: [{ name: 'VENDOR', scope: { orgId: 'org-rovida-001', vendorId: 'VND001' } }],
+      onboarded: true,
     },
   },
   {
-    email: 'emergency.agent@example.com',
+    email: 'security@example.com',
     password: 'password',
     user: {
-      id: 'usr-ea-001',
-      name: 'Emergency Agent',
-      email: 'emergency.agent@example.com',
-      roles: [{ name: 'Emergency Agent', scope: { orgId: 'org-rovida-001', buildingIds: ['BLD001'] } }],
-      onboarded: false,
+      id: 'usr-sec-001',
+      name: 'Security Personnel',
+      email: 'security@example.com',
+      roles: [{ name: 'SECURITY', scope: { orgId: 'org-rovida-001', buildingIds: ['BLD001'] } }],
+      onboarded: true,
     },
   },
   {
-    email: 'concierge@example.com',
+    email: 'guest@example.com',
     password: 'password',
     user: {
-      id: 'usr-con-001',
-      name: 'Concierge',
-      email: 'concierge@example.com',
-      roles: [{ name: 'Concierge / Front Desk / Security', scope: { orgId: 'org-rovida-001', buildingIds: ['BLD001'] } }],
-      onboarded: false,
-    },
-  },
-  {
-    email: 'technician@example.com',
-    password: 'password',
-    user: {
-      id: 'usr-tech-001',
-      name: 'Technician',
-      email: 'technician@example.com',
-      roles: [{ name: 'Building Maintenance Technician', scope: { orgId: 'org-rovida-001', buildingIds: ['BLD001'] } }],
-      onboarded: false,
-    },
-  },
-  {
-    email: 'auditor@example.com',
-    password: 'password',
-    user: {
-      id: 'usr-aud-001',
-      name: 'Auditor',
-      email: 'auditor@example.com',
-      roles: [{ name: 'Read-Only Auditor', scope: { orgId: 'org-rovida-001' } }],
-      onboarded: false,
+      id: 'usr-gst-001',
+      name: 'Guest User',
+      email: 'guest@example.com',
+      roles: [{ name: 'GUEST', scope: {} }],
+      onboarded: true,
     },
   },
 ];

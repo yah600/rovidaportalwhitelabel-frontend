@@ -9,12 +9,16 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-rovida-navy text-white hover:bg-rovida-navy-90", // Primary button
-        destructive: "bg-rovida-error text-destructive-foreground hover:bg-rovida-error/90", // Error state
-        outline: "border border-rovida-navy bg-white text-rovida-navy hover:bg-rovida-soft-gray hover:text-rovida-navy", // Secondary button
-        secondary: "bg-rovida-soft-gray text-rovida-near-black hover:bg-rovida-soft-gray/80", // Muted background
-        ghost: "hover:bg-rovida-soft-gray hover:text-rovida-navy",
-        link: "text-rovida-navy underline-offset-4 hover:underline hover:decoration-rovida-gold", // Links
+        default:
+          "bg-primary text-primary-foreground hover:bg-primary/90",
+        destructive:
+          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+        outline:
+          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+        secondary:
+          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        ghost: "hover:bg-accent hover:text-accent-foreground",
+        link: "text-primary underline-offset-4 hover:underline",
       },
       size: {
         default: "h-10 px-4 py-2",
@@ -27,7 +31,7 @@ const buttonVariants = cva(
       variant: "default",
       size: "default",
     },
-  }
+  },
 )
 
 export interface ButtonProps
