@@ -48,6 +48,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Communications': { read: true, create: true, update: true, delete: true, approve: true, export: true, special: true },
     'Integrations': { read: true, create: true, update: true, delete: true, approve: true, export: true, special: true },
     'Analytics': { read: true, create: true, update: true, delete: true, approve: true, export: true, special: true },
+    'Automations': { read: true, create: true, update: true, delete: true }, // Added Automations module
     'Settings': { read: true, create: true, update: true, delete: true, approve: true, export: true, special: true },
     'Profile': { read: true, create: true, update: true, delete: true, approve: true, export: true, special: true },
     'Feedback': { read: true, create: true, update: true, delete: true, approve: true, export: true, special: true },
@@ -78,6 +79,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Communications': { read: true, create: true, update: true, delete: true, approve: true },
     'Integrations': { read: true, create: true, update: true, delete: true, approve: true },
     'Analytics': { read: true },
+    'Automations': { read: true, create: true, update: true, delete: true }, // Added Automations module
     'Settings': { read: true, create: true, update: true, delete: true, export: true },
     'Profile': { read: true, update: true },
     'Feedback': { read: true, create: true, update: true, delete: true },
@@ -108,6 +110,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Communications': { read: true, create: true, update: true, delete: true, approve: true },
     'Integrations': { read: true },
     'Analytics': { read: true },
+    'Automations': { read: true, create: true, update: true, delete: true }, // Added Automations module
     'Settings': { read: true, create: true, update: true, delete: true },
     'Profile': { read: true, update: true },
     'Feedback': { read: true, create: true, update: true, delete: true },
@@ -138,6 +141,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Communications': { read: true, create: true, update: true, delete: true, approve: true },
     'Integrations': { read: true },
     'Analytics': { read: true },
+    'Automations': { read: true, create: true, update: true, delete: true }, // Added Automations module
     'Settings': { read: true, create: true, update: true, delete: true },
     'Profile': { read: true, update: true },
     'Feedback': { read: true, create: true, update: true, delete: true },
@@ -168,6 +172,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Communications': { read: true, create: true, approve: true },
     'Integrations': { read: false },
     'Analytics': { read: true },
+    'Automations': { read: false }, // Accountant does not need automations
     'Settings': { read: true, update: true },
     'Profile': { read: true, update: true },
     'Feedback': { read: true, create: true },
@@ -198,6 +203,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Communications': { read: true },
     'Integrations': { read: false },
     'Analytics': { read: true },
+    'Automations': { read: false }, // Board Member does not need automations
     'Settings': { read: true, update: true },
     'Profile': { read: true, update: true },
     'Feedback': { read: true, create: true },
@@ -228,6 +234,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Communications': { read: true },
     'Integrations': { read: false },
     'Analytics': { read: false },
+    'Automations': { read: false }, // Owner does not need automations
     'Settings': { read: true, update: true },
     'Profile': { read: true, update: true },
     'Feedback': { read: true, create: true },
@@ -258,6 +265,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Communications': { read: true },
     'Integrations': { read: false },
     'Analytics': { read: false },
+    'Automations': { read: false }, // Tenant does not need automations
     'Settings': { read: true, update: true },
     'Profile': { read: true, update: true },
     'Feedback': { read: true, create: true },
@@ -288,6 +296,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Communications': { read: true },
     'Integrations': { read: false },
     'Analytics': { read: false },
+    'Automations': { read: false }, // Vendor does not need automations
     'Settings': { read: true, update: true },
     'Profile': { read: true, update: true },
     'Feedback': { read: true, create: true },
@@ -318,6 +327,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Communications': { read: true },
     'Integrations': { read: false },
     'Analytics': { read: false },
+    'Automations': { read: false }, // Emergency Agent does not need automations
     'Settings': { read: true, update: true },
     'Profile': { read: true, update: true },
     'Feedback': { read: true, create: true },
@@ -348,6 +358,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Communications': { read: true, create: true },
     'Integrations': { read: false },
     'Analytics': { read: false },
+    'Automations': { read: false }, // Concierge does not need automations
     'Settings': { read: true, update: true },
     'Profile': { read: true, update: true },
     'Feedback': { read: true, create: true },
@@ -378,6 +389,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Communications': { read: true },
     'Integrations': { read: false },
     'Analytics': { read: false },
+    'Automations': { read: false }, // Technician does not need automations
     'Settings': { read: true, update: true },
     'Profile': { read: true, update: true },
     'Feedback': { read: true, create: true },
@@ -408,6 +420,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Communications': { read: true },
     'Integrations': { read: false },
     'Analytics': { read: true },
+    'Automations': { read: false }, // Auditor does not need automations
     'Settings': { read: true },
     'Profile': { read: true, update: true },
     'Feedback': { read: true, create: true },

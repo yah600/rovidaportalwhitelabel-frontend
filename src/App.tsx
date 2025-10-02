@@ -70,6 +70,7 @@ import ForgotPasswordPage from './pages/auth/ForgotPassword';
 import ResetPasswordPage from './pages/auth/ResetPassword';
 import NotFound from './pages/NotFound';
 import Index from './pages/Index'; // The root redirect
+import Automations from './pages/Automations'; // Import the new Automations page
 
 const App = () => {
   return (
@@ -134,6 +135,7 @@ const App = () => {
             <Route path="/integrations" element={<Integrations />} />
             <Route path="/integrations/:slug" element={<IntegrationDetail />} />
             <Route path="/analytics" element={<Analytics />} />
+            <Route path="/automations" element={<Automations />} /> {/* New Automations Route */}
             <Route path="/settings" element={<SettingsLayout />}>
               <Route index element={<Settings />} />
               <Route path="org" element={<SettingsOrganization />} />

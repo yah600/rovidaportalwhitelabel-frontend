@@ -39,6 +39,7 @@ import {
   FileSignature,
   LayoutGrid,
   UserCheck,
+  Zap, // Import Zap icon for Automations
 } from 'lucide-react';
 import { ShieldCheck } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
@@ -53,7 +54,7 @@ interface NavItem {
 }
 
 const Sidebar = ({ className }: { className?: string }) => {
-  const { t } = useTranslation(['common', 'dashboard', 'issues', 'emergency', 'maintenance', 'finance', 'board', 'rules', 'insurance', 'amenities', 'tenancy', 'documents', 'communications', 'integrations', 'analytics', 'settings', 'profile', 'architectural_requests']); // Specify all relevant namespaces
+  const { t } = useTranslation(['common', 'dashboard', 'issues', 'emergency', 'maintenance', 'finance', 'board', 'rules', 'insurance', 'amenities', 'tenancy', 'documents', 'communications', 'integrations', 'analytics', 'settings', 'profile', 'architectural_requests', 'automations']); // Specify all relevant namespaces
   const location = useLocation();
   const { canRead } = useAuth();
   const sidebarContentRef = React.useRef<HTMLDivElement>(null);
@@ -147,6 +148,7 @@ const Sidebar = ({ className }: { className?: string }) => {
     },
     { titleKey: 'integrations', href: '/integrations', icon: Plug, moduleName: 'Integrations' },
     { titleKey: 'analytics', href: '/analytics', icon: BarChart2, moduleName: 'Analytics' },
+    { titleKey: 'automations', href: '/automations', icon: Zap, moduleName: 'Automations' }, // New Automations Nav Item
     {
       titleKey: 'settings',
       href: '/settings',
@@ -215,6 +217,7 @@ const Sidebar = ({ className }: { className?: string }) => {
       else if (item.href.startsWith('/comms')) namespace = 'communications';
       else if (item.href.startsWith('/integrations')) namespace = 'integrations';
       else if (item.href.startsWith('/analytics')) namespace = 'analytics';
+      else if (item.href.startsWith('/automations')) namespace = 'automations'; // Added automations namespace
       else if (item.href.startsWith('/settings')) namespace = 'settings';
       else if (item.href.startsWith('/profile')) namespace = 'profile';
 
