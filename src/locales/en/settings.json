@@ -82,5 +82,15 @@
   "purpose": "Purpose",
   "check in time": "Check In Time",
   "feedback submitted title": "Feedback Submitted!",
-  "feedback submitted description": "Thank you for your valuable feedback."
+  "feedback submitted description": "Thank you for your valuable feedback.",
+  "year built": "Year Built",
+  "checked in": "Checked In",
+  "checked out": "Checked Out",
+  "expected": "Expected",
+  "residential": "Residential",
+  "commercial": "Commercial",
+  "mixed-use": "Mixed-Use",
+  "occupied": "Occupied",
+  "vacant": "Vacant",
+  "under renovation": "Under Renovation"
 }

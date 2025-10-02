@@ -35,5 +35,6 @@
   "architectural requests managed here": "Les demandes de modification architecturale seront gérées ici.",
   "submit first request": "Soumettre la première demande",
   "edit meeting": "Modifier la réunion",
-  "edit vote": "Modifier le vote"
+  "edit vote": "Modifier le vote",
+  "pending": "En attente"
 }

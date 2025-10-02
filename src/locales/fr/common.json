@@ -111,5 +111,17 @@
   "return to home": "Retour à l'accueil",
   "finish": "Terminer",
   "here": "ici",
-  "validation error": "Erreur de validation"
+  "validation error": "Erreur de validation",
+  "date": "Date",
+  "time": "Heure",
+  "location": "Lieu",
+  "pending": "En attente",
+  "inactive": "Inactif",
+  "timestamp": "Horodatage",
+  "user": "Utilisateur",
+  "action": "Action",
+  "details": "Détails",
+  "ip address": "Adresse IP",
+  "last login": "Dernière connexion",
+  "assignee": "Assigné"
 }

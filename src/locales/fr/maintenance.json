@@ -91,5 +91,14 @@
   "manage asset action": "Action de gérer l'actif déclenchée pour l'ID : {{id}}.",
   "create new task action": "Action de créer une nouvelle tâche déclenchée.",
   "view attachment action": "Action de voir la pièce jointe déclenchée pour {{name}}.",
-  "create new work order action": "Action de créer un nouvel ordre de travail déclenchée."
+  "create new work order action": "Action de créer un nouvel ordre de travail déclenchée.",
+  "hvac system": "Système CVC",
+  "elevator": "Ascenseur",
+  "heating system": "Système de chauffage",
+  "safety system": "Système de sécurité",
+  "operational": "Opérationnel",
+  "under maintenance": "En maintenance",
+  "retired": "Retiré",
+  "to do": "À faire",
+  "blocked": "Bloqué"
 }

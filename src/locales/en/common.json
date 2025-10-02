@@ -111,5 +111,17 @@
   "return to home": "Return to Home",
   "finish": "Finish",
   "here": "here",
-  "validation error": "Validation Error"
+  "validation error": "Validation Error",
+  "date": "Date",
+  "time": "Time",
+  "location": "Location",
+  "pending": "Pending",
+  "inactive": "Inactive",
+  "timestamp": "Timestamp",
+  "user": "User",
+  "action": "Action",
+  "details": "Details",
+  "ip address": "IP Address",
+  "last login": "Last Login",
+  "assignee": "Assignee"
 }

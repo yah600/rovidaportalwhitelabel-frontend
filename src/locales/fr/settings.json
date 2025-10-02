@@ -82,5 +82,15 @@
   "purpose": "Motif",
   "check in time": "Heure d'arrivée",
   "feedback submitted title": "Commentaires soumis !",
-  "feedback submitted description": "Merci pour vos précieux commentaires."
+  "feedback submitted description": "Merci pour vos précieux commentaires.",
+  "year built": "Année de construction",
+  "checked in": "Enregistré",
+  "checked out": "Parti",
+  "expected": "Attendu",
+  "residential": "Résidentiel",
+  "commercial": "Commercial",
+  "mixed-use": "Mixte",
+  "occupied": "Occupé",
+  "vacant": "Vacant",
+  "under renovation": "En rénovation"
 }

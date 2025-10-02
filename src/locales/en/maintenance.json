@@ -91,5 +91,14 @@
   "manage asset action": "Manage asset action triggered for ID: {{id}}.",
   "create new task action": "Create new task action triggered.",
   "view attachment action": "View attachment action triggered for {{name}}.",
-  "create new work order action": "Create new work order action triggered."
+  "create new work order action": "Create new work order action triggered.",
+  "hvac system": "HVAC System",
+  "elevator": "Elevator",
+  "heating system": "Heating System",
+  "safety system": "Safety System",
+  "operational": "Operational",
+  "under maintenance": "Under Maintenance",
+  "retired": "Retired",
+  "to do": "To Do",
+  "blocked": "Blocked"
 }
