@@ -35,7 +35,7 @@ loadTranslations().then(resources => {
     .use(initReactI18next)
     .init({
       resources,
-      lng: 'fr', // default language
+      lng: 'en', // Set default language to English for consistent testing
       fallbackLng: 'en',
       interpolation: {
         escapeValue: false, // react already safes from xss

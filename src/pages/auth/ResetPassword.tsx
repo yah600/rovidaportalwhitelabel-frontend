@@ -16,7 +16,7 @@ const ResetPassword = () => {
         <Card className="w-full bg-transparent border-none shadow-none relative z-10">
           <CardHeader className="text-center">
             <CardTitle className="text-3xl font-semibold text-page-title">{t('reset_password')}</CardTitle>
-            <CardDescription className="text-rovida-slate-green-gray">{t('enter_new_password')}</CardDescription>
+            <CardDescription className="text-rovida-slate-green-gray">{t('enter_new_password_below')}</CardDescription>
           </CardHeader>
           <CardContent>
             <form className="grid gap-4">
