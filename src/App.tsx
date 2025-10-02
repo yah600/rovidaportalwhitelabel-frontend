@@ -8,6 +8,7 @@ import Index from './pages/Index';
 import Dashboard from './pages/Dashboard';
 import AuthPage from './pages/AuthPage';
 import Login from './pages/auth/Login';
+import Register from './pages/auth/Register'; // Import new Register component
 import ForgotPassword from './pages/auth/ForgotPassword';
 import ResetPassword from './pages/auth/ResetPassword';
 import OnboardingPage from './pages/OnboardingPage';
@@ -78,6 +79,7 @@ const App = () => {
         {/* Public Routes */}
         <Route path="/auth" element={<AuthPage />}>
           <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} /> {/* New route for Register */}
           <Route path="forgot" element={<ForgotPassword />} />
           <Route path="reset" element={<ResetPassword />} />
           <Route index element={<Navigate to="login" replace />} />

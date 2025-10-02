@@ -183,6 +183,7 @@ interface UserContextType {
   currentUser: CurrentUser | null;
   setCurrentUser: (user: CurrentUser | null) => void;
   updateCurrentUser: (updates: Partial<CurrentUser>) => void; // Added update function
+  registerUser: (name: string, email: string, password: string) => CurrentUser; // Added register function
 }
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
@@ -216,8 +217,28 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
     });
   };
 
+  const registerUser = (name: string, email: string, password: string): CurrentUser => {
+    // Simulate user registration
+    const existingUser = MOCK_USERS.find(u => u.email === email);
+    if (existingUser) {
+      throw new Error('User with this email already exists.');
+    }
+
+    const newUserId = `usr-new-${MOCK_USERS.length + 1}`;
+    const newUser: CurrentUser = {
+      id: newUserId,
+      name,
+      email,
+      roles: [{ name: 'Resident', scope: {} }], // Default role for new registrations
+      onboarded: false, // New users are not onboarded yet
+    };
+
+    MOCK_USERS.push({ email, password, user: newUser }); // Add to mock users
+    return newUser;
+  };
+
   return (
-    <UserContext.Provider value={{ currentUser, setCurrentUser, updateCurrentUser }}>
+    <UserContext.Provider value={{ currentUser, setCurrentUser, updateCurrentUser, registerUser }}>
       {children}
     </UserContext.Provider>
   );
