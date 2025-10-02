@@ -35,7 +35,6 @@
   "start by recording new payment": "Vous pouvez commencer par enregistrer un nouveau paiement.",
   "bill id": "ID Facture",
   "payment date": "Date de paiement",
-  "method": "Méthode",
   "reports": "Rapports",
   "monthly expense report": "Rapport de dépenses mensuelles",
   "generate detailed expense report": "Générez un rapport détaillé de toutes les dépenses pour un mois sélectionné, catégorisées pour plus de clarté.",
@@ -75,5 +74,11 @@
   "view bill action": "Action de voir la facture déclenchée pour l'ID : {{id}}.",
   "generate report action": "Action de générer le rapport {{type}} déclenchée.",
   "create new purchase order action": "Action de créer un nouveau bon de commande déclenchée.",
-  "view manage purchase order action": "Action de voir/gérer la demande déclenchée pour l'ID : {{id}}."
+  "view manage purchase order action": "Action de voir/gérer la demande déclenchée pour l'ID : {{id}}.",
+  "monthly financial summary": "Résumé financier mensuel",
+  "income vs expenses": "Revenus vs Dépenses",
+  "income": "Revenus",
+  "expenses": "Dépenses",
+  "financial overview": "Aperçu financier",
+  "summary of income and expenses": "Un résumé des revenus et des dépenses des 6 derniers mois."
 }

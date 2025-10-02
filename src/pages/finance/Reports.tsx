@@ -1,14 +1,24 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import BreadcrumbNav from '@/components/BreadcrumbNav';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { BarChart2, FileText, Download, AlertTriangle } from 'lucide-react'; // Added AlertTriangle
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { BarChart2, FileText, Download, AlertTriangle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { toast } from 'sonner'; // Import toast for actions
-import { useAuth } from '@/hooks/useAuth'; // Import useAuth
+import { toast } from 'sonner';
+import { useAuth } from '@/hooks/useAuth';
+import {
+  ResponsiveContainer,
+  BarChart,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+} from 'recharts';
+import { mockMonthlyFinancialSummary } from '@/data/mock-financial-reports';
 
 const FinanceReports = () => {
-  const { t } = useTranslation(['finance', 'common']); // Ensure 'finance' and 'common' namespaces are loaded
+  const { t } = useTranslation(['finance', 'common']);
   const { canExport } = useAuth();
 
   const breadcrumbItems = [
@@ -17,13 +27,14 @@ const FinanceReports = () => {
   ];
 
   const handleGenerateReport = (reportType: string) => {
-    toast.info(t('generate report action', { ns: 'finance', type: reportType })); // Placeholder action with toast
+    toast.info(t('generate report action', { ns: 'finance', type: reportType }));
   };
 
   return (
     <div className="flex flex-1 flex-col gap-4">
       <BreadcrumbNav items={breadcrumbItems} />
-      <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('finance', { ns: 'finance' })} {t('reports', { ns: 'finance' })}</h1>
+      <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('finance reports', { ns: 'finance' })}</h1>
+      <p className="text-rovida-slate-green-gray">{t('access detailed financial analytics', { ns: 'finance' })}</p>
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         <Card className="card-rovida">
@@ -78,8 +89,26 @@ const FinanceReports = () => {
         </Card>
       </div>
 
-      <Card className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm card-rovida mt-4">
-        <p className="text-rovida-slate-green-gray">{t('financial reports displayed here', { ns: 'finance' })}</p>
+      <Card className="col-span-full card-rovida">
+        <CardHeader>
+          <CardTitle className="text-rovida-navy">{t('monthly financial summary', { ns: 'finance' })}</CardTitle>
+          <CardDescription className="text-rovida-slate-green-gray">{t('summary of income and expenses', { ns: 'finance' })}</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="h-[300px]">
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart data={mockMonthlyFinancialSummary}>
+                <CartesianGrid strokeDasharray="3 3" stroke="#E9ECEB" />
+                <XAxis dataKey="month" stroke="#7C8D89" />
+                <YAxis stroke="#7C8D89" />
+                <Tooltip contentStyle={{ backgroundColor: 'rgba(255,255,255,0.8)', border: '1px solid #E9ECEB', borderRadius: '8px' }} itemStyle={{ color: '#111418' }} />
+                <Legend />
+                <Bar dataKey="income" fill="#3A7D44" name={t('income', { ns: 'finance' })} />
+                <Bar dataKey="expenses" fill="#B2433F" name={t('expenses', { ns: 'finance' })} />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+        </CardContent>
       </Card>
     </div>
   );

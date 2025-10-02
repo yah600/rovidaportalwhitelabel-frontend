@@ -125,5 +125,9 @@
   "work order details": "Détails de l'ordre de travail",
   "full details of this work order": "Détails complets de cet ordre de travail, y compris son statut, le personnel assigné et une chronologie des actions.",
   "work order detail view coming soon": "Vue détaillée de l'ordre de travail bientôt disponible !",
-  "this page will display comprehensive information about the work order, including its status, assigned personnel, and a timeline of actions.": "Cette page affichera des informations complètes sur l'ordre de travail, y compris son statut, le personnel assigné et une chronologie des actions."
+  "this page will display comprehensive information about the work order, including its status, assigned personnel, and a timeline of actions.": "Cette page affichera des informations complètes sur l'ordre de travail, y compris son statut, le personnel assigné et une chronologie des actions.",
+  "events for": "Événements pour",
+  "no events for selected date": "Aucun événement pour la date sélectionnée.",
+  "scheduled": "Planifié",
+  "completed": "Terminé"
 }

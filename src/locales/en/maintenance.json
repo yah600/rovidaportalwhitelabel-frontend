@@ -125,5 +125,9 @@
   "work order details": "Work Order Details",
   "full details of this work order": "Full details of this work order, including its status, assigned personnel, and a timeline of actions.",
   "work order detail view coming soon": "Work Order Detail View Coming Soon!",
-  "this page will display comprehensive information about the work order, including its status, assigned personnel, and a timeline of actions.": "This page will display comprehensive information about the work order, including its status, assigned personnel, and a timeline of actions."
+  "this page will display comprehensive information about the work order, including its status, assigned personnel, and a timeline of actions.": "This page will display comprehensive information about the work order, including its status, assigned personnel, and a timeline of actions.",
+  "events for": "Events for",
+  "no events for selected date": "No events for the selected date.",
+  "scheduled": "Scheduled",
+  "completed": "Completed"
 }

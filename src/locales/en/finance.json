@@ -35,7 +35,6 @@
   "start by recording new payment": "You can start by recording a new payment.",
   "bill id": "Bill ID",
   "payment date": "Payment Date",
-  "method": "Method",
   "reports": "Reports",
   "monthly expense report": "Monthly Expense Report",
   "generate detailed expense report": "Generate a detailed report of all expenses for a selected month, categorized for clarity.",
@@ -75,5 +74,11 @@
   "view bill action": "View bill action triggered for ID: {{id}}.",
   "generate report action": "Generate {{type}} report action triggered.",
   "create new purchase order action": "Create new purchase order action triggered.",
-  "view manage purchase order action": "View/Manage purchase order action triggered for ID: {{id}}."
+  "view manage purchase order action": "View/Manage purchase order action triggered for ID: {{id}}.",
+  "monthly financial summary": "Monthly Financial Summary",
+  "income vs expenses": "Income vs. Expenses",
+  "income": "Income",
+  "expenses": "Expenses",
+  "financial overview": "Financial Overview",
+  "summary of income and expenses": "A summary of income and expenses over the last 6 months."
 }
