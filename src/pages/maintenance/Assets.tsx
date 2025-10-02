@@ -22,7 +22,8 @@ const MaintenanceAssets = () => {
   const { canRead, canCreate } = useAuth();
 
   const handleAddNewAsset = () => {
-    toast.info(t('add new asset action', { ns: 'maintenance' })); // Placeholder action with toast
+    // This will now navigate to the new form page
+    // toast.info(t('add new asset action', { ns: 'maintenance' })); // Placeholder action with toast
   };
 
   return (
@@ -31,9 +32,11 @@ const MaintenanceAssets = () => {
       <header className="flex items-center justify-between">
         <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('maintenance', { ns: 'maintenance' })} {t('assets', { ns: 'maintenance' })}</h1>
         {canCreate('Maintenance') && (
-          <Button className="btn-primary" onClick={handleAddNewAsset}>
-            <PlusCircle className="mr-2 h-4 w-4" /> {t('add new asset', { ns: 'maintenance' })}
-          </Button>
+          <Link to="/maintenance/assets/new">
+            <Button className="btn-primary" onClick={handleAddNewAsset}>
+              <PlusCircle className="mr-2 h-4 w-4" /> {t('add new asset', { ns: 'maintenance' })}
+            </Button>
+          </Link>
         )}
       </header>
       <p className="text-rovida-slate-green-gray">{t('manage physical assets', { ns: 'maintenance' })}</p>
@@ -55,9 +58,11 @@ const MaintenanceAssets = () => {
                 <p className="text-lg font-medium text-rovida-near-black">{t('asset management available here', { ns: 'maintenance' })}</p>
                 <p className="text-sm text-center">{t('track all physical assets, their locations, and maintenance history. Add your first asset to get started.', { ns: 'maintenance' })}</p>
                 {canCreate('Maintenance') && (
-                  <Button variant="outline" className="mt-4 btn-secondary" onClick={handleAddNewAsset}>
-                    <PlusCircle className="mr-2 h-4 w-4" /> {t('add first asset', { ns: 'maintenance' })}
-                  </Button>
+                  <Link to="/maintenance/assets/new">
+                    <Button variant="outline" className="mt-4 btn-secondary" onClick={handleAddNewAsset}>
+                      <PlusCircle className="mr-2 h-4 w-4" /> {t('add first asset', { ns: 'maintenance' })}
+                    </Button>
+                  </Link>
                 )}
               </div>
             </CardContent>

@@ -12,6 +12,7 @@ import Emergency from './pages/Emergency';
 import Maintenance from './pages/Maintenance';
 import MaintenanceCalendar from './pages/maintenance/Calendar';
 import MaintenanceAssets from './pages/maintenance/Assets';
+import NewAsset from './pages/maintenance/NewAsset'; // New import
 import MaintenanceWorkOrders from './pages/maintenance/WorkOrders';
 import MaintenanceWorkOrderDetail from './pages/maintenance/WorkOrderDetail';
 import MaintenanceTasks from './pages/maintenance/Tasks';
@@ -32,7 +33,7 @@ import BoardVotes from './pages/board/Votes';
 import BoardVoteDetail from './pages/board/VoteDetail';
 import ArchitecturalRequests from './pages/ArchitecturalRequests';
 import ArchitecturalRequestDetail from './pages/board/ArchitecturalRequestDetail';
-import NewArchitecturalRequest from './pages/board/NewArchitecturalRequest'; // New import
+import NewArchitecturalRequest from './pages/board/NewArchitecturalRequest';
 import Rules from './pages/Rules';
 import RuleDetail from './pages/rules/RuleDetail';
 import ViolationTickets from './pages/rules/ViolationTickets';
@@ -110,6 +111,7 @@ const App = () => {
             <Route path="/maintenance" element={<Maintenance />} />
             <Route path="/maintenance/calendar" element={<MaintenanceCalendar />} />
             <Route path="/maintenance/assets" element={<MaintenanceAssets />} />
+            <Route path="/maintenance/assets/new" element={<NewAsset />} /> {/* New route */}
             <Route path="/maintenance/work-orders" element={<MaintenanceWorkOrders />} />
             <Route path="/maintenance/work-orders/:id" element={<MaintenanceWorkOrderDetail />} />
             <Route path="/maintenance/tasks" element={<MaintenanceTasks />} />
@@ -129,7 +131,7 @@ const App = () => {
             <Route path="/board/votes" element={<BoardVotes />} />
             <Route path="/board/votes/:id" element={<BoardVoteDetail />} />
             <Route path="/board/architectural-requests" element={<ArchitecturalRequests />} />
-            <Route path="/board/architectural-requests/new" element={<NewArchitecturalRequest />} /> {/* New route */}
+            <Route path="/board/architectural-requests/new" element={<NewArchitecturalRequest />} />
             <Route path="/board/architectural-requests/:id" element={<ArchitecturalRequestDetail />} />
             <Route path="/rules" element={<Rules />} />
             <Route path="/rules/catalog" element={<Rules />} />

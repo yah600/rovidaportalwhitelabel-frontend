@@ -66,7 +66,7 @@
   "create first work order": "Créez votre premier ordre de travail.",
   "maintenance tasks": "Tâches de maintenance",
   "create new task": "Créer une nouvelle tâche",
-  "manage individual maintenance tasks": "Gérez les tâches de maintenance individuelles et suivez leur progression.",
+  "manage individual maintenance tasks": "Gérez les tâches de maintenance individuelles, les responsables et suivez leur progression.",
   "task list": "Liste des tâches",
   "overview all maintenance tasks": "Aperçu de toutes les tâches de maintenance, y compris leur statut et leurs responsables.",
   "maintenance tasks listed here": "Toutes les tâches de maintenance seront listées et gérées ici.",
@@ -129,5 +129,14 @@
   "events for": "Événements pour",
   "no events for selected date": "Aucun événement pour la date sélectionnée.",
   "scheduled": "Planifié",
-  "completed": "Terminé"
+  "completed": "Terminé",
+  "fill details new asset": "Fournissez tous les détails nécessaires pour ajouter un nouvel actif à votre propriété.",
+  "asset information": "Informations sur l'actif",
+  "provide details new asset": "Fournissez les détails du nouvel actif, y compris son type, son emplacement et son calendrier de maintenance.",
+  "asset name placeholder": "ex. : Unité CVC - Bâtiment A, Ascenseur - Tour Est",
+  "select asset type": "Sélectionnez le type d'actif.",
+  "asset location placeholder": "ex. : Bâtiment A, Toit, Tour Est",
+  "asset created successfully": "Actif créé avec succès !",
+  "add asset": "Ajouter un actif",
+  "pick a date": "Sélectionner une date"
 }

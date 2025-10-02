@@ -129,5 +129,14 @@
   "events for": "Events for",
   "no events for selected date": "No events for the selected date.",
   "scheduled": "Scheduled",
-  "completed": "Completed"
+  "completed": "Completed",
+  "fill details new asset": "Provide all necessary details to add a new asset to your property.",
+  "asset information": "Asset Information",
+  "provide details new asset": "Provide details about the new asset, including its type, location, and maintenance schedule.",
+  "asset name placeholder": "e.g., HVAC Unit - Building A, Elevator - East Tower",
+  "select asset type": "Select the type of asset.",
+  "asset location placeholder": "e.g., Building A, Roof, East Tower",
+  "asset created successfully": "Asset created successfully!",
+  "add asset": "Add Asset",
+  "pick a date": "Pick a date"
 }
