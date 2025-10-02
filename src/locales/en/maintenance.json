@@ -119,5 +119,11 @@
   "drag drop column headers to map them to task fields like title, description, due date, and assignee. This ensures your data is correctly interpreted.": "Drag & drop column headers to map them to task fields like title, description, due date, and assignee. This ensures your data is correctly interpreted.",
   "review the generated tasks below. You can make final adjustments before confirming their creation. Once confirmed, these tasks will appear in your maintenance schedule.": "Review the generated tasks below. You can make final adjustments before confirming their creation. Once confirmed, these tasks will appear in your maintenance schedule.",
   "track all physical assets, their locations, and maintenance history. Add your first asset to get started.": "Track all physical assets, their locations, and maintenance history. Add your first asset to get started.",
-  "create, assign, and track work orders for repairs and services across the property. Create your first work order to get started.": "Create, assign, and track work orders for repairs and services across the property. Create your first work order to get started."
+  "create, assign, and track work orders for repairs and services across the property. Create your first work order to get started.": "Create, assign, and track work orders for repairs and services across the property. Create your first work order to get started.",
+  "work order": "Work Order",
+  "details for work order": "Details for work order",
+  "work order details": "Work Order Details",
+  "full details of this work order": "Full details of this work order, including its status, assigned personnel, and a timeline of actions.",
+  "work order detail view coming soon": "Work Order Detail View Coming Soon!",
+  "this page will display comprehensive information about the work order, including its status, assigned personnel, and a timeline of actions.": "This page will display comprehensive information about the work order, including its status, assigned personnel, and a timeline of actions."
 }

@@ -119,5 +119,11 @@
   "drag drop column headers to map them to task fields like title, description, due date, and assignee. This ensures your data is correctly interpreted.": "Faites glisser et déposez les en-têtes de colonne pour les mapper aux champs de tâche tels que le titre, la description, la date d'échéance et le responsable. Cela garantit que vos données sont correctement interprétées.",
   "review the generated tasks below. You can make final adjustments before confirming their creation. Once confirmed, these tasks will appear in your maintenance schedule.": "Examinez les tâches générées ci-dessous. Vous pouvez effectuer des ajustements finaux avant de confirmer leur création. Une fois confirmées, ces tâches apparaîtront dans votre calendrier de maintenance.",
   "track all physical assets, their locations, and maintenance history. Add your first asset to get started.": "Suivez tous les actifs physiques, leurs emplacements et l'historique de maintenance. Ajoutez votre premier actif pour commencer.",
-  "create, assign, and track work orders for repairs and services across the property. Create your first work order to get started.": "Créez, attribuez et suivez les ordres de travail pour les réparations et les services dans toute la propriété. Créez votre premier ordre de travail pour commencer."
+  "create, assign, and track work orders for repairs and services across the property. Create your first work order to get started.": "Créez, attribuez et suivez les ordres de travail pour les réparations et les services dans toute la propriété. Créez votre premier ordre de travail pour commencer.",
+  "work order": "Ordre de travail",
+  "details for work order": "Détails de l'ordre de travail",
+  "work order details": "Détails de l'ordre de travail",
+  "full details of this work order": "Détails complets de cet ordre de travail, y compris son statut, le personnel assigné et une chronologie des actions.",
+  "work order detail view coming soon": "Vue détaillée de l'ordre de travail bientôt disponible !",
+  "this page will display comprehensive information about the work order, including its status, assigned personnel, and a timeline of actions.": "Cette page affichera des informations complètes sur l'ordre de travail, y compris son statut, le personnel assigné et une chronologie des actions."
 }
