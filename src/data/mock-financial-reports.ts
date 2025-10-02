@@ -1,4 +1,6 @@
-import { format, subMonths, startOfMonth } from 'date-fns'; // Added startOfMonth
+import { format, subMonths, startOfMonth } from 'date-fns';
+import { mockBills } from './mock-bills'; // Import mockBills
+import { mockPayments } from './mock-payments'; // Import mockPayments
 
 export interface MonthlyFinancialSummary {
   month: string;
@@ -7,18 +9,18 @@ export interface MonthlyFinancialSummary {
 }
 
 export const generateMonthlyFinancialSummary = (): MonthlyFinancialSummary[] => {
-  const summaries: { [key: string]: { income: number; expenses: number; sortDate: Date } } = {}; // Added sortDate
+  const summaries: { [key: string]: { income: number; expenses: number; sortDate: Date } } = {};
 
   // Initialize for last 6 months
   for (let i = 0; i < 6; i++) {
-    const monthDate = startOfMonth(subMonths(new Date(), i)); // Get start of month
-    const monthKey = format(monthDate, 'yyyy-MM-dd'); // Use ISO-like format for key
-    summaries[monthKey] = { income: 0, expenses: 0, sortDate: monthDate }; // Store actual date for sorting
+    const monthDate = startOfMonth(subMonths(new Date(), i));
+    const monthKey = format(monthDate, 'yyyy-MM-dd');
+    summaries[monthKey] = { income: 0, expenses: 0, sortDate: monthDate };
   }
 
   // Process bills as expenses
   mockBills.forEach(bill => {
-    const monthDate = startOfMonth(bill.issueDate); // Get start of month for bill date
+    const monthDate = startOfMonth(bill.issueDate);
     const monthKey = format(monthDate, 'yyyy-MM-dd');
     if (summaries[monthKey]) {
       summaries[monthKey].expenses += bill.amount;
@@ -27,7 +29,7 @@ export const generateMonthlyFinancialSummary = (): MonthlyFinancialSummary[] => 
 
   // Process payments as income (simplified, assuming all payments are income)
   mockPayments.forEach(payment => {
-    const monthDate = startOfMonth(payment.paymentDate); // Get start of month for payment date
+    const monthDate = startOfMonth(payment.paymentDate);
     const monthKey = format(monthDate, 'yyyy-MM-dd');
     if (summaries[monthKey]) {
       summaries[monthKey].income += payment.amount;
@@ -35,9 +37,9 @@ export const generateMonthlyFinancialSummary = (): MonthlyFinancialSummary[] => 
   });
 
   return Object.keys(summaries)
-    .sort((a, b) => summaries[a].sortDate.getTime() - summaries[b].sortDate.getTime()) // Sort using stored Date objects
+    .sort((a, b) => summaries[a].sortDate.getTime() - summaries[b].sortDate.getTime())
     .map(monthKey => ({
-      month: format(summaries[monthKey].sortDate, 'MMM'), // Format for display
+      month: format(summaries[monthKey].sortDate, 'MMM'),
       income: parseFloat(summaries[monthKey].income.toFixed(2)),
       expenses: parseFloat(summaries[monthKey].expenses.toFixed(2)),
     }));
