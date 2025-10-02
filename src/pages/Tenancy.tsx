@@ -5,7 +5,7 @@ import BreadcrumbNav from '@/components/BreadcrumbNav';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { FileSignature, Users, ArrowRight } from 'lucide-react';
 import { mockLeases } from '@/data/mock-leases';
-import { mockUsers } from '@/data/mock-users'; // Assuming mockUsers can represent tenants
+import { mockUsers } from '@/data/mock-users';
 
 const Tenancy = () => {
   const { t } = useTranslation();

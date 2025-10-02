@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { LayoutGrid, PlusCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { mockPortfolioProperties } from '@/data/mock-portfolio'; // Import mockPortfolioProperties
-import PortfolioTable from '@/components/settings/PortfolioTable'; // Import PortfolioTable
+import { mockPortfolioProperties } from '@/data/mock-portfolio';
+import PortfolioTable from '@/components/settings/PortfolioTable';
 
 const SettingsPortfolio = () => {
   const { t } = useTranslation();

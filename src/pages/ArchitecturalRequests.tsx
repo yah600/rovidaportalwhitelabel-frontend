@@ -4,8 +4,8 @@ import BreadcrumbNav from '@/components/BreadcrumbNav';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { LayoutTemplate, PlusCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { mockArchitecturalRequests } from '@/data/mock-architectural-requests'; // Import mockArchitecturalRequests
-import RequestsTable from '@/components/architectural/RequestsTable'; // Import RequestsTable
+import { mockArchitecturalRequests } from '@/data/mock-architectural-requests';
+import RequestsTable from '@/components/architectural/RequestsTable';
 
 const ArchitecturalRequests = () => {
   const { t } = useTranslation();

@@ -15,15 +15,20 @@ import {
   Cell,
 } from 'recharts';
 import { mockMonthlyIssues, mockIssueTypeDistribution, mockWorkOrderCompletion } from '@/data/mock-analytics';
-// Removed GradientText import
+import BreadcrumbNav from '@/components/BreadcrumbNav'; // Import BreadcrumbNav
 
 const COLORS = ['#C4972E', '#183747', '#7C8D89', '#E2A33B', '#3A7D44']; // Using Rovida palette
 
 const Analytics = () => {
   const { t } = useTranslation();
+  const breadcrumbItems = [
+    { label: t('analytics'), href: '/analytics' },
+  ];
+
   return (
     <div className="flex flex-1 flex-col gap-4">
-      <h1 className="text-2xl font-semibold md:text-3xl text-rovida-gold"> {/* Changed to standard text styling */}
+      <BreadcrumbNav items={breadcrumbItems} />
+      <h1 className="text-2xl font-semibold md:text-3xl text-page-title">
         {t('analytics')}
       </h1>
       <p className="text-rovida-slate-green-gray">{t('overview_key_operational_metrics')}</p>

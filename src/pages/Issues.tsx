@@ -5,9 +5,9 @@ import { PlusCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { mockIssues, Issue } from '@/data/mock-issues';
 import IssuesTable from '@/components/issues/IssuesTable';
-import GooeyNav from '@/components/GooeyNav'; // Import GooeyNav
-import BreadcrumbNav from '@/components/BreadcrumbNav'; // Import BreadcrumbNav
-import { Card } from '@/components/ui/card'; // Import Card for the empty state
+import GooeyNav from '@/components/GooeyNav';
+import BreadcrumbNav from '@/components/BreadcrumbNav';
+import { Card } from '@/components/ui/card';
 
 const Issues = () => {
   const { t } = useTranslation();

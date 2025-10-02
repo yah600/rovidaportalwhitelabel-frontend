@@ -76,5 +76,22 @@
   "bathrooms": "Salles de bain",
   "last_login": "Dernière connexion",
   "sender": "Expéditeur",
-  "received_at": "Reçu le"
+  "received_at": "Reçu le",
+  "no_permission_view_notifications": "Vous n'avez pas la permission de voir les notifications.",
+  "no_permission_send_feedback": "Vous n'avez pas la permission d'envoyer des commentaires.",
+  "profile_updated_simulated": "Profil mis à jour ! (Simulé)",
+  "company": "Entreprise",
+  "about_company": "À propos de l'entreprise",
+  "careers": "Carrières",
+  "about_careers": "À propos des carrières",
+  "projects": "Projets",
+  "featured": "En vedette",
+  "featured_projects": "Projets en vedette",
+  "case_studies": "Études de cas",
+  "project_case_studies": "Études de cas de projets",
+  "contact": "Contact",
+  "email": "E-mail",
+  "email_us": "Envoyez-nous un e-mail",
+  "twitter": "Twitter",
+  "linkedin": "LinkedIn"
 }

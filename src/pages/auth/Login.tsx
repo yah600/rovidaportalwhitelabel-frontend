@@ -6,8 +6,8 @@ import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import GlassSurface from '@/components/GlassSurface';
-import { useUser, MOCK_USERS } from '@/context/UserContext'; // Import MOCK_USERS and useUser
-import { toast } from 'sonner'; // Import toast for notifications
+import { useUser, MOCK_USERS } from '@/context/UserContext';
+import { toast } from 'sonner';
 
 const Login = () => {
   const { t } = useTranslation();
@@ -32,9 +32,9 @@ const Login = () => {
         description: t('logged_in_successfully'),
       });
       if (!foundUser.user.onboarded) {
-        navigate('/onboarding'); // Redirect to onboarding if not yet completed
+        navigate('/onboarding');
       } else {
-        navigate('/dashboard'); // Redirect to dashboard on successful login
+        navigate('/dashboard');
       }
     } else {
       setError(t('invalid_email_password'));

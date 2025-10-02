@@ -68,21 +68,21 @@ const OnboardingPage = () => {
   ];
 
   return (
-    <div className="flex flex-1 flex-col gap-4 items-center"> {/* Centered content */}
+    <div className="flex flex-1 flex-col gap-4 items-center">
       <BreadcrumbNav items={breadcrumbItems} />
       <h1 className="text-2xl font-semibold md:text-3xl text-page-title text-center">{t('welcome_onboard')}</h1>
       <p className="text-rovida-slate-green-gray text-center">{t('setup_account_preferences')}</p>
 
-      <GlassSurface width="100%" height="auto" borderRadius={10} blur={15} backgroundOpacity={0.1} className="max-w-3xl mx-auto p-4"> {/* Added padding to GlassSurface */}
+      <GlassSurface width="100%" height="auto" borderRadius={10} blur={15} backgroundOpacity={0.1} className="max-w-3xl mx-auto p-4">
         <Card className="w-full bg-transparent border-none shadow-none">
-          <CardHeader className="text-center"> {/* Centered card header */}
+          <CardHeader className="text-center">
             <CardTitle className="text-rovida-navy">{t('account_setup')}</CardTitle>
             <CardDescription className="text-rovida-slate-green-gray">{t('follow_steps_get_started')}</CardDescription>
           </CardHeader>
-          <CardContent className="p-6"> {/* Added padding to CardContent */}
+          <CardContent className="p-6">
             <Stepper onFinalStepCompleted={handleOnboardingComplete} nextButtonText={t('next')} backButtonText={t('back')}>
               <Step>
-                <div className="grid gap-4 text-rovida-near-black text-left"> {/* Aligned text left */}
+                <div className="grid gap-4 text-rovida-near-black text-left">
                   <h3 className="text-xl font-semibold">{t('step_1_personal_info')}</h3>
                   <p className="text-rovida-slate-green-gray">{t('tell_us_about_yourself')}</p>
                   <div className="grid gap-2">
@@ -96,7 +96,7 @@ const OnboardingPage = () => {
                 </div>
               </Step>
               <Step>
-                <div className="grid gap-4 text-rovida-near-black text-left"> {/* Aligned text left */}
+                <div className="grid gap-4 text-rovida-near-black text-left">
                   <h3 className="text-xl font-semibold">{t('step_2_building_selection')}</h3>
                   <p className="text-rovida-slate-green-gray">{t('choose_building_manage_reside')}</p>
                   <div className="grid gap-2">
@@ -106,7 +106,7 @@ const OnboardingPage = () => {
                 </div>
               </Step>
               <Step>
-                <div className="grid gap-4 text-rovida-near-black text-left"> {/* Aligned text left */}
+                <div className="grid gap-4 text-rovida-near-black text-left">
                   <h3 className="text-xl font-semibold">{t('step_3_contact_notifications')}</h3>
                   <p className="text-rovida-slate-green-gray">{t('how_reach_you_updates')}</p>
                   <div className="grid gap-2">
@@ -167,7 +167,7 @@ const OnboardingPage = () => {
                 </div>
               </Step>
               <Step>
-                <div className="grid gap-4 text-rovida-near-black text-left"> {/* Aligned text left */}
+                <div className="grid gap-4 text-rovida-near-black text-left">
                   <h3 className="text-xl font-semibold">{t('step_4_finalizing_setup')}</h3>
                   <p className="text-rovida-slate-green-gray">{t('setting_up_dashboard')}</p>
                   <div className="mt-4">
@@ -177,7 +177,7 @@ const OnboardingPage = () => {
                 </div>
               </Step>
               <Step>
-                <div className="grid gap-4 text-rovida-near-black text-left"> {/* Aligned text left */}
+                <div className="grid gap-4 text-rovida-near-black text-left">
                   <h3 className="text-xl font-semibold">{t('step_5_ready_to_go')}</h3>
                   <p className="text-rovida-slate-green-gray">{t('account_set_up_enjoy')}</p>
                   <Button onClick={handleOnboardingComplete} className="btn-primary">{t('go_to_dashboard')}</Button>

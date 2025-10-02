@@ -19,7 +19,7 @@ import BreadcrumbNav from '@/components/BreadcrumbNav';
 import { useAuth } from '@/hooks/useAuth';
 
 interface SettingsNavItem {
-  titleKey: string; // Changed from 'title' to 'titleKey'
+  titleKey: string;
   href: string;
   icon: React.ElementType;
   moduleName: string;
@@ -113,6 +113,7 @@ const SettingsLayout = () => {
         if (navItem) {
           items.push({ label: t(navItem.titleKey), href: navItem.href });
         } else {
+          // Fallback for dynamic segments or non-explicitly mapped paths
           const translatedLabel = t(name.toLowerCase()) !== name.toLowerCase() ? t(name.toLowerCase()) : name.charAt(0).toUpperCase() + name.slice(1);
           items.push({ label: translatedLabel, href: currentPath });
         }

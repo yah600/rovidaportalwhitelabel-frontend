@@ -6,6 +6,7 @@ import { PlusCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { mockIntegrations } from '@/data/mock-integrations';
 import IntegrationCard from '@/components/integrations/IntegrationCard';
+import { Card } from '@/components/ui/card'; // Import Card for the empty state
 
 const Integrations = () => {
   const { t } = useTranslation();
@@ -20,7 +21,7 @@ const Integrations = () => {
       <BreadcrumbNav items={breadcrumbItems} />
       <header className="flex items-center justify-between">
         <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('integrations')}</h1>
-        <Button>
+        <Button className="btn-primary">
           <PlusCircle className="mr-2 h-4 w-4" /> {t('add_new_integration')}
         </Button>
       </header>
@@ -32,19 +33,19 @@ const Integrations = () => {
           ))}
         </div>
       ) : (
-        <div className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm">
+        <Card className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm card-rovida">
           <div className="flex flex-col items-center gap-1 text-center">
-            <h3 className="text-2xl font-bold tracking-tight">
+            <h3 className="text-2xl font-bold tracking-tight text-rovida-near-black">
               {t('no_integrations_found')}
             </h3>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-rovida-slate-green-gray">
               {t('start_by_adding_new_integration')}
             </p>
-            <Button className="mt-4">
+            <Button className="mt-4 btn-primary">
               <PlusCircle className="mr-2 h-4 w-4" /> {t('add_new_integration')}
             </Button>
           </div>
-        </div>
+        </Card>
       )}
     </div>
   );

@@ -17,7 +17,7 @@ const About = () => {
       <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('about_gestion_rovida')}</h1>
       <p className="text-rovida-slate-green-gray">{t('learn_more_mission_values')}</p>
 
-      <div className="flex-1 h-[calc(100vh-200px)] overflow-hidden"> {/* Adjust height as needed */}
+      <div className="flex-1 h-[calc(100vh-200px)] overflow-hidden">
         <ScrollStack
           itemDistance={150}
           itemScale={0.05}

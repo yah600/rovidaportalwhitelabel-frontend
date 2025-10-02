@@ -4,8 +4,8 @@ import BreadcrumbNav from '@/components/BreadcrumbNav';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Gavel, PlusCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { mockRules } from '@/data/mock-rules'; // Import mockRules
-import RulesTable from '@/components/rules/RulesTable'; // Import RulesTable
+import { mockRules } from '@/data/mock-rules';
+import RulesTable from '@/components/rules/RulesTable';
 
 const Rules = () => {
   const { t } = useTranslation();

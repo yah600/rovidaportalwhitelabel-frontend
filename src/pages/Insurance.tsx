@@ -4,8 +4,8 @@ import BreadcrumbNav from '@/components/BreadcrumbNav';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Shield, PlusCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { mockInsurancePolicies } from '@/data/mock-insurance'; // Import mockInsurancePolicies
-import PoliciesTable from '@/components/insurance/PoliciesTable'; // Import PoliciesTable
+import { mockInsurancePolicies } from '@/data/mock-insurance';
+import PoliciesTable from '@/components/insurance/PoliciesTable';
 
 const Insurance = () => {
   const { t } = useTranslation();

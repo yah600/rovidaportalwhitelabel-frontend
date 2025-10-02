@@ -4,19 +4,18 @@ import Topbar from './Topbar';
 import Sidebar from './Sidebar';
 import { MadeWithDyad } from '@/components/made-with-dyad';
 import GlassIcons from '@/components/GlassIcons';
-import { PlusCircle, Receipt, Wrench, MessageSquare, FileSignature } from 'lucide-react'; // Added FileSignature for Tenancy
+import { PlusCircle, Receipt, Wrench, MessageSquare, FileSignature } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { useUser } from '@/context/UserContext'; // Import useUser
-import { useAuth } from '@/hooks/useAuth'; // Import useAuth
+import { useUser } from '@/context/UserContext';
+import { useAuth } from '@/hooks/useAuth';
 
 const AppShell = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
-  const { currentUser } = useUser(); // Get currentUser from context
-  const { canRead, canCreate } = useAuth(); // Destructure canRead and canCreate
+  const { currentUser } = useUser();
+  const { canRead, canCreate } = useAuth();
 
-  // Redirect to login if not authenticated or to onboarding if not onboarded
   useEffect(() => {
     if (!currentUser) {
       if (!location.pathname.startsWith('/auth') && location.pathname !== '/onboarding') {
@@ -29,21 +28,18 @@ const AppShell = () => {
     }
   }, [currentUser, location.pathname, navigate]);
 
-  // Quick actions are only available if a user is logged in AND has permission
   const quickActions = [
     canCreate('Issues') && { icon: <PlusCircle />, label: t('new_issue'), onClick: () => navigate('/issues/new') },
     canRead('Finance - Bills/Recurring/Deposits') && { icon: <Receipt />, label: t('view_bills'), onClick: () => navigate('/finance/bills') },
     canRead('Maintenance') && { icon: <Wrench />, label: t('work_orders'), onClick: () => navigate('/maintenance/work-orders') },
     canCreate('Communications') && { icon: <MessageSquare />, label: t('announce'), onClick: () => navigate('/comms/send') },
-    canRead('Tenancy') && { icon: <FileSignature />, label: t('view_leases'), onClick: () => navigate('/tenancy/leases') }, // Added quick action for Tenancy
-  ].filter(Boolean); // Filter out null/false values
+    canRead('Tenancy') && { icon: <FileSignature />, label: t('view_leases'), onClick: () => navigate('/tenancy/leases') },
+  ].filter(Boolean);
 
-  // If not logged in, render nothing or a loading spinner while redirecting
   if (!currentUser && !location.pathname.startsWith('/auth') && location.pathname !== '/onboarding') {
     return null;
   }
 
-  // If logged in but not onboarded, and not on the onboarding page, render nothing to prevent flicker
   if (currentUser && !currentUser.onboarded && location.pathname !== '/onboarding') {
     return null;
   }
@@ -58,7 +54,6 @@ const AppShell = () => {
         </main>
         <MadeWithDyad />
       </div>
-      {/* Fixed Quick Actions Dock - only show if logged in and there are actions */}
       {currentUser && quickActions.length > 0 && (
         <div className="fixed bottom-0 left-1/2 -translate-x-1/2 z-50 w-full max-w-md py-4">
           <GlassIcons items={quickActions} className="justify-center" />

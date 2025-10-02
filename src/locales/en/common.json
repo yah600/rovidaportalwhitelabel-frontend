@@ -76,5 +76,22 @@
   "bathrooms": "Bathrooms",
   "last_login": "Last Login",
   "sender": "Sender",
-  "received_at": "Received At"
+  "received_at": "Received At",
+  "no_permission_view_notifications": "You do not have permission to view notifications.",
+  "no_permission_send_feedback": "You do not have permission to send feedback.",
+  "profile_updated_simulated": "Profile updated! (Simulated)",
+  "company": "Company",
+  "about_company": "About Company",
+  "careers": "Careers",
+  "about_careers": "About Careers",
+  "projects": "Projects",
+  "featured": "Featured",
+  "featured_projects": "Featured Projects",
+  "case_studies": "Case Studies",
+  "project_case_studies": "Project Case Studies",
+  "contact": "Contact",
+  "email": "Email",
+  "email_us": "Email us",
+  "twitter": "Twitter",
+  "linkedin": "LinkedIn"
 }

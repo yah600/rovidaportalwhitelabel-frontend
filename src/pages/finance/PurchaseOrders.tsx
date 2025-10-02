@@ -4,8 +4,8 @@ import BreadcrumbNav from '@/components/BreadcrumbNav';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { ShoppingCart, PlusCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { mockPurchaseOrders } from '@/data/mock-purchase-orders'; // Import mockPurchaseOrders
-import PurchaseOrdersTable from '@/components/finance/PurchaseOrdersTable'; // Import PurchaseOrdersTable
+import { mockPurchaseOrders } from '@/data/mock-purchase-orders';
+import PurchaseOrdersTable from '@/components/finance/PurchaseOrdersTable';
 
 const PurchaseOrders = () => {
   const { t } = useTranslation();

@@ -4,8 +4,8 @@ import BreadcrumbNav from '@/components/BreadcrumbNav';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { CalendarCheck, PlusCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { mockAmenities } from '@/data/mock-amenities'; // Import mockAmenities
-import AmenitiesTable from '@/components/amenities/AmenitiesTable'; // Import AmenitiesTable
+import { mockAmenities } from '@/data/mock-amenities';
+import AmenitiesTable from '@/components/amenities/AmenitiesTable';
 
 const Amenities = () => {
   const { t } = useTranslation();

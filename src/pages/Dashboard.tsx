@@ -2,21 +2,21 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '@/components/ui/card';
 import EmergencyBanner from '@/components/EmergencyBanner';
-import { Skeleton } from '@/components/ui/skeleton'; // For loading states
+import { Skeleton } from '@/components/ui/skeleton';
 import { format } from 'date-fns';
 import RecentIssues from '@/components/dashboard/RecentIssues';
 import UpcomingEvents from '@/components/dashboard/UpcomingEvents';
 import RecentDocuments from '@/components/dashboard/RecentDocuments';
-import { mockIssues, Issue } from '@/data/mock-issues'; // Import Issue type
-import { mockBills, Bill } from '@/data/mock-bills'; // Import Bill type
-import { mockTasks, Task } from '@/data/mock-tasks'; // Import Task type
-import { mockVotes, Vote } from '@/data/mock-votes'; // Import Vote type
-import SplitText from '@/components/SplitText'; // Import SplitText
-import AnimatedContent from '@/components/AnimatedContent'; // Import AnimatedContent
-import GlassSurface from '@/components/GlassSurface'; // Import GlassSurface
-import Counter from '@/components/Counter'; // Import Counter
-import { useUser } from '@/context/UserContext'; // Import useUser
-import { useAuth } from '@/hooks/useAuth'; // Import useAuth
+import { mockIssues, Issue } from '@/data/mock-issues';
+import { mockBills, Bill } from '@/data/mock-bills';
+import { mockTasks, Task } from '@/data/mock-tasks';
+import { mockVotes, Vote } from '@/data/mock-votes';
+import SplitText from '@/components/SplitText';
+import AnimatedContent from '@/components/AnimatedContent';
+import GlassSurface from '@/components/GlassSurface';
+import Counter from '@/components/Counter';
+import { useUser } from '@/context/UserContext';
+import { useAuth } from '@/hooks/useAuth';
 
 const Dashboard = () => {
   const { t } = useTranslation();
@@ -76,10 +76,10 @@ const Dashboard = () => {
   const openVotesCount = filteredVotes.filter(vote => vote.status === 'Open').length;
 
   const kpiCards = [
-    { title: t('open_issues'), value: openIssuesCount, trend: '+10% from last month', module: 'Issues' },
-    { title: t('overdue_bills'), value: overdueBillsCount, trend: '-5% from last month', module: 'Finance' },
-    { title: t('due_tasks'), value: dueTasksCount, trend: '+20% from last month', module: 'Maintenance' },
-    { title: t('open_votes'), value: openVotesCount, trend: 'No change', module: 'Board' },
+    { title: t('open_issues'), value: openIssuesCount, trend: t('trend_issues'), module: 'Issues' },
+    { title: t('overdue_bills'), value: overdueBillsCount, trend: t('trend_bills'), module: 'Finance' },
+    { title: t('due_tasks'), value: dueTasksCount, trend: t('trend_tasks'), module: 'Maintenance' },
+    { title: t('open_votes'), value: openVotesCount, trend: t('trend_votes'), module: 'Board' },
   ];
 
   const hasActiveEmergency = canRead('Emergency Center') && true; // Placeholder for actual emergency status

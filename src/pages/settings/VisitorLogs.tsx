@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { UserCheck, PlusCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { mockVisitorLogs } from '@/data/mock-visitor-logs'; // Import mockVisitorLogs
-import VisitorLogsTable from '@/components/settings/VisitorLogsTable'; // Import VisitorLogsTable
+import { mockVisitorLogs } from '@/data/mock-visitor-logs';
+import VisitorLogsTable from '@/components/settings/VisitorLogsTable';
 
 const SettingsVisitorLogs = () => {
   const { t } = useTranslation();

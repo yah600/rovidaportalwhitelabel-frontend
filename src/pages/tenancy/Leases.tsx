@@ -4,8 +4,8 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { FileSignature, PlusCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { mockLeases } from '@/data/mock-leases';
-import LeasesTable from '@/components/tenancy/LeasesTable'; // Updated import path
-import BreadcrumbNav from '@/components/BreadcrumbNav'; // Import BreadcrumbNav
+import LeasesTable from '@/components/tenancy/LeasesTable';
+import BreadcrumbNav from '@/components/BreadcrumbNav';
 
 const Leases = () => {
   const { t } = useTranslation();

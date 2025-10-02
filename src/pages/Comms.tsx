@@ -5,7 +5,7 @@ import BreadcrumbNav from '@/components/BreadcrumbNav';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Megaphone, MessageSquare, FileText, ArrowRight } from 'lucide-react';
 import { mockAnnouncements } from '@/data/mock-announcements';
-import AnimatedList from '@/components/AnimatedList'; // Import AnimatedList
+import AnimatedList from '@/components/AnimatedList';
 import { format } from 'date-fns';
 
 const Comms = () => {

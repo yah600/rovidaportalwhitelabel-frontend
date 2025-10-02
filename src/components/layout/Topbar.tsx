@@ -17,13 +17,13 @@ import { useUser } from '@/context/UserContext';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
 import LanguageToggle from './LanguageToggle';
-import { useAuth } from '@/hooks/useAuth'; // Import useAuth
+import { useAuth } from '@/hooks/useAuth';
 
 const Topbar = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const { currentUser, setCurrentUser } = useUser();
-  const { canRead } = useAuth(); // Use useAuth for permission checks
+  const { canRead } = useAuth();
 
   const [searchTerm, setSearchTerm] = React.useState('');
 
@@ -49,7 +49,7 @@ const Topbar = () => {
   };
 
   const handleNotificationsClick = () => {
-    if (canRead('Settings')) { // Check permission for Settings module
+    if (canRead('Settings')) {
       navigate('/settings/notifications');
     } else {
       toast.error(t('permission_denied'), {
@@ -59,7 +59,7 @@ const Topbar = () => {
   };
 
   const handleFeedbackClick = () => {
-    if (canRead('Feedback')) { // Check permission for Feedback module
+    if (canRead('Settings')) { // Feedback is part of Settings module
       navigate('/settings/feedback');
     } else {
       toast.error(t('permission_denied'), {
@@ -71,7 +71,7 @@ const Topbar = () => {
   return (
     <header className="sticky top-0 z-40 w-full border-b border-rovida-soft-gray bg-white/80 backdrop-blur-xl px-4 py-2 flex items-center justify-between shadow-sm">
       <div className="flex items-center space-x-4">
-        <img src="/AVERO.png" alt="Gestion Rovida Logo" className="h-8 w-auto" /> {/* Replaced text with logo */}
+        <img src="/AVERO.png" alt="Gestion Rovida Logo" className="h-8 w-auto" />
 
         {currentUser && (
           <Select defaultValue={currentBuildingId}>
@@ -135,8 +135,8 @@ const Topbar = () => {
               </div>
             </DropdownMenuLabel>
             <DropdownMenuSeparator className="bg-rovida-soft-gray" />
-            <DropdownMenuItem className="hover:bg-rovida-soft-gray">{t('profile')}</DropdownMenuItem>
-            <DropdownMenuItem className="hover:bg-rovida-soft-gray">{t('settings')}</DropdownMenuItem>
+            <DropdownMenuItem className="hover:bg-rovida-soft-gray" onClick={() => navigate('/profile')}>{t('profile')}</DropdownMenuItem>
+            <DropdownMenuItem className="hover:bg-rovida-soft-gray" onClick={() => navigate('/settings')}>{t('settings')}</DropdownMenuItem>
             <DropdownMenuSeparator className="bg-rovida-soft-gray" />
             <DropdownMenuItem className="hover:bg-rovida-soft-gray" onClick={handleLogout}>{t('logout')}</DropdownMenuItem>
           </DropdownMenuContent>

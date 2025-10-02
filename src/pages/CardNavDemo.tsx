@@ -12,31 +12,31 @@ const CardNavDemo = () => {
 
   const items = [
     {
-      label: "About",
+      label: t("about"),
       bgColor: "#183747", // Rovida Navy
       textColor: "#fff",
       links: [
-        { label: "Company", ariaLabel: "About Company", href: "/about" },
-        { label: "Careers", ariaLabel: "About Careers", href: "#" }
+        { label: t("company"), ariaLabel: t("about_company"), href: "/about" },
+        { label: t("careers"), ariaLabel: t("about_careers"), href: "#" }
       ]
     },
     {
-      label: "Projects",
+      label: t("projects"),
       bgColor: "#2A4959", // Rovida Navy 90
       textColor: "#fff",
       links: [
-        { label: "Featured", ariaLabel: "Featured Projects", href: "#" },
-        { label: "Case Studies", ariaLabel: "Project Case Studies", href: "#" }
+        { label: t("featured"), ariaLabel: t("featured_projects"), href: "#" },
+        { label: t("case_studies"), ariaLabel: t("project_case_studies"), href: "#" }
       ]
     },
     {
-      label: "Contact",
+      label: t("contact"),
       bgColor: "#7C8D89", // Rovida Slate Green Gray
       textColor: "#fff",
       links: [
-        { label: "Email", ariaLabel: "Email us", href: "#" },
-        { label: "Twitter", ariaLabel: "Twitter", href: "#" },
-        { label: "LinkedIn", ariaLabel: "LinkedIn", href: "#" }
+        { label: t("email"), ariaLabel: t("email_us"), href: "#" },
+        { label: t("twitter"), ariaLabel: t("twitter"), href: "#" },
+        { label: t("linkedin"), ariaLabel: t("linkedin"), href: "#" }
       ]
     }
   ];

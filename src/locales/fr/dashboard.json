@@ -10,5 +10,9 @@
   "no_upcoming_events": "Aucun événement à venir.",
   "latest_documents": "Derniers documents",
   "recently_added_updated_documents": "Documents récemment ajoutés ou mis à jour.",
-  "no_recent_documents": "Aucun document récent."
+  "no_recent_documents": "Aucun document récent.",
+  "trend_issues": "+10% par rapport au mois dernier",
+  "trend_bills": "-5% par rapport au mois dernier",
+  "trend_tasks": "+20% par rapport au mois dernier",
+  "trend_votes": "Aucun changement"
 }

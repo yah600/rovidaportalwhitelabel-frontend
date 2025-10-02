@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { PlusCircle } from 'lucide-react';
 import { mockUsers } from '@/data/mock-users';
 import UsersTable from '@/components/settings/UsersTable';
+import { Card } from '@/components/ui/card'; // Import Card for the empty state
 
 const SettingsUsers = () => {
   const { t } = useTranslation();
@@ -22,7 +23,7 @@ const SettingsUsers = () => {
       {hasUsers ? (
         <UsersTable users={mockUsers} />
       ) : (
-        <div className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm card-rovida">
+        <Card className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm card-rovida">
           <div className="flex flex-col items-center gap-1 text-center">
             <h3 className="text-2xl font-bold tracking-tight text-rovida-near-black">
               {t('no_users_found')}
@@ -34,7 +35,7 @@ const SettingsUsers = () => {
               <PlusCircle className="mr-2 h-4 w-4" /> {t('add_new_user')}
             </Button>
           </div>
-        </div>
+        </Card>
       )}
     </div>
   );
