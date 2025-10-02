@@ -8,6 +8,7 @@ import { mockArchitecturalRequests } from '@/data/mock-architectural-requests';
 import RequestsTable from '@/components/architectural/RequestsTable';
 import { toast } from 'sonner'; // Import toast for actions
 import { useAuth } from '@/hooks/useAuth'; // Import useAuth
+import { Link } from 'react-router-dom'; // Import Link
 
 const ArchitecturalRequests = () => {
   const { t } = useTranslation(['architectural_requests', 'common']); // Ensure 'architectural_requests' and 'common' namespaces are loaded
@@ -21,7 +22,8 @@ const ArchitecturalRequests = () => {
   const hasRequests = mockArchitecturalRequests.length > 0;
 
   const handleSubmitNewRequest = () => {
-    toast.info(t('submit new request action', { ns: 'architectural_requests' })); // Placeholder action with toast
+    // This will now navigate to the new form page
+    // toast.info(t('submit new request action', { ns: 'architectural_requests' })); // Placeholder action with toast
   };
 
   return (
@@ -30,9 +32,11 @@ const ArchitecturalRequests = () => {
       <header className="flex items-center justify-between">
         <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('architectural requests', { ns: 'architectural_requests' })}</h1>
         {canCreate('Architectural Requests') && (
-          <Button className="btn-primary" onClick={handleSubmitNewRequest}>
-            <PlusCircle className="mr-2 h-4 w-4" /> {t('submit new request', { ns: 'architectural_requests' })}
-          </Button>
+          <Link to="/board/architectural-requests/new">
+            <Button className="btn-primary" onClick={handleSubmitNewRequest}>
+              <PlusCircle className="mr-2 h-4 w-4" /> {t('submit new request', { ns: 'architectural_requests' })}
+            </Button>
+          </Link>
         )}
       </header>
       <p className="text-rovida-slate-green-gray">{t('manage architectural change requests', { ns: 'architectural_requests' })}</p>
@@ -48,9 +52,11 @@ const ArchitecturalRequests = () => {
               <LayoutTemplate className="h-12 w-12 text-rovida-gold" />
               <p>{t('architectural requests managed here', { ns: 'architectural_requests' })}</p>
               {canCreate('Architectural Requests') && (
-                <Button variant="outline" className="mt-4 btn-secondary" onClick={handleSubmitNewRequest}>
-                  <PlusCircle className="mr-2 h-4 w-4" /> {t('submit first request', { ns: 'architectural_requests' })}
-                </Button>
+                <Link to="/board/architectural-requests/new">
+                  <Button variant="outline" className="mt-4 btn-secondary" onClick={handleSubmitNewRequest}>
+                    <PlusCircle className="mr-2 h-4 w-4" /> {t('submit first request', { ns: 'architectural_requests' })}
+                  </Button>
+                </Link>
               )}
             </div>
           </Card>

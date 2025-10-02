@@ -24,5 +24,15 @@
   "edit request action": "Edit request action triggered for ID: {{id}}.",
   "approve request action": "Approve request action triggered for ID: {{id}}.",
   "reject request action": "Reject request action triggered for ID: {{id}}.",
-  "delete request action": "Delete request action triggered for ID: {{id}}."
+  "delete request action": "Delete request action triggered for ID: {{id}}.",
+  "fill details architectural request": "Fill in the details of your architectural change request and attach any supporting documents.",
+  "request information": "Request Information",
+  "provide details supporting documents": "Provide details about your request and upload any necessary supporting documents or photos.",
+  "short summary request": "Short summary of the request (e.g., 'Balcony Enclosure')",
+  "select unit": "Select the unit for which this request is being made.",
+  "detailed description request": "Detailed description of the architectural change, including scope, materials, and impact.",
+  "supporting documents": "Supporting Documents",
+  "upload plans photos permits": "Upload architectural plans, photos, or permits (PDF, JPG, PNG).",
+  "request submitted title": "Request Submitted!",
+  "request submitted description": "Your architectural change request has been submitted for review."
 }

@@ -32,10 +32,11 @@ import BoardVotes from './pages/board/Votes';
 import BoardVoteDetail from './pages/board/VoteDetail';
 import ArchitecturalRequests from './pages/ArchitecturalRequests';
 import ArchitecturalRequestDetail from './pages/board/ArchitecturalRequestDetail';
+import NewArchitecturalRequest from './pages/board/NewArchitecturalRequest'; // New import
 import Rules from './pages/Rules';
 import RuleDetail from './pages/rules/RuleDetail';
-import ViolationTickets from './pages/rules/ViolationTickets'; // New import
-import ViolationTicketDetail from './pages/rules/ViolationTicketDetail'; // New import
+import ViolationTickets from './pages/rules/ViolationTickets';
+import ViolationTicketDetail from './pages/rules/ViolationTicketDetail';
 import Insurance from './pages/Insurance';
 import InsurancePolicyDetail from './pages/insurance/PolicyDetail';
 import Amenities from './pages/Amenities';
@@ -128,12 +129,13 @@ const App = () => {
             <Route path="/board/votes" element={<BoardVotes />} />
             <Route path="/board/votes/:id" element={<BoardVoteDetail />} />
             <Route path="/board/architectural-requests" element={<ArchitecturalRequests />} />
+            <Route path="/board/architectural-requests/new" element={<NewArchitecturalRequest />} /> {/* New route */}
             <Route path="/board/architectural-requests/:id" element={<ArchitecturalRequestDetail />} />
             <Route path="/rules" element={<Rules />} />
-            <Route path="/rules/catalog" element={<Rules />} /> {/* Route for the main rules list */}
+            <Route path="/rules/catalog" element={<Rules />} />
             <Route path="/rules/:id" element={<RuleDetail />} />
-            <Route path="/rules/violations" element={<ViolationTickets />} /> {/* New route */}
-            <Route path="/rules/violations/:id" element={<ViolationTicketDetail />} /> {/* New route */}
+            <Route path="/rules/violations" element={<ViolationTickets />} />
+            <Route path="/rules/violations/:id" element={<ViolationTicketDetail />} />
             <Route path="/insurance" element={<Insurance />} />
             <Route path="/insurance/:id" element={<InsurancePolicyDetail />} />
             <Route path="/amenities" element={<Amenities />} />

@@ -24,5 +24,15 @@
   "edit request action": "Action de modifier la demande déclenchée pour l'ID : {{id}}.",
   "approve request action": "Action d'approuver la demande déclenchée pour l'ID : {{id}}.",
   "reject request action": "Action de rejeter la demande déclenchée pour l'ID : {{id}}.",
-  "delete request action": "Action de supprimer la demande déclenchée pour l'ID : {{id}}."
+  "delete request action": "Action de supprimer la demande déclenchée pour l'ID : {{id}}.",
+  "fill details architectural request": "Remplissez les détails de votre demande de modification architecturale et joignez les documents justificatifs.",
+  "request information": "Informations sur la demande",
+  "provide details supporting documents": "Fournissez les détails de votre demande et téléchargez les documents ou photos justificatifs nécessaires.",
+  "short summary request": "Bref résumé de la demande (ex : « Fermeture de balcon »)",
+  "select unit": "Sélectionnez l'unité pour laquelle cette demande est faite.",
+  "detailed description request": "Description détaillée de la modification architecturale, y compris la portée, les matériaux et l'impact.",
+  "supporting documents": "Documents justificatifs",
+  "upload plans photos permits": "Téléchargez les plans architecturaux, photos ou permis (PDF, JPG, PNG).",
+  "request submitted title": "Demande soumise !",
+  "request submitted description": "Votre demande de modification architecturale a été soumise pour examen."
 }
