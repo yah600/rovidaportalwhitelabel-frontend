@@ -47,7 +47,7 @@ const AssetsTable = ({ assets }: AssetsTableProps) => {
     {
       accessorKey: "type",
       header: t('type', { ns: 'common' }),
-      cell: ({ row }) => <span className="text-rovida-near-black">{t(row.getValue("type").toLowerCase().replace(/ /g, ''), { ns: 'maintenance' })}</span>,
+      cell: ({ row }) => <span className="text-rovida-near-black">{t(row.getValue("type").toLowerCase(), { ns: 'maintenance' })}</span>,
     },
     {
       accessorKey: "location",
@@ -59,7 +59,7 @@ const AssetsTable = ({ assets }: AssetsTableProps) => {
       header: t('status', { ns: 'common' }),
       cell: ({ row }) => (
         <Badge variant={getStatusVariant(row.getValue("status"))}>
-          {t(row.getValue("status").toLowerCase().replace(/ /g, ''), { ns: 'maintenance' })}
+          {t(row.getValue("status").toLowerCase(), { ns: 'maintenance' })}
         </Badge>
       ),
     },

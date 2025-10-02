@@ -8,12 +8,12 @@ import LeasesTable from '@/components/tenancy/LeasesTable';
 import BreadcrumbNav from '@/components/BreadcrumbNav';
 
 const Leases = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(['tenancy', 'common']); // Ensure 'tenancy' and 'common' namespaces are loaded
 
   const breadcrumbItems = [
-    { label: t('home'), href: '/' },
-    { label: t('tenancy'), href: '/tenancy' },
-    { label: t('leases'), href: '/tenancy/leases' },
+    { label: t('home', { ns: 'common' }), href: '/' },
+    { label: t('tenancy', { ns: 'tenancy' }), href: '/tenancy' },
+    { label: t('leases', { ns: 'tenancy' }), href: '/tenancy/leases' },
   ];
 
   const hasLeases = mockLeases.length > 0;
@@ -22,12 +22,12 @@ const Leases = () => {
     <div className="flex flex-1 flex-col gap-4">
       <BreadcrumbNav items={breadcrumbItems} />
       <header className="flex items-center justify-between">
-        <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('leases')}</h1>
+        <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('leases', { ns: 'tenancy' })}</h1>
         <Button className="btn-primary">
-          <PlusCircle className="mr-2 h-4 w-4" /> {t('add new lease')}
+          <PlusCircle className="mr-2 h-4 w-4" /> {t('add new lease', { ns: 'tenancy' })}
         </Button>
       </header>
-      <p className="text-rovida-slate-green-gray">{t('manage tenant information leases')}</p>
+      <p className="text-rovida-slate-green-gray">{t('manage tenant information leases', { ns: 'tenancy' })}</p>
 
       {hasLeases ? (
         <LeasesTable leases={mockLeases} />
@@ -35,9 +35,9 @@ const Leases = () => {
         <Card className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm card-rovida mt-4 p-8">
           <div className="flex flex-col items-center gap-2 text-rovida-slate-green-gray">
             <FileSignature className="h-12 w-12 text-rovida-gold" />
-            <p>{t('leases managed here')}</p>
+            <p>{t('leases managed here', { ns: 'tenancy' })}</p>
             <Button variant="outline" className="mt-4 btn-secondary">
-              <PlusCircle className="mr-2 h-4 w-4" /> {t('add first lease')}
+              <PlusCircle className="mr-2 h-4 w-4" /> {t('add first lease', { ns: 'tenancy' })}
             </Button>
           </div>
         </Card>

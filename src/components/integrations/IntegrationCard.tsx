@@ -35,7 +35,7 @@ const IntegrationCard = ({ integration }: IntegrationCardProps) => {
           <Plug className="h-5 w-5 text-rovida-gold" />
           <CardTitle className="text-lg text-rovida-navy">{integration.name}</CardTitle>
         </div>
-        <Badge variant={getStatusVariant(integration.status)}>{t(integration.status.toLowerCase().replace(/ /g, ''), { ns: 'integrations' })}</Badge>
+        <Badge variant={getStatusVariant(integration.status)}>{t(integration.status.toLowerCase(), { ns: 'integrations' })}</Badge>
       </CardHeader>
       <CardContent className="flex-1 flex flex-col justify-between">
         <CardDescription className="mb-4 text-rovida-slate-green-gray">{integration.description}</CardDescription>

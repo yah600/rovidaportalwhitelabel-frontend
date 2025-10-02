@@ -7,19 +7,19 @@ import { mockPortfolioProperties } from '@/data/mock-portfolio';
 import PortfolioTable from '@/components/settings/PortfolioTable';
 
 const SettingsPortfolio = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(['finance', 'common', 'settings']); // Ensure 'finance', 'common', 'settings' namespaces are loaded
 
   const hasProperties = mockPortfolioProperties.length > 0;
 
   return (
     <div className="flex flex-1 flex-col gap-4">
       <header className="flex items-center justify-between">
-        <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('portfolio management')}</h1>
+        <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{t('portfolio management', { ns: 'settings' })}</h1>
         <Button className="btn-primary">
-          <PlusCircle className="mr-2 h-4 w-4" /> {t('add new property')}
+          <PlusCircle className="mr-2 h-4 w-4" /> {t('add new property', { ns: 'settings' })}
         </Button>
       </header>
-      <p className="text-rovida-slate-green-gray">{t('manage all properties portfolio')}</p>
+      <p className="text-rovida-slate-green-gray">{t('manage all properties portfolio', { ns: 'settings' })}</p>
 
       {hasProperties ? (
         <PortfolioTable properties={mockPortfolioProperties} />
@@ -27,9 +27,9 @@ const SettingsPortfolio = () => {
         <Card className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm card-rovida mt-4 p-8">
           <div className="flex flex-col items-center gap-2 text-rovida-slate-green-gray">
             <LayoutGrid className="h-12 w-12 text-rovida-gold" />
-            <p>{t('portfolio managed here')}</p>
+            <p>{t('portfolio managed here', { ns: 'settings' })}</p>
             <Button variant="outline" className="mt-4 btn-secondary">
-              <PlusCircle className="mr-2 h-4 w-4" /> {t('add first property')}
+              <PlusCircle className="mr-2 h-4 w-4" /> {t('add first property', { ns: 'settings' })}
             </Button>
           </div>
         </Card>

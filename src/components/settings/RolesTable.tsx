@@ -33,7 +33,7 @@ const RolesTable = ({ roles }: RolesTableProps) => {
           {roles.map((role) => (
             <TableRow key={role.id}>
               <TableCell className="font-medium">{role.id}</TableCell>
-              <TableCell>{t(role.name.toLowerCase().replace(/ /g, ''))}</TableCell>
+              <TableCell>{t(role.name.toLowerCase())}</TableCell>
               <TableCell>{role.description}</TableCell>
               <TableCell>{role.usersCount}</TableCell>
               <TableCell className="text-right">

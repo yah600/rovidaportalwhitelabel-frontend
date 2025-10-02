@@ -76,7 +76,7 @@ const IssuesTable = ({ issues }: IssuesTableProps) => {
       header: t('status', { ns: 'common' }),
       cell: ({ row }) => (
         <Badge variant={getStatusVariant(row.getValue("status"))}>
-          {t(row.getValue("status").toLowerCase().replace(/ /g, ''), { ns: 'issues' })}
+          {t(row.getValue("status").toLowerCase(), { ns: 'issues' })}
         </Badge>
       ),
     },

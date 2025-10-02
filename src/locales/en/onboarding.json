@@ -17,5 +17,21 @@
   "account set up enjoy": "Your account is all set up. Enjoy Gestion Rovida!",
   "go to dashboard": "Go to Dashboard",
   "onboarding complete title": "Onboarding Complete!",
-  "dashboard personalized description": "Your dashboard is now personalized."
+  "dashboard personalized description": "Your dashboard is now personalized.",
+  "welcome to rovida": "Welcome to Gestion Rovida!",
+  "complete your profile to get started": "Complete your profile to get started.",
+  "personal information": "Personal Information",
+  "full name": "Full Name",
+  "enter full name": "Enter your full name",
+  "enter email": "Enter your email",
+  "enter phone number": "Enter your phone number",
+  "role and location": "Role and Location",
+  "your role": "Your Role",
+  "select your role": "Select your role",
+  "select your building": "Select your building",
+  "i accept terms and conditions": "I accept the Terms and Conditions",
+  "read our terms and conditions": "Read our Terms and Conditions",
+  "fill all fields": "Please fill in all required fields.",
+  "select all options": "Please select all required options.",
+  "accept terms conditions": "Please accept the Terms and Conditions to proceed."
 }

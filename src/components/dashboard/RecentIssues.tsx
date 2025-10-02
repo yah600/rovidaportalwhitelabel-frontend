@@ -98,7 +98,7 @@ const RecentIssues = () => {
                     {issue.unit} - {format(issue.createdAt, 'MMM dd')}
                   </p>
                 </div>
-                <Badge variant={getStatusBadgeVariant(issue.status)}>{t(issue.status.toLowerCase().replace(/ /g, ''), { ns: 'issues' })}</Badge>
+                <Badge variant={getStatusBadgeVariant(issue.status)}>{t(issue.status.toLowerCase(), { ns: 'issues' })}</Badge>
               </div>
             ))}
           </div>

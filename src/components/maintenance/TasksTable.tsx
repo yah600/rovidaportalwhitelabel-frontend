@@ -69,7 +69,7 @@ const TasksTable = ({ tasks }: TasksTableProps) => {
       header: t('status', { ns: 'common' }),
       cell: ({ row }) => (
         <Badge variant={getStatusVariant(row.getValue("status"))}>
-          {t(row.getValue("status").toLowerCase().replace(/ /g, ''), { ns: 'maintenance' })}
+          {t(row.getValue("status").toLowerCase(), { ns: 'maintenance' })}
         </Badge>
       ),
     },

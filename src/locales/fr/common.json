@@ -110,5 +110,6 @@
   "oops page not found": "Oups ! Page introuvable.",
   "return to home": "Retour à l'accueil",
   "finish": "Terminer",
-  "here": "ici"
+  "here": "ici",
+  "validation error": "Erreur de validation"
 }

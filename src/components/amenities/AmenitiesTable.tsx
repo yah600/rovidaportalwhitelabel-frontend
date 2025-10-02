@@ -46,7 +46,7 @@ const AmenitiesTable = ({ amenities }: AmenitiesTableProps) => {
     {
       accessorKey: "type",
       header: t('type', { ns: 'common' }),
-      cell: ({ row }) => <span className="text-rovida-near-black">{t(row.getValue("type").toLowerCase().replace(/ /g, ''), { ns: 'amenities' })}</span>,
+      cell: ({ row }) => <span className="text-rovida-near-black">{t(row.getValue("type").toLowerCase(), { ns: 'amenities' })}</span>,
     },
     {
       accessorKey: "location",
@@ -67,7 +67,7 @@ const AmenitiesTable = ({ amenities }: AmenitiesTableProps) => {
       header: t('status', { ns: 'common' }),
       cell: ({ row }) => (
         <Badge variant={getStatusVariant(row.getValue("status"))}>
-          {t(row.getValue("status").toLowerCase().replace(/ /g, ''), { ns: 'amenities' })}
+          {t(row.getValue("status").toLowerCase(), { ns: 'amenities' })}
         </Badge>
       ),
     },

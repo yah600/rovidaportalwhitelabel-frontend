@@ -115,7 +115,7 @@ const IssueDetail = () => {
         <header className="flex items-center justify-between flex-wrap gap-2 mb-4">
           <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{issue.title}</h1>
           <div className="flex items-center gap-2">
-            <Badge variant={getStatusBadgeVariant(issue.status)}>{t(issue.status.toLowerCase().replace(/ /g, ''), { ns: 'issues' })}</Badge>
+            <Badge variant={getStatusBadgeVariant(issue.status)}>{t(issue.status.toLowerCase(), { ns: 'issues' })}</Badge>
             <Badge className={getPriorityBadgeColor(issue.priority)}>{t(issue.priority.toLowerCase(), { ns: 'common' })}</Badge>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>

@@ -17,5 +17,21 @@
   "account set up enjoy": "Votre compte est configuré. Profitez de Gestion Rovida !",
   "go to dashboard": "Aller au tableau de bord",
   "onboarding complete title": "Intégration terminée !",
-  "dashboard personalized description": "Votre tableau de bord est maintenant personnalisé."
+  "dashboard personalized description": "Votre tableau de bord est maintenant personnalisé.",
+  "welcome to rovida": "Bienvenue à Gestion Rovida !",
+  "complete your profile to get started": "Complétez votre profil pour commencer.",
+  "personal information": "Informations personnelles",
+  "full name": "Nom complet",
+  "enter full name": "Saisissez votre nom complet",
+  "enter email": "Saisissez votre e-mail",
+  "enter phone number": "Saisissez votre numéro de téléphone",
+  "role and location": "Rôle et Emplacement",
+  "your role": "Votre rôle",
+  "select your role": "Sélectionnez votre rôle",
+  "select your building": "Sélectionnez votre bâtiment",
+  "i accept terms and conditions": "J'accepte les Termes et Conditions",
+  "read our terms and conditions": "Lisez nos Termes et Conditions",
+  "fill all fields": "Veuillez remplir tous les champs requis.",
+  "select all options": "Veuillez sélectionner toutes les options requises.",
+  "accept terms conditions": "Veuillez accepter les Termes et Conditions pour continuer."
 }

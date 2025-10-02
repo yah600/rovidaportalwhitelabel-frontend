@@ -72,7 +72,7 @@ const FinanceBillDetail = () => {
       <header className="flex items-center justify-between flex-wrap gap-2 mb-4">
         <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{bill.description}</h1>
         <div className="flex items-center gap-2">
-          <Badge variant={getStatusBadgeVariant(bill.status)}>{t(bill.status.toLowerCase().replace(/ /g, ''), { ns: 'finance' })}</Badge>
+          <Badge variant={getStatusBadgeVariant(bill.status)}>{t(bill.status.toLowerCase(), { ns: 'finance' })}</Badge>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="outline" size="sm">

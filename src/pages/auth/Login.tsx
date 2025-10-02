@@ -28,8 +28,8 @@ const Login = () => {
 
     if (foundUser) {
       setCurrentUser(foundUser.user);
-      toast.success(t('welcome_user_toast', { name: foundUser.user.name }), {
-        description: t('logged_in_successfully'),
+      toast.success(t('welcome user toast', { name: foundUser.user.name }), {
+        description: t('logged in successfully'),
       });
       if (!foundUser.user.onboarded) {
         navigate('/onboarding');
@@ -37,9 +37,9 @@ const Login = () => {
         navigate('/dashboard');
       }
     } else {
-      setError(t('invalid_email_password'));
-      toast.error(t('login_failed_title'), {
-        description: t('invalid_email_password_try_again'),
+      setError(t('invalid email password'));
+      toast.error(t('login failed title'), {
+        description: t('invalid email password try again'),
       });
     }
   };
@@ -49,8 +49,8 @@ const Login = () => {
       <GlassSurface width="100%" height="auto" borderRadius={10} blur={15} backgroundOpacity={0.1} className="max-w-md">
         <Card className="w-full bg-transparent border-none shadow-none relative z-10">
           <CardHeader className="text-center">
-            <CardTitle className="text-3xl font-semibold text-page-title">{t('login_to_gestion_rovida')}</CardTitle>
-            <CardDescription className="text-rovida-slate-green-gray">{t('enter_credentials_access_portal')}</CardDescription>
+            <CardTitle className="text-3xl font-semibold text-page-title">{t('login to gestion rovida')}</CardTitle>
+            <CardDescription className="text-rovida-slate-green-gray">{t('enter credentials access portal')}</CardDescription>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="grid gap-4">
@@ -70,7 +70,7 @@ const Login = () => {
                 <div className="flex items-center">
                   <Label htmlFor="password" className="text-rovida-near-black">{t('password')}</Label>
                   <Link to="/auth/forgot" className="ml-auto inline-block text-sm link-rovida">
-                    {t('forgot_password')}?
+                    {t('forgot password')}?
                   </Link>
                 </div>
                 <Input
@@ -88,16 +88,16 @@ const Login = () => {
               </Button>
             </form>
             <div className="mt-4 text-center text-sm text-rovida-slate-green-gray">
-              {t('dont_have_account')}{" "}
+              {t('dont have account')}{" "}
               <Link to="#" className="link-rovida">
-                {t('sign_up')}
+                {t('sign up')}
               </Link>
             </div>
             <div className="mt-6 text-center text-xs text-rovida-slate-green-gray">
-              <p className="font-semibold mb-2">{t('mock_user_credentials')}</p>
+              <p className="font-semibold mb-2">{t('mock user credentials')}</p>
               <ul className="list-disc list-inside text-left mx-auto max-w-xs">
                 {MOCK_USERS.map((user) => (
-                  <li key={user.email}>{user.email} ({t(user.user.roles[0].name.toLowerCase().replace(/ /g, '_'))})</li>
+                  <li key={user.email}>{user.email} ({t(user.user.roles[0].name.toLowerCase())})</li>
                 ))}
               </ul>
             </div>

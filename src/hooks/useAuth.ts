@@ -397,7 +397,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Analytics': { read: true },
     'Settings': { read: true },
     'Profile': { read: true, update: true },
-    'Feedback': { read: true },
+    'Feedback': { read: true, create: true },
   },
 };
 

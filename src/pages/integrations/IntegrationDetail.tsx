@@ -74,7 +74,7 @@ const IntegrationDetail = () => {
       <header className="flex items-center justify-between flex-wrap gap-2 mb-4">
         <h1 className="text-2xl font-semibold md:text-3xl text-page-title">{integration.name}</h1>
         <div className="flex items-center gap-2">
-          <Badge variant={getStatusBadgeVariant(integration.status)}>{t(integration.status.toLowerCase().replace(/ /g, ''), { ns: 'integrations' })}</Badge>
+          <Badge variant={getStatusBadgeVariant(integration.status)}>{t(integration.status.toLowerCase(), { ns: 'integrations' })}</Badge>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="outline" size="sm">

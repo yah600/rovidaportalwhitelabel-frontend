@@ -11,7 +11,7 @@ import { toast } from 'sonner';
 import { useUser } from '@/context/UserContext';
 
 const OnboardingPage = () => {
-  const { t } = useTranslation(['onboarding', 'common']); // Specify namespaces for OnboardingPage
+  const { t } = useTranslation(['onboarding', 'common', 'auth']); // Specify namespaces for OnboardingPage
   const navigate = useNavigate();
   const { currentUser, setCurrentUser } = useUser();
 
@@ -66,7 +66,7 @@ const OnboardingPage = () => {
     if (currentUser) {
       setCurrentUser({ ...currentUser, onboarded: true });
     }
-    toast.success(t('onboarding complete', { ns: 'onboarding' }), { description: t('welcome to rovida', { ns: 'onboarding' }) });
+    toast.success(t('onboarding complete title', { ns: 'onboarding' }), { description: t('dashboard personalized description', { ns: 'onboarding' }) });
     navigate('/dashboard');
   };
 
@@ -75,15 +75,15 @@ const OnboardingPage = () => {
       <Card className="w-full max-w-lg bg-white/80 backdrop-blur-xl border-rovida-soft-gray shadow-lg">
         <CardHeader className="text-center">
           <img src="/AVERO.png" alt={t('welcome to gestion rovida', { ns: 'common' })} className="mx-auto h-10 w-auto mb-4" />
-          <CardTitle className="text-2xl text-rovida-navy">{t('welcome to rovida', { ns: 'onboarding' })}</CardTitle>
+          <CardTitle className="text-2xl text-rovida-navy">{t('welcome onboard', { ns: 'onboarding' })}</CardTitle>
           <CardDescription className="text-rovida-slate-green-gray">
-            {t('complete your profile to get started', { ns: 'onboarding' })}
+            {t('setup account preferences', { ns: 'onboarding' })}
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
           {step === 1 && (
             <div className="space-y-4">
-              <h3 className="text-lg font-semibold text-rovida-navy">{t('personal information', { ns: 'onboarding' })}</h3>
+              <h3 className="text-lg font-semibold text-rovida-navy">{t('step 1 personal info', { ns: 'onboarding' })}</h3>
               <div>
                 <Label htmlFor="fullName">{t('full name', { ns: 'common' })}</Label>
                 <Input id="fullName" value={formData.fullName} onChange={handleInputChange} placeholder={t('enter full name', { ns: 'onboarding' })} />
@@ -101,7 +101,7 @@ const OnboardingPage = () => {
 
           {step === 2 && (
             <div className="space-y-4">
-              <h3 className="text-lg font-semibold text-rovida-navy">{t('role and location', { ns: 'onboarding' })}</h3>
+              <h3 className="text-lg font-semibold text-rovida-navy">{t('step 2 building selection', { ns: 'onboarding' })}</h3>
               <div>
                 <Label htmlFor="role">{t('your role', { ns: 'onboarding' })}</Label>
                 <Select onValueChange={(value) => handleSelectChange('role', value)} value={formData.role}>
@@ -111,8 +111,8 @@ const OnboardingPage = () => {
                   <SelectContent>
                     <SelectItem value="owner">{t('owner', { ns: 'common' })}</SelectItem>
                     <SelectItem value="tenant">{t('tenant', { ns: 'common' })}</SelectItem>
-                    <SelectItem value="board_member">{t('board member', { ns: 'common' })}</SelectItem>
-                    <SelectItem value="property_manager">{t('property manager', { ns: 'common' })}</SelectItem>
+                    <SelectItem value="board member">{t('board member', { ns: 'auth' })}</SelectItem>
+                    <SelectItem value="property manager">{t('property manager', { ns: 'auth' })}</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -137,7 +137,7 @@ const OnboardingPage = () => {
 
           {step === 3 && (
             <div className="space-y-4">
-              <h3 className="text-lg font-semibold text-rovida-navy">{t('terms and conditions', { ns: 'onboarding' })}</h3>
+              <h3 className="text-lg font-semibold text-rovida-navy">{t('step 3 contact notifications', { ns: 'onboarding' })}</h3>
               <div className="flex items-center space-x-2">
                 <Checkbox
                   id="termsAccepted"
@@ -158,7 +158,7 @@ const OnboardingPage = () => {
         <CardFooter className="flex justify-between">
           {step > 1 && (
             <Button variant="outline" onClick={prevStep} className="border-rovida-soft-gray text-rovida-near-black bg-white/60 backdrop-blur-sm hover:bg-rovida-soft-gray">
-              {t('previous', { ns: 'common' })}
+              {t('back', { ns: 'common' })}
             </Button>
           )}
           {step < 3 && (

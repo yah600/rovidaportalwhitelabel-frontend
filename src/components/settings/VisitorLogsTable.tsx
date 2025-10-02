@@ -63,7 +63,7 @@ const VisitorLogsTable = ({ logs }: VisitorLogsTableProps) => {
       header: t('status'),
       cell: ({ row }) => (
         <Badge variant={getStatusVariant(row.getValue("status"))}>
-          {t(row.getValue("status").toLowerCase().replace(/ /g, ''))}
+          {t(row.getValue("status").toLowerCase())}
         </Badge>
       ),
     },
