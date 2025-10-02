@@ -34,6 +34,7 @@ import Insurance from './pages/Insurance';
 import Amenities from './pages/Amenities';
 import Tenancy from './pages/Tenancy';
 import Leases from './pages/tenancy/Leases';
+import UnitStatementDetail from './pages/tenancy/UnitStatementDetail'; // Import new component
 import DocumentsOverview from './pages/documents/Overview';
 import DocumentsInbox from './pages/documents/Inbox';
 import DocumentsRegistry from './pages/documents/Registry';
@@ -123,6 +124,7 @@ const App = () => {
             <Route path="/amenities" element={<Amenities />} />
             <Route path="/tenancy" element={<Tenancy />} />
             <Route path="/tenancy/leases" element={<Leases />} />
+            <Route path="/tenancy/statements/:id" element={<UnitStatementDetail />} /> {/* New route */}
             <Route path="/documents" element={<DocumentsOverview />} />
             <Route path="/documents/inbox" element={<DocumentsInbox />} />
             <Route path="/documents/registry" element={<DocumentsRegistry />} />
@@ -135,7 +137,7 @@ const App = () => {
             <Route path="/integrations" element={<Integrations />} />
             <Route path="/integrations/:slug" element={<IntegrationDetail />} />
             <Route path="/analytics" element={<Analytics />} />
-            <Route path="/automations" element={<Automations />} /> {/* New Automations Route */}
+            <Route path="/automations" element={<Automations />} />
             <Route path="/settings" element={<SettingsLayout />}>
               <Route index element={<Settings />} />
               <Route path="org" element={<SettingsOrganization />} />

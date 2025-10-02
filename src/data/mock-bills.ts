@@ -11,6 +11,7 @@ export interface Bill {
   dueDate: Date;
   paidDate?: Date;
   category: string;
+  type: 'bill' | 'deposit' | 'recurring'; // Added type
 }
 
 export const mockBills: Bill[] = [
@@ -25,6 +26,7 @@ export const mockBills: Bill[] = [
     dueDate: new Date('2024-01-25'),
     paidDate: new Date('2024-01-20'),
     category: 'Utilities',
+    type: 'bill',
   },
   {
     id: 'BILL002',
@@ -36,6 +38,7 @@ export const mockBills: Bill[] = [
     issueDate: new Date('2024-02-10'),
     dueDate: new Date('2024-03-10'),
     category: 'Maintenance',
+    type: 'bill',
   },
   {
     id: 'BILL003',
@@ -47,6 +50,7 @@ export const mockBills: Bill[] = [
     issueDate: new Date('2024-01-01'),
     dueDate: new Date('2024-01-31'),
     category: 'Taxes',
+    type: 'bill',
   },
   {
     id: 'BILL004',
@@ -58,6 +62,7 @@ export const mockBills: Bill[] = [
     issueDate: new Date('2024-02-28'),
     dueDate: new Date('2024-03-28'),
     category: 'Services',
+    type: 'bill',
   },
   {
     id: 'BILL005',
@@ -69,5 +74,58 @@ export const mockBills: Bill[] = [
     issueDate: new Date('2024-03-01'),
     dueDate: new Date('2024-03-21'),
     category: 'Utilities',
+    type: 'bill',
+  },
+  // Mock Deposits
+  {
+    id: 'DEP001',
+    vendor: 'Unit 101 Tenant',
+    description: 'Security Deposit - Unit 101',
+    amount: 1200.00,
+    currency: 'CAD',
+    status: 'Paid',
+    issueDate: new Date('2024-01-01'),
+    dueDate: new Date('2024-01-01'),
+    paidDate: new Date('2024-01-01'),
+    category: 'Security Deposit',
+    type: 'deposit',
+  },
+  {
+    id: 'DEP002',
+    vendor: 'Unit 203 Tenant',
+    description: 'First Month Rent - Unit 203',
+    amount: 1500.00,
+    currency: 'CAD',
+    status: 'Paid',
+    issueDate: new Date('2024-03-01'),
+    dueDate: new Date('2024-03-01'),
+    paidDate: new Date('2024-03-01'),
+    category: 'Rent Income',
+    type: 'deposit',
+  },
+  // Mock Recurring Charges
+  {
+    id: 'REC001',
+    vendor: 'Unit 101 Tenant',
+    description: 'Monthly Rent - Unit 101',
+    amount: 1200.00,
+    currency: 'CAD',
+    status: 'Due',
+    issueDate: new Date('2024-04-01'),
+    dueDate: new Date('2024-04-05'),
+    category: 'Rent',
+    type: 'recurring',
+  },
+  {
+    id: 'REC002',
+    vendor: 'Unit 203 Tenant',
+    description: 'Monthly Rent - Unit 203',
+    amount: 1500.00,
+    currency: 'CAD',
+    status: 'Due',
+    issueDate: new Date('2024-04-01'),
+    dueDate: new Date('2024-04-05'),
+    category: 'Rent',
+    type: 'recurring',
   },
 ];

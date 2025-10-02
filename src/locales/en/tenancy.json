@@ -23,5 +23,19 @@
   "active": "Active",
   "expired": "Expired",
   "pending renewal": "Pending Renewal",
-  "terminated": "Terminated"
+  "terminated": "Terminated",
+  "unit statements": "Unit Statements",
+  "unit statement not found": "Unit statement not found.",
+  "statement": "Statement",
+  "download statement action": "Download statement action triggered for ID: {{id}}.",
+  "print statement action": "Print statement action triggered for ID: {{id}}.",
+  "statement details": "Statement Details",
+  "statement period": "Statement Period",
+  "owner name": "Owner Name",
+  "opening balance": "Opening Balance",
+  "closing balance": "Closing Balance",
+  "transaction history": "Transaction History",
+  "charges": "Charges",
+  "payments": "Payments",
+  "view my statement": "View My Statement"
 }

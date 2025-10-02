@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import BreadcrumbNav from '@/components/BreadcrumbNav';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { BarChart2, FileText, Download, AlertTriangle } from 'lucide-react';
+import { BarChart2, FileText, Download, AlertTriangle, BookText, Scale, Wallet, Landmark } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
 import { useAuth } from '@/hooks/useAuth';
@@ -16,10 +16,15 @@ import {
   Legend,
 } from 'recharts';
 import { mockMonthlyFinancialSummary } from '@/data/mock-financial-reports';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import LedgerReport from '@/components/finance/reports/LedgerReport';
+import TrialBalanceReport from '@/components/finance/reports/TrialBalanceReport';
+import ProfitLossReport from '@/components/finance/reports/ProfitLossReport';
+import BalanceSheetReport from '@/components/finance/reports/BalanceSheetReport';
 
 const FinanceReports = () => {
   const { t } = useTranslation(['finance', 'common']);
-  const { canExport } = useAuth();
+  const { canExport, canRead } = useAuth();
 
   const breadcrumbItems = [
     { label: t('finance', { ns: 'finance' }), href: '/finance' },
@@ -29,6 +34,19 @@ const FinanceReports = () => {
   const handleGenerateReport = (reportType: string) => {
     toast.info(t('generate report action', { ns: 'finance', type: reportType }));
   };
+
+  if (!canRead('Finance - Reports')) {
+    return (
+      <div className="flex flex-1 items-center justify-center">
+        <Card className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm card-rovida mt-4 p-8">
+          <div className="flex flex-col items-center gap-2 text-rovida-slate-green-gray">
+            <BarChart2 className="h-12 w-12 text-rovida-gold" />
+            <p>{t('no permission view reports', { ns: 'common' })}</p>
+          </div>
+        </Card>
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-1 flex-col gap-4">
@@ -108,6 +126,43 @@ const FinanceReports = () => {
               </BarChart>
             </ResponsiveContainer>
           </div>
+        </CardContent>
+      </Card>
+
+      <Card className="col-span-full card-rovida">
+        <CardHeader>
+          <CardTitle className="text-rovida-navy">{t('detailed financial reports', { ns: 'finance' })}</CardTitle>
+          <CardDescription className="text-rovida-slate-green-gray">{t('explore detailed financial statements', { ns: 'finance' })}</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <Tabs defaultValue="profit-loss">
+            <TabsList className="grid w-full grid-cols-4 bg-rovida-soft-gray/50 backdrop-blur-xl border-rovida-soft-gray">
+              <TabsTrigger value="profit-loss" className="data-[state=active]:bg-rovida-navy data-[state=active]:text-white data-[state=active]:shadow-subtle text-rovida-near-black">
+                <Wallet className="h-4 w-4 mr-2" /> {t('profit loss', { ns: 'finance' })}
+              </TabsTrigger>
+              <TabsTrigger value="balance-sheet" className="data-[state=active]:bg-rovida-navy data-[state=active]:text-white data-[state=active]:shadow-subtle text-rovida-near-black">
+                <Scale className="h-4 w-4 mr-2" /> {t('balance sheet', { ns: 'finance' })}
+              </TabsTrigger>
+              <TabsTrigger value="ledger" className="data-[state=active]:bg-rovida-navy data-[state=active]:text-white data-[state=active]:shadow-subtle text-rovida-near-black">
+                <BookText className="h-4 w-4 mr-2" /> {t('general ledger', { ns: 'finance' })}
+              </TabsTrigger>
+              <TabsTrigger value="trial-balance" className="data-[state=active]:bg-rovida-navy data-[state=active]:text-white data-[state=active]:shadow-subtle text-rovida-near-black">
+                <Landmark className="h-4 w-4 mr-2" /> {t('trial balance', { ns: 'finance' })}
+              </TabsTrigger>
+            </TabsList>
+            <TabsContent value="profit-loss" className="mt-4">
+              <ProfitLossReport />
+            </TabsContent>
+            <TabsContent value="balance-sheet" className="mt-4">
+              <BalanceSheetReport />
+            </TabsContent>
+            <TabsContent value="ledger" className="mt-4">
+              <LedgerReport />
+            </TabsContent>
+            <TabsContent value="trial-balance" className="mt-4">
+              <TrialBalanceReport />
+            </TabsContent>
+          </Tabs>
         </CardContent>
       </Card>
     </div>

@@ -40,6 +40,7 @@ import {
   LayoutGrid,
   UserCheck,
   Zap, // Import Zap icon for Automations
+  Wallet, // Import Wallet icon for Unit Statements
 } from 'lucide-react';
 import { ShieldCheck } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
@@ -122,6 +123,7 @@ const Sidebar = ({ className }: { className?: string }) => {
       moduleName: 'Tenancy',
       subItems: [
         { titleKey: 'leases', href: '/tenancy/leases', icon: FileSignature, moduleName: 'Tenancy - Leases' },
+        { titleKey: 'unit statements', href: '/tenancy/statements', icon: Wallet, moduleName: 'Tenancy - Unit Statements' }, // New sub-item
       ],
     },
     {
@@ -148,7 +150,7 @@ const Sidebar = ({ className }: { className?: string }) => {
     },
     { titleKey: 'integrations', href: '/integrations', icon: Plug, moduleName: 'Integrations' },
     { titleKey: 'analytics', href: '/analytics', icon: BarChart2, moduleName: 'Analytics' },
-    { titleKey: 'automations', href: '/automations', icon: Zap, moduleName: 'Automations' }, // New Automations Nav Item
+    { titleKey: 'automations', href: '/automations', icon: Zap, moduleName: 'Automations' },
     {
       titleKey: 'settings',
       href: '/settings',
@@ -217,7 +219,7 @@ const Sidebar = ({ className }: { className?: string }) => {
       else if (item.href.startsWith('/comms')) namespace = 'communications';
       else if (item.href.startsWith('/integrations')) namespace = 'integrations';
       else if (item.href.startsWith('/analytics')) namespace = 'analytics';
-      else if (item.href.startsWith('/automations')) namespace = 'automations'; // Added automations namespace
+      else if (item.href.startsWith('/automations')) namespace = 'automations';
       else if (item.href.startsWith('/settings')) namespace = 'settings';
       else if (item.href.startsWith('/profile')) namespace = 'profile';
 
@@ -263,6 +265,7 @@ const Sidebar = ({ className }: { className?: string }) => {
                 else if (subItem.href.startsWith('/board/votes')) subNamespace = 'board';
                 else if (subItem.href.startsWith('/board/architectural-requests')) subNamespace = 'architectural_requests';
                 else if (subItem.href.startsWith('/tenancy/leases')) subNamespace = 'tenancy';
+                else if (subItem.href.startsWith('/tenancy/statements')) subNamespace = 'tenancy'; // New sub-item namespace
                 else if (subItem.href.startsWith('/documents/inbox')) subNamespace = 'documents';
                 else if (subItem.href.startsWith('/documents/registry')) subNamespace = 'documents';
                 else if (subItem.href.startsWith('/comms/announcements')) subNamespace = 'communications';

@@ -33,6 +33,19 @@ const BillsTable = ({ bills }: BillsTableProps) => {
     }
   };
 
+  const getBillTypeBadge = (type: Bill['type']) => {
+    switch (type) {
+      case 'bill':
+        return <Badge variant="secondary" className="bg-rovida-soft-gray text-rovida-near-black">{t('bill', { ns: 'finance' })}</Badge>;
+      case 'deposit':
+        return <Badge variant="default" className="bg-rovida-success text-white">{t('deposit', { ns: 'finance' })}</Badge>;
+      case 'recurring':
+        return <Badge variant="default" className="bg-rovida-gold text-white">{t('recurring', { ns: 'finance' })}</Badge>;
+      default:
+        return <Badge variant="outline">{t('unknown', { ns: 'common' })}</Badge>;
+    }
+  };
+
   const columns: ColumnDef<Bill>[] = [
     {
       accessorKey: "id",
@@ -57,6 +70,11 @@ const BillsTable = ({ bills }: BillsTableProps) => {
       accessorKey: "amount",
       header: t('amount', { ns: 'finance' }),
       cell: ({ row }) => <span className="text-rovida-near-black">{(row.original.amount as number).toFixed(2)} {row.original.currency}</span>,
+    },
+    {
+      accessorKey: "type",
+      header: t('type', { ns: 'common' }),
+      cell: ({ row }) => getBillTypeBadge(row.getValue("type") as Bill['type']),
     },
     {
       accessorKey: "status",

@@ -23,5 +23,19 @@
   "active": "Actif",
   "expired": "Expiré",
   "pending renewal": "Renouvellement en attente",
-  "terminated": "Résilié"
+  "terminated": "Résilié",
+  "unit statements": "Relevés d'unité",
+  "unit statement not found": "Relevé d'unité introuvable.",
+  "statement": "Relevé",
+  "download statement action": "Action de télécharger le relevé déclenchée pour l'ID : {{id}}.",
+  "print statement action": "Action d'imprimer le relevé déclenchée pour l'ID : {{id}}.",
+  "statement details": "Détails du relevé",
+  "statement period": "Période du relevé",
+  "owner name": "Nom du propriétaire",
+  "opening balance": "Solde d'ouverture",
+  "closing balance": "Solde de clôture",
+  "transaction history": "Historique des transactions",
+  "charges": "Frais",
+  "payments": "Paiements",
+  "view my statement": "Voir mon relevé"
 }
