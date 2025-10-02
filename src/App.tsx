@@ -31,11 +31,13 @@ import BoardMeetingDetail from './pages/board/MeetingDetail';
 import BoardVotes from './pages/board/Votes';
 import BoardVoteDetail from './pages/board/VoteDetail';
 import ArchitecturalRequests from './pages/ArchitecturalRequests';
-import ArchitecturalRequestDetail from './pages/board/ArchitecturalRequestDetail'; // New import
+import ArchitecturalRequestDetail from './pages/board/ArchitecturalRequestDetail';
 import Rules from './pages/Rules';
-import RuleDetail from './pages/rules/RuleDetail'; // New import
+import RuleDetail from './pages/rules/RuleDetail';
+import ViolationTickets from './pages/rules/ViolationTickets'; // New import
+import ViolationTicketDetail from './pages/rules/ViolationTicketDetail'; // New import
 import Insurance from './pages/Insurance';
-import InsurancePolicyDetail from './pages/insurance/PolicyDetail'; // New import
+import InsurancePolicyDetail from './pages/insurance/PolicyDetail';
 import Amenities from './pages/Amenities';
 import Tenancy from './pages/Tenancy';
 import Leases from './pages/tenancy/Leases';
@@ -126,11 +128,14 @@ const App = () => {
             <Route path="/board/votes" element={<BoardVotes />} />
             <Route path="/board/votes/:id" element={<BoardVoteDetail />} />
             <Route path="/board/architectural-requests" element={<ArchitecturalRequests />} />
-            <Route path="/board/architectural-requests/:id" element={<ArchitecturalRequestDetail />} /> {/* New route */}
+            <Route path="/board/architectural-requests/:id" element={<ArchitecturalRequestDetail />} />
             <Route path="/rules" element={<Rules />} />
-            <Route path="/rules/:id" element={<RuleDetail />} /> {/* New route */}
+            <Route path="/rules/catalog" element={<Rules />} /> {/* Route for the main rules list */}
+            <Route path="/rules/:id" element={<RuleDetail />} />
+            <Route path="/rules/violations" element={<ViolationTickets />} /> {/* New route */}
+            <Route path="/rules/violations/:id" element={<ViolationTicketDetail />} /> {/* New route */}
             <Route path="/insurance" element={<Insurance />} />
-            <Route path="/insurance/:id" element={<InsurancePolicyDetail />} /> {/* New route */}
+            <Route path="/insurance/:id" element={<InsurancePolicyDetail />} />
             <Route path="/amenities" element={<Amenities />} />
             <Route path="/tenancy" element={<Tenancy />} />
             <Route path="/tenancy/leases" element={<Leases />} />

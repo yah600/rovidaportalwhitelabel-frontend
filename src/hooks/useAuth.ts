@@ -34,10 +34,11 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Finance - Ledger/Trial Balance': { read: true, export: true },
     'Finance - Late Fees/NSF/Reconciliation': { read: true, create: true, update: true, approve: true, export: true }, // Added create for rules
     'Finance - Reports': { read: true, export: true },
-    'Board': { read: true, create: true, update: true, delete: true, approve: true, export: true, special: true },
+    'Board': { read: true, create: true, update: true, approve: true, export: true, special: true },
     'Board - Meetings/Votes': { read: true, create: true, update: true, approve: true },
     'Architectural Requests': { read: true, create: true, update: true, delete: true, approve: true },
     'Rules': { read: true, create: true, update: true, delete: true },
+    'Rules - Violations': { read: true, create: true, update: true, delete: true }, // New module
     'Insurance': { read: true, create: true, update: true, delete: true },
     'Amenities': { read: true, create: true, update: true, delete: true },
     'Tenancy': { read: true, create: true, update: true, delete: true },
@@ -70,6 +71,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Board - Meetings/Votes': { read: true, create: true, update: true, approve: true },
     'Architectural Requests': { read: true, create: true, update: true, approve: true },
     'Rules': { read: true, create: true, update: true },
+    'Rules - Violations': { read: true, create: true, update: true, delete: true }, // New module
     'Insurance': { read: true, create: true, update: true },
     'Amenities': { read: true, create: true, update: true },
     'Tenancy': { read: true, create: true, update: true },
@@ -79,7 +81,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Visitor Logs': { read: true, create: true, update: true },
     'Documents': { read: true, create: true, update: true, delete: true, export: true },
     'Communications': { read: true, create: true, update: true, delete: true, approve: true },
-    'Integrations': { read: true, create: true, update: true, delete: true, approve: true },
+    'Integrations': { read: true },
     'Analytics': { read: true },
     'Automations': { read: true, create: true, update: true, delete: true },
     'Settings': { read: true, create: true, update: true, delete: true, export: true },
@@ -102,6 +104,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Board - Meetings/Votes': { read: true, create: true, update: true, approve: true },
     'Architectural Requests': { read: true, create: true, update: true, approve: true },
     'Rules': { read: true, create: true, update: true },
+    'Rules - Violations': { read: true, create: true, update: true, delete: true }, // New module
     'Insurance': { read: true, create: true, update: true },
     'Amenities': { read: true, create: true, update: true },
     'Tenancy': { read: true, create: true, update: true },
@@ -134,6 +137,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Board - Meetings/Votes': { read: true, create: true, update: true },
     'Architectural Requests': { read: true, create: true, update: true, approve: true },
     'Rules': { read: true, create: true, update: true },
+    'Rules - Violations': { read: true, create: true, update: true, delete: true }, // New module
     'Insurance': { read: true, create: true, update: true },
     'Amenities': { read: true, create: true, update: true },
     'Tenancy': { read: true, create: true, update: true },
@@ -165,7 +169,8 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Board': { read: false },
     'Board - Meetings/Votes': { read: false },
     'Architectural Requests': { read: false },
-    'Rules': { read: false },
+    'Rules': { read: true },
+    'Rules - Violations': { read: true }, // New module
     'Insurance': { read: true },
     'Amenities': { read: false },
     'Tenancy': { read: true },
@@ -198,6 +203,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Board - Meetings/Votes': { read: true, create: true, update: true, approve: true },
     'Architectural Requests': { read: true, create: true, update: true, approve: true },
     'Rules': { read: true },
+    'Rules - Violations': { read: true }, // New module
     'Insurance': { read: true },
     'Amenities': { read: true },
     'Tenancy': { read: true },
@@ -230,6 +236,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Board - Meetings/Votes': { read: false },
     'Architectural Requests': { read: true, create: true, update: true },
     'Rules': { read: true },
+    'Rules - Violations': { read: true }, // New module
     'Insurance': { read: true },
     'Amenities': { read: true },
     'Tenancy': { read: true, create: true, update: true },
@@ -262,6 +269,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Board - Meetings/Votes': { read: false },
     'Architectural Requests': { read: true, create: true, update: true },
     'Rules': { read: true },
+    'Rules - Violations': { read: true }, // New module
     'Insurance': { read: true },
     'Amenities': { read: true },
     'Tenancy': { read: true, create: true, update: true },
@@ -294,6 +302,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Board - Meetings/Votes': { read: false },
     'Architectural Requests': { read: false },
     'Rules': { read: true },
+    'Rules - Violations': { read: false }, // New module
     'Insurance': { read: false },
     'Amenities': { read: false },
     'Tenancy': { read: false },
@@ -326,6 +335,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Board - Meetings/Votes': { read: false },
     'Architectural Requests': { read: false },
     'Rules': { read: true },
+    'Rules - Violations': { read: true, create: true, update: true }, // New module
     'Insurance': { read: true },
     'Amenities': { read: false },
     'Tenancy': { read: false },
@@ -358,6 +368,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Board - Meetings/Votes': { read: false },
     'Architectural Requests': { read: false },
     'Rules': { read: true },
+    'Rules - Violations': { read: true, create: true, update: true }, // New module
     'Insurance': { read: false },
     'Amenities': { read: true, create: true, update: true },
     'Tenancy': { read: true, create: true, update: true },
@@ -390,6 +401,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Board - Meetings/Votes': { read: false },
     'Architectural Requests': { read: false },
     'Rules': { read: true },
+    'Rules - Violations': { read: false }, // New module
     'Insurance': { read: false },
     'Amenities': { read: false },
     'Tenancy': { read: false },
@@ -422,6 +434,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Board - Meetings/Votes': { read: true },
     'Architectural Requests': { read: true },
     'Rules': { read: true },
+    'Rules - Violations': { read: true }, // New module
     'Insurance': { read: true },
     'Amenities': { read: true },
     'Tenancy': { read: true },

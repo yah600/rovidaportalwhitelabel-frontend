@@ -39,14 +39,15 @@ import {
   FileSignature,
   LayoutGrid,
   UserCheck,
-  Zap, // Import Zap icon for Automations
-  Wallet, // Import Wallet icon for Unit Statements
-  Percent, // Import Percent icon for Late Fees
-  Banknote, // Import Banknote icon for Bank Reconciliation
+  Zap,
+  Wallet,
+  Percent,
+  Banknote,
+  Ticket, // Import Ticket icon
 } from 'lucide-react';
 import { ShieldCheck } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
-import GlassSurface from '@/components/GlassSurface'; // Import GlassSurface
+import GlassSurface from '@/components/GlassSurface';
 
 interface NavItem {
   titleKey: string;
@@ -102,8 +103,8 @@ const Sidebar = ({ className }: { className?: string }) => {
         { titleKey: 'payments', href: '/finance/payments', icon: DollarSign, moduleName: 'Finance - Bills/Recurring/Deposits' },
         { titleKey: 'purchase orders', href: '/finance/purchase-orders', icon: ShoppingCart, moduleName: 'Finance' },
         { titleKey: 'reports', href: '/finance/reports', icon: BarChart2, moduleName: 'Finance - Reports' },
-        { titleKey: 'late fees nsf interest rules', href: '/finance/late-fees-nsf', icon: Percent, moduleName: 'Finance - Late Fees/NSF/Reconciliation' }, // New sub-item
-        { titleKey: 'bank reconciliation', href: '/finance/bank-reconciliation', icon: Banknote, moduleName: 'Finance - Late Fees/NSF/Reconciliation' }, // New sub-item
+        { titleKey: 'late fees nsf interest rules', href: '/finance/late-fees-nsf', icon: Percent, moduleName: 'Finance - Late Fees/NSF/Reconciliation' },
+        { titleKey: 'bank reconciliation', href: '/finance/bank-reconciliation', icon: Banknote, moduleName: 'Finance - Late Fees/NSF/Reconciliation' },
       ],
     },
     {
@@ -117,7 +118,16 @@ const Sidebar = ({ className }: { className?: string }) => {
         { titleKey: 'architectural requests', href: '/board/architectural-requests', icon: LayoutTemplate, moduleName: 'Architectural Requests' },
       ],
     },
-    { titleKey: 'rules and violations', href: '/rules', icon: Gavel, moduleName: 'Rules' },
+    {
+      titleKey: 'rules and violations',
+      href: '/rules',
+      icon: Gavel,
+      moduleName: 'Rules',
+      subItems: [
+        { titleKey: 'rule catalog', href: '/rules/catalog', icon: Gavel, moduleName: 'Rules' },
+        { titleKey: 'violation tickets', href: '/rules/violations', icon: Ticket, moduleName: 'Rules - Violations' }, // New sub-item
+      ],
+    },
     { titleKey: 'insurance and claims', href: '/insurance', icon: Shield, moduleName: 'Insurance' },
     { titleKey: 'amenity management', href: '/amenities', icon: CalendarCheck, moduleName: 'Amenities' },
     {
@@ -265,11 +275,13 @@ const Sidebar = ({ className }: { className?: string }) => {
                 else if (subItem.href.startsWith('/finance/payments')) subNamespace = 'finance';
                 else if (subItem.href.startsWith('/finance/purchase-orders')) subNamespace = 'finance';
                 else if (subItem.href.startsWith('/finance/reports')) subNamespace = 'finance';
-                else if (subItem.href.startsWith('/finance/late-fees-nsf')) subNamespace = 'finance'; // New sub-item namespace
-                else if (subItem.href.startsWith('/finance/bank-reconciliation')) subNamespace = 'finance'; // New sub-item namespace
+                else if (subItem.href.startsWith('/finance/late-fees-nsf')) subNamespace = 'finance';
+                else if (subItem.href.startsWith('/finance/bank-reconciliation')) subNamespace = 'finance';
                 else if (subItem.href.startsWith('/board/meetings')) subNamespace = 'board';
                 else if (subItem.href.startsWith('/board/votes')) subNamespace = 'board';
                 else if (subItem.href.startsWith('/board/architectural-requests')) subNamespace = 'architectural_requests';
+                else if (subItem.href.startsWith('/rules/catalog')) subNamespace = 'rules';
+                else if (subItem.href.startsWith('/rules/violations')) subNamespace = 'rules'; // New sub-item namespace
                 else if (subItem.href.startsWith('/tenancy/leases')) subNamespace = 'tenancy';
                 else if (subItem.href.startsWith('/tenancy/statements')) subNamespace = 'tenancy';
                 else if (subItem.href.startsWith('/documents/inbox')) subNamespace = 'documents';
