@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Link } from 'react-router-dom';
 import { cn } from '@/lib/utils';
-// import GlassSurface from '@/components/GlassSurface'; // Temporarily removed for debugging
+import GlassSurface from '@/components/GlassSurface'; // Re-import GlassSurface
 
 const AuthPage = () => {
   const { t } = useTranslation(['auth', 'common']);
@@ -16,8 +16,8 @@ const AuthPage = () => {
 
   return (
     <div className="relative flex min-h-screen items-center justify-center bg-background p-4">
-      {/* <GlassSurface width="100%" height="auto" borderRadius={10} blur={15} backgroundOpacity={0.1} className="max-w-md"> */}
-        <Card className="w-full max-w-md bg-white/80 backdrop-blur-xl border-rovida-soft-gray shadow-lg relative z-10"> {/* Added max-w-md, bg-white/80, backdrop-blur-xl, border-rovida-soft-gray, shadow-lg */}
+      <GlassSurface width="100%" height="auto" borderRadius={10} blur={15} backgroundOpacity={0.1} className="max-w-md">
+        <Card className="w-full bg-transparent border-none shadow-none relative z-10">
           <CardHeader className="text-center">
             <img src="/AVERO.png" alt={t('welcome to gestion rovida', { ns: 'common' })} className="mx-auto h-10 w-auto mb-4" />
             <CardTitle className="text-2xl text-rovida-navy">{t('welcome back', { ns: 'auth' })}</CardTitle>
@@ -65,7 +65,7 @@ const AuthPage = () => {
             )}
           </CardContent>
         </Card>
-      {/* </GlassSurface> */}
+      </GlassSurface>
     </div>
   );
 };
