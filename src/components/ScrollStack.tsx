@@ -241,13 +241,11 @@ const ScrollStack = ({
         smoothWheel: true,
         touchMultiplier: 2,
         gestureOrientation: 'both', // Corrected property name
-        // normalizeWheel: true, // Removed as it's not a valid option
         wheelMultiplier: 1,
-        touchInertiaMultiplier: 35,
+        touchInertia: 0.6,
         lerp: 0.1,
         syncTouch: true,
         syncTouchLerp: 0.075,
-        touchInertia: 0.6
       });
 
       lenis.on('scroll', handleScroll);

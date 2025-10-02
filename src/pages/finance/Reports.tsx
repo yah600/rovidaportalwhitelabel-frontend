@@ -9,6 +9,7 @@ import { useAuth } from '@/hooks/useAuth';
 import {
   ResponsiveContainer,
   BarChart,
+  Bar, // Added Bar import
   XAxis,
   YAxis,
   CartesianGrid,

@@ -90,16 +90,15 @@ const MaintenanceCalendar = () => {
               modifiers={{
                 hasEvent: (date) => mockCalendarEvents.some(event => isSameDay(event.date, date)),
               }}
-              modifiersClassNames={{
-                hasEvent: 'bg-rovida-gold/20',
-                selected: 'bg-rovida-navy text-white',
-              }}
               styles={{
                 caption: { display: 'flex', justifyContent: 'center' },
                 head_cell: { color: 'var(--rovida-slate-green-gray)' },
-                day_selected: { backgroundColor: 'var(--rovida-navy)', color: 'white' },
-                day_today: { fontWeight: 'bold', color: 'var(--rovida-gold)' },
-                day_hasEvent: { backgroundColor: 'var(--rovida-gold-20)', borderRadius: '50%' },
+                day: {
+                  // Default day styles if any
+                },
+                selected: { backgroundColor: 'var(--rovida-navy)', color: 'white' },
+                today: { fontWeight: 'bold', color: 'var(--rovida-gold)' },
+                hasEvent: { backgroundColor: 'var(--rovida-gold-20)', borderRadius: '50%' },
               }}
             />
           </div>
