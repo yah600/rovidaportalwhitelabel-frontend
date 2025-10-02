@@ -97,7 +97,7 @@ const Login = () => {
               <p className="font-semibold mb-2">{t('mock_user_credentials')}</p>
               <ul className="list-disc list-inside text-left mx-auto max-w-xs">
                 {MOCK_USERS.map((user) => (
-                  <li key={user.email}>{user.email} ({user.user.roles[0].name})</li>
+                  <li key={user.email}>{user.email} ({t(user.user.roles[0].name.toLowerCase().replace(/ /g, '_'))})</li>
                 ))}
               </ul>
             </div>

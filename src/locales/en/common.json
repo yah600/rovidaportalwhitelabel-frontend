@@ -93,5 +93,17 @@
   "email": "Email",
   "email_us": "Email us",
   "twitter": "Twitter",
-  "linkedin": "LinkedIn"
+  "linkedin": "LinkedIn",
+  "platform_owner": "Platform Owner",
+  "client_super_administrator": "Client Super-Administrator",
+  "condo_administrator": "Condo Administrator",
+  "property_manager": "Property Manager",
+  "accountant": "Accountant",
+  "board_member": "Board Member",
+  "tenant": "Tenant",
+  "vendor_service_provider": "Vendor / Service Provider",
+  "emergency_agent": "Emergency Agent",
+  "concierge_front_desk_security": "Concierge / Front Desk / Security",
+  "building_maintenance_technician": "Building Maintenance Technician",
+  "read_only_auditor": "Read-Only Auditor"
 }
