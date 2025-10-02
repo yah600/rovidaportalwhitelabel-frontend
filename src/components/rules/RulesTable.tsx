@@ -13,7 +13,7 @@ interface RulesTableProps {
 }
 
 const RulesTable = ({ rules }: RulesTableProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(['rules', 'common']); // Ensure 'rules' and 'common' namespaces are loaded
 
   const getEnforcementLevelVariant = (level: Rule['enforcementLevel']) => {
     switch (level) {
@@ -31,22 +31,22 @@ const RulesTable = ({ rules }: RulesTableProps) => {
   const columns: ColumnDef<Rule>[] = [
     {
       accessorKey: "id",
-      header: t('id'),
+      header: t('id', { ns: 'common' }),
       cell: ({ row }) => <span className="font-medium text-rovida-near-black">{row.getValue("id")}</span>,
     },
     {
       accessorKey: "title",
-      header: t('title'),
+      header: t('title', { ns: 'common' }),
       cell: ({ row }) => <span className="text-rovida-near-black">{row.getValue("title")}</span>,
     },
     {
       accessorKey: "category",
-      header: t('category'),
-      cell: ({ row }) => <span className="text-rovida-near-black">{t(row.getValue("category").toLowerCase())}</span>,
+      header: t('category', { ns: 'rules' }),
+      cell: ({ row }) => <span className="text-rovida-near-black">{t(row.getValue("category").toLowerCase(), { ns: 'rules' })}</span>,
     },
     {
       accessorKey: "effectiveDate",
-      header: t('effective date'),
+      header: t('effective date', { ns: 'rules' }),
       cell: ({ row }) => (
         <span className="text-rovida-slate-green-gray">
           {format(row.getValue("effectiveDate"), 'MMM dd, yyyy')}
@@ -55,20 +55,20 @@ const RulesTable = ({ rules }: RulesTableProps) => {
     },
     {
       accessorKey: "enforcementLevel",
-      header: t('enforcement level'),
+      header: t('enforcement level', { ns: 'rules' }),
       cell: ({ row }) => (
         <Badge variant={getEnforcementLevelVariant(row.getValue("enforcementLevel"))}>
-          {t(row.getValue("enforcementLevel").toLowerCase())}
+          {t(row.getValue("enforcementLevel").toLowerCase(), { ns: 'rules' })}
         </Badge>
       ),
     },
     {
       id: "actions",
-      header: t('actions'),
+      header: t('actions', { ns: 'common' }),
       enableSorting: false,
       cell: () => (
         <div className="text-right">
-          <span className="text-sm text-rovida-slate-green-gray">{t('view')} / {t('edit')}</span>
+          <span className="text-sm text-rovida-slate-green-gray">{t('view', { ns: 'common' })} / {t('edit', { ns: 'common' })}</span>
         </div>
       ),
     },
