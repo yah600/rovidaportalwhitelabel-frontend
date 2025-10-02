@@ -105,5 +105,6 @@
   "emergency_agent": "Agent d'urgence",
   "concierge_front_desk_security": "Concierge / Réception / Sécurité",
   "building_maintenance_technician": "Technicien de maintenance du bâtiment",
-  "read_only_auditor": "Auditeur en lecture seule"
+  "read_only_auditor": "Auditeur en lecture seule",
+  "login_to_gestion_rovida": "Connexion à Gestion Rovida"
 }

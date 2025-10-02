@@ -105,5 +105,6 @@
   "emergency_agent": "Emergency Agent",
   "concierge_front_desk_security": "Concierge / Front Desk / Security",
   "building_maintenance_technician": "Building Maintenance Technician",
-  "read_only_auditor": "Read-Only Auditor"
+  "read_only_auditor": "Read-Only Auditor",
+  "login_to_gestion_rovida": "Login to Gestion Rovida"
 }
