@@ -23,6 +23,8 @@ import FinanceBillDetail from './pages/finance/BillDetail';
 import FinancePayments from './pages/finance/Payments';
 import FinancePurchaseOrders from './pages/finance/PurchaseOrders';
 import FinanceReports from './pages/finance/Reports';
+import FinanceLateFeesNSF from './pages/finance/LateFeesNSF'; // New import
+import FinanceBankReconciliation from './pages/finance/BankReconciliation'; // New import
 import Board from './pages/Board';
 import BoardMeetings from './pages/board/Meetings';
 import BoardMeetingDetail from './pages/board/MeetingDetail';
@@ -34,7 +36,7 @@ import Insurance from './pages/Insurance';
 import Amenities from './pages/Amenities';
 import Tenancy from './pages/Tenancy';
 import Leases from './pages/tenancy/Leases';
-import UnitStatementDetail from './pages/tenancy/UnitStatementDetail'; // Import new component
+import UnitStatementDetail from './pages/tenancy/UnitStatementDetail';
 import DocumentsOverview from './pages/documents/Overview';
 import DocumentsInbox from './pages/documents/Inbox';
 import DocumentsRegistry from './pages/documents/Registry';
@@ -70,8 +72,8 @@ import RegisterPage from './pages/auth/Register';
 import ForgotPasswordPage from './pages/auth/ForgotPassword';
 import ResetPasswordPage from './pages/auth/ResetPassword';
 import NotFound from './pages/NotFound';
-import Index from './pages/Index'; // The root redirect
-import Automations from './pages/Automations'; // Import the new Automations page
+import Index from './pages/Index';
+import Automations from './pages/Automations';
 
 const App = () => {
   return (
@@ -92,7 +94,7 @@ const App = () => {
 
           {/* Main Application Routes (Protected by AppShell) */}
           <Route element={<AppShell />}>
-            <Route path="/" element={<Index />} /> {/* Redirects to /dashboard */}
+            <Route path="/" element={<Index />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/issues" element={<Issues />} />
             <Route path="/issues/new" element={<NewIssue />} />
@@ -113,6 +115,8 @@ const App = () => {
             <Route path="/finance/payments" element={<FinancePayments />} />
             <Route path="/finance/purchase-orders" element={<FinancePurchaseOrders />} />
             <Route path="/finance/reports" element={<FinanceReports />} />
+            <Route path="/finance/late-fees-nsf" element={<FinanceLateFeesNSF />} /> {/* New route */}
+            <Route path="/finance/bank-reconciliation" element={<FinanceBankReconciliation />} /> {/* New route */}
             <Route path="/board" element={<Board />} />
             <Route path="/board/meetings" element={<BoardMeetings />} />
             <Route path="/board/meetings/:id" element={<BoardMeetingDetail />} />
@@ -124,7 +128,7 @@ const App = () => {
             <Route path="/amenities" element={<Amenities />} />
             <Route path="/tenancy" element={<Tenancy />} />
             <Route path="/tenancy/leases" element={<Leases />} />
-            <Route path="/tenancy/statements/:id" element={<UnitStatementDetail />} /> {/* New route */}
+            <Route path="/tenancy/statements/:id" element={<UnitStatementDetail />} />
             <Route path="/documents" element={<DocumentsOverview />} />
             <Route path="/documents/inbox" element={<DocumentsInbox />} />
             <Route path="/documents/registry" element={<DocumentsRegistry />} />

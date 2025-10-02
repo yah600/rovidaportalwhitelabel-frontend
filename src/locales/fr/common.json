@@ -145,5 +145,12 @@
   "no permission view insurance": "Vous n'avez pas la permission de voir les assurances.",
   "no permission view amenities": "Vous n'avez pas la permission de voir les commodités.",
   "no permission view templates": "Vous n'avez pas la permission de voir les modèles.",
-  "welcome": "Bienvenue"
+  "welcome": "Bienvenue",
+  "days": "jours",
+  "daily": "Quotidien",
+  "monthly": "Mensuel",
+  "quarterly": "Trimestriel",
+  "annually": "Annuel",
+  "no permission view late fees": "Vous n'avez pas la permission de voir les frais de retard, NSF ou les règles d'intérêt.",
+  "no permission view bank reconciliation": "Vous n'avez pas la permission de voir le rapprochement bancaire."
 }

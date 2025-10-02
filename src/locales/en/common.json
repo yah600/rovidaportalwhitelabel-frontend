@@ -145,5 +145,12 @@
   "no permission view insurance": "You do not have permission to view insurance.",
   "no permission view amenities": "You do not have permission to view amenities.",
   "no permission view templates": "You do not have permission to view templates.",
-  "welcome": "Welcome"
+  "welcome": "Welcome",
+  "days": "days",
+  "daily": "Daily",
+  "monthly": "Monthly",
+  "quarterly": "Quarterly",
+  "annually": "Annually",
+  "no permission view late fees": "You do not have permission to view late fees, NSF, or interest rules.",
+  "no permission view bank reconciliation": "You do not have permission to view bank reconciliation."
 }

@@ -32,7 +32,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Finance - Bills/Recurring/Deposits': { read: true, create: true, update: true, delete: true, approve: true, export: true },
     'Finance - Statements': { read: true, export: true },
     'Finance - Ledger/Trial Balance': { read: true, export: true },
-    'Finance - Late Fees/NSF/Reconciliation': { approve: true, update: true, export: true },
+    'Finance - Late Fees/NSF/Reconciliation': { read: true, create: true, update: true, approve: true, export: true }, // Added create for rules
     'Finance - Reports': { read: true, export: true },
     'Board': { read: true, create: true, update: true, delete: true, approve: true, export: true, special: true },
     'Board - Meetings/Votes': { read: true, create: true, update: true, approve: true },
@@ -42,7 +42,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Amenities': { read: true, create: true, update: true, delete: true },
     'Tenancy': { read: true, create: true, update: true, delete: true },
     'Tenancy - Leases': { read: true, create: true, update: true, delete: true },
-    'Tenancy - Unit Statements': { read: true, export: true }, // Added for Unit Statements
+    'Tenancy - Unit Statements': { read: true, export: true },
     'Portfolio Management': { read: true, create: true, update: true, delete: true },
     'Visitor Logs': { read: true, create: true, update: true, delete: true },
     'Documents': { read: true, create: true, update: true, delete: true, approve: true, export: true, special: true },
@@ -64,7 +64,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Finance - Bills/Recurring/Deposits': { read: true, create: true, update: true, delete: true, approve: true, export: true },
     'Finance - Statements': { read: true, export: true },
     'Finance - Ledger/Trial Balance': { read: true, export: true },
-    'Finance - Late Fees/NSF/Reconciliation': { approve: true, update: true, export: true },
+    'Finance - Late Fees/NSF/Reconciliation': { read: true, create: true, update: true, approve: true, export: true },
     'Finance - Reports': { read: true, export: true },
     'Board': { read: true, create: true, update: true, approve: true },
     'Board - Meetings/Votes': { read: true, create: true, update: true, approve: true },
@@ -74,7 +74,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Amenities': { read: true, create: true, update: true },
     'Tenancy': { read: true, create: true, update: true },
     'Tenancy - Leases': { read: true, create: true, update: true },
-    'Tenancy - Unit Statements': { read: true, export: true }, // Added for Unit Statements
+    'Tenancy - Unit Statements': { read: true, export: true },
     'Portfolio Management': { read: true, create: true, update: true },
     'Visitor Logs': { read: true, create: true, update: true },
     'Documents': { read: true, create: true, update: true, delete: true, export: true },
@@ -96,7 +96,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Finance - Bills/Recurring/Deposits': { read: true, create: true, update: true, delete: true, approve: true, export: true },
     'Finance - Statements': { read: true, export: true },
     'Finance - Ledger/Trial Balance': { read: true, export: true },
-    'Finance - Late Fees/NSF/Reconciliation': { approve: true, update: true, export: true },
+    'Finance - Late Fees/NSF/Reconciliation': { read: true, create: true, update: true, approve: true, export: true },
     'Finance - Reports': { read: true, export: true },
     'Board': { read: true, create: true, update: true, approve: true },
     'Board - Meetings/Votes': { read: true, create: true, update: true, approve: true },
@@ -106,7 +106,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Amenities': { read: true, create: true, update: true },
     'Tenancy': { read: true, create: true, update: true },
     'Tenancy - Leases': { read: true, create: true, update: true },
-    'Tenancy - Unit Statements': { read: true, export: true }, // Added for Unit Statements
+    'Tenancy - Unit Statements': { read: true, export: true },
     'Portfolio Management': { read: true, create: true, update: true },
     'Visitor Logs': { read: true, create: true, update: true },
     'Documents': { read: true, create: true, update: true, delete: true, export: true },
@@ -128,7 +128,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Finance - Bills/Recurring/Deposits': { read: true, create: true, update: true, delete: true, approve: true, export: true },
     'Finance - Statements': { read: true, export: true },
     'Finance - Ledger/Trial Balance': { read: true, export: true },
-    'Finance - Late Fees/NSF/Reconciliation': { approve: true, update: true, export: true },
+    'Finance - Late Fees/NSF/Reconciliation': { read: true, create: true, update: true, approve: true, export: true },
     'Finance - Reports': { read: true, export: true },
     'Board': { read: true, create: true, update: true },
     'Board - Meetings/Votes': { read: true, create: true, update: true },
@@ -138,7 +138,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Amenities': { read: true, create: true, update: true },
     'Tenancy': { read: true, create: true, update: true },
     'Tenancy - Leases': { read: true, create: true, update: true },
-    'Tenancy - Unit Statements': { read: true, export: true }, // Added for Unit Statements
+    'Tenancy - Unit Statements': { read: true, export: true },
     'Portfolio Management': { read: true, create: true, update: true },
     'Visitor Logs': { read: true, create: true, update: true },
     'Documents': { read: true, create: true, update: true, delete: true, export: true },
@@ -160,7 +160,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Finance - Bills/Recurring/Deposits': { read: true, create: true, update: true, delete: true, approve: true, export: true },
     'Finance - Statements': { read: true, export: true },
     'Finance - Ledger/Trial Balance': { read: true, export: true },
-    'Finance - Late Fees/NSF/Reconciliation': { create: true, update: true, approve: true, export: true },
+    'Finance - Late Fees/NSF/Reconciliation': { read: true, create: true, update: true, approve: true, export: true },
     'Finance - Reports': { read: true, export: true },
     'Board': { read: false },
     'Board - Meetings/Votes': { read: false },
@@ -170,7 +170,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Amenities': { read: false },
     'Tenancy': { read: true },
     'Tenancy - Leases': { read: true },
-    'Tenancy - Unit Statements': { read: true, export: true }, // Added for Unit Statements
+    'Tenancy - Unit Statements': { read: true, export: true },
     'Portfolio Management': { read: true },
     'Visitor Logs': { read: false },
     'Documents': { read: true, create: true, export: true },
@@ -202,7 +202,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Amenities': { read: true },
     'Tenancy': { read: true },
     'Tenancy - Leases': { read: true },
-    'Tenancy - Unit Statements': { read: true, export: true }, // Added for Unit Statements
+    'Tenancy - Unit Statements': { read: true, export: true },
     'Portfolio Management': { read: true },
     'Visitor Logs': { read: true },
     'Documents': { read: true, export: true },
@@ -234,7 +234,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Amenities': { read: true },
     'Tenancy': { read: true, create: true, update: true },
     'Tenancy - Leases': { read: true, create: true, update: true },
-    'Tenancy - Unit Statements': { read: true, export: true }, // Added for Unit Statements
+    'Tenancy - Unit Statements': { read: true, export: true },
     'Portfolio Management': { read: false },
     'Visitor Logs': { read: true, create: true },
     'Documents': { read: true, export: true },
@@ -266,7 +266,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Amenities': { read: true },
     'Tenancy': { read: true, create: true, update: true },
     'Tenancy - Leases': { read: true, create: true, update: true },
-    'Tenancy - Unit Statements': { read: true, export: true }, // Added for Unit Statements
+    'Tenancy - Unit Statements': { read: true, export: true },
     'Portfolio Management': { read: false },
     'Visitor Logs': { read: true, create: true },
     'Documents': { read: true, export: true },
@@ -298,7 +298,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Amenities': { read: false },
     'Tenancy': { read: false },
     'Tenancy - Leases': { read: false },
-    'Tenancy - Unit Statements': { read: false }, // Vendor does not need Unit Statements
+    'Tenancy - Unit Statements': { read: false },
     'Portfolio Management': { read: false },
     'Visitor Logs': { read: true, create: true, update: true },
     'Documents': { read: true },
@@ -330,7 +330,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Amenities': { read: false },
     'Tenancy': { read: false },
     'Tenancy - Leases': { read: false },
-    'Tenancy - Unit Statements': { read: false }, // Emergency Agent does not need Unit Statements
+    'Tenancy - Unit Statements': { read: false },
     'Portfolio Management': { read: false },
     'Visitor Logs': { read: true, create: true, update: true },
     'Documents': { read: true },
@@ -362,7 +362,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Amenities': { read: true, create: true, update: true },
     'Tenancy': { read: true, create: true, update: true },
     'Tenancy - Leases': { read: true, create: true, update: true },
-    'Tenancy - Unit Statements': { read: true, export: true }, // Added for Unit Statements
+    'Tenancy - Unit Statements': { read: true, export: true },
     'Portfolio Management': { read: false },
     'Visitor Logs': { read: true, create: true, update: true },
     'Documents': { read: true },
@@ -394,7 +394,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Amenities': { read: false },
     'Tenancy': { read: false },
     'Tenancy - Leases': { read: false },
-    'Tenancy - Unit Statements': { read: false }, // Technician does not need Unit Statements
+    'Tenancy - Unit Statements': { read: false },
     'Portfolio Management': { read: false },
     'Visitor Logs': { read: false },
     'Documents': { read: true },
@@ -426,7 +426,7 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Amenities': { read: true },
     'Tenancy': { read: true },
     'Tenancy - Leases': { read: true },
-    'Tenancy - Unit Statements': { read: true, export: true }, // Added for Unit Statements
+    'Tenancy - Unit Statements': { read: true, export: true },
     'Portfolio Management': { read: true },
     'Visitor Logs': { read: true },
     'Documents': { read: true, export: true },
