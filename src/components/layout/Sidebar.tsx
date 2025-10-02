@@ -299,42 +299,48 @@ const Sidebar = ({ className }: { className?: string }) => {
   };
 
   return (
-    <GlassSurface
-      width="100%"
-      height="100%"
-      borderRadius={0}
-      blur={20}
-      backgroundOpacity={0.15}
-      saturation={1.8}
-      displace={0.5}
-      distortionScale={-100}
-      redOffset={5}
-      greenOffset={10}
-      blueOffset={15}
+    <div
       className={cn(
-        "hidden border-r border-rovida-soft-gray md:flex flex-col transition-all duration-300 ease-in-out",
+        "hidden border-r border-rovida-soft-gray md:flex flex-col transition-all duration-300 ease-in-out relative", // Added relative here
         className
       )}
     >
-      <div className="flex h-14 items-center border-b border-rovida-soft-gray px-4 lg:h-[60px] lg:px-6 justify-between">
-        {/* Removed "Welcome to Gestion Rovida" text */}
-        <button
-          onClick={() => setIsCollapsed(!isCollapsed)}
-          className={cn(
-            "p-2 rounded-md hover:bg-rovida-soft-gray text-rovida-near-black",
-            isCollapsed ? "mx-auto" : ""
-          )}
-          aria-label={isCollapsed ? t('expand sidebar', { ns: 'common' }) : t('collapse sidebar', { ns: 'common' })}
-        >
-          <Menu className="h-5 w-5" />
-        </button>
+      <GlassSurface
+        width="100%"
+        height="100%"
+        borderRadius={0}
+        blur={20}
+        backgroundOpacity={0.15}
+        saturation={1.8}
+        displace={0.5}
+        distortionScale={-100}
+        redOffset={5}
+        greenOffset={10}
+        blueOffset={15}
+        className="absolute inset-0" // Make GlassSurface fill the parent div
+      >
+        {/* GlassSurface itself should not have children if it's just a background effect */}
+      </GlassSurface>
+      <div className="relative z-10 flex flex-col h-full"> {/* Content wrapper */}
+        <div className="flex h-14 items-center border-b border-rovida-soft-gray px-4 lg:h-[60px] lg:px-6 justify-between">
+          <button
+            onClick={() => setIsCollapsed(!isCollapsed)}
+            className={cn(
+              "p-2 rounded-md hover:bg-rovida-soft-gray text-rovida-near-black",
+              isCollapsed ? "mx-auto" : ""
+            )}
+            aria-label={isCollapsed ? t('expand sidebar', { ns: 'common' }) : t('collapse sidebar', { ns: 'common' })}
+          >
+            <Menu className="h-5 w-5" />
+          </button>
+        </div>
+        <div className="flex-1 overflow-y-auto custom-scrollbar relative" ref={sidebarContentRef}>
+          <nav className="grid items-start px-2 text-sm font-medium lg:px-4 py-2">
+            {renderNavItems(navItems)}
+          </nav>
+        </div>
       </div>
-      <div className="flex-1 overflow-y-auto custom-scrollbar relative" ref={sidebarContentRef}>
-        <nav className="grid items-start px-2 text-sm font-medium lg:px-4 py-2">
-          {renderNavItems(navItems)}
-        </nav>
-      </div>
-    </GlassSurface>
+    </div>
   );
 };
 
