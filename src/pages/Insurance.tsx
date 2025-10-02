@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { mockInsurancePolicies } from '@/data/mock-insurance';
 import PoliciesTable from '@/components/insurance/PoliciesTable';
 import { toast } from 'sonner'; // Import toast for actions
-import { useAuth } from '@/hooks/useAuth'; // Import useAuth
+import { useAuth } from '@/shared/rbac/useAuth'; // Import useAuth
 
 const Insurance = () => {
   const { t } = useTranslation(['insurance', 'common']); // Ensure 'insurance' and 'common' namespaces are loaded

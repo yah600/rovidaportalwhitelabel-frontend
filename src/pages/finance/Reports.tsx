@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { BarChart2, FileText, Download, AlertTriangle, BookText, Scale, Wallet, Landmark } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
-import { useAuth } from '@/hooks/useAuth';
+import { useAuth } from '@/shared/rbac/useAuth';
 import {
   ResponsiveContainer,
   BarChart,

@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import { mockTasks } from '@/data/mock-tasks'; // Import mockTasks
 import TasksTable from '@/components/maintenance/TasksTable'; // Import TasksTable
 import { toast } from 'sonner'; // Import toast for actions
-import { useAuth } from '@/hooks/useAuth'; // Import useAuth
+import { useAuth } from '@/shared/rbac/useAuth'; // Import useAuth
 
 const MaintenanceTasks = () => {
   const { t } = useTranslation(['maintenance', 'common']); // Specify namespaces

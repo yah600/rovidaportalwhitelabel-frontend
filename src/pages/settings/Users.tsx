@@ -5,7 +5,7 @@ import { PlusCircle, Users } from 'lucide-react'; // Imported Users
 import { mockUsers } from '@/data/mock-users';
 import UsersTable from '@/components/settings/UsersTable';
 import { Card } from '@/components/ui/card'; // Import Card for the empty state
-import { useAuth } from '@/hooks/useAuth'; // Import useAuth
+import { useAuth } from '@/shared/rbac/useAuth'; // Import useAuth
 
 const SettingsUsers = () => {
   const { t } = useTranslation(['settings', 'common']); // Ensure 'settings' and 'common' namespaces are loaded

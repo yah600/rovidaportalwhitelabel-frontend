@@ -22,7 +22,7 @@ import { format } from 'date-fns';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import CircularGallery from '@/components/CircularGallery'; // Import CircularGallery
 import { toast } from 'sonner'; // Import toast for actions
-import { useAuth } from '@/hooks/useAuth'; // Import useAuth
+import { useAuth } from '@/shared/rbac/useAuth'; // Import useAuth
 
 const IssueDetail = () => {
   const { id } = useParams();

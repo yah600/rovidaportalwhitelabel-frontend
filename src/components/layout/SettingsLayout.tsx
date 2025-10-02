@@ -16,7 +16,7 @@ import {
   UserCheck,
 } from 'lucide-react';
 import BreadcrumbNav from '@/components/BreadcrumbNav';
-import { useAuth } from '@/hooks/useAuth';
+import Guard from '@/shared/rbac/Guard';
 
 interface SettingsNavItem {
   titleKey: string;
@@ -97,8 +97,6 @@ const settingsNavItems: SettingsNavItem[] = [
 const SettingsLayout = () => {
   const { t } = useTranslation();
   const location = useLocation();
-  const { canRead } = useAuth();
-
   const generateBreadcrumbItems = () => {
     const pathnames = location.pathname.split('/').filter((x) => x);
     let currentPath = '';
@@ -132,9 +130,8 @@ const SettingsLayout = () => {
         <aside className="w-full lg:w-64 flex-shrink-0">
           <nav className="flex flex-col gap-1 p-2 rounded-md border bg-background">
             {settingsNavItems.map((item) => (
-              canRead(item.moduleName) && (
+              <Guard key={item.href} module={item.moduleName}>
                 <Link
-                  key={item.href}
                   to={item.href}
                   className={cn(
                     "flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary",
@@ -144,7 +141,7 @@ const SettingsLayout = () => {
                   <item.icon className="h-4 w-4" />
                   {t(item.titleKey)}
                 </Link>
-              )
+              </Guard>
             ))}
           </nav>
         </aside>

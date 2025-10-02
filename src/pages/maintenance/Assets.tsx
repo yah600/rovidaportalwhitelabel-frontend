@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import { mockAssets } from '@/data/mock-assets'; // Import mockAssets
 import AssetsTable from '@/components/maintenance/AssetsTable'; // Import AssetsTable
 import { toast } from 'sonner'; // Import toast for actions
-import { useAuth } from '@/hooks/useAuth'; // Import useAuth
+import { useAuth } from '@/shared/rbac/useAuth'; // Import useAuth
 
 const MaintenanceAssets = () => {
   const { t } = useTranslation(['maintenance', 'common']); // Specify namespaces

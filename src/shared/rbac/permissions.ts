@@ -1,27 +1,24 @@
-"use client";
+import { RoleName } from './roles';
 
-import { useUser, CurrentUser } from '@/context/UserContext';
+export type PermissionAction = 'read' | 'create' | 'update' | 'delete' | 'approve' | 'export' | 'special';
 
-// Define the permission structure
-interface ModulePermissions {
+export interface ModulePermissions {
   read?: boolean;
   create?: boolean;
   update?: boolean;
   delete?: boolean;
   approve?: boolean;
   export?: boolean;
-  special?: boolean; // For specific actions like "ack/escalate/close"
+  special?: boolean;
 }
 
-interface PermissionsMatrix {
-  [roleName: string]: {
-    [moduleName: string]: ModulePermissions;
-  };
-}
+export type ModuleName = string;
 
-// PERMISSIONS_MATRIX: Frontend representation of role-based access control.
-// Backend should always enforce actual RLS.
-const PERMISSIONS_MATRIX: PermissionsMatrix = {
+export type RolePermissions = Record<ModuleName, ModulePermissions>;
+
+export type PermissionsMatrix = Record<RoleName, RolePermissions>;
+
+export const PERMISSIONS_MATRIX: PermissionsMatrix = {
   'Platform Owner': {
     'Dashboard': { read: true, create: true, update: true, delete: true, approve: true, export: true, special: true },
     'Issues': { read: true, create: true, update: true, delete: true, approve: true, export: true, special: true },
@@ -451,46 +448,4 @@ const PERMISSIONS_MATRIX: PermissionsMatrix = {
     'Profile': { read: true, update: true },
     'Feedback': { read: true, create: true },
   },
-};
-
-export const useAuth = () => {
-  const { currentUser } = useUser();
-
-  const checkPermission = (moduleName: string, action: keyof ModulePermissions): boolean => {
-    if (!currentUser || !currentUser.roles || currentUser.roles.length === 0) {
-      return false;
-    }
-
-    // If any of the user's roles grant the permission, then they have it
-    for (const userRole of currentUser.roles) {
-      const rolePermissions = PERMISSIONS_MATRIX[userRole.name];
-      if (rolePermissions) {
-        const modulePermissions = rolePermissions[moduleName];
-        if (modulePermissions && modulePermissions[action]) {
-          return true;
-        }
-      }
-    }
-    return false;
-  };
-
-  // Helper functions for common actions
-  const canRead = (moduleName: string) => checkPermission(moduleName, 'read');
-  const canCreate = (moduleName: string) => checkPermission(moduleName, 'create');
-  const canUpdate = (moduleName: string) => checkPermission(moduleName, 'update');
-  const canDelete = (moduleName: string) => checkPermission(moduleName, 'delete');
-  const canApprove = (moduleName: string) => checkPermission(moduleName, 'approve');
-  const canExport = (moduleName: string) => checkPermission(moduleName, 'export');
-  const canPerformSpecial = (moduleName: string) => checkPermission(moduleName, 'special');
-
-  return {
-    currentUser,
-    canRead,
-    canCreate,
-    canUpdate,
-    canDelete,
-    canApprove,
-    canExport,
-    canPerformSpecial,
-  };
 };

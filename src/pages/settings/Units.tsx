@@ -5,7 +5,7 @@ import { PlusCircle, Scale } from 'lucide-react'; // Imported Scale
 import { mockUnits } from '@/data/mock-units';
 import UnitsTable from '@/components/settings/UnitsTable';
 import { Card } from '@/components/ui/card'; // Import Card for the empty state
-import { useAuth } from '@/hooks/useAuth'; // Import useAuth
+import { useAuth } from '@/shared/rbac/useAuth'; // Import useAuth
 
 const SettingsUnits = () => {
   const { t } = useTranslation(['settings', 'common']); // Ensure 'settings' and 'common' namespaces are loaded

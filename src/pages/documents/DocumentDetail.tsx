@@ -18,7 +18,7 @@ import {
 import { mockDocuments, Document } from '@/data/mock-documents';
 import { format } from 'date-fns';
 import { toast } from 'sonner'; // Import toast for actions
-import { useAuth } from '@/hooks/useAuth'; // Import useAuth
+import { useAuth } from '@/shared/rbac/useAuth'; // Import useAuth
 
 const DocumentDetail = () => {
   const { id } = useParams();

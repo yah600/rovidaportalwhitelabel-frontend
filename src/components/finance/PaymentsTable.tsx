@@ -9,7 +9,7 @@ import { Payment } from '@/data/mock-payments';
 import { format } from 'date-fns';
 import { DataTable } from '@/components/DataTable'; // Import the generic DataTable
 import { toast } from 'sonner'; // Import toast for actions
-import { useAuth } from '@/hooks/useAuth'; // Import useAuth
+import { useAuth } from '@/shared/rbac/useAuth'; // Import useAuth
 
 interface PaymentsTableProps {
   payments: Payment[];

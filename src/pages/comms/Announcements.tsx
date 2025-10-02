@@ -8,7 +8,7 @@ import { mockAnnouncements } from '@/data/mock-announcements';
 import AnnouncementsTable from '@/components/comms/AnnouncementsTable';
 import { toast } from 'sonner'; // Import toast for actions
 import { Card } from '@/components/ui/card'; // Import Card for the empty state
-import { useAuth } from '@/hooks/useAuth'; // Import useAuth
+import { useAuth } from '@/shared/rbac/useAuth'; // Import useAuth
 
 const CommsAnnouncements = () => {
   const { t } = useTranslation(['communications', 'common']); // Ensure 'communications' and 'common' namespaces are loaded

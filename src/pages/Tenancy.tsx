@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { FileSignature, Users, ArrowRight } from 'lucide-react';
 import { mockLeases } from '@/data/mock-leases';
 import { mockUsers } from '@/data/mock-users';
-import { useAuth } from '@/hooks/useAuth'; // Import useAuth
+import { useAuth } from '@/shared/rbac/useAuth'; // Import useAuth
 
 const Tenancy = () => {
   const { t } = useTranslation(['tenancy', 'common']);

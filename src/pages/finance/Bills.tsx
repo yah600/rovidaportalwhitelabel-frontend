@@ -8,7 +8,7 @@ import { mockBills, Bill } from '@/data/mock-bills';
 import BillsTable from '@/components/finance/BillsTable';
 import { Card } from '@/components/ui/card'; // Import Card for the empty state
 import { toast } from 'sonner'; // Import toast for actions
-import { useAuth } from '@/hooks/useAuth'; // Import useAuth
+import { useAuth } from '@/shared/rbac/useAuth'; // Import useAuth
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 const FinanceBills = () => {

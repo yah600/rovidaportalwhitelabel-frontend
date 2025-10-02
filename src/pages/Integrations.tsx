@@ -8,7 +8,7 @@ import { mockIntegrations } from '@/data/mock-integrations';
 import IntegrationCard from '@/components/integrations/IntegrationCard';
 import { Card } from '@/components/ui/card'; // Import Card for the empty state
 import { toast } from 'sonner'; // Import toast for actions
-import { useAuth } from '@/hooks/useAuth'; // Import useAuth
+import { useAuth } from '@/shared/rbac/useAuth'; // Import useAuth
 
 const Integrations = () => {
   const { t } = useTranslation(['integrations', 'common']); // Ensure 'integrations' and 'common' namespaces are loaded

@@ -15,7 +15,7 @@ import BreadcrumbNav from '@/components/BreadcrumbNav';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import Stepper, { Step } from '@/components/Stepper'; // Import Stepper and Step
 import { mockUnits } from '@/data/mock-units'; // Import mock units
-import { useAuth } from '@/hooks/useAuth'; // Import useAuth
+import { useAuth } from '@/shared/rbac/useAuth'; // Import useAuth
 
 // Define the Zod schema for the new incident form
 const newIssueSchema = z.object({

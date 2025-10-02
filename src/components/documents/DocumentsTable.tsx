@@ -10,7 +10,7 @@ import { format } from 'date-fns';
 import { FileText, FileSpreadsheet, FileImage, FileQuestion } from 'lucide-react';
 import { DataTable } from '@/components/DataTable'; // Import the generic DataTable
 import { toast } from 'sonner'; // Import toast for actions
-import { useAuth } from '@/hooks/useAuth'; // Import useAuth
+import { useAuth } from '@/shared/rbac/useAuth'; // Import useAuth
 
 interface DocumentsTableProps {
   documents: Document[];

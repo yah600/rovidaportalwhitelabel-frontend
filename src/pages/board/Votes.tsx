@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { mockVotes } from '@/data/mock-votes';
 import VotesTable from '@/components/board/VotesTable';
 import { Card } from '@/components/ui/card'; // Import Card for the empty state
-import { useAuth } from '@/hooks/useAuth'; // Import useAuth
+import { useAuth } from '@/shared/rbac/useAuth'; // Import useAuth
 
 const BoardVotes = () => {
   const { t } = useTranslation();

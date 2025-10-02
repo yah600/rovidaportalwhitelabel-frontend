@@ -8,7 +8,7 @@ import { Badge } from '@/components/ui/badge';
 import { Bill } from '@/data/mock-bills';
 import { format } from 'date-fns';
 import { DataTable } from '@/components/DataTable'; // Import the generic DataTable
-import { useAuth } from '@/hooks/useAuth'; // Import useAuth
+import { useAuth } from '@/shared/rbac/useAuth'; // Import useAuth
 
 interface BillsTableProps {
   bills: Bill[];

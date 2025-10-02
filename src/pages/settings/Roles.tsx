@@ -5,7 +5,7 @@ import { PlusCircle, Users } from 'lucide-react'; // Imported Users
 import { mockRoles } from '@/data/mock-roles';
 import RolesTable from '@/components/settings/RolesTable';
 import { Card } from '@/components/ui/card'; // Import Card for the empty state
-import { useAuth } from '@/hooks/useAuth'; // Import useAuth
+import { useAuth } from '@/shared/rbac/useAuth'; // Import useAuth
 
 const SettingsRoles = () => {
   const { t } = useTranslation();

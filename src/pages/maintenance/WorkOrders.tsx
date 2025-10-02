@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import { mockWorkOrders } from '@/data/mock-work-orders'; // Import mockWorkOrders
 import WorkOrdersTable from '@/components/maintenance/WorkOrdersTable'; // Import WorkOrdersTable
 import { toast } from 'sonner'; // Import toast for actions
-import { useAuth } from '@/hooks/useAuth'; // Import useAuth
+import { useAuth } from '@/shared/rbac/useAuth'; // Import useAuth
 
 const MaintenanceWorkOrders = () => {
   const { t } = useTranslation(['maintenance', 'common']); // Specify namespaces
