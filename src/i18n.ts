@@ -14,15 +14,17 @@ const loadTranslations = async () => {
   for (const path in enModules) {
     const key = path.replace('./locales/en/', '').replace('.json', '');
     Object.assign(resources.en, enModules[path].default);
+    console.log(`i18n: Loaded English file: ${path}, key: ${key}`);
   }
 
   for (const path in frModules) {
     const key = path.replace('./locales/fr/', '').replace('.json', '');
     Object.assign(resources.fr, frModules[path].default);
+    console.log(`i18n: Loaded French file: ${path}, key: ${key}`);
   }
 
-  console.log('Loaded English resources:', resources.en);
-  console.log('Loaded French resources:', resources.fr);
+  console.log('i18n: All English resources:', resources.en);
+  console.log('i18n: All French resources:', resources.fr);
 
   return resources;
 };
@@ -38,8 +40,11 @@ loadTranslations().then(resources => {
       interpolation: {
         escapeValue: false, // react already safes from xss
       },
-      debug: false, // Set to true for debugging translation issues
+      debug: true, // Set to true for debugging translation issues
     });
+  console.log('i18n: i18n instance initialized successfully. Current language:', i18n.language);
+}).catch(error => {
+  console.error('i18n: Failed to initialize i18n:', error);
 });
 
 export default i18n;
