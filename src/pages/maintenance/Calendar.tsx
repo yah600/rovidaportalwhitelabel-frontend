@@ -96,6 +96,8 @@ const MaintenanceCalendar = () => {
                 day: {
                   // Default day styles if any
                 },
+              }}
+              modifiersStyles={{
                 selected: { backgroundColor: 'var(--rovida-navy)', color: 'white' },
                 today: { fontWeight: 'bold', color: 'var(--rovida-gold)' },
                 hasEvent: { backgroundColor: 'var(--rovida-gold-20)', borderRadius: '50%' },

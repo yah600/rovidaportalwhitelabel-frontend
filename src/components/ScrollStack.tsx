@@ -242,7 +242,6 @@ const ScrollStack = ({
         touchMultiplier: 2,
         gestureOrientation: 'both', // Corrected property name
         wheelMultiplier: 1,
-        touchInertia: 0.6,
         lerp: 0.1,
         syncTouch: true,
         syncTouchLerp: 0.075,

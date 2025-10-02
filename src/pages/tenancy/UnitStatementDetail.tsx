@@ -5,7 +5,7 @@ import BreadcrumbNav from '@/components/BreadcrumbNav';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Button } from '@/components/ui/button';
-import { Download, Printer } from 'lucide-react';
+import { Download, Printer, FileText } from 'lucide-react'; // Imported FileText
 import { mockUnitStatements, UnitStatement } from '@/data/mock-unit-statements';
 import { format } from 'date-fns';
 import { toast } from 'sonner';

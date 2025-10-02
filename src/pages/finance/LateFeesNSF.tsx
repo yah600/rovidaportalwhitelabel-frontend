@@ -7,7 +7,8 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Switch } from '@/components/ui/switch';
 import { Separator } from '@/components/ui/separator';
-import { Percent, DollarSign, Clock } from 'lucide-react';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'; // Imported Select components
+import { Percent, DollarSign, Clock, Save } from 'lucide-react'; // Imported Save
 import { toast } from 'sonner';
 import { useAuth } from '@/hooks/useAuth';
 
@@ -144,10 +145,10 @@ const FinanceLateFeesNSF = () => {
               </div>
             </div>
             <div className="grid md:grid-cols-4 items-center gap-4">
-              <Label htmlFor="interest-period" className="md:text-right text-rovida-near-black">{t('compounding period', { ns: 'finance' })}</Label>
+              <Label htmlFor="compounding-period" className="md:text-right text-rovida-near-black">{t('compounding period', { ns: 'finance' })}</Label>
               <div className="md:col-span-3">
                 <Select defaultValue="monthly" disabled={!canUpdate('Finance - Late Fees/NSF/Reconciliation')}>
-                  <SelectTrigger id="interest-period" className="border-rovida-soft-gray text-rovida-near-black">
+                  <SelectTrigger id="compounding-period" className="border-rovida-soft-gray text-rovida-near-black">
                     <SelectValue placeholder={t('select period', { ns: 'finance' })} />
                   </SelectTrigger>
                   <SelectContent className="bg-white/80 backdrop-blur-xl border-rovida-soft-gray text-rovida-near-black">
