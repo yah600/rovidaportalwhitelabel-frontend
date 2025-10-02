@@ -10,7 +10,7 @@ import { useUser } from '@/context/UserContext';
 import { useAuth } from '@/hooks/useAuth';
 
 const AppShell = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(['common', 'issues', 'finance', 'communications', 'tenancy']); // Specify namespaces
   const navigate = useNavigate();
   const location = useLocation();
   const { currentUser } = useUser();
@@ -29,11 +29,11 @@ const AppShell = () => {
   }, [currentUser, location.pathname, navigate]);
 
   const quickActions = [
-    canCreate('Issues') && { icon: <PlusCircle />, label: t('new_issue'), onClick: () => navigate('/issues/new') },
-    canRead('Finance - Bills/Recurring/Deposits') && { icon: <Receipt />, label: t('view_bills'), onClick: () => navigate('/finance/bills') },
-    canRead('Maintenance') && { icon: <Wrench />, label: t('work_orders'), onClick: () => navigate('/maintenance/work-orders') },
-    canCreate('Communications') && { icon: <MessageSquare />, label: t('announce'), onClick: () => navigate('/comms/send') },
-    canRead('Tenancy') && { icon: <FileSignature />, label: t('view_leases'), onClick: () => navigate('/tenancy/leases') },
+    canCreate('Issues') && { icon: <PlusCircle />, label: t('new issue', { ns: 'common' }), onClick: () => navigate('/issues/new') },
+    canRead('Finance - Bills/Recurring/Deposits') && { icon: <Receipt />, label: t('view bills', { ns: 'common' }), onClick: () => navigate('/finance/bills') },
+    canRead('Maintenance') && { icon: <Wrench />, label: t('work orders', { ns: 'common' }), onClick: () => navigate('/maintenance/work-orders') },
+    canCreate('Communications') && { icon: <MessageSquare />, label: t('announce', { ns: 'common' }), onClick: () => navigate('/comms/send') },
+    canRead('Tenancy') && { icon: <FileSignature />, label: t('view leases', { ns: 'common' }), onClick: () => navigate('/tenancy/leases') },
   ].filter(Boolean);
 
   if (!currentUser && !location.pathname.startsWith('/auth') && location.pathname !== '/onboarding') {

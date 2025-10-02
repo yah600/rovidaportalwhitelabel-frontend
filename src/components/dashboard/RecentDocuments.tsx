@@ -8,7 +8,7 @@ import { mockDocuments, Document } from '@/data/mock-documents';
 import { useUser } from '@/context/UserContext'; // Import useUser
 
 const RecentDocuments = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(['dashboard', 'common', 'documents']); // Specify namespaces
   const { currentUser } = useUser();
 
   // Helper to filter documents based on user's scope
@@ -65,11 +65,11 @@ const RecentDocuments = () => {
     <Card className="col-span-2 xl:col-span-1 card-rovida">
       <CardHeader className="flex flex-row items-center justify-between">
         <div>
-          <CardTitle className="text-rovida-navy">{t('latest documents')}</CardTitle>
-          <CardDescription className="text-rovida-slate-green-gray">{t('recently added updated documents')}</CardDescription>
+          <CardTitle className="text-rovida-navy">{t('latest documents', { ns: 'dashboard' })}</CardTitle>
+          <CardDescription className="text-rovida-slate-green-gray">{t('recently added updated documents', { ns: 'dashboard' })}</CardDescription>
         </div>
         <Link to="/documents/registry" className="text-sm link-rovida flex items-center gap-1">
-          {t('view all')} <ArrowRight className="h-4 w-4" />
+          {t('view all', { ns: 'common' })} <ArrowRight className="h-4 w-4" />
         </Link>
       </CardHeader>
       <CardContent>
@@ -90,7 +90,7 @@ const RecentDocuments = () => {
             ))}
           </div>
         ) : (
-          <p className="text-rovida-slate-green-gray">{t('no recent documents')}</p>
+          <p className="text-rovida-slate-green-gray">{t('no recent documents', { ns: 'dashboard' })}</p>
         )}
       </CardContent>
     </Card>

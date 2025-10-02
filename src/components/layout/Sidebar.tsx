@@ -52,7 +52,7 @@ interface NavItem {
 }
 
 const Sidebar = ({ className }: { className?: string }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(['common', 'dashboard', 'issues', 'emergency', 'maintenance', 'finance', 'board', 'rules', 'insurance', 'amenities', 'tenancy', 'documents', 'communications', 'integrations', 'analytics', 'settings', 'profile']); // Specify all relevant namespaces
   const location = useLocation();
   const { canRead } = useAuth();
   const sidebarContentRef = React.useRef<HTMLDivElement>(null);
@@ -70,7 +70,7 @@ const Sidebar = ({ className }: { className?: string }) => {
       subItems: [
         { titleKey: 'issues', href: '/issues', icon: ClipboardList, moduleName: 'Issues' },
         { titleKey: 'kanban', href: '/issues/kanban', icon: Kanban, moduleName: 'Issues' },
-        { titleKey: 'new_issue', href: '/issues/new', icon: PlusCircle, moduleName: 'Issues' },
+        { titleKey: 'new issue', href: '/issues/new', icon: PlusCircle, moduleName: 'Issues' },
       ],
     },
     { titleKey: 'emergency', href: '/emergency', icon: AlertTriangle, moduleName: 'Emergency Center' },
@@ -82,9 +82,9 @@ const Sidebar = ({ className }: { className?: string }) => {
       subItems: [
         { titleKey: 'calendar', href: '/maintenance/calendar', icon: CalendarDays, moduleName: 'Maintenance' },
         { titleKey: 'assets', href: '/maintenance/assets', icon: Building, moduleName: 'Maintenance' },
-        { titleKey: 'work_orders', href: '/maintenance/work-orders', icon: Wrench, moduleName: 'Maintenance' },
+        { titleKey: 'work orders', href: '/maintenance/work-orders', icon: Wrench, moduleName: 'Maintenance' },
         { titleKey: 'tasks', href: '/maintenance/tasks', icon: ClipboardList, moduleName: 'Maintenance' },
-        { titleKey: 'agenda_xlsx_import', href: '/maintenance/agenda', icon: FileStack, moduleName: 'Maintenance Agenda XLSX' },
+        { titleKey: 'agenda xlsx import', href: '/maintenance/agenda', icon: FileStack, moduleName: 'Maintenance Agenda XLSX' },
       ],
     },
     {
@@ -95,7 +95,7 @@ const Sidebar = ({ className }: { className?: string }) => {
       subItems: [
         { titleKey: 'bills', href: '/finance/bills', icon: Receipt, moduleName: 'Finance - Bills/Recurring/Deposits' },
         { titleKey: 'payments', href: '/finance/payments', icon: DollarSign, moduleName: 'Finance - Bills/Recurring/Deposits' },
-        { titleKey: 'purchase_orders', href: '/finance/purchase-orders', icon: ShoppingCart, moduleName: 'Finance' },
+        { titleKey: 'purchase orders', href: '/finance/purchase-orders', icon: ShoppingCart, moduleName: 'Finance' },
         { titleKey: 'reports', href: '/finance/reports', icon: BarChart2, moduleName: 'Finance - Reports' },
       ],
     },
@@ -107,12 +107,12 @@ const Sidebar = ({ className }: { className?: string }) => {
       subItems: [
         { titleKey: 'meetings', href: '/board/meetings', icon: Handshake, moduleName: 'Board - Meetings/Votes' },
         { titleKey: 'votes', href: '/board/votes', icon: Vote, moduleName: 'Board - Meetings/Votes' },
-        { titleKey: 'architectural_requests', href: '/board/architectural-requests', icon: LayoutTemplate, moduleName: 'Architectural Requests' },
+        { titleKey: 'architectural requests', href: '/board/architectural-requests', icon: LayoutTemplate, moduleName: 'Architectural Requests' },
       ],
     },
-    { titleKey: 'rules_and_violations', href: '/rules', icon: Gavel, moduleName: 'Rules' },
-    { titleKey: 'insurance_and_claims', href: '/insurance', icon: Shield, moduleName: 'Insurance' },
-    { titleKey: 'amenity_management', href: '/amenities', icon: CalendarCheck, moduleName: 'Amenities' },
+    { titleKey: 'rules and violations', href: '/rules', icon: Gavel, moduleName: 'Rules' },
+    { titleKey: 'insurance and claims', href: '/insurance', icon: Shield, moduleName: 'Insurance' },
+    { titleKey: 'amenity management', href: '/amenities', icon: CalendarCheck, moduleName: 'Amenities' },
     {
       titleKey: 'tenancy',
       href: '/tenancy',
@@ -140,7 +140,7 @@ const Sidebar = ({ className }: { className?: string }) => {
       moduleName: 'Communications',
       subItems: [
         { titleKey: 'announcements', href: '/comms/announcements', icon: Megaphone, moduleName: 'Communications' },
-        { titleKey: 'send_communication', href: '/comms/send', icon: MessageSquare, moduleName: 'Communications' },
+        { titleKey: 'send communication', href: '/comms/send', icon: MessageSquare, moduleName: 'Communications' },
         { titleKey: 'templates', href: '/comms/templates', icon: FileText, moduleName: 'Communications' },
       ],
     },
@@ -153,15 +153,15 @@ const Sidebar = ({ className }: { className?: string }) => {
       moduleName: 'Settings',
       subItems: [
         { titleKey: 'organization', href: '/settings/org', icon: Settings, moduleName: 'Settings' },
-        { titleKey: 'portfolio_management', href: '/settings/portfolio', icon: LayoutGrid, moduleName: 'Portfolio Management' },
+        { titleKey: 'portfolio management', href: '/settings/portfolio', icon: LayoutGrid, moduleName: 'Portfolio Management' },
         { titleKey: 'buildings', href: '/settings/buildings', icon: Building, moduleName: 'Settings' },
         { titleKey: 'units', href: '/settings/units', icon: Scale, moduleName: 'Settings' },
         { titleKey: 'users', href: '/settings/users', icon: Users, moduleName: 'Settings' },
         { titleKey: 'roles', href: '/settings/roles', icon: Users, moduleName: 'Settings' },
         { titleKey: 'security', href: '/settings/security', icon: ShieldCheck, moduleName: 'Settings' },
-        { titleKey: 'visitor_logs', href: '/settings/visitor-logs', icon: UserCheck, moduleName: 'Visitor Logs' },
+        { titleKey: 'visitor logs', href: '/settings/visitor-logs', icon: UserCheck, moduleName: 'Visitor Logs' },
         { titleKey: 'notifications', href: '/settings/notifications', icon: Bell, moduleName: 'Settings' },
-        { titleKey: 'audit_log', href: '/settings/audit', icon: FileText, moduleName: 'Settings' },
+        { titleKey: 'audit log', href: '/settings/audit', icon: FileText, moduleName: 'Settings' },
         { titleKey: 'feedback', href: '/settings/feedback', icon: MessageSquareText, moduleName: 'Settings' },
       ],
     },
@@ -198,6 +198,26 @@ const Sidebar = ({ className }: { className?: string }) => {
       const isActive = location.pathname === item.href || (item.subItems && item.subItems.some(sub => location.pathname.startsWith(sub.href)));
       const isSubMenuOpen = openSubMenus[item.href] || false;
 
+      // Determine the namespace for the item's titleKey
+      let namespace = 'common'; // Default to common
+      if (item.href.startsWith('/dashboard')) namespace = 'dashboard';
+      else if (item.href.startsWith('/issues')) namespace = 'issues';
+      else if (item.href.startsWith('/emergency')) namespace = 'emergency';
+      else if (item.href.startsWith('/maintenance')) namespace = 'maintenance';
+      else if (item.href.startsWith('/finance')) namespace = 'finance';
+      else if (item.href.startsWith('/board')) namespace = 'board';
+      else if (item.href.startsWith('/rules')) namespace = 'rules';
+      else if (item.href.startsWith('/insurance')) namespace = 'insurance';
+      else if (item.href.startsWith('/amenities')) namespace = 'amenities';
+      else if (item.href.startsWith('/tenancy')) namespace = 'tenancy';
+      else if (item.href.startsWith('/documents')) namespace = 'documents';
+      else if (item.href.startsWith('/comms')) namespace = 'communications';
+      else if (item.href.startsWith('/integrations')) namespace = 'integrations';
+      else if (item.href.startsWith('/analytics')) namespace = 'analytics';
+      else if (item.href.startsWith('/settings')) namespace = 'settings';
+      else if (item.href.startsWith('/profile')) namespace = 'profile';
+
+
       return (
         <div key={item.href}>
           <div
@@ -210,7 +230,7 @@ const Sidebar = ({ className }: { className?: string }) => {
           >
             <Link to={item.href} className={cn("flex items-center gap-3 flex-1", isCollapsed && "justify-center")}>
               <item.icon className="h-4 w-4" />
-              {!isCollapsed && t(item.titleKey)}
+              {!isCollapsed && t(item.titleKey, { ns: namespace })}
             </Link>
             {item.subItems && !isCollapsed && (
               <ChevronDown
@@ -227,6 +247,36 @@ const Sidebar = ({ className }: { className?: string }) => {
                 if (!canRead(subItem.moduleName)) {
                   return null;
                 }
+                // Determine the namespace for the subItem's titleKey
+                let subNamespace = namespace; // Inherit from parent, or refine if needed
+                if (subItem.href.startsWith('/issues/new')) subNamespace = 'issues';
+                else if (subItem.href.startsWith('/maintenance/agenda')) subNamespace = 'maintenance';
+                else if (subItem.href.startsWith('/finance/bills')) subNamespace = 'finance';
+                else if (subItem.href.startsWith('/finance/payments')) subNamespace = 'finance';
+                else if (subItem.href.startsWith('/finance/purchase-orders')) subNamespace = 'finance';
+                else if (subItem.href.startsWith('/finance/reports')) subNamespace = 'finance';
+                else if (subItem.href.startsWith('/board/meetings')) subNamespace = 'board';
+                else if (subItem.href.startsWith('/board/votes')) subNamespace = 'board';
+                else if (subItem.href.startsWith('/board/architectural-requests')) subNamespace = 'architectural_requests';
+                else if (subItem.href.startsWith('/tenancy/leases')) subNamespace = 'tenancy';
+                else if (subItem.href.startsWith('/documents/inbox')) subNamespace = 'documents';
+                else if (subItem.href.startsWith('/documents/registry')) subNamespace = 'documents';
+                else if (subItem.href.startsWith('/comms/announcements')) subNamespace = 'communications';
+                else if (subItem.href.startsWith('/comms/send')) subNamespace = 'communications';
+                else if (subItem.href.startsWith('/comms/templates')) subNamespace = 'communications';
+                else if (subItem.href.startsWith('/settings/org')) subNamespace = 'settings';
+                else if (subItem.href.startsWith('/settings/portfolio')) subNamespace = 'settings';
+                else if (subItem.href.startsWith('/settings/buildings')) subNamespace = 'settings';
+                else if (subItem.href.startsWith('/settings/units')) subNamespace = 'settings';
+                else if (subItem.href.startsWith('/settings/users')) subNamespace = 'settings';
+                else if (subItem.href.startsWith('/settings/roles')) subNamespace = 'settings';
+                else if (subItem.href.startsWith('/settings/security')) subNamespace = 'settings';
+                else if (subItem.href.startsWith('/settings/visitor-logs')) subNamespace = 'settings';
+                else if (subItem.href.startsWith('/settings/notifications')) subNamespace = 'settings';
+                else if (subItem.href.startsWith('/settings/audit')) subNamespace = 'settings';
+                else if (subItem.href.startsWith('/settings/feedback')) subNamespace = 'settings';
+
+
                 return (
                   <Link
                     key={subItem.href}
@@ -236,7 +286,7 @@ const Sidebar = ({ className }: { className?: string }) => {
                       location.pathname === subItem.href && "bg-rovida-soft-gray text-rovida-navy"
                     )}
                   >
-                    {t(subItem.titleKey)}
+                    {t(subItem.titleKey, { ns: subNamespace })}
                   </Link>
                 );
               })}
@@ -257,7 +307,7 @@ const Sidebar = ({ className }: { className?: string }) => {
       <div className="flex h-14 items-center border-b border-rovida-soft-gray px-4 lg:h-[60px] lg:px-6 justify-between">
         {!isCollapsed && (
           <Link to="/" className="flex items-center gap-2 font-semibold">
-            <span className="text-lg text-rovida-gold">{t('welcome to gestion rovida')}</span>
+            <span className="text-lg text-rovida-gold">{t('welcome to gestion rovida', { ns: 'common' })}</span>
           </Link>
         )}
         <button
@@ -266,7 +316,7 @@ const Sidebar = ({ className }: { className?: string }) => {
             "p-2 rounded-md hover:bg-rovida-soft-gray text-rovida-near-black",
             isCollapsed ? "mx-auto" : ""
           )}
-          aria-label={isCollapsed ? t('expand sidebar') : t('collapse sidebar')}
+          aria-label={isCollapsed ? t('expand sidebar', { ns: 'common' }) : t('collapse sidebar', { ns: 'common' })}
         >
           <Menu className="h-5 w-5" />
         </button>

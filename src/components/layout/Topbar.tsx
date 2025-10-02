@@ -20,18 +20,18 @@ import LanguageToggle from './LanguageToggle';
 import { useAuth } from '@/hooks/useAuth';
 
 const Topbar = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(['common', 'dashboard', 'settings', 'auth']); // Specify namespaces
   const navigate = useNavigate();
   const { currentUser, setCurrentUser } = useUser();
   const { canRead } = useAuth();
 
   const [searchTerm, setSearchTerm] = React.useState('');
 
-  const userName = currentUser?.name || t("guest");
+  const userName = currentUser?.name || t("guest", { ns: 'common' });
   const userEmail = currentUser?.email || "";
   const buildings = [
-    { id: '1', name: t('building a') },
-    { id: '2', name: t('building b') },
+    { id: '1', name: t('building a', { ns: 'common' }) },
+    { id: '2', name: t('building b', { ns: 'common' }) },
   ];
   const currentBuildingId = '1';
 
@@ -42,8 +42,8 @@ const Topbar = () => {
 
   const handleLogout = () => {
     setCurrentUser(null);
-    toast.info(t('logged out title'), {
-      description: t('logged out description'),
+    toast.info(t('logged out title', { ns: 'common' }), {
+      description: t('logged out description', { ns: 'common' }),
     });
     navigate('/auth/login');
   };
@@ -52,8 +52,8 @@ const Topbar = () => {
     if (canRead('Settings')) {
       navigate('/settings/notifications');
     } else {
-      toast.error(t('permission denied'), {
-        description: t('no permission view notifications'),
+      toast.error(t('permission denied', { ns: 'common' }), {
+        description: t('no permission view notifications', { ns: 'common' }),
       });
     }
   };
@@ -62,8 +62,8 @@ const Topbar = () => {
     if (canRead('Settings')) { // Feedback is part of Settings module
       navigate('/settings/feedback');
     } else {
-      toast.error(t('permission denied'), {
-        description: t('no permission send feedback'),
+      toast.error(t('permission denied', { ns: 'common' }), {
+        description: t('no permission send feedback', { ns: 'common' }),
       });
     }
   };
@@ -71,12 +71,12 @@ const Topbar = () => {
   return (
     <header className="sticky top-0 z-40 w-full border-b border-rovida-soft-gray bg-white/80 backdrop-blur-xl px-4 py-2 flex items-center justify-between shadow-sm">
       <div className="flex items-center space-x-4">
-        <img src="/AVERO.png" alt={t('gestion rovida logo')} className="h-8 w-auto" />
+        <img src="/AVERO.png" alt={t('welcome to gestion rovida', { ns: 'common' })} className="h-8 w-auto" />
 
         {currentUser && (
           <Select defaultValue={currentBuildingId}>
             <SelectTrigger className="w-[180px] border-rovida-soft-gray text-rovida-near-black bg-white/60 backdrop-blur-sm">
-              <SelectValue placeholder={t('select building')} />
+              <SelectValue placeholder={t('select building', { ns: 'common' })} />
             </SelectTrigger>
             <SelectContent className="bg-white/80 backdrop-blur-xl border-rovida-soft-gray">
               {buildings.map((building) => (
@@ -96,7 +96,7 @@ const Topbar = () => {
               <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-4 w-4 text-rovida-slate-green-gray" />
               <Input
                 type="text"
-                placeholder={t('search placeholder')}
+                placeholder={t('search placeholder', { ns: 'common' })}
                 className="pl-8 w-[200px] lg:w-[300px] border-rovida-soft-gray text-rovida-near-black bg-white/60 backdrop-blur-sm"
                 value={searchTerm}
                 onChange={handleSearchChange}
@@ -109,7 +109,7 @@ const Topbar = () => {
 
             <Button variant="ghost" size="sm" className="hidden md:flex text-rovida-near-black hover:bg-rovida-soft-gray" onClick={handleFeedbackClick}>
               <MessageSquareText className="h-4 w-4 mr-2" />
-              {t('feedback')}
+              {t('feedback', { ns: 'common' })}
             </Button>
           </>
         )}
@@ -135,10 +135,10 @@ const Topbar = () => {
               </div>
             </DropdownMenuLabel>
             <DropdownMenuSeparator className="bg-rovida-soft-gray" />
-            <DropdownMenuItem className="hover:bg-rovida-soft-gray" onClick={() => navigate('/profile')}>{t('profile')}</DropdownMenuItem>
-            <DropdownMenuItem className="hover:bg-rovida-soft-gray" onClick={() => navigate('/settings')}>{t('settings')}</DropdownMenuItem>
+            <DropdownMenuItem className="hover:bg-rovida-soft-gray" onClick={() => navigate('/profile')}>{t('profile', { ns: 'common' })}</DropdownMenuItem>
+            <DropdownMenuItem className="hover:bg-rovida-soft-gray" onClick={() => navigate('/settings')}>{t('settings', { ns: 'common' })}</DropdownMenuItem>
             <DropdownMenuSeparator className="bg-rovida-soft-gray" />
-            <DropdownMenuItem className="hover:bg-rovida-soft-gray" onClick={handleLogout}>{t('logout')}</DropdownMenuItem>
+            <DropdownMenuItem className="hover:bg-rovida-soft-gray" onClick={handleLogout}>{t('logout', { ns: 'common' })}</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </div>

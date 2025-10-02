@@ -1,7 +1,7 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
-// Dynamically import all translation files
+// Dynamically import all translation files into namespaces
 const loadTranslations = async () => {
   const enModules = import.meta.glob('./locales/en/*.json', { eager: true });
   const frModules = import.meta.glob('./locales/fr/*.json', { eager: true });
@@ -12,19 +12,19 @@ const loadTranslations = async () => {
   };
 
   for (const path in enModules) {
-    const key = path.replace('./locales/en/', '').replace('.json', '');
-    Object.assign(resources.en, enModules[path].default);
-    console.log(`i18n: Loaded English file: ${path}, key: ${key}`);
+    const namespace = path.replace('./locales/en/', '').replace('.json', '');
+    resources.en[namespace] = enModules[path].default;
+    console.log(`i18n: Loaded English namespace: ${namespace}`);
   }
 
   for (const path in frModules) {
-    const key = path.replace('./locales/fr/', '').replace('.json', '');
-    Object.assign(resources.fr, frModules[path].default);
-    console.log(`i18n: Loaded French file: ${path}, key: ${key}`);
+    const namespace = path.replace('./locales/fr/', '').replace('.json', '');
+    resources.fr[namespace] = frModules[path].default;
+    console.log(`i18n: Loaded French namespace: ${namespace}`);
   }
 
-  console.log('i18n: All English resources:', resources.en);
-  console.log('i18n: All French resources:', resources.fr);
+  console.log('i18n: All English resources (namespaced):', resources.en);
+  console.log('i18n: All French resources (namespaced):', resources.fr);
 
   return resources;
 };
@@ -41,6 +41,8 @@ loadTranslations().then(resources => {
         escapeValue: false, // react already safes from xss
       },
       debug: true, // Set to true for debugging translation issues
+      ns: Object.keys(resources.en), // Declare all loaded namespaces
+      defaultNS: 'common', // Set a default namespace if most keys are in 'common.json'
     });
   console.log('i18n: i18n instance initialized successfully. Current language:', i18n.language);
 }).catch(error => {

@@ -7,7 +7,7 @@ import { mockMeetings, Meeting } from '@/data/mock-meetings';
 import { useUser } from '@/context/UserContext'; // Import useUser
 
 const UpcomingEvents = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(['dashboard', 'common']); // Specify namespaces
   const { currentUser } = useUser();
 
   // Helper to filter meetings based on user's scope
@@ -50,8 +50,8 @@ const UpcomingEvents = () => {
   return (
     <Card className="col-span-2 lg:col-span-1 card-rovida">
       <CardHeader>
-        <CardTitle className="text-rovida-navy">{t('upcoming events')}</CardTitle>
-        <CardDescription className="text-rovida-slate-green-gray">{t('events scheduled near future')}</CardDescription>
+        <CardTitle className="text-rovida-navy">{t('upcoming events', { ns: 'dashboard' })}</CardTitle>
+        <CardDescription className="text-rovida-slate-green-gray">{t('events scheduled near future', { ns: 'dashboard' })}</CardDescription>
       </CardHeader>
       <CardContent>
         {upcomingMeetings.length > 0 ? (
@@ -62,14 +62,14 @@ const UpcomingEvents = () => {
                 <div>
                   <p className="font-medium text-rovida-near-black">{meeting.title}</p>
                   <p className="text-sm text-rovida-slate-green-gray">
-                    {format(meeting.date, 'MMM dd, yyyy')} {t('at')} {meeting.time} - {meeting.location}
+                    {format(meeting.date, 'MMM dd, yyyy')} {t('at', { ns: 'common' })} {meeting.time} - {meeting.location}
                   </p>
                 </div>
               </div>
             ))}
           </div>
         ) : (
-          <p className="text-rovida-slate-green-gray">{t('no upcoming events')}</p>
+          <p className="text-rovida-slate-green-gray">{t('no upcoming events', { ns: 'dashboard' })}</p>
         )}
       </CardContent>
     </Card>

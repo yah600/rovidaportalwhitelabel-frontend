@@ -19,10 +19,10 @@ import { useUser } from '@/context/UserContext';
 import { useAuth } from '@/hooks/useAuth';
 
 const Dashboard = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(['dashboard', 'common', 'emergency', 'issues', 'finance', 'maintenance', 'board', 'documents']); // Specify namespaces
   const { currentUser } = useUser();
   const { canRead } = useAuth();
-  const userName = currentUser?.name || t("guest");
+  const userName = currentUser?.name || t("guest", { ns: 'common' });
   const currentDate = format(new Date(), 'PPP');
 
   const [isLoadingKPIs, setIsLoadingKPIs] = React.useState(true);
@@ -76,10 +76,10 @@ const Dashboard = () => {
   const openVotesCount = filteredVotes.filter(vote => vote.status === 'Open').length;
 
   const kpiCards = [
-    { title: t('open issues'), value: openIssuesCount, trend: t('trend issues'), module: 'Issues' },
-    { title: t('overdue bills'), value: overdueBillsCount, trend: t('trend bills'), module: 'Finance' },
-    { title: t('due tasks'), value: dueTasksCount, trend: t('trend tasks'), module: 'Maintenance' },
-    { title: t('open votes'), value: openVotesCount, trend: t('trend votes'), module: 'Board' },
+    { title: t('open issues', { ns: 'dashboard' }), value: openIssuesCount, trend: t('trend issues', { ns: 'dashboard' }), module: 'Issues' },
+    { title: t('overdue bills', { ns: 'dashboard' }), value: overdueBillsCount, trend: t('trend bills', { ns: 'dashboard' }), module: 'Finance' },
+    { title: t('due tasks', { ns: 'dashboard' }), value: dueTasksCount, trend: t('trend tasks', { ns: 'dashboard' }), module: 'Maintenance' },
+    { title: t('open votes', { ns: 'dashboard' }), value: openVotesCount, trend: t('trend votes', { ns: 'dashboard' }), module: 'Board' },
   ];
 
   const hasActiveEmergency = canRead('Emergency Center') && true; // Placeholder for actual emergency status
@@ -88,7 +88,7 @@ const Dashboard = () => {
     <div className="flex flex-1 flex-col gap-4">
       <header className="flex items-center justify-between flex-wrap gap-2">
         <SplitText
-          text={t('hello user', { name: userName })}
+          text={t('hello user', { name: userName, ns: 'common' })}
           tag="h1"
           className="text-2xl font-semibold md:text-3xl text-page-title"
           delay={50}
@@ -104,8 +104,8 @@ const Dashboard = () => {
       {hasActiveEmergency && canRead('Emergency Center') && (
         <EmergencyBanner
           isActive={hasActiveEmergency}
-          message={t('critical alert')}
-          ctaText={t('view emergency')}
+          message={t('critical alert', { ns: 'dashboard' })}
+          ctaText={t('view emergency', { ns: 'common' })}
           ctaLink="/emergency"
         />
       )}

@@ -9,7 +9,7 @@ import { ArrowRight } from 'lucide-react';
 import { useUser } from '@/context/UserContext'; // Import useUser
 
 const RecentIssues = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(['dashboard', 'common', 'issues']); // Specify namespaces
   const { currentUser } = useUser();
 
   // Helper to filter issues based on user's scope
@@ -78,11 +78,11 @@ const RecentIssues = () => {
     <Card className="col-span-2 lg:col-span-1 card-rovida">
       <CardHeader className="flex flex-row items-center justify-between">
         <div>
-          <CardTitle className="text-rovida-navy">{t('open issues')}</CardTitle>
-          <CardDescription className="text-rovida-slate-green-gray">{t('your most recent incidents')}</CardDescription>
+          <CardTitle className="text-rovida-navy">{t('open issues', { ns: 'dashboard' })}</CardTitle>
+          <CardDescription className="text-rovida-slate-green-gray">{t('your most recent incidents', { ns: 'dashboard' })}</CardDescription>
         </div>
         <Link to="/issues" className="text-sm link-rovida flex items-center gap-1">
-          {t('view all')} <ArrowRight className="h-4 w-4" />
+          {t('view all', { ns: 'common' })} <ArrowRight className="h-4 w-4" />
         </Link>
       </CardHeader>
       <CardContent>
@@ -98,12 +98,12 @@ const RecentIssues = () => {
                     {issue.unit} - {format(issue.createdAt, 'MMM dd')}
                   </p>
                 </div>
-                <Badge variant={getStatusBadgeVariant(issue.status)}>{t(issue.status.toLowerCase().replace(/ /g, ''))}</Badge>
+                <Badge variant={getStatusBadgeVariant(issue.status)}>{t(issue.status.toLowerCase().replace(/ /g, ''), { ns: 'issues' })}</Badge>
               </div>
             ))}
           </div>
         ) : (
-          <p className="text-rovida-slate-green-gray">{t('no tickets')}</p>
+          <p className="text-rovida-slate-green-gray">{t('no tickets', { ns: 'issues' })}</p>
         )}
       </CardContent>
     </Card>
